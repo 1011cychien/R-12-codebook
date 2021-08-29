@@ -1,4 +1,4 @@
-// using Point = complex<__int128_t>;
+using Point = complex<coord_t>;
 struct Segment {
     Point S, L; // S + tL
     static bool valid(coord_t p, coord_t q) {
