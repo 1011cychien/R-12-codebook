@@ -1,9 +1,8 @@
 using Point = complex<coord_t>;
 struct Segment {
-    Point S, L; // S + tL
+    Point S, L; // represent S + tL for 0 <= t <= 1
     static bool valid(coord_t p, coord_t q) {
         // is there x s.t. 0 <= x <= 1 && qx == p ?
-        if(q == 0) return p == 0;
         if(q < 0) q = -q, p = -p;
         return 0 <= p && p <= q;
     }
