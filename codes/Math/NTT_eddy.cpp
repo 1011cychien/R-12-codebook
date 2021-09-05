@@ -23,7 +23,7 @@ struct NTT{
     for (int i=1; i<=MAXN; i++)
       omega[i] = (omega[i-1]*r)%P;
   }
-  // n must be 2^k
+  // n must be 2^k, and 0 <= a[i] < P
   void tran(int n, LL a[], bool inv_ntt=false){
     int basic = MAXN / n , theta = basic;
     for (int m = n; m >= 2; m >>= 1) {
