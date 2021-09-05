@@ -1,7 +1,4 @@
-struct Circle {
-  Point o;
-  Real r;
-};
+struct Circle { Point o; Real r; };
 
 vector<Real> intersectAngle(Circle a, Circle b) {
   Real d2 = norm(a.o - b.o);

@@ -17,7 +17,7 @@ bool operator<(const Point &a, const Point &b) {
   return real(a) != real(b)
     ? real(a) < real(b) : imag(a) < imag(b);
 }
-bool argCmp(Point a, Point b) {
+int argCmp(Point a, Point b) {
   // -1 / 0 / 1 <-> < / == / > (atan2)
   int qa = (imag(a) == 0
       ? (real(a) < 0 ? 3 : 1) : (imag(a) < 0 ? 0 : 2));
