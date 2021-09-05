@@ -1,8 +1,9 @@
 se is nu rnu bs=2 ru mouse=a encoding=utf-8
-se cin et ts=4 sw=4 sts=4 t_Co=256
+se cin et sw=4 sts=4 t_Co=256 tgc sc hls
 syn on
-colorscheme ron
+colorscheme desert
 filetype indent on
+inoremap {<CR> {<CR>}<ESC>O
 map <F8> <ESC>:w<CR>:!clear && g++ "%" -o "%<" -fsanitize=address -fsanitize=undefined -g && echo success<CR>
 map <F9> <ESC>:w<CR>:!clear && g++ "%" -o "%<" -O2 && echo success<CR>
 map <F10> <ESC>:!./"%<"<CR>
