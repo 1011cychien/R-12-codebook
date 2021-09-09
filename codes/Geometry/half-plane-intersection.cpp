@@ -1,5 +1,5 @@
 // NOTE: Point is complex<Real>
-// cross(pt, line.ed-line.st)<=0 <-> pt in half plane
+// cross(pt-line.st, line.dir)<=0 <-> pt in half plane
 struct Line {
     Point st, ed;
     Point dir;
