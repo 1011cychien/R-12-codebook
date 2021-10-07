@@ -3,7 +3,7 @@ bool isprime(llu x){
                     450775,9780504,1795265022};
   static auto witn=[](llu a,llu u,llu n,int t)
   ->bool{
-    if (!(a = mpow(a,u,n)))return 0;
+    if (!(a = mpow(a%n,u,n)))return 0;
     while(t--){
       llu a2=mul(a,a,n);
       if(a2==1 && a!=1 && a!=n-1)
