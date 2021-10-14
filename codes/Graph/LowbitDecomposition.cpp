@@ -7,9 +7,6 @@ private:
   // tl, tr[ u ] : subtree interval in the seq. of u
   // chain_st[ u ] : head of the chain contains u
   // chian[ u ] : chain id of the chain u is on
-  inline int lowbit( int x ) {
-    return x & ( -x );
-  }
   void predfs( int u, int f ) {
     chain[ u ] = 0;
     for ( int v : G[ u ] ) {
@@ -28,7 +25,7 @@ private:
     tl[ u ] = time_++;
     if ( not chain_st[ chain[ u ] ] )
       chain_st[ chain[ u ] ] = u;
-    for ( int v : G[ u ] ) 
+    for ( int v : G[ u ] )
       if ( v != f and chain[ v ] == chain[ u ] )
         dfschain( v, u );
     for ( int v : G[ u ] )
@@ -36,12 +33,11 @@ private:
         dfschain( v, u );
     tr[ u ] = time_;
   }
-  inline bool anc( int u, int v ) {
-    return tl[ u ] <= tl[ v ] \
-      and tr[ v ] <= tr[ u ];
+  bool anc( int u, int v ) {
+    return tl[ u ] <= tl[ v ]  and tr[ v ] <= tr[ u ];
   }
 public:
-  inline int lca( int u, int v ) {
+  int lca( int u, int v ) {
     if ( anc( u, v ) ) return u;
     for ( int i = LOG_N - 1 ; i >= 0 ; -- i )
       if ( not anc( fa[ u ][ i ], v ) )
@@ -49,15 +45,11 @@ public:
     return fa[ u ][ 0 ];
   }
   void init( int n ) {
-    n ++;
+    fa.assign( ++n, vector< int >( LOG_N ) );
     for ( LOG_N = 0 ; ( 1 << LOG_N ) < n ; ++ LOG_N );
-    fa.clear();
-    fa.resize( n, vector< int >( LOG_N ) );
     G.clear(); G.resize( n );
-    tl.clear(); tl.resize( n );
-    tr.clear(); tr.resize( n );
-    chain.clear(); chain.resize( n );
-    chain_st.clear(); chain_st.resize( n );
+    tl.assign( n, 0 ); tr.assign( n, 0 );
+    chain.assig( n, 0 ); chain_st.assign( n, 0 );
   }
   void add_edge( int u , int v ) {
     // 1-base
@@ -70,7 +62,7 @@ public:
     time_ = 0;
     dfschain( 1, 1 );
   }
-  PII get_inter( int u ) { return {tl[ u ], tr[ u ]}; }
+  PII get_subtree(int u) { return {tl[ u ],tr[ u ] }; }
   vector< PII > get_path( int u , int v ){
     vector< PII > res;
     int g = lca( u, v );
