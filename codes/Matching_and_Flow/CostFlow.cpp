@@ -1,24 +1,22 @@
 class MiniCostMaxiFlow{
-  using CapT = int;
-  using WeiT = int64_t;
-  using PCW = pair<CapT,WeiT>;
-  static constexpr CapT INF_CAP = 1 << 30;
-  static constexpr WeiT INF_WEI = 1LL<<60;
+  using Cap = int; using Wei = int64_t;
+  using PCW = pair<Cap,Wei>;
+  static constexpr Cap INF_CAP = 1 << 30;
+  static constexpr Wei INF_WEI = 1LL<<60;
 private:
   struct Edge{
     int to, back;
-    WeiT wei;
-    CapT cap;
+    Cap cap; Wei wei;
     Edge() {}
-    Edge(int a,int b,WeiT c,CapT d):
-      to(a),back(b),wei(c),cap(d)
+    Edge(int a,int b, Cap c, Wei d):
+      to(a),back(b),cap(c),wei(d)
     {}
   };
   int ori, edd;
   vector<vector<Edge>> G;
   vector<int> fa, wh;
   vector<bool> inq;
-  vector<WeiT> dis;
+  vector<Wei> dis;
   PCW SPFA(){
     fill(inq.begin(),inq.end(),false);
     fill(dis.begin(),dis.end(),INF_WEI);
@@ -30,7 +28,7 @@ private:
       for(int i=0;i<SZ(G[u]);++i){
         Edge e=G[u][i];
         int v=e.to;
-        WeiT d=e.wei;
+        Wei d=e.wei;
         if(e.cap<=0||dis[v]<=dis[u]+d)
           continue;
         dis[v]=dis[u]+d;
@@ -40,9 +38,8 @@ private:
         inq[v]=1;
       }
     }
-    if(dis[edd]==INF_WEI)
-      return {-1,-1};
-    CapT mw=INF_CAP;
+    if(dis[edd]==INF_WEI) return {-1, -1};
+    Cap mw=INF_CAP;
     for(int i=edd;i!=ori;i=fa[i])
       mw=min(mw,G[fa[i]][wh[i]].cap);
     for (int i=edd;i!=ori;i=fa[i]){
@@ -59,9 +56,9 @@ public:
     fa.resize(n);wh.resize(n);
     inq.resize(n); dis.resize(n);
   }
-  void add_edge(int st,int ed,WeiT w,CapT c){
-    G[st].emplace_back(ed,SZ(G[ed]),w,c);
-    G[ed].emplace_back(st,SZ(G[st])-1,-w,0);
+  void add_edge(int st, int ed, Cap c, Wei w){
+    G[st].emplace_back(ed,SZ(G[ed]),c,w);
+    G[ed].emplace_back(st,SZ(G[st])-1,0,-w);
   }
   PCW solve(){
     /* might modify to
@@ -69,7 +66,7 @@ public:
     or
     ww += ret.first * ret.second
     */
-    CapT cc=0; WeiT ww=0;
+    Cap cc=0; Wei ww=0;
     while(true){
       PCW ret=SPFA();
       if(ret.first==-1) break;
