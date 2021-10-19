@@ -3,12 +3,13 @@ struct NTT {
   static_assert (maxn == (maxn & -maxn));
   int roots[maxn];
   NTT () {
-    for (int i = 1; i < maxn; i *= 2) {
-        for (int j = 0; j < i; j++) {
-            roots[i + j] =
-              modpow(G, 1LL * (mod - 1) / 2 * j / i);
-        }
-    }
+    int r = qpow(G, (mod - 1) / maxn);
+    for (int i = maxn >> 1; i; i >>= 1) {
+      roots[i] = 1;
+      for (int j = 1; j < i; j++)
+        roots[i + j] = mul(roots[i + j - 1], r);
+      r = mul(r, r);
+	  }
   }
   // n must be 2^k, and 0 <= F[i] < mod
   void inplace_ntt(int n, int F[], bool inv = false) {
