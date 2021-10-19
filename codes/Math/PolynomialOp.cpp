@@ -137,6 +137,17 @@ struct Poly { // coefficients in [0, P)
     return X.imul(ntt.minv(x0)).Ln().imul(nk).Exp()
       .imul(ntt.mpow(x0, nk2)).irev().isz(n()).irev();
   }
+  Poly InvMod(int L) { // *this * R mod x^L = 1
+    Poly R{1, 0};      // (to evaluate linear recursion)
+    for (int level = 0; (1 << level) < L; ++level) {
+      Poly O = R.Mul(Poly(data(), min(2 << level, n())));
+      Poly Q(2 << level); Q[0] = 1;
+      for (int j = (1 << level); j < (2 << level); ++j)
+        Q[j] = (P - O[j]) % P;
+      R = R.Mul(Q).isz(4 << level);
+    }
+    return R.isz(L);
+  }
   static LL LinearRecursion(const VL&a,const VL&c,LL n){
     // a_n = \sum c_j a_(n-j)
     const int k = (int)a.size();
