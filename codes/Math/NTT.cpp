@@ -9,29 +9,29 @@ struct NTT {
       for (int j = 1; j < i; j++)
         roots[i + j] = modmul(roots[i + j - 1], r);
       r = modmul(r, r);
-	  }
+    }
   }
   // n must be 2^k, and 0 <= F[i] < mod
   void inplace_ntt(int n, int F[], bool inv = false) {
     for (int i = 0, j = 0; i < n; i++) {
-        if (i < j) swap(F[i], F[j]);
-        for (int k = n>>1; (j^=k) < k; k>>=1);
+      if (i < j) swap(F[i], F[j]);
+      for (int k = n>>1; (j^=k) < k; k>>=1);
     }
     for (int s = 1; s < n; s *= 2) {
-        for (int i = 0; i < n; i += s * 2) {
-            for (int j = 0; j < s; j++) {
-                int a = F[i+j];
-                int b = modmul(F[i+j+s], roots[s+j]);
-                F[i+j] = modadd(a, b);   // a + b
-                F[i+j+s] = modsub(a, b); // a - b
-            }
+      for (int i = 0; i < n; i += s * 2) {
+        for (int j = 0; j < s; j++) {
+          int a = F[i+j];
+          int b = modmul(F[i+j+s], roots[s+j]);
+          F[i+j] = modadd(a, b);   // a + b
+          F[i+j+s] = modsub(a, b); // a - b
         }
+      }
     }
     if (inv) {
-        int invn = modinv(n);
-        for (int i = 0; i < n; i++)
-          F[i] = modmul(F[i], invn);
-        reverse(F + 1, F + n);
+      int invn = modinv(n);
+      for (int i = 0; i < n; i++)
+        F[i] = modmul(F[i], invn);
+      reverse(F + 1, F + n);
     }
   }
 };

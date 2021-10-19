@@ -13,20 +13,20 @@ Circle getCircum(const P &a, const P &b, const P &c){
 
 template<typename P>
 Circle MinCircleCover(const vector<P>& pts){
-	random_shuffle(pts.begin(), pts.end());
-	Circle c = { pts[0], 0 };
-	for(int i=0;i<(int)pts.size();i++){
+  random_shuffle(pts.begin(), pts.end());
+  Circle c = { pts[0], 0 };
+  for(int i=0;i<(int)pts.size();i++){
     if (dist(pts[i], c.o) <= c.r) continue;
-		c = { pts[i], 0 };
+    c = { pts[i], 0 };
     for (int j = 0; j < i; j++) {
-			if(dist(pts[j], c.o) <= c.r) continue;
-			c.o = (pts[i] + pts[j]) / 2;
-			c.r = dist(pts[i], c.o);
+      if(dist(pts[j], c.o) <= c.r) continue;
+      c.o = (pts[i] + pts[j]) / 2;
+      c.r = dist(pts[i], c.o);
       for (int k = 0; k < j; k++) {
         if (dist(pts[k], c.o) <= c.r) continue;
-				c = getCircum(pts[i], pts[j], pts[k]);
-			}
-		}
-	}
-	return c;
+        c = getCircum(pts[i], pts[j], pts[k]);
+      }
+    }
+  }
+  return c;
 }

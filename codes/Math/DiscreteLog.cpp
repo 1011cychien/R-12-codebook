@@ -3,8 +3,8 @@ lld BSGS(lld P, lld B, lld N) {
   unordered_map<lld, int> R;
   lld sq = (lld)sqrt(P);
   lld t = 1;
-  for (int i = 0; i < sq; i++) {		
-    if (t == N)	return i; 		
+  for (int i = 0; i < sq; i++) {
+    if (t == N) return i;
     if (!R.count(t)) R[t] = i;
     t = (t * B) % P;
   }
