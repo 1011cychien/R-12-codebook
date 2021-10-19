@@ -2,7 +2,7 @@ namespace sfxarray {
 bool t[maxn * 2];
 int hi[maxn], rev[maxn];
 int _s[maxn * 2], sa[maxn * 2], c[maxn * 2];
-int x[maxn], p[maxn], q[maxn * 2];    
+int x[maxn], p[maxn], q[maxn * 2];
 // sa[i]: sa[i]-th suffix is the \
 // i-th lexigraphically smallest suffix.
 // hi[i]: longest common prefix \
@@ -42,7 +42,7 @@ void sais(int *s, int *sa, int *p, int *q,
   for (int i = 0; i < n; ++i) {
     if (sa[i] && t[sa[i]] && !t[sa[i] - 1]) {
     bool neq = last < 0 || \
-     memcmp(s + sa[i], s + last, 
+     memcmp(s + sa[i], s + last,
       (p[q[sa[i]] + 1] - sa[i]) * sizeof(int));
     ns[q[last = sa[i]]] = nmxz += neq;
   }}
@@ -60,9 +60,9 @@ void build(const string &s) {
   for(int i = 0; i < (int)s.size(); ++i) rev[sa[i]]=i;
   int ind = 0; hi[0] = 0;
   for (int i = 0; i < (int)s.size(); ++i) {
-    if (!rev[i]) { 
-      ind = 0; 
-      continue; 
+    if (!rev[i]) {
+      ind = 0;
+      continue;
     }
     while (i + ind < (int)s.size() && \
      s[i + ind] == s[sa[rev[i] - 1] + ind]) ++ind;

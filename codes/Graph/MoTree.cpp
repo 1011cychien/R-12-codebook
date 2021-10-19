@@ -20,7 +20,7 @@ void Diff( int u ) {
   else { /*add this edge*/ }
 }
 void traverse( int& origin_u, int u ) {
-  for ( int g = lca( origin_u, u ) ; 
+  for ( int g = lca( origin_u, u ) ;
     origin_u != g ; origin_u = parent_of[ origin_u ] )
       Diff( origin_u );
   for (int v = u; v != origin_u; v = parent_of[v])

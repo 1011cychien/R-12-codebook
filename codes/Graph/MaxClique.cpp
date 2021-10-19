@@ -34,7 +34,7 @@ private:
     cur = P & ( ~G[ pivot ] );
     */ // or simply choose first
     bits cur = P & (~G[ ( P | X )._Find_first() ]);
-    for ( size_t u = cur._Find_first() ; 
+    for ( size_t u = cur._Find_first() ;
       u < n ; u = cur._Find_next( u ) ) {
       if ( R[ u ] ) continue;
       R[ u ] = 1;

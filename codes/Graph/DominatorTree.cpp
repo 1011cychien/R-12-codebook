@@ -19,7 +19,7 @@ void dfs(int x) {
   for (int u : g[x]) {
     if (dfn[u] == -1) dfs(u), rp[dfn[u]] = dfn[x];
     r[dfn[u]].push_back(dfn[x]);
-  } 
+  }
 }
 void merge(int x, int y) { fa[x] = y; }
 int find(int x, int c = 0) {

@@ -1,4 +1,4 @@
-#define mod 998244353 
+#define mod 998244353
 const int N=1000010;
 int n,k,m,f[N],h[N],a[N],b[N],ib[N];
 int pw(int x,int y){

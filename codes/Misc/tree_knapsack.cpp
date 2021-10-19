@@ -7,7 +7,7 @@ void dfs(int u, int mx){
       dp[s][i] = dp[u][i];
     dfs(s, mx - obj[s].first);
     for(int i=obj[s].FF;i<=mx;i++)
-      dp[u][i] = max(dp[u][i], 
+      dp[u][i] = max(dp[u][i],
         dp[s][i - obj[s].FF] + obj[s].SS);
   }
 }

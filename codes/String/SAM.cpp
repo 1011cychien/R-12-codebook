@@ -14,7 +14,7 @@ void Extend(const int c) {
   if (!cursor)
     LAST->green = ROOT;
   else {
-    Node *potential_green = cursor->edge[c]; 
+    Node *potential_green = cursor->edge[c];
     if((potential_green->max_len)==(cursor->max_len+1))
       LAST->green = potential_green;
     else {
@@ -25,9 +25,9 @@ void Extend(const int c) {
         cursor->edge[c] = wish;
       for (int i = 0; i < 26; i++)
         wish->edge[i] = potential_green->edge[i];
-      wish->green = potential_green->green;         
-      potential_green->green = wish;                
-      LAST->green = wish;                           
+      wish->green = potential_green->green;
+      potential_green->green = wish;
+      LAST->green = wish;
     }
   }
 }

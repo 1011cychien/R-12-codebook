@@ -35,7 +35,7 @@ template <typename T> struct DMST {
       }
       int y = x;
       for (int i = 1; i <= n; ++i) vis[i] = false;
-      do { 
+      do {
         ans += fw[y]; y = fr[y]; vis[y] = inc[y] = true;
       } while (y != x);
       inc[x] = false;

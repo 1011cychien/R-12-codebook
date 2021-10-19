@@ -1,7 +1,7 @@
 VI inverse(const VI &v, int n) {
   VI q(1, fpow(v[0], mod - 2));
   for (int i = 2; i <= n; i <<= 1) {
-    VI fv(v.begin(), v.begin() + i); 
+    VI fv(v.begin(), v.begin() + i);
     VI fq(q.begin(), q.end());
     fv.resize(2 * i), fq.resize(2 * i);
     ntt(fq, 2 * i), ntt(fv, 2 * i);

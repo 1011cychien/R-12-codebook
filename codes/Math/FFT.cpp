@@ -10,7 +10,7 @@ Cplx omega[2][N];
 void init_omega(int n) {
   static constexpr llf PI=acos(-1);
   const llf arg=(PI+PI)/n;
-  for(int i=0;i<n;++i) 
+  for(int i=0;i<n;++i)
     omega[0][i]={cos(arg*i),sin(arg*i)};
   for(int i=0;i<n;++i)
     omega[1][i]=conj(omega[0][i]);
