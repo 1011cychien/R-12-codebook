@@ -9,7 +9,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 
 ## TODO
 
-* stirling number
 * cost flow (dijkstra)
 * binary search on segment tree (given l)
 * 郵局設置問題無限大extreme
