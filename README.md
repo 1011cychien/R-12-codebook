@@ -9,7 +9,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 
 ## TODO
 
-* arbitrary mod FFT
 * stirling number
 * cost flow (dijkstra)
 * binary search on segment tree (given l)
