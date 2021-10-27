@@ -23,8 +23,8 @@ class BigInt{
  public:
   BigInt(): dig(vector<lld>()), neg(false){}
   BigInt(lld a): dig(vector<lld>()){
-    neg = a<0; dig.push_back(abs(a));
-    trim();
+    neg = a<0; for(a=abs(a);a;a/=BASE)
+    dig.push_back(a%BASE);
   }
   BigInt(const string& a): dig(vector<lld>()){
     assert(!a.empty()); neg = (a[0]=='-');
