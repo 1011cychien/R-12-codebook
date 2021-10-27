@@ -39,10 +39,10 @@ $\binom{m}{n}\equiv\prod_{i=0}^k\binom{m_i}{n_i}\pmod p$, where $m=m_kp^k+m_{k-1
 Given matroids \(M_1=(G,I_1),M_2=(G,I_2)\), find maximum \(S\subseteq I_1\cap I_2\).
 For each iteration, build the directed graph and find a shortest path from \(s\) to \(t\).
 \begin{itemize}
-    \item s \to x: S \sqcup \{x\} \in I_1
-    \item x \to t: S \sqcup \{x\} \in I_2
-    \item y \to x: S \setminus \{y\} \sqcup \{x\} \in I_1
-    \item x \to y: S \setminus \{y\} \sqcup \{x\} \in I_2
+    \item \(s \to x: S \sqcup \{x\} \in I_1\)
+    \item \(x \to t: S \sqcup \{x\} \in I_2\)
+    \item \(y \to x: S \setminus \{y\} \sqcup \{x\} \in I_1\)
+    \item \(x \to y: S \setminus \{y\} \sqcup \{x\} \in I_2\)
 \end{itemize}
 Alternate the path, and \(|S|\) will increase by \(1\).
 For weighted case, assign weight \(-w(x)\) and \(w(x)\) to \(x\in S\) and \(x\notin S\), resp.
