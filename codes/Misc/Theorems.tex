@@ -45,7 +45,8 @@ For each iteration, build the directed graph and find a shortest path from \(s\)
     \item \(x \to y: S \setminus \{y\} \sqcup \{x\} \in I_2\)
 \end{itemize}
 Alternate the path, and \(|S|\) will increase by \(1\).
+Let \(R = \min(\operatorname{rank}(I_1), \operatorname{rank}(I_2)), N = |G|\).
+In each iteration, \(E = O(RN)\).
 For weighted case, assign weight \(-w(x)\) and \(w(x)\) to \(x\in S\) and \(x\notin S\), resp.
-Use Bellman-Ford to find the weighted shortest path. The maximum iteration is less than \(2|S|+3\).
-Let \(R = \min(\operatorname{rank}(I_1), \operatorname{rank}(I_2)), N = |G|\)
-In each iteration, there is at most \(O(RN)\) edges.
+Use Bellman-Ford to find the weighted shortest path.
+The maximum iteration of Bellman-Ford is \(\leq 2R+1\).
