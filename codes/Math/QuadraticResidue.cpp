@@ -1,35 +1,25 @@
-struct Status{
-  ll x,y;
+struct S {
+  int MOD, w;
+  int64_t x, y;
+  S(int m, int w_=-1, int64_t x_=1, int64_t y_=0)
+    : MOD(m), w(w_), x(x_), y(y_) {}
+  S operator*(const S &rhs) const {
+    int w_ = w;
+    if (w_ == -1) w_ = rhs.w;
+    assert(w_ != -1 and w_ == rhs.w);
+    return { MOD, w_,
+      (x * rhs.x + y * rhs.y % MOD * w) % MOD,
+      (x * rhs.y + y * rhs.x) % MOD };
+  }
 };
-ll w;
-Status mult(const Status& a,const Status& b,ll mod){
-  Status res;
-  res.x=(a.x*b.x+a.y*b.y%mod*w)%mod;
-  res.y=(a.x*b.y+a.y*b.x)%mod;
-  return res;
-}
-inline Status qpow(Status _base,ll _pow,ll _mod){
-  Status res = {1, 0};
-  while(_pow>0){
-    if(_pow&1) res=mult(res,_base,_mod);
-    _base=mult(_base,_base,_mod);
-    _pow>>=1;
-  }
-  return res;
-}
-inline ll check(ll x,ll p){
-  return qpow_mod(x,(p-1)>>1,p);
-}
-inline ll get_root(ll n,ll p){
-  if(p==2) return 1;
-  if(check(n,p)==p-1) return -1;
-  ll a;
-  while(true){
-    a=rand()%p;
-    w=((a*a-n)%p+p)%p;
-    if(check(w,p)==p-1) break;
-  }
-  Status res = {a, 1}
-  res=qpow(res,(p+1)>>1,p);
-  return res.x;
+int64_t get_root(int64_t n, int P) {
+  if (P == 2) return 1;
+  auto check = [&](int64_t x) {
+    return qpow(x, (P - 1) / 2, P); };
+  if (check(n) == P-1) return -1;
+  int64_t a; int w; mt19937 rnd(7122);
+  do { a = rnd() % P;
+    w = ((a * a - n) % P + P) % P;
+  } while (check(w) != P-1);
+  return qpow(S(P, w, a, 1), (P + 1) / 2).x;
 }
