@@ -36,17 +36,17 @@ For simple polygon, when points are all integer, we have $A=\text{\#\{lattice po
 $\binom{m}{n}\equiv\prod_{i=0}^k\binom{m_i}{n_i}\pmod p$, where $m=m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0$, and $n=n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0$.
 
 \subsubsection{Matroid Intersection}
-Given matroids \(M_1=(G,I_1),M_2=(G,I_2)\), find maximum \(S\subseteq I_1\cap I_2\).
+Given matroids \(M_1=(G,I_1),M_2=(G,I_2)\), find maximum \(S\in I_1\cap I_2\).
 For each iteration, build the directed graph and find a shortest path from \(s\) to \(t\).
 \begin{itemize}
     \item \(s \to x: S \sqcup \{x\} \in I_1\)
     \item \(x \to t: S \sqcup \{x\} \in I_2\)
-    \item \(y \to x: S \setminus \{y\} \sqcup \{x\} \in I_1\)
-    \item \(x \to y: S \setminus \{y\} \sqcup \{x\} \in I_2\)
+    \item \(y \to x: S \setminus \{y\} \sqcup \{x\} \in I_1\) (\(y\) is in the unique circuit of \(S \sqcup \{x\}\))
+    \item \(x \to y: S \setminus \{y\} \sqcup \{x\} \in I_2\) (\(y\) is in the unique circuit of \(S \sqcup \{x\}\))
 \end{itemize}
 Alternate the path, and \(|S|\) will increase by \(1\).
 Let \(R = \min(\operatorname{rank}(I_1), \operatorname{rank}(I_2)), N = |G|\).
-In each iteration, \(E = O(RN)\).
+In each iteration, \(|E| = O(RN)\).
 For weighted case, assign weight \(-w(x)\) and \(w(x)\) to \(x\in S\) and \(x\notin S\), resp.
 Use Bellman-Ford to find the weighted shortest path.
-The maximum iteration of Bellman-Ford is \(\leq 2R+1\).
+The maximum iteration of Bellman-Ford is \(2R+1\).
