@@ -21,21 +21,20 @@ private:
     fill(inq.begin(),inq.end(),false);
     fill(dis.begin(),dis.end(),INF_WEI);
     queue<int> qq; qq.push(ori);
-    dis[ori]=0;
-    while(!qq.empty()){
+    dis[ori] = 0;
+    while(not qq.empty()){
       int u=qq.front();qq.pop();
-      inq[u] = 0;
+      inq[u] = false;
       for(int i=0;i<SZ(G[u]);++i){
         Edge e=G[u][i];
-        int v=e.to;
-        Wei d=e.wei;
+        int v=e.to; Wei d=e.wei;
         if(e.cap<=0||dis[v]<=dis[u]+d)
           continue;
-        dis[v]=dis[u]+d;
-        fa[v]=u,wh[v]=i;
-        if(inq[v]) continue;
+        dis[v] = dis[u] + d;
+        fa[v] = u, wh[v] = i;
+        if (inq[v]) continue;
         qq.push(v);
-        inq[v]=1;
+        inq[v] = true;
       }
     }
     if(dis[edd]==INF_WEI) return {-1, -1};
@@ -44,10 +43,10 @@ private:
       mw=min(mw,G[fa[i]][wh[i]].cap);
     for (int i=edd;i!=ori;i=fa[i]){
       auto &eg=G[fa[i]][wh[i]];
-      eg.cap-=mw;
+      eg.cap -= mw;
       G[eg.to][eg.back].cap+=mw;
     }
-    return {mw,dis[edd]};
+    return {mw, dis[edd]};
   }
 public:
   void init(int a,int b,int n){
@@ -61,17 +60,12 @@ public:
     G[ed].emplace_back(st,SZ(G[st])-1,0,-w);
   }
   PCW solve(){
-    /* might modify to
-    cc += ret.first * ret.second
-    or
-    ww += ret.first * ret.second
-    */
     Cap cc=0; Wei ww=0;
     while(true){
       PCW ret=SPFA();
       if(ret.first==-1) break;
       cc+=ret.first;
-      ww+=ret.second;
+      ww+=ret.first * ret.second;
     }
     return {cc,ww};
   }
