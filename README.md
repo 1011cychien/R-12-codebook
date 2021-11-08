@@ -14,3 +14,4 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * 郵局設置問題無限大extreme
 * segment tree beats
 * 圓掃描線
+* Gomory Hu (All pair max flow)
