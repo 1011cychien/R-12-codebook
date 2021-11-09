@@ -15,3 +15,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * segment tree beats
 * 圓掃描線
 * Gomory Hu (All pair max flow)
+* Simplex
+* 回文自動機
+* 虛樹
