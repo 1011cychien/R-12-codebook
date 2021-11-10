@@ -18,3 +18,4 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * Simplex
 * 回文自動機
 * 虛樹
+* [CharacteristicPoly](https://github.com/edisonhello/waynedisonitau123/blob/master/Codebook/math/CharacteristicPoly.cpp)
