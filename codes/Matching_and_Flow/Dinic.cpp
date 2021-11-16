@@ -1,58 +1,55 @@
-template <typename Cap = int64_t>
-class Dinic{
-private:
-  struct Edge{
-    int to, rev;
-    Cap cap;
-  };
-  int n, st, ed;
-  vector<vector<Edge>> G;
-  vector<int> lv, idx;
-  bool BFS(){
-    fill(lv.begin(), lv.end(), -1);
-    queue<int> bfs;
-    bfs.push(st); lv[st] = 0;
-    while(!bfs.empty()){
-      int u = bfs.front(); bfs.pop();
-      for(auto e: G[u]){
-        if(e.cap <= 0 or lv[e.to]!=-1) continue;
-        bfs.push(e.to); lv[e.to] = lv[u] + 1;
-      }
+template <typename flow_t>
+struct Dinic {
+    struct Edge {
+        int to;
+        flow_t rest;
+        Edge(int t, flow_t r) : to(t), rest(r) {}
+    };
+    vector<Edge> E;
+    vector<vector<int>> g;
+    vector<int> dis, cur;
+    Dinic(int n) : g(n), dis(n), cur(n) {}
+    void addEdge(int a, int b, flow_t cap) {
+        g[a].emplace_back(E.size()), E.emplace_back(b, cap);
+        g[b].emplace_back(E.size()), E.emplace_back(a, 0);
     }
-    return (lv[ed]!=-1);
-  }
-  Cap DFS(int u, Cap f){
-    if(u == ed) return f;
-    Cap ret = 0;
-    for(int &i = idx[u]; i < (int)G[u].size(); ++i){
-      auto &e = G[u][i];
-      if(e.cap <= 0 or lv[e.to]!=lv[u]+1) continue;
-      Cap nf = DFS(e.to, min(f, e.cap));
-      ret += nf; e.cap -= nf; f -= nf;
-      G[e.to][e.rev].cap += nf;
-      if(f == 0) return ret;
+    bool bfs(int s, int t) {
+        fill(dis.begin(), dis.end(), -1);
+        queue<int> q;
+        dis[s] = 0;
+        q.push(s);
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            for (int id : g[i])
+                if (E[id].rest > 0 && dis[E[id].to] == -1) {
+                    dis[E[id].to] = dis[i] + 1;
+                    q.push(E[id].to);
+                }
+        }
+        return dis[t] != -1;
     }
-    if(ret == 0) lv[u] = -1;
-    return ret;
-  }
-public:
-  void init(int n_, int st_, int ed_){
-    n = n_, st = st_, ed = ed_;
-    G.resize(n); lv.resize(n);
-    fill(G.begin(), G.end(), vector<Edge>());
-  }
-  void add_edge(int u, int v, Cap c){
-    G[u].push_back({v, (int)G[v].size(), c});
-    G[v].push_back({u, ((int)G[u].size())-1, 0});
-  }
-  Cap max_flow(){
-    Cap ret = 0;
-    while(BFS()){
-      idx.assign(n, 0);
-      Cap f = DFS(st, numeric_limits<Cap>::max());
-      ret += f;
-      if(f == 0) break;
+    flow_t dfs(int i, int t, flow_t lim) {
+        if (i == t) return lim;
+        flow_t ans = 0;
+        while (lim > 0 && cur[i] < int(g[i].size())) {
+            int id = g[i][cur[i]++];
+            if (dis[E[id].to] != dis[i] + 1) continue;
+            flow_t f = dfs(E[id].to, t, min(lim, E[id].rest));
+            lim -= f;
+            ans += f;
+            E[id].rest -= f;
+            E[id ^ 1].rest += f;
+        }
+        return ans;
     }
-    return ret;
-  }
+    static constexpr flow_t inf = numeric_limits<flow_t>::max();
+    flow_t maxFlow(int s, int t) {
+        flow_t ans = 0, f;
+        while (bfs(s, t)) {
+            fill(cur.begin(), cur.end(), 0);
+            while ((f = dfs(s, t, inf)) > 0) ans += f;
+        }
+        return ans;
+    }
 };
