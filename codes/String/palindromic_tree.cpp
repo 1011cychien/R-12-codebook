@@ -1,42 +1,60 @@
-struct palindromic_tree{
-  struct node{
-    int next[26],f,len;
-    int cnt,num,st,ed;
-    node(int l=0):f(0),len(l),cnt(0),num(0) {
-      memset(next, 0, sizeof(next)); }
-  };
-  vector<node> st;
-  vector<char> s;
-  int last,n;
-  void init(){
-    st.clear();s.clear();last=1; n=0;
-    st.push_back(0);st.push_back(-1);
-    st[0].f=1;s.push_back(-1); }
-  int getFail(int x){
-    while(s[n-st[x].len-1]!=s[n])x=st[x].f;
-    return x;}
-  void add(int c){
-    s.push_back(c-='a'); ++n;
-    int cur=getFail(last);
-    if(!st[cur].next[c]){
-      int now=st.size();
-      st.push_back(st[cur].len+2);
-      st[now].f=st[getFail(st[cur].f)].next[c];
-      st[cur].next[c]=now;
-      st[now].num=st[st[now].f].num+1;
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int K = 26, maxn = 100025;
+struct PalindromeTree {
+    struct node {
+        int len;
+        node *fail, *ch[K];
+        int cnt;
+        node() = default;
+        node(int len, node* fail = nullptr) : len(len), fail(fail) {
+            for (int i = 0; i < K; i++) ch[i] = nullptr;
+        }
+    };
+    node pool[maxn], *ptr;
+    node *root, *last, *zero;
+    void build(const string& s) {
+        ptr = pool;
+        root = new (ptr++) node(-1);
+        root->fail = root;
+        last = zero = new (ptr++) node(0, root);
+        int distinct_cnt = 0;
+        vector<node*> nd(s.size());
+        for (int i = 0; i < s.size(); i++) {
+            int c = s[i] - 'a';
+            const auto getFail = [&s, i](node* p) {
+                while (i - p->len - 1 < 0 || s[i] != s[i - p->len - 1])
+                    p = p->fail;
+                return p;
+            };
+            last = getFail(last);
+            if (last->ch[c] == nullptr) {
+                node* cur = getFail(last->fail);
+                last = last->ch[c] = new (ptr++)
+                    node(last->len + 2, last == root ? zero : cur->ch[c]);
+                ++distinct_cnt;
+            } else
+                last = last->ch[c];
+            last->cnt += 1;
+            nd[i] = last;
+        }
+        while (ptr != pool) {
+            --ptr;
+            ptr->fail->cnt += ptr->cnt;
+        }
+        for (int i = 0; i < s.size(); i++) {
+            node* p = nd[i];
+            // cerr << p->cnt << ' ' << s.substr(i - p->len
+            // + 1, p->len) << endl;
+        }
+        // cout << distinct_cnt << '\n';
     }
-    last=st[cur].next[c];
-    ++st[last].cnt;}
-  int size(){ return st.size()-2;}
-} pt;
-int main() {
-  string s; cin >> s; pt.init();
-  for (int i=0; i<SZ(s); i++) {
-    int prvsz = pt.size(); pt.add(s[i]);
-    if (prvsz != pt.size()) {
-      int r = i, l = r - pt.st[pt.last].len + 1;
-      // pal @ [l,r]: s.substr(l, r-l+1)
-    }
-  }
-  return 0;
+} PT;
+
+signed main() {
+    string s;
+    cin >> s;
+    PT.build(s);
 }
