@@ -9,7 +9,7 @@ private:
   vector<vector<Edge>> G;
   vector<int> lv, idx;
   bool BFS(){
-    fill(lv.begin(), lv.end(), -1);
+    lv.assign(n, -1);
     queue<int> bfs;
     bfs.push(st); lv[st] = 0;
     while(!bfs.empty()){
@@ -36,17 +36,13 @@ private:
     return ret;
   }
 public:
-  void init(int n_, int st_, int ed_){
-    n = n_, st = st_, ed = ed_;
-    G.resize(n); lv.resize(n);
-    fill(G.begin(), G.end(), vector<Edge>());
-  }
+  void init(int n_){ G.assign(n = n_, vector<Edge>()); }
   void add_edge(int u, int v, Cap c){
     G[u].push_back({v, (int)G[v].size(), c});
     G[v].push_back({u, ((int)G[u].size())-1, 0});
   }
-  Cap max_flow(){
-    Cap ret = 0;
+  Cap max_flow(int st_, int ed_){
+   st = st_, ed = ed_; Cap ret = 0;
     while(BFS()){
       idx.assign(n, 0);
       Cap f = DFS(st, numeric_limits<Cap>::max());
