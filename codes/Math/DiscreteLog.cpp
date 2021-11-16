@@ -1,8 +1,7 @@
 lld BSGS(lld P, lld B, lld N) {
   // find B^L = N mod P
-  unordered_map<lld, int> R;
-  lld sq = (lld)sqrt(P);
-  lld t = 1;
+  unordered_map<lld, lld> R;
+  lld sq = (lld)sqrt(P), t = 1;
   for (int i = 0; i < sq; i++) {
     if (t == N) return i;
     if (!R.count(t)) R[t] = i;
