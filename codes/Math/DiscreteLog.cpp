@@ -1,17 +1,23 @@
-lld BSGS(lld P, lld B, lld N) {
-  // find B^L = N mod P
-  unordered_map<lld, lld> R;
-  lld sq = (lld)sqrt(P), t = 1;
-  for (int i = 0; i < sq; i++) {
-    if (t == N) return i;
-    if (!R.count(t)) R[t] = i;
-    t = (t * B) % P;
-  }
-  lld f = inverse(t, P);
-  for(int i=0;i<=sq+1;i++) {
-    if (R.count(N))
-      return i * sq + R[N];
-    N = (N * f) % P;
-  }
-  return -1;
+template<typename Int>
+Int BSGS(Int x, Int y, Int M) {
+	// x^? \equiv y (mod M)
+	Int t = 1, c = 0, g = 1;
+	for (Int M_ = M; M_ > 0; M_ >>= 1)
+		g = g * x % M;
+	for (g = gcd(g, M); t % g != 0; ++c) {
+		if (t == y) return c;
+		t = t * x % M;
+	} 
+	if (y % g != 0) return -1;
+	t /= g, y /= g, M /= g;
+	Int h = 0, gs = 1;
+	for (; h * h < M; ++h) gs = gs * x % M;
+	unordered_map<Int, Int> bs;
+	for (Int s = 0; s < h; bs[y] = ++s)
+		y = y * x % M;
+	for (Int s = 0; s < M; s += h) {
+		t = t * gs % M;
+		if (bs.count(t)) return c + s + h - bs[t];
+	}
+	return -1;
 }
