@@ -20,8 +20,6 @@ llu floor_sum_unsigned(llu n, llu m, llu a, llu b) {
   return ans;
 }
 lld floor_sum(lld n, lld m, lld a, lld b) {
-  assert(0 <= n && n < (1LL << 32));
-  assert(1 <= m && m < (1LL << 32));
   llu ans = 0;
   if (a < 0) {
     llu a2 = (a % m + m) % m;
