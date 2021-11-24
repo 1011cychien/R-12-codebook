@@ -3,7 +3,8 @@ struct MaxClique {  // Maximum Clique
   bitset<kN> a[kN], cs[kN];
   int ans, sol[kN], q, cur[kN], d[kN], n;
   void init(int _n) {
-    n = _n; for (int i = 0; i < n; i++) a[i].reset();
+    n = _n, ans = q = 0;
+    for (int i = 0; i < n; i++) a[i].reset();
   }
   void addEdge(int u, int v) { a[u][v] = a[v][u] = 1; }
   void csort(vector<int> &r, vector<int> &c) {
