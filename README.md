@@ -10,11 +10,9 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 ## TODO
 
 * cost flow (dijkstra)
-* binary search on segment tree (given l)
 * 郵局設置問題無限大extreme
 * segment tree beats
 * 圓掃描線
 * Simplex
 * 回文自動機
 * 虛樹
-* MaxClique Dyn might be wrong?
