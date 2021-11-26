@@ -1,9 +1,7 @@
 const int mod = 1000000007;
-
 const int M1 = 985661441; // G = 3
 const int M2 = 998244353;
 const int M3 = 1004535809;
-
 int superBigCRT(int64_t A, int64_t B, int64_t C) {
     static_assert (M1 <= M2 && M2 <= M3);
     constexpr int64_t r12 = modpow(M1, M2-2, M2);
@@ -45,8 +43,7 @@ void fft(vector<cplx> &v, int n) {
   }
 }
 void ifft(vector<cplx> &v, int n) {
-  fft(v, n);
-  reverse(v.begin() + 1, v.end());
+  fft(v, n); reverse(v.begin() + 1, v.end());
   for (int i=0;i<n;++i) v[i] = v[i] * cplx(1. / n, 0);
 }
 VL convolution(const VI &a, const VI &b) {
