@@ -40,9 +40,9 @@ struct CircleCover {
         if(i != j && g[i][j]) {
           pdd aa, bb;
           CCinter(c[i], c[j], aa, bb);
-          double A = atan2(aa.Y - c[i].O.Y, aa.X - c[i].O.X);
-          double B = atan2(bb.Y - c[i].O.Y, bb.X - c[i].O.X);
-          eve[E++] = Teve(bb, B, 1), eve[E++] = Teve(aa, A, -1);
+          llf A = atan2(aa.Y - c[i].O.Y, aa.X - c[i].O.X);
+          llf B = atan2(bb.Y - c[i].O.Y, bb.X - c[i].O.X);
+          eve[E++] = Teve(bb,B,1), eve[E++]=Teve(aa,A,-1);
           if(B > A) ++cnt;
         }
       if(E == 0) Area[cnt] += pi * c[i].R * c[i].R;
@@ -54,7 +54,7 @@ struct CircleCover {
           Area[cnt] += cross(eve[j].p, eve[j + 1].p) * .5;
           double theta = eve[j + 1].ang - eve[j].ang;
           if (theta < 0) theta += 2. * pi;
-          Area[cnt] += (theta - sin(theta)) * c[i].R * c[i].R * .5;
+          Area[cnt]+=(theta-sin(theta))*c[i].R*c[i].R*.5;
         }
       }
     }
