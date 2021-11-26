@@ -3,12 +3,12 @@ namespace Treap{
   struct node{
     int size;
     uint32_t pri;
-    node *lc, *rc;
-    node() : size(0), pri(rand()), lc( 0 ), rc( 0 ) {}
+    node *lc, *rc, *pa;
+    node():size(0),pri(rand()),lc(0),rc(0),pa(0){}
     void pull() {
-      size = 1;
-      if ( lc ) size += lc->size;
-      if ( rc ) size += rc->size;
+      size = 1; pa = nullptr;
+      if ( lc ) { size += lc->size; lc->pa = this; }
+      if ( rc ) { size += rc->size; rc->pa = this; }
     }
   };
   node* merge( node* L, node* R ) {
@@ -32,6 +32,12 @@ namespace Treap{
       split_by_size( rt->lc, k, L, R->lc );
       R->pull();
     }
+  }
+  int getRank(node *o) {
+    int r = sz(o->lc);
+    for (;o->pa != nullptr; o = o->pa)
+      if (o->pa->rc != o) r += sz(o->pa->lc);
+    return r;
   }
   #undef sz
 }
