@@ -6,7 +6,6 @@ struct Line {
     Line (Point _s, Point _e)
       : st(_s), ed(_e), dir(_e - _s) {}
 };
-
 bool operator<(const Line &lhs, const Line &rhs) {
     if (int cmp = argCmp(lhs.dir, rhs.dir))
         return cmp == -1;
@@ -17,7 +16,6 @@ Point intersect(const Line &A, const Line &B) {
       cross(A.dir, B.dir);
     return A.st + t * A.dir;
 }
-
 Real HPI(vector<Line> &lines) {
     sort(lines.begin(), lines.end());
     deque<Line> que;
