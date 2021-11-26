@@ -5,17 +5,14 @@ struct Graph {
   vector<int> stk;
   void init(int _n) {
     n = _n;
-    for (int i=0; i<n; i++)
-      for (int j=0; j<n; j++)
-        edge[i][j] = 0;
+    for (int i=0; i<n; i++) for (int j=0; j<n; j++)
+      edge[i][j] = 0;
   }
   void set_edge(int u, int v, int w) {
-    edge[u][v] = edge[v][u] = w;
-  }
+    edge[u][v] = edge[v][u] = w; }
   bool SPFA(int u){
     if (onstk[u]) return true;
-    stk.PB(u);
-    onstk[u] = 1;
+    stk.PB(u); onstk[u] = 1;
     for (int v=0; v<n; v++){
       if (u != v && match[u] != v && !onstk[v]){
         int m = match[v];
@@ -29,13 +26,10 @@ struct Graph {
         }
       }
     }
-    onstk[u] = 0;
-    stk.pop_back();
+    onstk[u] = 0; stk.pop_back();
     return false;
   }
-
-  int solve() {
-    // find a match
+  int solve() { // find a match
     for (int i=0; i<n; i+=2){
       match[i] = i+1;
       match[i+1] = i;
