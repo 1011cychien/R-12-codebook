@@ -1,55 +1,60 @@
-struct Node{
-  Node *green, *edge[26];
-  int max_len;
-  Node(const int _max_len)
-    : green(NULL), max_len(_max_len){
-    memset(edge,0,sizeof(edge));
+struct SuffixAutomaton {
+  struct node {
+    int ch[K], len, fail, cnt, indeg;
+    node(int L = 0) : ch{}, len(L), fail(0), cnt(0), indeg(0) {}
+  } st[N];
+  int root, last, tot;
+  void extend(int c) {
+    int cur = ++tot;
+    st[cur] = node(st[last].len + 1);
+    while (last && !st[last].ch[c]) {
+        st[last].ch[c] = cur;
+        last = st[last].fail;
+    }
+    if (!last) {
+        st[cur].fail = root;
+    } else {
+        int q = st[last].ch[c];
+        if (st[q].len == st[last].len + 1) {
+            st[cur].fail = q;
+        } else {
+            int clone = ++tot;
+            st[clone] = st[q];
+            st[clone].len = st[last].len + 1;
+            st[st[cur].fail = st[q].fail = clone].cnt = 0;
+            while (last && st[last].ch[c] == q) {
+                st[last].ch[c] = clone;
+                last = st[last].fail;
+            }
+        }
+    }
+    st[last = cur].cnt += 1;
   }
-} *ROOT, *LAST;
-void Extend(const int c) {
-  Node *cursor = LAST;
-  LAST = new Node((LAST->max_len) + 1);
-  for(;cursor&&!cursor->edge[c]; cursor=cursor->green)
-    cursor->edge[c] = LAST;
-  if (!cursor)
-    LAST->green = ROOT;
-  else {
-    Node *potential_green = cursor->edge[c];
-    if((potential_green->max_len)==(cursor->max_len+1))
-      LAST->green = potential_green;
-    else {
-//assert(potential_green->max_len>(cursor->max_len+1));
-      Node *wish = new Node((cursor->max_len) + 1);
-      for(;cursor && cursor->edge[c]==potential_green;
-           cursor = cursor->green)
-        cursor->edge[c] = wish;
-      for (int i = 0; i < 26; i++)
-        wish->edge[i] = potential_green->edge[i];
-      wish->green = potential_green->green;
-      potential_green->green = wish;
-      LAST->green = wish;
+  void init(const char* s) {
+    root = last = tot = 1;
+    st[root] = node(0);
+    for (char c; c = *s; ++s) extend(c - 'a');
+  }
+  int q[N];
+  void dp() {
+    for (int i = 1; i <= tot; i++) ++st[st[i].fail].indeg;
+    int head = 0, tail = 0;
+    for (int i = 1; i <= tot; i++)
+        if (st[i].indeg == 0) q[tail++] = i;
+    while (head != tail) {
+        int now = q[head++];
+        if (int f = st[now].fail) {
+            st[f].cnt += st[now].cnt;
+            if (--st[f].indeg == 0) q[tail++] = f;
+        }
     }
   }
-}
-char S[10000001], A[10000001];
-int N;
-int main(){
-  scanf("%d%s", &N, S);
-  ROOT = LAST = new Node(0);
-  for (int i = 0; S[i]; i++)
-    Extend(S[i] - 'a');
-  while (N--){
-    scanf("%s", A);
-    Node *cursor = ROOT;
-    bool ans = true;
-    for (int i = 0; A[i]; i++){
-      cursor = cursor->edge[A[i] - 'a'];
-      if (!cursor) {
-        ans = false;
-        break;
-      }
+  int run(const char* s) {
+    int now = root;
+    for (char c; c = *s; ++s) {
+        if (!st[now].ch[c -= 'a']) return 0;
+        now = st[now].ch[c];
     }
-    puts(ans ? "Yes" : "No");
+    return st[now].cnt;
   }
-  return 0;
-}
+} SAM;
