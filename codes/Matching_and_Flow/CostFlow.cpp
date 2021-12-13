@@ -9,8 +9,7 @@ private:
     Cap cap; Wei wei;
     Edge() {}
     Edge(int a,int b, Cap c, Wei d):
-      to(a),back(b),cap(c),wei(d)
-    {}
+      to(a),back(b),cap(c),wei(d) {}
   };
   int ori, edd;
   vector<vector<Edge>> G;
