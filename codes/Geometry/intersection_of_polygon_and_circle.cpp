@@ -21,11 +21,11 @@ double _area(pdd pa, pdd pb, double r){
   else S = .5*sin(C)*a*b;
   return S;
 }
-double area_poly_circle(const vector<pdd> poly,
+double area_poly_circle(const vector<pdd> &poly,
     const pdd &O,const double r){
-  double S=0;
-  for(int i=0;i<SZ(poly);++i)
-    S+=_area(poly[i]-O,poly[(i+1)%SZ(poly)]-O,r)
-        *ori(O,poly[i],poly[(i+1)%SZ(poly)]);
+  double S=0; int N=poly.size();
+  for(int i=0;i<N;++i)
+    S += _area(poly[i]-O, poly[(i+1)%N]-O, r)
+        * ori(O, poly[i], poly[(i+1)%N]);
   return fabs(S);
 }

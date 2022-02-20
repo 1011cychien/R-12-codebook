@@ -1,24 +1,38 @@
-using Point = complex<coord_t>;
 struct Segment {
-    Point S, L; // represent S + tL for 0 <= t <= 1
-    static bool valid(coord_t p, coord_t q) {
-        // is there x s.t. 0 <= x <= 1 && qx == p ?
-        if(q < 0) q = -q, p = -p;
+    Point st, dir; // represent st + t*dir for 0 <= t <= 1
+    Segment(Point s, Point e) : st(s), dir(e - s) {}
+    static bool valid(lld p, lld q) {
+        // is there t s.t. 0 <= t <= 1 && qt == p ?
+        if (q < 0) q = -q, p = -p;
         return 0 <= p && p <= q;
     }
 };
-bool intersect(Segment A, Point P) {
-    if(A.L == Point{0}) return P == A.S;
-    return cross(P - A.S, A.L) == 0 &&
-      Segment::valid(dot(P - A.S, A.L), norm(A.L));
+bool isInter(Segment A, Point P) {
+    if (A.dir == Point(0)) return P == A.st;
+    return cross(P - A.st, A.dir) == 0 &&
+      Segment::valid(dot(P - A.st, A.dir), norm(A.dir));
 }
-bool intersect(Segment A, Segment B) {
-    if(cross(A.L, B.L) == 0)
-        return
-        intersect(A, B.S) || intersect(A, B.S+B.L) ||
-        intersect(B, A.S) || intersect(B, A.S+A.L);
-    Point D = B.S - A.S;
-    coord_t C = cross(A.L, B.L);
-    return Segment::valid(cross(D, A.L), C) &&
-      Segment::valid(cross(D, B.L), C);
+template <typename U, typename V>
+bool isInter(U A, V B) {
+    if (cross(A.dir, B.dir) == 0)
+      return // handle parallel yourself
+        isInter(A, B.st) || isInter(A, B.st+B.dir) ||
+        isInter(B, A.st) || isInter(B, A.st+A.dir);
+    Point D = B.st - A.st;
+    lld C = cross(A.dir, B.dir);
+    return U::valid(cross(D, A.dir), C) &&
+      V::valid(cross(D, B.dir), C);
+}
+
+struct Line {
+    Point st, ed, dir;
+    Line (Point s, Point e)
+      : st(s), ed(e), dir(e - s) {}
+};
+
+Pointf intersect(const Line &A, const Line &B) {
+    llf t = cross(B.st - A.st, B.dir) /
+      llf(cross(A.dir, B.dir));
+    return toPointf(A.st) +
+      Pointf(t) * toPointf(A.dir);
 }

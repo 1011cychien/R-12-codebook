@@ -1,27 +1,15 @@
-// NOTE: Point is complex<Real>
 // cross(pt-line.st, line.dir)<=0 <-> pt in half plane
-struct Line {
-    Point st, ed;
-    Point dir;
-    Line (Point _s, Point _e)
-      : st(_s), ed(_e), dir(_e - _s) {}
-};
-
 bool operator<(const Line &lhs, const Line &rhs) {
     if (int cmp = argCmp(lhs.dir, rhs.dir))
         return cmp == -1;
     return ori(lhs.st, lhs.ed, rhs.st) < 0;
 }
-Point intersect(const Line &A, const Line &B) {
-    Real t = cross(B.st - A.st, B.dir) /
-      cross(A.dir, B.dir);
-    return A.st + t * A.dir;
-}
 
-Real HPI(vector<Line> &lines) {
+// intersect function is in "Segment Intersect"
+llf HPI(vector<Line> &lines) {
     sort(lines.begin(), lines.end());
     deque<Line> que;
-    deque<Point> pt;
+    deque<Pointf> pt;
     que.push_back(lines[0]);
     for (int i = 1; i < (int)lines.size(); i++) {
         if (argCmp(lines[i].dir, lines[i-1].dir) == 0)
