@@ -17,8 +17,7 @@ private:
     fill(vl.begin(), vl.end(), false);
     fill(vr.begin(), vr.end(), false);
     ql = qr = 0;
-    qu[qr++] = s;
-    vr[s] = true;
+    vr[qu[qr++] = s] = true;
     while (true) {
       lld d;
       while (ql < qr) {
@@ -43,11 +42,10 @@ private:
   }
 public:
   void init( int n_ ) {
-    n = n_; qu.resize(n);
-    fl.clear(); fl.resize(n, -1);
-    fr.clear(); fr.resize(n, -1);
-    hr.clear(); hr.resize(n); hl.resize(n);
-    w.clear(); w.resize(n, vector<lld>(n));
+    qu.resize(n = n_);
+    fl.assign(n, -1); fr.assign(n, -1);
+    hr.assign(n, 0); hl.resize(n);
+    w.assign(n, vector<lld>(n));
     slk.resize(n); pre.resize(n);
     vl.resize(n); vr.resize(n);
   }

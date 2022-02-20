@@ -9,8 +9,7 @@ private:
     Cap cap; Wei wei;
     Edge() {}
     Edge(int a,int b, Cap c, Wei d):
-      to(a),back(b),cap(c),wei(d)
-    {}
+      to(a),back(b),cap(c),wei(d) {}
   };
   int ori, edd;
   vector<vector<Edge>> G;
@@ -49,8 +48,7 @@ private:
     return {mw, dis[edd]};
   }
 public:
-  void init(int a,int b,int n){
-    ori=a,edd=b;
+  void init(int n){
     G.clear();G.resize(n);
     fa.resize(n);wh.resize(n);
     inq.resize(n); dis.resize(n);
@@ -59,7 +57,8 @@ public:
     G[st].emplace_back(ed,SZ(G[ed]),c,w);
     G[ed].emplace_back(st,SZ(G[st])-1,0,-w);
   }
-  PCW solve(){
+  PCW solve(int a, int b){
+    ori = a, edd = b;
     Cap cc=0; Wei ww=0;
     while(true){
       PCW ret=SPFA();

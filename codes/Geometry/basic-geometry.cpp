@@ -4,12 +4,8 @@ using lld = int64_t;
 using llf = long double;
 using Point = std::complex<lld>;
 using Pointf = std::complex<llf>;
-auto toPointf(Point p) {
-  return Pointf{IM(p), RE(p)};
-}
-int sgn(lld x) {
-  return (x > 0) - (x < 0);
-}
+auto toPointf(Point p) { return Pointf{IM(p), RE(p)}; }
+int sgn(lld x) { return (x > 0) - (x < 0); }
 lld dot(Point a, Point b) { return RE(conj(a) * b); }
 lld cross(Point a, Point b) { return IM(conj(a) * b); }
 int ori(Point a, Point b, Point c) {
@@ -34,9 +30,7 @@ template <typename V> llf area(const V & pt) {
     ret += cross(pt[i] - pt[0], pt[i+1] - pt[0]);
   return ret / 2.0;
 }
-Point rot90(Point p) {
-  return Point{-IM(p), RE(p)};
-}
+Point rot90(Point p) { return Point{-IM(p), RE(p)}; }
 Pointf projection(Pointf p, Pointf q) { // p onto q
   return dot(p, q) * q / dot(q, q);
 }
