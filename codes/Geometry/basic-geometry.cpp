@@ -31,6 +31,6 @@ template <typename V> llf area(const V & pt) {
   return ret / 2.0;
 }
 Point rot90(Point p) { return Point{-IM(p), RE(p)}; }
-Pointf projection(Pointf p, Pointf q) { // p onto q
+Pointf project(Pointf p, Pointf q) { // p onto q
   return dot(p, q) * q / dot(q, q);
 }
