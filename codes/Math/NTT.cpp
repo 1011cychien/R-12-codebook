@@ -12,7 +12,7 @@ struct NTT {
     }
   }
   // n must be 2^k, and 0 <= F[i] < mod
-  void inplace_ntt(int n, int F[], bool inv = false) {
+  void operator()(int F[], int n, bool inv = false) {
     for (int i = 0, j = 0; i < n; i++) {
       if (i < j) swap(F[i], F[j]);
       for (int k = n>>1; (j^=k) < k; k>>=1);
@@ -35,6 +35,4 @@ struct NTT {
     }
   }
 };
-const int P=2013265921,root=31;
-const int MAXN=1<<20;
-NTT<P, root, MAXN> ntt;
+NTT<2013265921, 31, 1048576> ntt;
