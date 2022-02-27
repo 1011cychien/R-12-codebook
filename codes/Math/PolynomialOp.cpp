@@ -122,7 +122,7 @@ template <int mod, int G, int maxn> struct Poly : V {
     return X.imul(modinv(x0)).Ln().imul(nk).Exp().imul(modpow(x0, nk2)).irev().isz(size()).irev();
   }
   Poly InvMod(int L) { // (to evaluate linear recursion)
-    Poly R{1, 0};      // *this * R mod x^L = 1 (*this[0] == 1)
+    Poly R{1, 0}; // *this * R mod x^L = 1 (*this[0] == 1)
     for (int level = 0; (1 << level) < L; ++level) {
       Poly O = R.Mul(Poly(data(), min<int>(2 << level, size())));
       Poly Q(2 << level); Q[0] = 1;
@@ -132,8 +132,7 @@ template <int mod, int G, int maxn> struct Poly : V {
     }
     return R.isz(L);
   }
-  static int LinearRecursion(const V &a, const V &c, int64_t n) {
-    // a_n = \sum c_j a_(n-j)
+  static int LinearRecursion(const V &a, const V &c, int64_t n) { // a_n = \sum c_j a_(n-j)
     const int k = (int)a.size();
     assert((int)c.size() == k + 1);
     Poly C(k + 1), W({1}, k), M = {0, 1};
