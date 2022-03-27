@@ -1,11 +1,11 @@
 class LBD {
   int timer, chains;
   vector<vector<int>> G;
-  vector<int> tl, tr, chain, chain_st, dep, pa;
+  vector<int> tl, tr, chain, head, dep, pa;
   // chains : number of chain
-  // tl, tr[ u ] : subtree interval in the seq. of u
-  // chain_st[ i ] : head of the chain i
-  // chian[ u ] : chain id of the chain u is on
+  // tl, tr[u] : subtree interval in the seq. of u
+  // head[i] : head of the chain i
+  // chian[u] : chain id of the chain u is on
   void predfs(int u, int f) {
     dep[u] = dep[pa[u] = f] + 1;
     for (int v : G[u]) if (v != f) {
@@ -17,8 +17,8 @@ class LBD {
   }
   void dfschain(int u, int f) {
     tl[u] = timer++;
-    if (chain_st[chain[u]] == -1)
-      chain_st[chain[u]] = u;
+    if (head[chain[u]] == -1)
+      head[chain[u]] = u;
     for (int v : G[u])
       if (v != f and chain[v] == chain[u])
         dfschain(v, u);
@@ -29,7 +29,7 @@ class LBD {
   }
 public:
   LBD(int n) : timer(0), chains(0), G(n), tl(n), tr(n),
-        chain(n), chain_st(n, -1), dep(n), pa(n) {}
+        chain(n), head(n, -1), dep(n), pa(n) {}
   void add_edge(int u, int v) {
     G[u].push_back(v); G[v].push_back(u);
   }
@@ -38,9 +38,9 @@ public:
   vector<PII> get_path(int u, int v) {
     vector<PII> res;
     while (chain[u] != chain[v]) {
-      if (dep[chain_st[chain[u]]] < dep[chain_st[chain[v]]])
+      if (dep[head[chain[u]]] < dep[head[chain[v]]])
         swap(u, v);
-      int s = chain_st[chain[u]];
+      int s = head[chain[u]];
       res.emplace_back(tl[s], tl[u] + 1);
       u = pa[s];
     }
