@@ -1,91 +1,51 @@
-class LowbitDecomp{
-private:
-  int time_, chain_, LOG_N;
-  vector< vector< int > > G, fa;
-  vector< int > tl, tr, chain, chain_st;
-  // chain_ : number of chain
+class LBD {
+  int timer, chains;
+  vector<vector<int>> G;
+  vector<int> tl, tr, chain, chain_st, dep, pa;
+  // chains : number of chain
   // tl, tr[ u ] : subtree interval in the seq. of u
-  // chain_st[ u ] : head of the chain contains u
+  // chain_st[ i ] : head of the chain i
   // chian[ u ] : chain id of the chain u is on
-  void predfs( int u, int f ) {
-    chain[ u ] = 0;
-    for ( int v : G[ u ] ) {
-      if ( v == f ) continue;
-      predfs( v, u );
-      if( lowbit( chain[ u ] ) < lowbit( chain[ v ] ) )
-        chain[ u ] = chain[ v ];
+  void predfs(int u, int f) {
+    dep[u] = dep[pa[u] = f] + 1;
+    for (int v : G[u]) if (v != f) {
+      predfs(v, u);
+      if (lowbit(chain[u]) < lowbit(chain[v]))
+        chain[u] = chain[v];
     }
-    if ( not chain[ u ] )
-      chain[ u ] = chain_ ++;
+    if (chain[u] == 0) chain[u] = ++chains;
   }
-  void dfschain( int u, int f ) {
-    fa[ u ][ 0 ] = f;
-    for ( int i = 1 ; i < LOG_N ; ++ i )
-      fa[ u ][ i ] = fa[ fa[ u ][ i - 1 ] ][ i - 1 ];
-    tl[ u ] = time_++;
-    if ( not chain_st[ chain[ u ] ] )
-      chain_st[ chain[ u ] ] = u;
-    for ( int v : G[ u ] )
-      if ( v != f and chain[ v ] == chain[ u ] )
-        dfschain( v, u );
-    for ( int v : G[ u ] )
-      if ( v != f and chain[ v ] != chain[ u ] )
-        dfschain( v, u );
-    tr[ u ] = time_;
-  }
-  bool anc( int u, int v ) {
-    return tl[ u ] <= tl[ v ]  and tr[ v ] <= tr[ u ];
+  void dfschain(int u, int f) {
+    tl[u] = timer++;
+    if (chain_st[chain[u]] == -1)
+      chain_st[chain[u]] = u;
+    for (int v : G[u])
+      if (v != f and chain[v] == chain[u])
+        dfschain(v, u);
+    for (int v : G[u])
+      if (v != f and chain[v] != chain[u])
+        dfschain(v, u);
+    tr[u] = timer;
   }
 public:
-  int lca( int u, int v ) {
-    if ( anc( u, v ) ) return u;
-    for ( int i = LOG_N - 1 ; i >= 0 ; -- i )
-      if ( not anc( fa[ u ][ i ], v ) )
-        u = fa[ u ][ i ];
-    return fa[ u ][ 0 ];
+  LBD(int n) : timer(0), chains(0), G(n), tl(n), tr(n),
+        chain(n), chain_st(n, -1), dep(n), pa(n) {}
+  void add_edge(int u, int v) {
+    G[u].push_back(v); G[v].push_back(u);
   }
-  void init( int n ) {
-    fa.assign( ++n, vector< int >( LOG_N ) );
-    for ( LOG_N = 0 ; ( 1 << LOG_N ) < n ; ++ LOG_N );
-    G.clear(); G.resize( n );
-    tl.assign( n, 0 ); tr.assign( n, 0 );
-    chain.assig( n, 0 ); chain_st.assign( n, 0 );
-  }
-  void add_edge( int u , int v ) {
-    // 1-base
-    G[ u ].push_back( v );
-    G[ v ].push_back( u );
-  }
-  void decompose(){
-    chain_ = 1;
-    predfs( 1, 1 );
-    time_ = 0;
-    dfschain( 1, 1 );
-  }
-  PII get_subtree(int u) { return {tl[ u ],tr[ u ] }; }
-  vector< PII > get_path( int u , int v ){
-    vector< PII > res;
-    int g = lca( u, v );
-    while ( chain[ u ] != chain[ g ] ) {
-      int s = chain_st[ chain[ u ] ];
-      res.emplace_back( tl[ s ], tl[ u ] + 1 );
-      u = fa[ s ][ 0 ];
+  void decompose() { predfs(0, 0); dfschain(0, 0); }
+  PII get_subtree(int u) { return {tl[u], tr[u]}; }
+  vector<PII> get_path(int u, int v) {
+    vector<PII> res;
+    while (chain[u] != chain[v]) {
+      if (dep[chain_st[chain[u]]] < dep[chain_st[chain[v]]])
+        swap(u, v);
+      int s = chain_st[chain[u]];
+      res.emplace_back(tl[s], tl[u] + 1);
+      u = pa[s];
     }
-    res.emplace_back( tl[ g ], tl[ u ] + 1 );
-    while ( chain[ v ] != chain[ g ] ) {
-      int s = chain_st[ chain[ v ] ];
-      res.emplace_back( tl[ s ], tl[ v ] + 1 );
-      v = fa[ s ][ 0 ];
-    }
-    res.emplace_back( tl[ g ] + 1, tl[ v ] + 1 );
+    if (dep[u] < dep[v]) swap(u, v);
+    res.emplace_back(tl[v], tl[u] + 1);
     return res;
-    /* res : list of intervals from u to v
-     * ( note only nodes work, not edge )
-     * usage :
-     * vector< PII >& path = tree.get_path( u , v )
-     * for( auto [ l, r ] : path ) {
-     *   0-base [ l, r )
-     * }
-     */
   }
-} tree;
+};
