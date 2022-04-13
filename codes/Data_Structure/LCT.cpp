@@ -1,110 +1,118 @@
-struct Node{
-  Node *par,*ch[2];
-  int xor_sum,v;
-  bool is_rev;
-  Node(int _v){
-    v=xor_sum=_v;is_rev=false;
-    par=ch[0]=ch[1]=nullptr;
+template <typename Val> class LCT {
+private:
+  struct node {
+    int pa, ch[2];
+    bool rev;
+    Val v, v_prod, v_rprod;
+    node() : pa{0}, ch{0, 0}, rev{false}, v{}, v_prod{}, v_rprod{} {};
+  };
+  vector<node> nodes;
+  set<pair<int, int>> edges;
+  bool is_root(int u) const {
+    const int p = nodes[u].pa;
+    return nodes[p].ch[0] != u and nodes[p].ch[1] != u;
   }
-  inline void set_rev(){is_rev^=1;swap(ch[0],ch[1]);}
-  inline void down(){
-    if(is_rev){
-      if(ch[0]!=nullptr) ch[0]->set_rev();
-      if(ch[1]!=nullptr) ch[1]->set_rev();
-      is_rev=false;
+  bool is_rch(int u) const {
+    return (not is_root(u)) and nodes[nodes[u].pa].ch[1] == u;
+  }
+  void down(int u) {
+    if (auto &node = nodes[u]; node.rev) {
+      if (node.ch[0]) set_rev(node.ch[0]);
+      if (node.ch[1]) set_rev(node.ch[1]);
+      node.rev = false;
     }
   }
-  inline void up(){
-    xor_sum=v;
-    if(ch[0]!=nullptr){
-      xor_sum^=ch[0]->xor_sum;
-      ch[0]->par=this;
+  void up(int u) {
+    auto &node = nodes[u];
+    node.v_prod = nodes[node.ch[0]].v_prod;
+    node.v_prod *= node.v;
+    node.v_prod *= nodes[node.ch[1]].v_prod;
+    node.v_rprod = nodes[node.ch[1]].v_rprod;
+    node.v_rprod *= node.v;
+    node.v_rprod *= nodes[node.ch[0]].v_rprod;
+  }
+  void set_rev(int u) {
+    swap(nodes[u].ch[0], nodes[u].ch[1]);
+    swap(nodes[u].v_prod, nodes[u].v_rprod);
+    nodes[u].rev ^= 1;
+  }
+  void rotate(int u) {
+    int f = nodes[u].pa, g = nodes[f].pa, l = is_rch(u);
+    if (nodes[u].ch[l ^ 1])
+      nodes[nodes[u].ch[l ^ 1]].pa = f;
+    if (not is_root(f))
+      nodes[g].ch[is_rch(f)] = u;
+    nodes[f].ch[l] = nodes[u].ch[l ^ 1];
+    nodes[u].ch[l ^ 1] = f;
+    nodes[u].pa = g, nodes[f].pa = u;
+    up(f);
+  }
+  void splay(int u) {
+    vector<int> stk = {u};
+    while (not is_root(stk.back()))
+      stk.push_back(nodes[stk.back()].pa);
+    for (; not stk.empty(); stk.pop_back())
+      down(stk.back());
+    for(int f=nodes[u].pa;!is_root(u);f=nodes[u].pa){
+      if(!is_root(f))rotate(is_rch(u)==is_rch(f)?f:u);
+      rotate(u);
     }
-    if(ch[1]!=nullptr){
-      xor_sum^=ch[1]->xor_sum;
-      ch[1]->par=this;
+    up(u);
+  }
+  void access(int u) {
+    int last = 0;
+    for (int last = 0; u; last = u, u = nodes[u].pa) {
+      splay(u);
+      nodes[u].ch[1] = last;
+      up(u);
     }
   }
-  inline bool is_root(){
-    return par==nullptr ||\
-      (par->ch[0]!=this && par->ch[1]!=this);
+  int find_root(int u) {
+    access(u); splay(u);
+    int la = 0;
+    for (; u; la = u, u = nodes[u].ch[0]) down(u);
+    return la;
   }
-  bool is_rch(){return !is_root() && par->ch[1]==this;}
-} *node[maxn],*stk[maxn];
-int top;
-void to_child(Node* p,Node* c,bool dir){
-  p->ch[dir]=c;
-  p->up();
-}
-inline void rotate(Node* node){
-  Node* par=node->par;
-  Node* par_par=par->par;
-  bool dir=node->is_rch();
-  bool par_dir=par->is_rch();
-  to_child(par,node->ch[!dir],dir);
-  to_child(node,par,!dir);
-  if(par_par!=nullptr && par_par->ch[par_dir]==par)
-    to_child(par_par,node,par_dir);
-  else node->par=par_par;
-}
-inline void splay(Node* node){
-  Node* tmp=node;
-  stk[top++]=node;
-  while(!tmp->is_root()){
-    tmp=tmp->par;
-    stk[top++]=tmp;
+  void change_root(int u) {
+    access(u); splay(u); set_rev(u);
   }
-  while(top) stk[--top]->down();
-  for(Node *fa=node->par;
-   !node->is_root();
-   rotate(node),fa=node->par)
-    if(!fa->is_root())
-      rotate(fa->is_rch()==node->is_rch()?fa:node);
-}
-inline void access(Node* node){
-  Node* last=nullptr;
-  while(node!=nullptr){
-    splay(node);
-    to_child(node,last,true);
-    last=node;
-    node=node->par;
+  void link(int x, int y) {
+    change_root(y); nodes[y].pa = x;
   }
-}
-inline void change_root(Node* node){
-  access(node);splay(node);node->set_rev();
-}
-inline void link(Node* x,Node* y){
-  change_root(x);splay(x);x->par=y;
-}
-inline void split(Node* x,Node* y){
-  change_root(x);access(y);splay(x);
-  to_child(x,nullptr,true);y->par=nullptr;
-}
-inline void change_val(Node* node,int v){
-  access(node);splay(node);node->v=v;node->up();
-}
-inline int query(Node* x,Node* y){
-  change_root(x);access(y);splay(y);
-  return y->xor_sum;
-}
-inline Node* find_root(Node* node){
-  access(node);splay(node);
-  Node* last=nullptr;
-  while(node!=nullptr){
-    node->down();last=node;node=node->ch[0];
+  void split(int x, int y) {
+    change_root(x); access(y); splay(y);
   }
-  return last;
-}
-set<pii> dic;
-inline void add_edge(int u,int v){
-  if(u>v) swap(u,v);
-  if(find_root(node[u])==find_root(node[v])) return;
-  dic.insert(pii(u,v));
-  link(node[u],node[v]);
-}
-inline void del_edge(int u,int v){
-  if(u>v) swap(u,v);
-  if(dic.find(pii(u,v))==dic.end()) return;
-  dic.erase(pii(u,v));
-  split(node[u],node[v]);
-}
+  void cut(int x, int y) {
+    split(x, y);
+    nodes[y].ch[0] = nodes[x].pa = 0;
+    up(y);
+  }
+public:
+  LCT(int n = 0) : nodes(n + 1) {}
+  int add(const Val &v = {}) {
+    nodes.push_back(v);
+    return int(nodes.size()) - 2;
+  }
+  int add(Val &&v) {
+    nodes.emplace_back(move(v));
+    return int(nodes.size()) - 2;
+  }
+  void set_val(int u, const Val &v) {
+    splay(++u); nodes[u].v = v; up(u);
+  }
+  Val query(int x, int y) {
+    split(++x, ++y);
+    return nodes[y].v_prod;
+  }
+  bool connected(int u, int v) { return find_root(++u) == find_root(++v); }
+  void add_edge(int u, int v) {
+    if (++u > ++v) swap(u, v);
+    edges.emplace(u, v); link(u, v);
+  }
+  void del_edge(int u, int v) {
+    auto k = minmax(++u, ++v);
+    if (auto it = edges.find(k); it != edges.end()) {
+      edges.erase(it); cut(u, v);
+    }
+  }
+};
