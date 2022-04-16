@@ -16,20 +16,18 @@ private:
     return (not is_root(u)) and nodes[nodes[u].pa].ch[1] == u;
   }
   void down(int u) {
-    if (auto &node = nodes[u]; node.rev) {
-      if (node.ch[0]) set_rev(node.ch[0]);
-      if (node.ch[1]) set_rev(node.ch[1]);
-      node.rev = false;
+    if (auto &cnode = nodes[u]; cnode.rev) {
+      if (cnode.ch[0]) set_rev(cnode.ch[0]);
+      if (cnode.ch[1]) set_rev(cnode.ch[1]);
+      cnode.rev = false;
     }
   }
   void up(int u) {
-    auto &node = nodes[u];
-    node.v_prod = nodes[node.ch[0]].v_prod;
-    node.v_prod *= node.v;
-    node.v_prod *= nodes[node.ch[1]].v_prod;
-    node.v_rprod = nodes[node.ch[1]].v_rprod;
-    node.v_rprod *= node.v;
-    node.v_rprod *= nodes[node.ch[0]].v_rprod;
+    auto &cnode = nodes[u];
+    cnode.v_prod =
+      nodes[cnode.ch[0]].v_prod * cnode.v * nodes[cnode.ch[1]].v_prod;
+    cnode.v_rprod =
+      nodes[cnode.ch[1]].v_rprod * cnode.v * nodes[cnode.ch[0]].v_rprod;
   }
   void set_rev(int u) {
     swap(nodes[u].ch[0], nodes[u].ch[1]);
