@@ -1,5 +1,4 @@
-se is nu bs=2 ru mouse=a encoding=utf-8 ls=2
-se cin cino+=j1 et sw=4 sts=4 tgc sc hls
+se is nu ru et tgc sc hls cin cino+=j1 sw=4 sts=4 bs=2 mouse=a encoding=utf-8 ls=2
 syn on
 colorscheme desert
 filetype indent on
