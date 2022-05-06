@@ -17,3 +17,4 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * 虛樹
 * Yosupo 區間LCS
 * 怪怪加一行一列的矩陣逆公式
+* Main Lorentz
