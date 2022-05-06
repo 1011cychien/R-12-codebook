@@ -9,10 +9,11 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 
 ## TODO
 
-* cost flow (dijkstra)
 * 郵局設置問題無限大extreme
 * segment tree beats
 * 圓掃描線
 * Simplex
 * 回文自動機
 * 虛樹
+* Yosupo 區間LCS
+* 怪怪加一行一列的矩陣逆公式
