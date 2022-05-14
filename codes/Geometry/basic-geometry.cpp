@@ -4,7 +4,7 @@ using lld = int64_t;
 using llf = long double;
 using Point = std::complex<lld>;
 using Pointf = std::complex<llf>;
-auto toPointf(Point p) { return Pointf{IM(p), RE(p)}; }
+auto toPointf(Point p) { return Pointf{RE(p), IM(p)}; }
 int sgn(lld x) { return (x > 0) - (x < 0); }
 lld dot(Point a, Point b) { return RE(conj(a) * b); }
 lld cross(Point a, Point b) { return IM(conj(a) * b); }
