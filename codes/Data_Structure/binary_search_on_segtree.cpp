@@ -2,7 +2,7 @@
 // find_last = x -> maximal x s.t. check( [x, b) )
 template <typename C>
 int find_first(int l, const C &check) {
-  if (l >= n) return n;
+  if (l >= n) return n + 1;
   l += sz;
   for (int i = height; i > 0; i--)
     propagate(l >> i);
@@ -23,7 +23,7 @@ int find_first(int l, const C &check) {
     }
     sum = f(sum, data[l++]);
   } while ((l & -l) != l);
-  return n;
+  return n + 1;
 }
 template <typename C>
 int find_last(int r, const C &check) {
