@@ -1,25 +1,22 @@
-inline bool cmp(const int &i, const int &j) {
-  return dfn[i] < dfn[j];
-}
-void build(int vectrices[], int k) {
-  static int stk[MAX_N];
-  sort(vectrices, vectrices + k, cmp);
-  stk[sz++] = 0;
-  for (int i = 0; i < k; ++i) {
-    int u = vectrices[i], lca = LCA(u, stk[sz - 1]);
-    if (lca == stk[sz - 1]) stk[sz++] = u;
-    else {
-      while (sz >= 2 && dep[stk[sz - 2]] >= dep[lca]) {
-        addEdge(stk[sz - 2], stk[sz - 1]);
-        sz--;
+vector<pair<int, int>> build(vector<int> vs) { // tree 0-base
+  vector<pair<int, int>> res;
+  sort(vs.begin(), vs.end(), [](int i, int j) { return dfn[i] < dfn[j]; });
+  vector<int> s = {0};
+  for (int v : vs) if (v != 0) {
+    int o = lca(v, s.back());
+    if (o != s.back()) {
+      while (s.size() >= 2 and dfn[s[s.size() - 2]] >= dfn[o]) {
+        res.emplace_back(s[s.size() - 2], s.back());
+        s.pop_back();
       }
-      if (stk[sz - 1] != lca) {
-        addEdge(lca, stk[--sz]);
-        stk[sz++] = lca, vectrices[cnt++] = lca;
+      if (s.back() != o) {
+        res.emplace_back(s.back(), o);
+        s.back() = o;
       }
-      stk[sz++] = u;
     }
+    s.push_back(v);
   }
-  for (int i = 0; i < sz - 1; ++i)
-    addEdge(stk[i], stk[i + 1]);
+  for (size_t i = 1; i < s.size(); ++i)
+    res.emplace_back(s[i - 1], s[i]);
+  return res;
 }
