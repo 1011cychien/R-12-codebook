@@ -14,7 +14,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * 圓掃描線
 * Simplex
 * 回文自動機
-* 虛樹
 * Yosupo 區間LCS
-* 怪怪加一行一列的矩陣逆公式
+* Sherman–Morrison formula
 * Main Lorentz
