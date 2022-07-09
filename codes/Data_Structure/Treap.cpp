@@ -32,11 +32,11 @@ namespace Treap{
       split_by_size( rt->lc, k, L, R->lc );
       R->pull();
     }
-  }
-  int getRank(node *o) {
-    int r = sz(o->lc);
+  } // sz(L) == k
+  int getRank(node *o) { // 1-base
+    int r = sz(o->lc) + 1;
     for (;o->pa != nullptr; o = o->pa)
-      if (o->pa->rc != o) r += sz(o->pa->lc);
+      if (o->pa->rc == o) r += sz(o->pa->lc) + 1;
     return r;
   }
   #undef sz
