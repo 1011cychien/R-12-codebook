@@ -1,5 +1,5 @@
 using V = vector<int>;
-#define fi(s, n) for (int i = int(s); i < int(n); ++i)
+#define fi(l, r) for (int i = int(l); i < int(r); ++i)
 template <int mod, int G, int maxn> struct Poly : V {
   static uint32_t n2k(uint32_t n) {
     if (n <= 1) return 1;
@@ -12,7 +12,7 @@ template <int mod, int G, int maxn> struct Poly : V {
     copy_n(p.data(), min(p.size(), n), data());
   }
   Poly &irev() { return reverse(data(), data() + size()), *this; }
-  Poly &isz(int _n) { return resize(_n), *this; }
+  Poly &isz(int sz) { return resize(sz), *this; }
   Poly &iadd(const Poly &rhs) { // n() == rhs.n()
     fi(0, size())(*this)[i] = modadd((*this)[i], rhs[i]);
     return *this;
@@ -22,21 +22,21 @@ template <int mod, int G, int maxn> struct Poly : V {
     return *this;
   }
   Poly Mul(const Poly &rhs) const {
-    const int _n = n2k(size() + rhs.size() - 1);
-    Poly X(*this, _n), Y(rhs, _n);
-    ntt(X.data(), _n), ntt(Y.data(), _n);
-    fi(0, _n) X[i] = modmul(X[i], Y[i]);
-    ntt(X.data(), _n, true);
+    const int sz = n2k(size() + rhs.size() - 1);
+    Poly X(*this, sz), Y(rhs, sz);
+    ntt(X.data(), sz), ntt(Y.data(), sz);
+    fi(0, sz) X[i] = modmul(X[i], Y[i]);
+    ntt(X.data(), sz, true);
     return X.isz(size() + rhs.size() - 1);
   }
   Poly Inv() const { // coef[0] != 0
     if (size() == 1) return V{modinv(*begin())};
-    const int _n = n2k(size() * 2);
-    Poly Xi = Poly(*this, (size() + 1) / 2).Inv().isz(_n), Y(*this, _n);
-    ntt(Xi.data(), _n), ntt(Y.data(), _n);
-    fi(0, _n) Xi[i] = modmul(Xi[i], modsub(2, modmul(Xi[i], Y[i])));
-    ntt(Xi.data(), _n, true);
-    return Xi.isz(size());
+    const int sz = n2k(size() * 2);
+    Poly X = Poly(*this, (size() + 1) / 2).Inv().isz(sz), Y(*this, sz);
+    ntt(X.data(), sz), ntt(Y.data(), sz);
+    fi(0, sz) X[i] = modmul(X[i], modsub(2, modmul(X[i], Y[i])));
+    ntt(X.data(), sz, true);
+    return X.isz(size());
   }
   Poly Sqrt() const { // coef[0] \in [1, mod)^2
     if (size() == 1) return V{QuadraticResidue((*this)[0], mod)};
@@ -45,10 +45,10 @@ template <int mod, int G, int maxn> struct Poly : V {
   }
   pair<Poly, Poly> DivMod(const Poly &rhs) const {
     if (size() < rhs.size()) return {V{0}, *this};
-    const int _n = size() - rhs.size() + 1;
-    Poly X(rhs); X.irev().isz(_n);
-    Poly Y(*this); Y.irev().isz(_n);
-    Poly Q = Y.Mul(X.Inv()).isz(_n).irev();
+    const int sz = size() - rhs.size() + 1;
+    Poly X(rhs); X.irev().isz(sz);
+    Poly Y(*this); Y.irev().isz(sz);
+    Poly Q = Y.Mul(X.Inv()).isz(sz).irev();
     X = rhs.Mul(Q), Y = *this;
     fi(0, size()) Y[i] = modsub(Y[i], X[i]);
     return {Q, Y.isz(max<int>(1, rhs.size() - 1))};
@@ -62,38 +62,6 @@ template <int mod, int G, int maxn> struct Poly : V {
     Poly ret(size() + 1);
     fi(0, size()) ret[i + 1] = modmul(modinv(i + 1), (*this)[i]);
     return ret;
-  }
-  Poly _tmul(int nn, const Poly &rhs) const {
-    Poly Y = Mul(rhs).isz(size() + nn - 1);
-    return V(Y.data() + size() - 1, Y.data() + Y.size());
-  }
-  V _eval(const V &x, const vector<Poly> &up) const {
-    const int _n = (int)x.size();
-    if (!_n) return {};
-    vector<Poly> down(_n * 2);
-    // down[1] = DivMod(up[1]).second;
-    // fi(2, _n * 2) down[i] = down[i / 2].DivMod(up[i]).second;
-    down[1] = Poly(up[1]).irev().isz(size()).Inv().irev()._tmul(_n, *this);
-    fi(2, _n * 2) down[i] = up[i ^ 1]._tmul(up[i].size() - 1, down[i / 2]);
-    V y(_n); fi(0, _n) y[i] = down[_n + i][0];
-    return y;
-  }
-  static vector<Poly> _tree1(const V &x) {
-    const int _n = (int)x.size();
-    vector<Poly> up(_n * 2);
-    fi(0, _n) up[_n + i] = V{modsub(mod, x[i]), 1};
-    for(int i=_n-1;i>0;--i) up[i] = up[i * 2].Mul(up[i * 2 + 1]);
-    return up;
-  }
-  V Eval(const V &x) const { return _eval(x, _tree1(x)); }
-  static Poly Interpolate(const V &x, const V &y) {
-    const int _n = (int)x.size();
-    vector<Poly> up = _tree1(x), down(_n * 2);
-    V z = up[1].Dx()._eval(x, up);
-    fi(0, _n) z[i] = modmul(y[i], modinv(z[i]));
-    fi(0, _n) down[_n + i] = V{z[i]};
-    for(int i=_n-1;i>0;--i) down[i] = down[i * 2].Mul(up[i * 2 + 1]).iadd(down[i * 2 + 1].Mul(up[i * 2]));
-    return down[1];
   }
   Poly Ln() const { // coef[0] == 1
     return Dx().Mul(Inv()).Sx().isz(size());

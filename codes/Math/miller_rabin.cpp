@@ -1,21 +1,20 @@
-bool isprime(llu x){
-  static llu magic[]={2,325,9375,28178,\
-                    450775,9780504,1795265022};
-  static auto witn=[](llu a,llu u,llu n,int t)
-  ->bool{
-    if (!(a = mpow(a%n,u,n)))return 0;
-    while(t--){
-      llu a2=mul(a,a,n);
-      if(a2==1 && a!=1 && a!=n-1)
-        return 1;
+bool isprime(llu x) {
+  static auto witn = [](llu a, llu u, llu n, int t) {
+    if (!a) return false;
+    while (t--) {
+      llu a2 = mmul(a, a, n);
+      if (a2 == 1 && a != 1 && a != n - 1) return true;
       a = a2;
     }
-    return a!=1;
+    return a != 1;
   };
-  if(x<2)return 0;
-  if(!(x&1))return x==2;
-  llu x1=x-1;int t=0;
-  while(!(x1&1))x1>>=1,t++;
-  for(llu m:magic)if(witn(m,x1,x,t))return 0;
-  return 1;
+  if (x < 2) return false;
+  if (!(x & 1)) return x == 2;
+  int t = __builtin_ctzll(x - 1);
+  llu odd = (x - 1) >> t;
+  for (llu m:
+    {2, 325, 9375, 28178, 450775, 9780504, 1795265022})
+    if (witn(mpow(m % x, odd, x), odd, x, t))
+      return false;
+  return true;
 }
