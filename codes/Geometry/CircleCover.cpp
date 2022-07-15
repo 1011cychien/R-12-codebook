@@ -7,9 +7,9 @@ struct CircleCover {
   double Area[ N ];
   void init(int _C){ C = _C;}
   struct Teve {
-    pdd p; double ang; int add;
+    PTF p; double ang; int add;
     Teve() {}
-    Teve(pdd _a, double _b, int _c):p(_a), ang(_b), add(_c){}
+    Teve(PTF _a, double _b, int _c):p(_a), ang(_b), add(_c){}
     bool operator<(const Teve &a)const
     {return ang < a.ang;}
   }eve[N * 2];
@@ -38,10 +38,9 @@ struct CircleCover {
           ++cnt;
       for(int j = 0; j < C; ++j)
         if(i != j && g[i][j]) {
-          pdd aa, bb;
-          CCinter(c[i], c[j], aa, bb);
-          llf A = atan2(aa.Y - c[i].O.Y, aa.X - c[i].O.X);
-          llf B = atan2(bb.Y - c[i].O.Y, bb.X - c[i].O.X);
+          auto IP = intersectPoint(c[i], c[j]);
+          PTF aa = IP[0], bb = IP[1];
+          llf A = arg(aa-c[i].O), B = arg(bb-c[i].O);
           eve[E++] = Teve(bb,B,1), eve[E++]=Teve(aa,A,-1);
           if(B > A) ++cnt;
         }

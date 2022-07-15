@@ -9,7 +9,7 @@ bool operator<(const Line &lhs, const Line &rhs) {
 llf HPI(vector<Line> &lines) {
     sort(lines.begin(), lines.end());
     deque<Line> que;
-    deque<Pointf> pt;
+    deque<PTF> pt;
     que.push_back(lines[0]);
     for (int i = 1; i < (int)lines.size(); i++) {
         if (argCmp(lines[i].dir, lines[i-1].dir) == 0)

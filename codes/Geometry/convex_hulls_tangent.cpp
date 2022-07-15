@@ -5,7 +5,7 @@
 //            W = array of vertices for convex polygon 2 with W[n]=W[0]
 //    Output: *t1 = index of tangent point V[t1] for polygon 1
 //            *t2 = index of tangent point W[t2] for polygon 2
-void RLtangent_PolyPolyC(int m, Point *V, int n, Point *W, int *t1, int *t2) {
+void RLtangent_PolyPolyC(int m, PT *V, int n, PT *W, int *t1, int *t2) {
   int ix1, ix2; // search indices for polygons 1 and 2
 
   // first get the initial vertex on each polygon
