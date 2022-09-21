@@ -18,3 +18,32 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * Sherman–Morrison formula
 * Main Lorentz
 * Bit LCS
+
+del 2d nearest
+del KD tree
+del hash
+fix geometry
+fix SAM, pal tree (comment)
+del KMP
+
+del Hall's theorem
+del lucas
+del monge condition
+fix cactus
+del aliens
+del hilbert curve
+
+fix linear basis
+
+fix BCC
+fix centroid
+
+del steiner tree
+mo's algorithm on tree, leave only comment
+clean DMST
+
+del tree hash
+fix virtual tree
+
+del old fft?
+del gauss elim
