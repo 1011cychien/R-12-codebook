@@ -21,7 +21,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * fix geometry
 * fix SAM, pal tree (comment)
 * fix cactus
-* fix linear basis
 * fix BCC
 * fix centroid
 * del steiner tree
