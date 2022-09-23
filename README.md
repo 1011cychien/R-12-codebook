@@ -28,3 +28,4 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * clean DMST
 * fix virtual tree
 * del old fft?
+* Stable Marriage
