@@ -17,7 +17,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * Yosupo 區間LCS
 * Sherman–Morrison formula
 * Main Lorentz
-* Bit LCS
 * del KD tree
 * fix geometry
 * fix SAM, pal tree (comment)
