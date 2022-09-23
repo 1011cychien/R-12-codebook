@@ -1,11 +1,12 @@
-vector<pair<int, int>> build(vector<int> vs) { // tree 0-base
+vector<pair<int, int>> build(vector<int> vs, int r) {
   vector<pair<int, int>> res;
-  sort(vs.begin(), vs.end(), [](int i, int j) { return dfn[i] < dfn[j]; });
-  vector<int> s = {0};
-  for (int v : vs) if (v != 0) {
-    int o = lca(v, s.back());
-    if (o != s.back()) {
-      while (s.size() >= 2 and dfn[s[s.size() - 2]] >= dfn[o]) {
+  sort(vs.begin(), vs.end(), [](int i, int j) {
+    return dfn[i] < dfn[j]; });
+  vector<int> s = {r};
+  for (int v : vs) if (v != r) {
+    if (int o = lca(v, s.back()); o != s.back()) {
+      while (s.size() >= 2) {
+        if (dfn[s[s.size() - 2]] < dfn[o]) break;
         res.emplace_back(s[s.size() - 2], s.back());
         s.pop_back();
       }
