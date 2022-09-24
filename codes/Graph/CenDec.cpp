@@ -1,73 +1,60 @@
 struct Centroid {
   vector<vector<int64_t>> Dist;
-  vector<int> Parent, Depth;
+  vector<int> Pa, Dep;
   vector<int64_t> Sub, Sub2;
-  vector<int> Sz, Sz2;
-  Centroid(vector<vector<pair<int, int>>> g) {
-    int N = g.size();
-    vector<bool> Vis(N);
-    vector<int> sz(N), mx(N);
-    vector<int> Path;
-    Dist.resize(N);
-    Parent.resize(N);
-    Depth.resize(N);
-    auto DfsSz = [&](auto dfs, int x) -> void {
-      Vis[x] = true; sz[x] = 1; mx[x] = 0;
-      for (auto [u, w] : g[x]) {
-        if (Vis[u]) continue;
-        dfs(dfs, u);
-        sz[x] += sz[u];
-        mx[x] = max(mx[x], sz[u]);
-      }
-      Path.push_back(x);
-    };
-    auto DfsDist = [&](auto dfs, int x, int64_t D = 0)
-      -> void {
-      Dist[x].push_back(D);Vis[x] = true;
-      for (auto [u, w] : g[x]) {
-        if (Vis[u]) continue;
-        dfs(dfs, u, D + w);
-      }
-    };
-    auto Dfs = [&]
-      (auto dfs, int x, int D = 0, int p = -1)->void {
-      Path.clear(); DfsSz(DfsSz, x);
-      int M = Path.size();
-      int C = -1;
-      for (int u : Path) {
-        if (max(M - sz[u], mx[u]) * 2 <= M) C = u;
-        Vis[u] = false;
-      }
-      DfsDist(DfsDist, C);
-      for (int u : Path) Vis[u] = false;
-      Parent[C] = p; Vis[C] = true;
-      Depth[C] = D;
-      for (auto [u, w] : g[C]) {
-        if (Vis[u]) continue;
-        dfs(dfs, u, D + 1, C);
-      }
-    };
-    Dfs(Dfs, 0); Sub.resize(N); Sub2.resize(N);
-    Sz.resize(N); Sz2.resize(N);
+  vector<int> Cnt, Cnt2;
+  vector<int> vis, sz, mx, tmp
+  void DfsSz(int x) {
+    vis[x] = true; sz[x] = 1; mx[x] = 0;
+    for (auto [u, w] : g[x]) {
+      if (vis[u]) continue;
+      DfsSz(u);
+      sz[x] += sz[u];
+      mx[x] = max(mx[x], sz[u]);
+    }
+    tmp.push_back(x);
   }
+  void DfsDist(int x, int64_t D = 0) {
+    Dist[x].push_back(D); vis[x] = true;
+    for (auto [u, w] : g[x])
+      if (not vis[u]) DfsDist(u, D + w);
+  }
+  void DfsCen(int x, int D = 0, int p = -1) {
+    tmp.clear(); DfsSz(x);
+    int M = tmp.size();
+    int C = -1;
+    for (int u : tmp) {
+      if (max(M - sz[u], mx[u]) * 2 <= M) C = u;
+      vis[u] = false;
+    }
+    DfsDist(C);
+    for (int u : tmp) vis[u] = false;
+    Pa[C] = p; vis[C] = true; Dep[C] = D;
+    for (auto [u, w] : g[C])
+      if (not vis[u]) DfsCen(u, D + 1, C);
+  }
+  Centroid(int N, vector<vector<pair<int,int>>> g)
+    : Sub(N), Sub2(N), Cnt(N), Cnt2(N), Dist(N),
+    Pa(N), Dep(N), vis(N), sz(N), mx(N)
+    { DfsCen(0); }
   void Mark(int v) {
     int x = v, z = -1;
-    for (int i = Depth[v]; i >= 0; --i) {
-      Sub[x] += Dist[v][i]; Sz[x]++;
+    for (int i = Dep[v]; i >= 0; --i) {
+      Sub[x] += Dist[v][i]; Cnt[x]++;
       if (z != -1) {
         Sub2[z] += Dist[v][i];
-        Sz2[z]++;
+        Cnt2[z]++;
       }
-      z = x; x = Parent[x];
+      z = x; x = Pa[x];
     }
   }
   int64_t Query(int v) {
     int64_t res = 0;
     int x = v, z = -1;
-    for (int i = Depth[v]; i >= 0; --i) {
-      res += Sub[x] + 1LL * Sz[x] * Dist[v][i];
-      if (z != -1) res-=Sub2[z]+1LL*Sz2[z]*Dist[v][i];
-      z = x; x = Parent[x];
+    for (int i = Dep[v]; i >= 0; --i) {
+      res += Sub[x] + 1LL * Cnt[x] * Dist[v][i];
+      if (z != -1) res-=Sub2[z]+1LL*Cnt2[z]*Dist[v][i];
+      z = x; x = Pa[x];
     }
     return res;
   }
