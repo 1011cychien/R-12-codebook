@@ -1,14 +1,6 @@
+struct Edge { int u, v, w; };
 struct DirectedMST { // find maximum
-  struct Edge {
-    int u, v;
-    int w;
-    Edge(int u, int v, int w) : u(u), v(v), w(w) {}
-  };
-  vector<Edge> Edges;
-  void clear() { Edges.clear(); }
-  void addEdge(int a, int b, int w) { Edges.emplace_back(a, b, w); }
-  int solve(int root, int n) {
-    vector<Edge> E = Edges;
+  int solve(vector<Edge> E, int root, int n) {
     int ans = 0;
     while (true) {
       // find best in edge
@@ -18,11 +10,9 @@ struct DirectedMST { // find maximum
           in[e.v] = e.w;
           prv[e.v] = e.u;
         }
-      in[root] = 0;
-      prv[root] = -1;
+      in[root] = 0; prv[root] = -1;
       for (int i = 0; i < n; i++)
-        if (in[i] == -inf)
-          return -inf;
+        if (in[i] == -inf) return -inf;
       // find cycle
       int tot = 0;
       vector<int> id(n, -1), vis(n, -1);
@@ -38,20 +28,14 @@ struct DirectedMST { // find maximum
           vis[x] = i;
         }
       }
-      if (!tot)
-        return ans;
+      if (!tot) return ans;
       for (int i = 0; i < n; i++)
-        if (id[i] == -1)
-          id[i] = tot++;
-      // shrink
+        if (id[i] == -1) id[i] = tot++;
       for (auto &e : E) {
-        if (id[e.u] != id[e.v])
-          e.w -= in[e.v];
+        if (id[e.u] != id[e.v]) e.w -= in[e.v];
         e.u = id[e.u], e.v = id[e.v];
       }
-      n = tot;
-      root = id[root];
+      n = tot; root = id[root];
     }
-    assert(false);
   }
 } DMST;
