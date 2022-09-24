@@ -19,13 +19,10 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * Main Lorentz
 * del KD tree
 * fix geometry
-* fix SAM, pal tree (comment)
+* fix SAM
 * fix cactus
 * fix BCC
-* fix centroid
-* del steiner tree
 * mo's algorithm on tree, leave only comment
-* clean DMST
 * fix virtual tree
 * del old fft?
 * Stable Marriage
