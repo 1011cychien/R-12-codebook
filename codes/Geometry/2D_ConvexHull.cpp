@@ -1,15 +1,12 @@
-// returns a convex hull in counterclockwise order
-// for a non-strict one, change cross >= to >
-vector<PT> convex_hull(vector<PT> p) {
-  sort(all(p));
-  if (p[0] == p.back()) return {p[0]};
-  int n = p.size(), t = 0;
-  vector<PT> h(n + 1);
-  for (int _ = 2, s = 0; _--; s = --t, reverse(all(p)))
-    for (PT i : p) {
-      while (t > s + 1 && cross(i, h[t-1], h[t-2])>=0)
-        t--;
-      h[t++] = i;
+void make_hull(vector<pll> &dots) { // n=1 => ans = {}
+  sort(dots.begin(), dots.end());
+  vector<pll> ans(1, dots[0]);
+  for (int ct = 0; ct < 2; ++ct, reverse(ALL(dots)))
+    for (int i = 1, t = SZ(ans); i < SZ(dots); i++) {
+      while (SZ(ans) > t && ori(
+          ans[SZ(ans) - 2], ans.back(), dots[i]) <= 0)
+        ans.pop_back();
+      ans.pb(dots[i]);
     }
-  return h.resize(t), h;
+  ans.pop_back(), ans.swap(dots);
 }
