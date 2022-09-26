@@ -22,7 +22,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * fix SAM
 * fix cactus
 * fix BCC
-* fix virtual tree
 * del old fft?
 * Stable Marriage
 * Ray & Segment Intersection

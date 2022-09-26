@@ -11,7 +11,7 @@ vector<pair<int, int>> build(vector<int> vs, int r) {
         s.pop_back();
       }
       if (s.back() != o) {
-        res.emplace_back(s.back(), o);
+        res.emplace_back(o, s.back());
         s.back() = o;
       }
     }
@@ -19,5 +19,5 @@ vector<pair<int, int>> build(vector<int> vs, int r) {
   }
   for (size_t i = 1; i < s.size(); ++i)
     res.emplace_back(s[i - 1], s[i]);
-  return res;
+  return res; // (x, y): x->y
 }
