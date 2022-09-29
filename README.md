@@ -20,7 +20,7 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * del KD tree
 * fix geometry
 * fix SAM
-* fix cactus
-* fix BCC
+<!-- * fix cactus -->
+<!-- * fix BCC -->
 * del old fft?
-* Stable Marriage
+<!-- * Stable Marriage -->
