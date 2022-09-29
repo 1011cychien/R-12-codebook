@@ -1,8 +1,8 @@
-se is nu ru et tgc sc hls cin cino+=j1 sw=4 sts=4 bs=2 mouse=a encoding=utf-8 ls=2
+se is nu ru et tgc sc hls cin cino+=j1 sw=4 sts=4 bs=2 mouse=a "encoding=utf-8 ls=2
 syn on
-colorscheme desert
+colo desert
 filetype indent on
 inoremap {<CR> {<CR>}<ESC>O
-map <F8> <ESC>:w<CR>:!g++ "%" -o "%<" -std=c++17 -DKISEKI -Wall -Wextra -Wshadow -Wfatal-errors -Wconversion -fsanitize=address,undefined -g && echo success<CR>
+map <F8> <ESC>:w<CR>:!g++ "%" -o "%<" -std=c++17 -DCKISEKI -Wall -Wextra -Wshadow -Wfatal-errors -Wconversion -fsanitize=address,undefined -g && echo success<CR>
 map <F9> <ESC>:w<CR>:!g++ "%" -o "%<" -O2 -std=c++17 && echo success<CR>
 map <F10> <ESC>:!./"%<"<CR>
