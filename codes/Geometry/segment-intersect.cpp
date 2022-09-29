@@ -20,8 +20,8 @@ bool isInter(U A, V B) {
       isInter(B, A.st) || isInter(B, A.st+A.dir);
   PT D = B.st - A.st;
   lld C = cross(A.dir, B.dir);
-  return U::valid(cross(D, A.dir), C) &&
-      V::valid(cross(D, B.dir), C);
+  return U::valid(cross(D, B.dir), C) &&
+      V::valid(cross(D, A.dir), C);
 }
 struct Line {
   PT st, ed, dir;
