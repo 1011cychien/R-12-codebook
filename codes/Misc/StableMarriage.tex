@@ -1,15 +1,14 @@
-\begin{lstlisting}
-\textbf{algorithm} stable_matching \textbf{is}
-    Initialize $m \in M$ and $w \in W$ to \textit{free}
-    \textbf{while} $\exists$ \textit{free} man $m$ who has a woman $w$ to propose to \textbf{do}
-        w := first woman on $m$'s list to whom m has not yet proposed
-        \textbf{if} $\exists$ some pair $(m', w)$ \textbf{then}
-            if $w$ prefers $m$ to $m'$ \textbf{then}
-                $m'$ becomes \textit{free}
-                $(m, w)$ become \textit{engaged}
-            \textbf{end if}
-        \textbf{else}
-            $(m, w)$ become engaged
-        \textbf{end if}
-    \textbf{repeat} // wikipedia
-\end{lstlisting}
+\begin{algorithmic}
+Initialize $m \in M$ and $w \in W$ to \textit{free}
+\While{$\exists$ \textit{free} man $m$ who has a woman $w$ to propose to}
+    \State $w \gets$ first woman on $m$'s list to whom $m$ has not yet proposed
+    \If{$\exists$ some pair $(m', w)$}
+        \If{$w$ prefers $m$ to $m'$}
+            \State $m' \gets$ \textit{free}
+            \State $(m, w) \gets$ \textit{engaged}
+        \EndIf
+    \Else
+        \State $(m, w) \gets$ \textit{engaged}
+    \EndIf
+\EndWhile
+\end{algorithmic}
