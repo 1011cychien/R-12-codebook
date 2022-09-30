@@ -3,8 +3,10 @@
 \setlength{\columnsep}{10pt}                                                                    %兩欄模式的間距
 \setlength{\columnseprule}{0pt}                                                                %兩欄模式間格線粗細
 
+\usepackage{algpseudocode}
 \usepackage{amsthm}								%定義，例題
 \usepackage{amssymb}
+\usepackage{amsmath}
 %\usepackage[margin=2cm]{geometry}
 \usepackage{fontspec}								%設定字體
 \usepackage{color}
@@ -16,7 +18,6 @@
 \usepackage{enumerate}
 \usepackage{changepage}
 \usepackage[compact]{titlesec}    %compact mode for reducing margin
-\usepackage{amsmath}
 \usepackage[CheckSingle, CJKmath]{xeCJK}
 \usepackage{hyperref}
 \hypersetup{
@@ -45,8 +46,18 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setmainfont[Path=./fonts/Quicksand/]{Quicksand-Medium}
-\setmonofont[Path=./fonts/RobotoMono/]{RobotoMono-Medium}
+\setmainfont[
+  Path=./fonts/Montserrat/,
+  BoldFont=Montserrat-SemiBold,
+  ItalicFont=Montserrat-MediumItalic,
+  BoldItalicFont=Montserrat-SemiBoldItalic
+]{Montserrat-Medium}
+\setmonofont[
+  Path=./fonts/RobotoMono/,
+  BoldFont=RobotoMono-Bold,
+  ItalicFont=RobotoMono-MediumItalic,
+  BoldItalicFont=RobotoMono-BoldItalic,
+]{RobotoMono-Medium}
 \setCJKmainfont[Path=./fonts/open-huninn-font/]{jf-openhuninn-1.1}           %中文字型
 \XeTeXlinebreaklocale "zh"						%中文自動換行
 \XeTeXlinebreakskip = 0pt plus 0pt				%設定段落之間的距離
@@ -103,10 +114,10 @@ literate={\ \ }{{\ }}1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\newcommand{\includecode}[2]{
-  \subsection{#1}
+\newcommand{\includecode}[3][C++]{
+  \subsection{#2}
   \vspace{-0.8em}
-  \lstinputlisting{#2}
+  \lstinputlisting[language=#1]{#3}
   \vspace{-1.2em}
 }
 
@@ -126,7 +137,7 @@ literate={\ \ }{{\ }}1
 
 \sectiontitle{Basic}
 
-\includecode{vimrc}{../codes/Basic/vimrc}
+\includecode[{}]{vimrc}{../codes/Basic/vimrc}
 \includecode{Debug Macro}{../codes/Basic/debug.cpp}
 \includecode{Increase Stack}{../codes/Basic/IncStack.cpp}
 \includecode{Pragma Optimization}{../codes/Basic/Pragma.cpp}
@@ -178,7 +189,7 @@ literate={\ \ }{{\ }}1
 
 \sectiontitle{Matching \& Flow}
 
-\includecode{Bipartite Matching}{../codes/Matching_and_Flow/BI_Pair.cpp}
+\includecode{Bipartite Matching}{../codes/Matching_and_Flow/Bi_Pair.cpp}
 \includecode{Dijkstra Cost Flow}{../codes/Matching_and_Flow/DijkstraCostFlow.cpp}
 \includecode{Dinic}{../codes/Matching_and_Flow/Dinic.cpp}
 \includecode{Construct VC}{../codes/Matching_and_Flow/GenVertexCover.cpp}
@@ -285,7 +296,7 @@ literate={\ \ }{{\ }}1
 %\includecode{DLX}{../codes/Misc/DLX.cpp}
 \includecode{Tree Knapsack}{../codes/Misc/tree_knapsack.cpp}
 \includecode{N Queens Problem}{../codes/Misc/NQueens.cpp}
-\includecode{Stable Marriage}{../codes/Misc/StableMarriage.cpp}
+\includetex{Stable Marriage}{../codes/Misc/StableMarriage.tex}
 %\includecode{Aliens Optimization}{../codes/Misc/Aliens.cpp}
 %\includecode{Hilbert Curve}{../codes/Misc/Hilbert.cpp}
 \includecode{Binary Search On Fraction}{../codes/Misc/BinarySearchOnFraction.cpp}
