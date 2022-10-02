@@ -4,21 +4,22 @@ using lld = int64_t;
 using llf = long double;
 using PT = std::complex<lld>;
 using PTF = std::complex<llf>;
+using P = PT;
 auto toPTF(PT p) { return PTF{RE(p), IM(p)}; }
 int sgn(lld x) { return (x > 0) - (x < 0); }
-lld dot(PT a, PT b) { return RE(conj(a) * b); }
-lld cross(PT a, PT b) { return IM(conj(a) * b); }
-int ori(PT a, PT b, PT c) {
+lld dot(P a, P b) { return RE(conj(a) * b); }
+lld cross(P a, P b) { return IM(conj(a) * b); }
+int ori(P a, P b, P c) {
   return sgn(cross(b - a, c - a));
 }
-bool operator<(const PT &a, const PT &b) {
+bool operator<(const P &a, const P &b) {
   return RE(a) != RE(b) ? RE(a) < RE(b) : IM(a) < IM(b);
 }
-int quad(PT p) {
+int quad(P p) {
   return (IM(p) == 0) // use sgn for PTF
     ? (RE(p) < 0 ? 3 : 1) : (IM(p) < 0 ? 0 : 2);
 }
-int argCmp(PT a, PT b) {
+int argCmp(P a, P b) {
   // -1 / 0 / 1 <-> < / == / > (atan2)
   int qa = quad(a), qb = quad(b);
   if (qa != qb) return sgn(qa - qb);
@@ -30,7 +31,7 @@ template <typename V> llf area(const V & pt) {
     ret += cross(pt[i] - pt[0], pt[i+1] - pt[0]);
   return ret / 2.0;
 }
-PT rot90(PT p) { return PT{-IM(p), RE(p)}; }
+P rot90(P p) { return P{-IM(p), RE(p)}; }
 PTF project(PTF p, PTF q) { // p onto q
   return dot(p, q) * q / dot(q, q);
 }
