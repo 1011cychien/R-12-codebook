@@ -6,6 +6,7 @@
 //            V = array of vertices for a 2D convex polygon with V[n] = V[0]
 //    Return: index "i" of rightmost tangent point V[i]
 int Rtangent_PointPolyC(PT P, int n, PT *V) {
+  if (n == 1) return 0;
   int a, b, c;
   int upA, dnC;
 
@@ -14,7 +15,7 @@ int Rtangent_PointPolyC(PT P, int n, PT *V) {
 
   for (a = 0, b = n;;) {
     c = (a + b) / 2;
-    dnC = below(P, V[c + 1], V[c]);
+    dnC = not above(P, V[c + 1], V[c]);
     if (dnC && !above(P, V[c - 1], V[c]))
       return c;
 
@@ -47,6 +48,7 @@ int Rtangent_PointPolyC(PT P, int n, PT *V) {
 //            V = array of vertices for a 2D convex polygon with V[n]=V[0]
 //    Return: index "i" of leftmost tangent point V[i]
 int Ltangent_PointPolyC(PT P, int n, PT *V) {
+  if (n == 1) return 0;
   int a, b, c;
   int dnA, dnC;
 
@@ -56,7 +58,7 @@ int Ltangent_PointPolyC(PT P, int n, PT *V) {
   for (a = 0, b = n;;) {
     c = (a + b) / 2;
     dnC = below(P, V[c + 1], V[c]);
-    if (above(P, V[c - 1], V[c]) && !dnC)
+    if (not below(P, V[c - 1], V[c]) && !dnC)
       return c;
     dnA = below(P, V[a + 1], V[a]);
     if (dnA) {
