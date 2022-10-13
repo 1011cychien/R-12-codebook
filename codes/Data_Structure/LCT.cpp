@@ -97,7 +97,7 @@ public:
     return find_root(++u) == find_root(++v); }
   void link(int x, int y) {
     change_root(++x); access(++y);
-    o[y].vir += o[x].sub;
+    o[y].vir = o[y].vir + o[x].sub;
     up(o[x].pa = y);
   }
   void cut(int x, int y) {
