@@ -13,8 +13,7 @@ struct BipartiteMatching {
     return false;
   }
   void init(int n_, int m) {
-    vis.reset();
-    fill(X, X + (n = n_), vector<int>());
+    fill_n(X, n = n_, vector<int>());
     memset(fX, -1, sizeof(int) * n);
     memset(fY, -1, sizeof(int) * m);
   }
