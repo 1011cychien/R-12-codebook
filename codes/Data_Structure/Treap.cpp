@@ -1,10 +1,10 @@
+__gnu_cxx::sfmt19937 rnd(7122);
 namespace Treap{
   #define sz( x ) ( ( x ) ? ( ( x )->size ) : 0 )
   struct node{
-    int size;
-    uint32_t pri;
+    int size; uint32_t pri;
     node *lc, *rc, *pa;
-    node():size(0),pri(rand()),lc(0),rc(0),pa(0){}
+    node():size(0),pri(rnd()),lc(0),rc(0),pa(0){}
     void pull() {
       size = 1; pa = nullptr;
       if ( lc ) { size += lc->size; lc->pa = this; }
