@@ -1,5 +1,5 @@
 bool isprime(llu x) {
-  static auto witn = [](llu a, llu u, llu n, int t) {
+  static auto witn = [](llu a, llu n, int t) {
     if (!a) return false;
     while (t--) {
       llu a2 = mmul(a, a, n);
