@@ -14,7 +14,7 @@ bool isprime(llu x) {
   llu odd = (x - 1) >> t;
   for (llu m:
     {2, 325, 9375, 28178, 450775, 9780504, 1795265022})
-    if (witn(mpow(m % x, odd, x), odd, x, t))
+    if (witn(mpow(m % x, odd, x), x, t))
       return false;
   return true;
 }
