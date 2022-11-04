@@ -1,4 +1,4 @@
-#ifdef KISEKI
+#ifdef CKISEKI
 #define safe cerr<<__PRETTY_FUNCTION__\
     <<" line "<<__LINE__<<" safe\n"
 #define debug(a...) qwerty(#a, a)
