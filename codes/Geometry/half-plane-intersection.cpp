@@ -4,7 +4,6 @@ bool operator<(const Line &lhs, const Line &rhs) {
         return cmp == -1;
     return ori(lhs.st, lhs.ed, rhs.st) < 0;
 }
-
 // intersect function is in "Segment Intersect"
 llf HPI(vector<Line> &lines) {
     sort(lines.begin(), lines.end());
