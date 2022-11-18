@@ -1,5 +1,4 @@
 struct Circle { PTF o; llf r; };
-
 vector<llf> intersectAngle(Circle A, Circle B) {
   PTF dir = B.o - A.o; llf d2 = norm(dir);
   if (norm(A.r - B.r) >= d2) // norm(x) := |x|^2
@@ -12,7 +11,6 @@ vector<llf> intersectAngle(Circle A, Circle B) {
   llf L = FMOD(theta - phi), R = FMOD(theta + phi);
   return { L, R };
 }
-
 vector<PTF> intersectPoint(Circle a, Circle b) {
   llf d = abs(a.o - b.o);
   if (d >= b.r+a.r || d <= abs(b.r-a.r)) return {};
