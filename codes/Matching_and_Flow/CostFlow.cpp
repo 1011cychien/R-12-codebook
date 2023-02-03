@@ -1,71 +1,61 @@
-class MiniCostMaxiFlow{
-  using Cap = int; using Wei = int64_t;
-  using PCW = pair<Cap,Wei>;
-  static constexpr Cap INF_CAP = 1 << 30;
-  static constexpr Wei INF_WEI = 1LL<<60;
+template <typename Cap, typename Wei> class MCMF {
+  static constexpr auto INF_CAP = numeric_limits<Cap>::max();
+  static constexpr auto INF_WEI = numeric_limits<Wei>::max();
+
 private:
-  struct Edge{
-    int to, back;
+  struct E {
+    int to, rev;
     Cap cap; Wei wei;
-    Edge() {}
-    Edge(int a,int b, Cap c, Wei d):
-      to(a),back(b),cap(c),wei(d) {}
+    E() {}
+    E(int a, int b, Cap c, Wei d) : to(a), rev(b), cap(c), wei(d) {}
   };
-  int ori, edd;
-  vector<vector<Edge>> G;
-  vector<int> fa, wh;
-  vector<bool> inq;
-  vector<Wei> dis;
-  PCW SPFA(){
-    fill(inq.begin(),inq.end(),false);
-    fill(dis.begin(),dis.end(),INF_WEI);
-    queue<int> qq; qq.push(ori);
-    dis[ori] = 0;
-    while(not qq.empty()){
-      int u=qq.front();qq.pop();
-      inq[u] = false;
-      for(int i=0;i<SZ(G[u]);++i){
-        Edge e=G[u][i];
-        int v=e.to; Wei d=e.wei;
-        if(e.cap<=0||dis[v]<=dis[u]+d)
+  int S, T;
+  vector<vector<E>> G;
+  vector<pair<int, int>> f;
+  vector<int> inq;
+  vector<Wei> d; vector<Cap> up;
+  optional<pair<Cap, Wei>> SPFA() {
+    queue<int> q;
+    for (q.push(S), d[S] = 0, up[S] = INF_CAP; not q.empty(); q.pop()) {
+      int u = q.front(); inq[u] = false;
+      if (up[u] == 0) continue;
+      for (int i = 0; i < int(G[u].size()); ++i) {
+        auto e = G[u][i]; int v = e.to;
+        if (e.cap <= 0 or d[v] <= d[u] + e.wei)
           continue;
-        dis[v] = dis[u] + d;
-        fa[v] = u, wh[v] = i;
-        if (inq[v]) continue;
-        qq.push(v);
+        d[v] = d[u] + e.wei; f[v] = {u, i};
+        up[v] = min(up[u], e.cap);
+        if (not inq[v]) q.push(v);
         inq[v] = true;
       }
     }
-    if(dis[edd]==INF_WEI) return {-1, -1};
-    Cap mw=INF_CAP;
-    for(int i=edd;i!=ori;i=fa[i])
-      mw=min(mw,G[fa[i]][wh[i]].cap);
-    for (int i=edd;i!=ori;i=fa[i]){
-      auto &eg=G[fa[i]][wh[i]];
-      eg.cap -= mw;
-      G[eg.to][eg.back].cap+=mw;
+    if (d[T] == INF_WEI) return nullopt;
+    for (int i = T; i != S; i = f[i].first) {
+      auto &eg = G[f[i].first][f[i].second];
+      eg.cap -= up[T];
+      G[eg.to][eg.rev].cap += up[T];
     }
-    return {mw, dis[edd]};
+    return pair{up[T], d[T]};
   }
+
 public:
-  void init(int n){
-    G.clear();G.resize(n);
-    fa.resize(n);wh.resize(n);
-    inq.resize(n); dis.resize(n);
+  void init(int n) {
+    G.assign(n, vector<E>());
+    f.resize(n), up.resize(n);
+    inq.assign(n, false), d.assign(n, INF_WEI);
   }
-  void add_edge(int st, int ed, Cap c, Wei w){
-    G[st].emplace_back(ed,SZ(G[ed]),c,w);
-    G[ed].emplace_back(st,SZ(G[st])-1,0,-w);
+  void add_edge(int s, int t, Cap c, Wei w) {
+    G[s].emplace_back(t, int(G[t].size()), c, w);
+    G[t].emplace_back(s, int(G[s].size()) - 1, 0, -w);
   }
-  PCW solve(int a, int b){
-    ori = a, edd = b;
-    Cap cc=0; Wei ww=0;
-    while(true){
-      PCW ret=SPFA();
-      if(ret.first==-1) break;
-      cc+=ret.first;
-      ww+=ret.first * ret.second;
+  pair<Cap, Wei> solve(int a, int b) {
+    S = a, T = b;
+    Cap c = 0; Wei w = 0;
+    while (auto r = SPFA()) {
+      c += r->first, w += r->first * r->second;
+      fill(inq.begin(), inq.end(), false);
+      fill(d.begin(), d.end(), INF_WEI);
     }
-    return {cc,ww};
+    return {c, w};
   }
-} mcmf;
+};
