@@ -14,10 +14,9 @@ struct S {
 };
 int get_root(int n, int P) {
 	if (P == 2 or n == 0) return n;
-	if (qpow(n, (P - 1) / 2, P) != 1) return -1;
-	auto check = [&](int x) {
+  auto check = [&](int x) {
 		return qpow(x, (P - 1) / 2, P); };
-	if (check(n) == P-1) return -1;
+	if (check(n) != 1) return -1;
 	int64_t a; int w; mt19937 rnd(7122);
 	do { a = rnd() % P;
 		w = ((a * a - n) % P + P) % P;
