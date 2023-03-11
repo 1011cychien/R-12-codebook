@@ -89,6 +89,23 @@ template <int mod, int G, int maxn> struct Poly : V {
     int x0 = X[0];
     return X.imul(modinv(x0)).Ln().imul(nk).Exp().imul(modpow(x0, nk2)).irev().isz(size()).irev();
   }
+  V Eval(V x) const {
+    if (x.empty()) return {};
+    const size_t n = max(x.size(), size());
+    vector<Poly> t(n * 2, V{1, 0}), f(n * 2);
+    for (size_t i = 0; i < x.size(); ++i)
+      t[n + i] = V{1, mod-x[i]};
+    for (size_t i = n - 1; i > 0; --i)
+      t[i] = t[i * 2].Mul(t[i * 2 + 1]);
+    f[1] = Poly(*this, n).irev().Mul(t[1].Inv()).isz(n).irev();
+    for (size_t i = 1; i < n; ++i) {
+      auto o = f[i]; auto sz = o.size();
+      f[i*2] = o.irev().Mul(t[i*2+1]).isz(sz).irev().isz(t[i*2].size());
+      f[i*2+1] = o.Mul(t[i*2]).isz(sz).irev().isz(t[i*2+1].size());
+    }
+    for (size_t i=0;i<x.size();++i) x[i] = f[n+i][0];
+    return x;
+  }
 
   static int LinearRecursion(const V &a, const V &c, int64_t n) { // a_n = \sum c_j a_(n-j)
     const int k = (int)a.size();
