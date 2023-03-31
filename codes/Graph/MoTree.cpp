@@ -47,7 +47,7 @@ dfs u:
   push u
   iterate subtree
   push u
-Let P = LCA(u, v), and St(u)<=St(v)
-if (P == u) query[St(u), St(v)]
+Let P = LCA(u, v), and St(u)<=St(v)
+if (P == u) query[St(u), St(v)]
 else query[Ed(u), St(v)], query[St(P), St(P)]
 */
