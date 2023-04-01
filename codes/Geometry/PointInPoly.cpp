@@ -4,7 +4,7 @@ class InPoly {
 public:
   enum Result { IN, ON, OUT };
   InPoly(vector<P> pts) : v(pts.size() - 1) { // must in counter-clockwise order
-    rotate(pts.begin(), min_element(pts.begin(), pts.end(), cmp), pts.end());
+    rotate(pts.begin(), min_element(pts.begin(), pts.end()), pts.end());
     o = pts[0];
     for (size_t i = 1; i < pts.size(); i++)
       v[i - 1] = pts[i] - pts[0];
