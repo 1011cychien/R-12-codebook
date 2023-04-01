@@ -12,9 +12,10 @@ lld cross(P a, P b) { return IM(conj(a) * b); }
 int ori(P a, P b, P c) {
   return sgn(cross(b - a, c - a));
 }
+namespace std {
 bool operator<(const P &a, const P &b) {
   return RE(a) != RE(b) ? RE(a) < RE(b) : IM(a) < IM(b);
-}
+} } // namespace std
 int quad(P p) {
   return (IM(p) == 0) // use sgn for PTF
     ? (RE(p) < 0 ? 3 : 1) : (IM(p) < 0 ? 0 : 2);
