@@ -11,16 +11,10 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 
 * 郵局設置問題無限大extreme
 * segment tree beats
-<!-- * 圓掃描線 -->
 * Simplex
 * 回文自動機
-<!-- * Yosupo 區間LCS -->
-<!-- * Sherman–Morrison formula -->
-<!-- * Main Lorentz -->
 * del KD tree
 * fix geometry
 * fix SAM
-<!-- * fix cactus -->
-<!-- * fix BCC -->
 * del old fft?
-<!-- * Stable Marriage -->
+* [fast DMST](https://github.com/yosupo06/library-checker-problems/blob/master/graph/directedmst/sol/correct.cpp)
