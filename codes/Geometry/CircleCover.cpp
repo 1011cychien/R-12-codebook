@@ -1,5 +1,5 @@
 #define eb emplace_back
-struct CircleCover { // tested on SPOJ 0.56s N=1000
+struct CircleCover { // test@SPOJ N=1000, 0.3~0.5s
   struct Teve {
     PTF p; llf ang; int add;
     Teve() {}
@@ -16,7 +16,7 @@ struct CircleCover { // tested on SPOJ 0.56s N=1000
     // area[i] : area covered by at least i circles
     int N = c.size(); vector<llf> area(N + 1);
     vector<vector<int>> overlap(N, vector<int>(N));
-    auto g = overlap;
+    auto g = overlap; // use simple 2darray to speedup
     for (int i = 0; i < N; ++i)
       for (int j = 0; j < N; ++j) {
         /* c[j] is non-strictly in c[i]. */
