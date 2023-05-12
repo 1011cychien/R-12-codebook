@@ -122,12 +122,15 @@ literate={\ \ }{{\ }}1
 }
 
 \newcommand{\includecodewithhash}[3][C++]{
-    \includecode[#1]{#2
+    \subsection[#2] {#2
         \mbox{}\hfill
+        \immediate\write18{rm -f /tmp/hash.tmp.txt}
         \immediate\write18{./hash.sh "#3"}
-        \immediate\protect\input{hash.tmp.txt}
-        % \immediate\write18{rm -f ./hash.tmp.txt}
-    }{#3}
+        \immediate\protect\input{/tmp/hash.tmp.txt}
+    }
+    \vspace{-0.8em}
+    \lstinputlisting[language=#1]{#3}
+    \vspace{-1.2em}
 }
 
 \newcommand{\includetex}[2]{
