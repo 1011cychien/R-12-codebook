@@ -10,8 +10,8 @@ void debug_(const char *s, T ...a) {
     int cnt = sizeof...(T);
     (..., (cerr << a << (--cnt ? ", " : ")\e[0m\n")));
 }
-template <typename Iter>
-void orange_(const char *s, Iter L, Iter R) {
+template <typename I>
+void orange_(const char *s, I L, I R) {
     cerr << "\e[1;32m[ " << s << " ] = [ ";
     for (int f = 0; L != R; ++L)
         cerr << (f++ ? ", " : "") << *L;
