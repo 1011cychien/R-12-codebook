@@ -121,6 +121,15 @@ literate={\ \ }{{\ }}1
   \vspace{-1.2em}
 }
 
+\newcommand{\includecodewithhash}[3][C++]{
+    \includecode[#1]{#2
+        \mbox{}\hfill
+        \immediate\write18{./hash.sh "#3"}
+        \immediate\protect\input{hash.tmp.txt}
+        % \immediate\write18{rm -f ./hash.tmp.txt}
+    }{#3}
+}
+
 \newcommand{\includetex}[2]{
   \subsection{#1}
   \input{#2}
@@ -166,7 +175,7 @@ literate={\ \ }{{\ }}1
 \sectiontitle{Graph}
 
 % \includecode{Euler Circuit}{../codes/Graph/EulerCircuit.cpp}
-\includecode{2-SAT (SCC)}{../codes/Graph/2SAT.cpp}
+\includecodewithhash{2-SAT (SCC)}{../codes/Graph/2SAT.cpp}
 %\includecode{BCC Edge}{../codes/Graph/BCC_Edge.cpp}
 %\includecode{BCC Vertex}{../codes/Graph/BCC_Vertex.cpp}
 \includecode{BCC}{../codes/Graph/BCC.cpp}
@@ -191,7 +200,8 @@ literate={\ \ }{{\ }}1
 
 \includecode{Bipartite Matching}{../codes/Matching_and_Flow/Bi_Pair.cpp}
 \includecode{Dijkstra Cost Flow}{../codes/Matching_and_Flow/DijkstraCostFlow.cpp}
-\includecode{Dinic}{../codes/Matching_and_Flow/Dinic.cpp}
+\includecodewithhash{Dinic}{../codes/Matching_and_Flow/Dinic.cpp}
+
 %\includecode{Construct VC}{../codes/Matching_and_Flow/GenVertexCover.cpp}
 \includetex{Flow Models}{../codes/Matching_and_Flow/FlowModels.tex}
 \includecode{General Graph Matching}{../codes/Matching_and_Flow/GeneralMatching.cpp}
@@ -218,11 +228,11 @@ literate={\ \ }{{\ }}1
 \includetex{Extended Euler}{../codes/Math/ExtendedEuler.tex}
 \includetex{ExtendedFloorSum}{../codes/Math/ExtendedFloorSum.tex}
 \includecode{Fast Fourier Transform}{../codes/Math/FFT.cpp}
-\includecode{FloorSum}{../codes/Math/FloorSum.cpp}
+\includecodewithhash{FloorSum}{../codes/Math/FloorSum.cpp}
 \includecode{FWT}{../codes/Math/FWT.cpp}
 %\includecode{Gauss Elimination}{../codes/Math/GaussElimination.cpp}
-\includecode{Miller Rabin}{../codes/Math/miller_rabin.cpp}
-\includecode{NTT}{../codes/Math/NTT.cpp}
+\includecodewithhash{Miller Rabin}{../codes/Math/miller_rabin.cpp}
+\includecodewithhash{NTT}{../codes/Math/NTT.cpp}
 % \includecode{Range Sieve}{../codes/Math/RangeSieve.cpp}
 \includecode{Partition Number}{../codes/Math/PartitionNumber.cpp}
 \includecode{Pi Count (Linear Sieve)}{../codes/Math/MeisselLehmer.cpp}
@@ -235,7 +245,7 @@ literate={\ \ }{{\ }}1
 % \subsection{Polynomial Division}
 % \lstinputlisting{../codes/Math/PolyDiv.cpp}
 \includecode{Quadratic residue}{../codes/Math/QuadraticResidue.cpp}
-\includecode{Simplex}{../codes/Math/simplex.cpp}
+\includecodewithhash{Simplex}{../codes/Math/simplex.cpp}
 \includetex{Simplex Construction}{../codes/Math/SimplexConstruction.tex}
 
 
@@ -245,7 +255,7 @@ literate={\ \ }{{\ }}1
 %\lstinputlisting{../codes/Geometry/point_class.cpp}
 \includecode{Basic Geometry}{../codes/Geometry/basic-geometry.cpp}
 \includecode{Segment \& Line Intersection}{../codes/Geometry/segment-intersect.cpp}
-\includecode{2D Convex Hull}{../codes/Geometry/2D_ConvexHull.cpp}
+\includecodewithhash{2D Convex Hull}{../codes/Geometry/2D_ConvexHull.cpp}
 \includecode{3D Convex Hull}{../codes/Geometry/3D_ConvexHull.cpp}
 \includecode{2D Farthest Pair}{../codes/Geometry/2D_FarthestPair.cpp}
 %\includecode{2D Closest Pair}{../codes/Geometry/2D_ClosestPair.cpp}
@@ -271,7 +281,7 @@ literate={\ \ }{{\ }}1
 \sectiontitle{Stringology}
 
 \includecode{Hash}{../codes/String/Hash.cpp}
-\includecode{Suffix Array}{../codes/String/Suffix_Array.cpp}
+\includecodewithhash{Suffix Array}{../codes/String/Suffix_Array.cpp}
 % \includecode{Aho-Corasick Algorithm}{../codes/String/Aho_Corasick.cpp}
 \includecode{Suffix Automaton}{../codes/String/SAM.cpp}
 % \includecode{KMP}{../codes/String/KMP.cpp}
@@ -291,7 +301,7 @@ literate={\ \ }{{\ }}1
 \includecode{Bitset LCS}{../codes/Misc/BitsetLCS.cpp}
 \includecode{Prefix Substring LCS}{../codes/Misc/PrefixSubstringLCS.cpp}
 \includecode{Convex 1D/1D DP}{../codes/Misc/Convex1D1D.cpp}
-\includecode{ConvexHull Optimization}{../codes/Misc/SlopeDP.cpp}
+\includecodewithhash{ConvexHull Optimization}{../codes/Misc/SlopeDP.cpp}
 \includecode{Josephus Problem}{../codes/Misc/Josephus.cpp}
 % \includecode{Cactus Matching}{../codes/Misc/CactusMatching.cpp}
 %\includecode{DLX}{../codes/Misc/DLX.cpp}
