@@ -1,5 +1,4 @@
-template <int mod, int G, int maxn>
-struct NTT {
+template <int mod, int G, int maxn> struct NTT {
   static_assert (maxn == (maxn & -maxn));
   int roots[maxn];
   NTT () {
@@ -35,4 +34,3 @@ struct NTT {
     }
   }
 };
-NTT<2013265921, 31, 1048576> ntt;
