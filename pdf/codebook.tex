@@ -113,6 +113,25 @@ literate={\ \ }{{\ }}1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\lstdefinelanguage{vim}
+{
+  % list of keywords
+  morekeywords={
+  set, se,
+  colo, syn,
+  let,
+  map, nmap, inoremap,
+  filetype,
+  indent,
+  on, off,
+  autocmd,
+  Plugin,
+  call,
+   },
+morecomment=[l]{"}, % l is for line comment
+morestring=[b]' % defines that strings are enclosed in double quotes
+}
+
 
 \newcommand{\includecode}[3][C++]{
   \subsection{#2}
@@ -123,10 +142,9 @@ literate={\ \ }{{\ }}1
 
 \newcommand{\includecodewithhash}[3][C++]{
     \subsection[#2] {#2
-        \mbox{}\hfill
         \immediate\write18{rm -f /tmp/hash.tmp.txt}
         \immediate\write18{./hash.sh "#3"}
-        \immediate\protect\input{/tmp/hash.tmp.txt}
+        [ \immediate\protect\input{/tmp/hash.tmp.txt}]
     }
     \vspace{-0.8em}
     \lstinputlisting[language=#1]{#3}
@@ -149,8 +167,8 @@ literate={\ \ }{{\ }}1
 
 \sectiontitle{Basic}
 
-\includecode[{}]{vimrc}{../codes/Basic/vimrc}
-\includecode{Debug Macro}{../codes/Basic/debug.cpp}
+\includecode[vim]{vimrc}{../codes/Basic/vimrc}
+\includecodewithhash{Debug Macro}{../codes/Basic/debug.cpp}
 \includecode{Increase Stack}{../codes/Basic/IncStack.cpp}
 \includecode{Pragma Optimization}{../codes/Basic/Pragma.cpp}
 % \subsection{Debugger}
@@ -169,7 +187,7 @@ literate={\ \ }{{\ }}1
 % \includecode{Disjoint Set}{../codes/Data_Structure/DisjointSet.cpp}
 \includecodewithhash{Link-Cut Tree}{../codes/Data_Structure/LCT.cpp}
 \includecodewithhash{LiChao Segment Tree}{../codes/Data_Structure/LiChao.cpp}
-\includecode{Treap}{../codes/Data_Structure/Treap.cpp}
+\includecodewithhash{Treap}{../codes/Data_Structure/Treap.cpp}
 %\includecode{Sparse Table}{../codes/Data_Structure/SparseTable.cpp}
 \includecode{Linear Basis}{../codes/Data_Structure/LinearBasis.cpp}
 \includecode{Binary Search On Segment Tree}{../codes/Data_Structure/binary_search_on_segtree.cpp}
@@ -183,7 +201,7 @@ literate={\ \ }{{\ }}1
 %\includecode{BCC Vertex}{../codes/Graph/BCC_Vertex.cpp}
 \includecodewithhash{BCC}{../codes/Graph/BCC.cpp}
 \includecodewithhash{Round Square Tree}{../codes/Graph/RoundSquareTree.cpp}
-\includecode{Centroid Decomposition}{../codes/Graph/CenDec.cpp}
+\includecodewithhash{Centroid Decomposition}{../codes/Graph/CenDec.cpp}
 \includecode{Directed Minimum Spanning Tree}{../codes/Graph/DirectedMST.cpp}
 \includecodewithhash{Dominator Tree}{../codes/Graph/DominatorTree.cpp}
 \includecode{Edge Coloring}{../codes/Graph/Misra.cpp}
@@ -201,8 +219,8 @@ literate={\ \ }{{\ }}1
 
 \sectiontitle{Matching \& Flow}
 
-\includecode{Bipartite Matching}{../codes/Matching_and_Flow/Bi_Pair.cpp}
-\includecode{Dijkstra Cost Flow}{../codes/Matching_and_Flow/DijkstraCostFlow.cpp}
+\includecodewithhash{Bipartite Matching}{../codes/Matching_and_Flow/Bi_Pair.cpp}
+\includecodewithhash{Dijkstra Cost Flow}{../codes/Matching_and_Flow/DijkstraCostFlow.cpp}
 \includecodewithhash{Dinic}{../codes/Matching_and_Flow/Dinic.cpp}
 
 %\includecode{Construct VC}{../codes/Matching_and_Flow/GenVertexCover.cpp}
@@ -211,8 +229,8 @@ literate={\ \ }{{\ }}1
 \includecode{Global Min-Cut}{../codes/Matching_and_Flow/SW.cpp}
 \includecode{GomoryHu Tree}{../codes/Matching_and_Flow/GomoryHu.cpp}
 \includecodewithhash{Kuhn Munkres}{../codes/Matching_and_Flow/KM.cpp}
-\includecode{Minimum Cost Circulation}{../codes/Matching_and_Flow/MinCostCirculation.cpp}
-\includecode{Minimum Cost Maximum Flow}{../codes/Matching_and_Flow/CostFlow.cpp}
+\includecodewithhash{Minimum Cost Circulation}{../codes/Matching_and_Flow/MinCostCirculation.cpp}
+\includecodewithhash{Minimum Cost Maximum Flow}{../codes/Matching_and_Flow/CostFlow.cpp}
 \includecodewithhash{Maximum Weight Graph Matching}{../codes/Matching_and_Flow/WeightedGeneralMatching.cpp}
 
 \sectiontitle{Math}
@@ -261,7 +279,7 @@ literate={\ \ }{{\ }}1
 \includecodewithhash{Segment \& Line Intersection}{../codes/Geometry/segment-intersect.cpp}
 \includecodewithhash{2D Convex Hull}{../codes/Geometry/2D_ConvexHull.cpp}
 \includecodewithhash{3D Convex Hull}{../codes/Geometry/3D_ConvexHull.cpp}
-\includecode{2D Farthest Pair}{../codes/Geometry/2D_FarthestPair.cpp}
+\includecodewithhash{2D Farthest Pair}{../codes/Geometry/2D_FarthestPair.cpp}
 %\includecode{2D Closest Pair}{../codes/Geometry/2D_ClosestPair.cpp}
 \includecode{kD Closest Pair (3D ver.)}{../codes/Geometry/kdClosestPair.cpp}
 \includecode{Simulated Annealing}{../codes/Geometry/SimulateAnnealing.cpp}
@@ -291,7 +309,7 @@ literate={\ \ }{{\ }}1
 % \includecode{KMP}{../codes/String/KMP.cpp}
 \includecodewithhash{Z value}{../codes/String/Z_Value.cpp}
 \includecodewithhash{Manacher}{../codes/String/Manacher.cpp}
-\includecode{Lexico Smallest Rotation}{../codes/String/smallest_rotation.cpp}
+\includecodewithhash{Lexico Smallest Rotation}{../codes/String/smallest_rotation.cpp}
 \includecode{Main Lorentz}{../codes/String/MainLorentz.cpp}
 \includecode{BWT}{../codes/String/BWT.cpp}
 \includecode{Palindromic Tree}{../codes/String/palindromic_tree.cpp}
@@ -314,7 +332,7 @@ literate={\ \ }{{\ }}1
 \includetex{Stable Marriage}{../codes/Misc/StableMarriage.tex}
 %\includecode{Aliens Optimization}{../codes/Misc/Aliens.cpp}
 %\includecode{Hilbert Curve}{../codes/Misc/Hilbert.cpp}
-\includecode{Binary Search On Fraction}{../codes/Misc/BinarySearchOnFraction.cpp}
+\includecodewithhash{Binary Search On Fraction}{../codes/Misc/BinarySearchOnFraction.cpp}
 %\includetex{To Check When Submit}{../codes/Misc/tocheck.tex}
 
 
