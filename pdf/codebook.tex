@@ -142,9 +142,9 @@ morestring=[b]' % defines that strings are enclosed in double quotes
 
 \newcommand{\includecodewithhash}[3][C++]{
     \subsection[#2] {#2
-        \immediate\write18{rm -f /tmp/hash."#3".txt}
+        \immediate\write18{rm -f /tmp/hash.tmp.txt}
         \immediate\write18{./hash.sh "#3"}
-        [ \immediate\protect\input{/tmp/hash."#3".txt}]
+        [ \immediate\protect\input{/tmp/hash.tmp.txt}]
     }
     \vspace{-0.8em}
     \lstinputlisting[language=#1]{#3}
