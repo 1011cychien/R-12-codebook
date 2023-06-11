@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up cpp (preprocessor)
-        runs:
+        run: |
           apt-get update && apt-get install cpp
       - name: Checkout code
         uses: actions/checkout@v3
