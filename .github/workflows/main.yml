@@ -20,11 +20,9 @@ jobs:
     name: build and commit
     runs-on: ubuntu-latest
     steps:
-      - name: Set up GCC
-        uses: egor-tensin/setup-gcc@v1
-        with:
-          version: latest
-          platform: x64
+      - name: Set up cpp (preprocessor)
+        runs:
+          apt-get update && apt-get install cpp
       - name: Checkout code
         uses: actions/checkout@v3
         with:
