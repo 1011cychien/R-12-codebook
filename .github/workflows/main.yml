@@ -20,20 +20,15 @@ jobs:
     name: build and commit
     runs-on: ubuntu-latest
     steps:
-      - name: Set up cpp (preprocessor)
-        run: |
-          sudo apt-get install -y cpp
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
+      - name: Install dependencies
+          sudo apt-get install -y texlive-full gcc
       - name: Build PDF
-        uses: xu-cheng/latex-action@v2
-        with:
-          working_directory: pdf/
-          root_file: codebook.tex
-          latexmk_use_xelatex: true
-          latexmk_shell_escape: true
+        run: |
+          cd pdf/ && latexmk --xelatex --shell-escape codebook.tex
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: auto build codebook - ${{ github.sha }}
