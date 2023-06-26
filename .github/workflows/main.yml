@@ -25,6 +25,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Install dependencies
+        run: |
           sudo apt-get install -y texlive-full gcc
       - name: Build PDF
         run: |
