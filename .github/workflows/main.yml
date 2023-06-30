@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-full gcc
+          sudo apt-get install -y cpp latexmk texlive-lang-chinese texlive-science texlive-xetex
       - name: Build PDF
         run: |
           cd pdf/ && latexmk --xelatex --shell-escape codebook.tex
