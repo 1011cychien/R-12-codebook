@@ -19,6 +19,6 @@ void orange_(const char *s, I L, I R) {
 }
 #else
 #define safe ((void)0)
-#define debug(...) ((void)0)
-#define orange(...) ((void)0)
+#define debug(...) safe
+#define orange(...) safe
 #endif
