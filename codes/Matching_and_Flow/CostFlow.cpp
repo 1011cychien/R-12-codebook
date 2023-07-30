@@ -1,60 +1,55 @@
-template <typename Cap, typename Wei> class MCMF {
-  static constexpr auto INF_CAP = numeric_limits<Cap>::max();
-  static constexpr auto INF_WEI = numeric_limits<Wei>::max();
+template <typename F, typename C> class MCMF {
+  static constexpr F INF_F = numeric_limits<F>::max();
+  static constexpr C INF_C = numeric_limits<C>::max();
 
-private:
   struct E {
-    int to, rev;
-    Cap cap; Wei wei;
+    int to, r;
+    F f; C c;
     E() {}
-    E(int a, int b, Cap c, Wei d) : to(a), rev(b), cap(c), wei(d) {}
+    E(int a, int b, F x, C y)
+      : to(a), r(b), f(x), c(y) {}
   };
-  int S, T;
-  vector<vector<E>> G;
+  vector<vector<E>> g;
   vector<pair<int, int>> f;
-  vector<int> inq;
-  vector<Wei> d; vector<Cap> up;
-  optional<pair<Cap, Wei>> SPFA() {
+  vector<bool> inq;
+  vector<F> up; vector<C> d;
+  optional<pair<F, C>> step(int S, int T) {
     queue<int> q;
-    for (q.push(S), d[S] = 0, up[S] = INF_CAP; not q.empty(); q.pop()) {
+    for (q.push(S), d[S] = 0, up[S] = INF_F;
+        not q.empty(); q.pop()) {
       int u = q.front(); inq[u] = false;
       if (up[u] == 0) continue;
-      for (int i = 0; i < int(G[u].size()); ++i) {
-        auto e = G[u][i]; int v = e.to;
-        if (e.cap <= 0 or d[v] <= d[u] + e.wei)
+      for (int i = 0; i < int(g[u].size()); ++i) {
+        auto e = g[u][i]; int v = e.to;
+        if (e.f <= 0 or d[v] <= d[u] + e.c)
           continue;
-        d[v] = d[u] + e.wei; f[v] = {u, i};
-        up[v] = min(up[u], e.cap);
+        d[v] = d[u] + e.c; f[v] = {u, i};
+        up[v] = min(up[u], e.f);
         if (not inq[v]) q.push(v);
         inq[v] = true;
       }
     }
-    if (d[T] == INF_WEI) return nullopt;
+    if (d[T] == INF_C) return nullopt;
     for (int i = T; i != S; i = f[i].first) {
-      auto &eg = G[f[i].first][f[i].second];
-      eg.cap -= up[T];
-      G[eg.to][eg.rev].cap += up[T];
+      auto &eg = g[f[i].first][f[i].second];
+      eg.f -= up[T];
+      g[eg.to][eg.r].f += up[T];
     }
     return pair{up[T], d[T]};
   }
 
 public:
-  void init(int n) {
-    G.assign(n, vector<E>());
-    f.resize(n), up.resize(n);
-    inq.assign(n, false), d.assign(n, INF_WEI);
+  MCMF(int n) : g(n),f(n),inq(n),up(n),d(n,INF_C) {}
+  void add_edge(int s, int t, F c, C w) {
+    g[s].emplace_back(t, int(g[t].size()), c, w);
+    g[t].emplace_back(s, int(g[s].size()) - 1, 0, -w);
   }
-  void add_edge(int s, int t, Cap c, Wei w) {
-    G[s].emplace_back(t, int(G[t].size()), c, w);
-    G[t].emplace_back(s, int(G[s].size()) - 1, 0, -w);
-  }
-  pair<Cap, Wei> solve(int a, int b) {
-    S = a, T = b;
-    Cap c = 0; Wei w = 0;
-    while (auto r = SPFA()) {
+  pair<F, C> solve(int a, int b) {
+    F c = 0; C w = 0;
+    while (auto r = step(a, b)) {
       c += r->first, w += r->first * r->second;
       fill(inq.begin(), inq.end(), false);
-      fill(d.begin(), d.end(), INF_WEI);
+      fill(d.begin(), d.end(), INF_C);
     }
     return {c, w};
   }
