@@ -1,9 +1,7 @@
 #ifdef CKISEKI
-#define safe cerr<<__PRETTY_FUNCTION__\
-    <<" line "<<__LINE__<<" safe\n"
+#define safe cerr<<__PRETTY_FUNCTION__<<" line "<<__LINE__<<" safe\n"
 #define debug(a...) debug_(#a, a)
 #define orange(a...) orange_(#a, a)
-using std::cerr;
 template <typename ...T>
 void debug_(const char *s, T ...a) {
     cerr << "\e[1;32m(" << s << ") = (";
