@@ -2,7 +2,6 @@
 struct CircleCover { // test@SPOJ N=1000, 0.3~0.5s
   struct Teve {
     PTF p; llf ang; int add;
-    Teve() {}
     Teve(PTF a, llf b, int c) : p(a), ang(b), add(c) {}
     bool operator<(const Teve &a)
       const { return ang < a.ang; }

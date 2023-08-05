@@ -1,14 +1,10 @@
 // return the faces with pt indexes
-struct P3{
-  lld x,y,z;
+struct P3 { lld x,y,z;
   P3 operator * (const P3 &b) const {
     return(P3){y*b.z-b.y*z,z*b.x-b.z*x,x*b.y-b.x*y};
-  }
-};
-struct Face {
-  int a, b, c;
-  Face(int ta,int tb,int tc):a(ta),b(tb),c(tc){}
-};
+  } };
+struct Face { int a, b, c;
+  Face(int ta,int tb,int tc):a(ta),b(tb),c(tc){} };
 P3 ver(P3 a, P3 b, P3 c) { return (b - a) * (c - a); }
 // plz ensure that first 4 points are not coplanar
 // all points coplanar case will WA
