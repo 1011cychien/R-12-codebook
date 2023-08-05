@@ -13,8 +13,17 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * segment tree beats
 * Simplex
 * 回文自動機
-* del KD tree
-* fix geometry
 * fix SAM
 * del old fft?
+* subset convolution
+* bounded flow?
+* Fix all geometry
+    * fix our 2d convex hull?
+    * triangle hearts?
+    * MinMaxEnclosing Rectangle
+
+    * adaptive simpson?
+
+## might be done
 * [fast DMST](https://github.com/yosupo06/library-checker-problems/blob/master/graph/directedmst/sol/correct.cpp)
+* del KD tree
