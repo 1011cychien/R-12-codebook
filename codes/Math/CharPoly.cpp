@@ -1,46 +1,39 @@
-vector<vector<int>> Hessenberg(const vector<vector<int>> &A) {
-  int N = A.size();
-  vector<vector<int>> H = A;
+#define rep(x, y, z) for (int x=y; x<z; x++)
+using VI = vector<int>; using VVI = vector<VI>;
+VVI Hessenberg(VVI H) { // test: 2021 PTZ korea K
+  int N = H.size();
   for (int i = 0; i < N - 2; ++i) {
     if (!H[i + 1][i]) {
       for (int j = i + 2; j < N; ++j) {
         if (H[j][i]) {
-          for (int k = i; k < N; ++k) swap(H[i + 1][k], H[j][k]);
-          for (int k = 0; k < N; ++k) swap(H[k][i + 1], H[k][j]);
+          rep(k, i, N) swap(H[i+1][k], H[j][k]);
+          rep(k, 0, N) swap(H[k][i+1], H[k][j]);
           break;
         }
       }
     }
     if (!H[i + 1][i]) continue;
-    int val = fpow(H[i + 1][i], kP - 2);
+    int val = modinv(H[i + 1][i]);
     for (int j = i + 2; j < N; ++j) {
-      int coef = 1LL * val * H[j][i] % kP;
-      for (int k = i; k < N; ++k) H[j][k] = (H[j][k] + 1LL * H[i + 1][k] * (kP - coef)) % kP;
-      for (int k = 0; k < N; ++k) H[k][i + 1] = (H[k][i + 1] + 1LL * H[k][j] * coef) % kP;
+      int co = mul(val, H[j][i]);
+      rep(k, i, N) subeq(H[j][k], mul(H[i+1][k], co));
+      rep(k, 0, N) addeq(H[k][i+1], mul(H[k][j], co));
     }
   }
   return H;
 }
-vector<int> CharacteristicPoly(const vector<vector<int>> &A) {
-  int N = A.size();
-  auto H = Hessenberg(A);
-  for (int i = 0; i < N; ++i) {
-    for (int j = 0; j < N; ++j) H[i][j] = kP - H[i][j];
-  }
-  vector<vector<int>> P(N + 1, vector<int>(N + 1));
-  P[0][0] = 1;
+VI CharacteristicPoly(const VVI &A) {
+  int N = A.size(); auto H = Hessenberg(A);
+  VVI P(N + 1, VI(N + 1)); P[0][0] = 1;
   for (int i = 1; i <= N; ++i) {
     P[i][0] = 0;
-    for (int j = 1; j <= i; ++j) P[i][j] = P[i - 1][j - 1];
-    int val = 1;
-    for (int j = i - 1; j >= 0; --j) {
-      int coef = 1LL * val * H[j][i - 1] % kP;
-      for (int k = 0; k <= j; ++k) P[i][k] = (P[i][k] + 1LL * P[j][k] * coef) % kP;
-      if (j) val = 1LL * val * (kP - H[j][j - 1]) % kP;
+    for (int j = 1; j <= i; ++j) P[i][j] = P[i-1][j-1];
+    for (int j = i - 1, val = 1; j >= 0; --j) {
+      int co = mul(val, H[j][i - 1]);
+      rep(k, 0, j+1) subeq(P[i][k], mul(P[j][k], co));
+      if (j) val = mul(val, H[j][j - 1]);
     }
   }
-  if (N & 1) {
-    for (int i = 0; i <= N; ++i) P[N][i] = kP - P[N][i];
-  }
+  if (N & 1) for (int &pi: P[N]) pi = sub(0, pi);
   return P[N];
 }
