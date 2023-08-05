@@ -2,7 +2,7 @@ vector<int> kmp(const string &s) {
   vector<int> f(s.size(), 0);
   for (int i = 1, k = 0; i < (int)s.size(); ++i) {
     while (k > 0 && s[i] != s[k]) k = f[k - 1];
-    f[i] = (k += (s[i] == s[k]);
+    f[i] = (k += (s[i] == s[k]));
   }
   return f;
 }
