@@ -1,5 +1,5 @@
 const int mod = 1000000007;
-const int M1 = 985661441; // G = 3
+const int M1 = 985661441; // G = 3 for M1, M2, M3
 const int M2 = 998244353;
 const int M3 = 1004535809;
 int superBigCRT(int64_t A, int64_t B, int64_t C) {
