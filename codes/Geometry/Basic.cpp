@@ -17,7 +17,7 @@ int quad(P p) {
     ? (RE(p) < 0 ? 3 : 1) : (IM(p) < 0 ? 0 : 2);
 }
 int argCmp(P a, P b) {
-  // -1 / 0 / 1 <-> < / == / > (atan2)
+  // returns 0/+-1, starts from theta = -PI
   int qa = quad(a), qb = quad(b);
   if (qa != qb) return sgn(qa - qb);
   return sgn(cross(b, a));
@@ -30,5 +30,5 @@ template <typename V> llf area(const V & pt) {
 }
 P rot90(P p) { return P{-IM(p), RE(p)}; }
 PTF project(PTF p, PTF q) { // p onto q
-  return dot(p, q) * q / dot(q, q);
+  return dot(p, q) * q / dot(q, q); // dot<llf>
 }
