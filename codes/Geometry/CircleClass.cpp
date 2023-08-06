@@ -1,3 +1,8 @@
+llf FMOD(llf x) {
+  if (x < -PI) x += PI * 2;
+  if (x > PI) x -= PI * 2;
+  return x;
+}
 struct Circle { PTF o; llf r; };
 vector<llf> intersectAngle(Circle A, Circle B) {
   PTF dir = B.o - A.o; llf d2 = norm(dir);
