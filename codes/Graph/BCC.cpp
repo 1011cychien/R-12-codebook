@@ -19,7 +19,7 @@ private:
           ap[u] = true;
       }
     }
-    ap[u] &= (ch != 1 or u != f);
+    ap[u] = ap[u] and (ch != 1 or u != f);
   }
 public:
   void init(int n_) {
