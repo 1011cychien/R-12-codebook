@@ -1,5 +1,4 @@
-vector<PTF> line_interCircle(const PTF &p1,
-    const PTF &p2, const PTF &c, const double r) {
+vector<PTF> LineCircleInter(PTF p1, PTF p2, PTF o, llf r) {
   PTF ft = p1 + project(c-p1, p2-p1), vec = p2-p1;
   llf dis = abs(c - ft);
   if (abs(dis - r) < eps) return {ft};
