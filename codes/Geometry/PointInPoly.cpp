@@ -1,13 +1,9 @@
-// C is convex polygon in counter-clockwise order
-auto f = [&](P p) -> string {
-  auto b1 = cross(C[1] - C[0], p - C[0]);
-  auto b2 = cross(C[N - 1] - C[0], p - C[0]);
-  if (b1 < 0 or b2 > 0) return "OUT";
-  int L = 1, R = N - 1;
-  while (L + 1 < R) {
-    int M = (L + R) / 2;
-    (cross(p - C[0], C[M] - C[0]) >= 0 ? R : L) = M;
+bool PIP(vector<P> &p, P z, bool strict = true) {
+  int cnt = 0, n = p.size();
+  for (int i = 0; i < n; i++) {
+    P A = p[i], B = p[(i + 1) % n];
+    if (isInter(Segment(A, B), z)) return !strict;
+    cnt ^= ((z.y<A.y) - (z.y<B.y)) * ori(z, A, B) > 0;
   }
-  auto v = cross(C[L] - p, C[R] - p);
-  return v == 0 ? "ON" : v > 0 ? (b1 == 0 or b2 == 0 ? "ON" : "IN") : "OUT";
-};
+  return cnt;
+}

@@ -1,9 +1,8 @@
 // ref: codeforces.com/gym/101201/submission/36665988
-// return nullopt means point is IN or ON hull
-optional<pair<int, int>> point_to_hull_tangent(const vector<P> &v, P p) {
+// please ensure that point strictly out of hull
+pair<int, int> get_tangent(const vector<P> &v, P p) {
     const int N = v.size();
-    if (N <= 2) return {}; // BE CAREFUL
-    if (p == v[0]) return {};
+    if (p == v[0]) return {-1, -1};
     const auto cmp = [w = conj(v[0] - p)](P a, P b) {
         int qa = quad(a * w), qb = quad(b * w);
         if (qa != qb) return sgn(qa - qb);
@@ -28,6 +27,6 @@ optional<pair<int, int>> point_to_hull_tangent(const vector<P> &v, P p) {
     };
     int a = gao(-1) % N, b = gao(1) % N;
     assert (cmp(v[b] - p, v[a] - p) <= 0);
-    if (cmp(v[a] - p, p - v[b]) >= 0) return {};
+    if (cmp(v[a] - p, p - v[b]) >= 0) return {-1, -1};
     return make_pair(a, b);
 }
