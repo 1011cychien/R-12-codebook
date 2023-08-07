@@ -13,7 +13,7 @@ vector<llf> intersectAngle(Cir a, Cir b) {
   } else if (norm(a.r + b.r) <= d2) return {};
   llf dis = abs(dir), theta = arg(dir);
   llf phi = acos((a.r * a.r + d2 - b.r * b.r) /
-      (2 * a.r * dis));
+      (2 * a.r * dis)); // is acos_safe needed ?
   llf L = FMOD(theta - phi), R = FMOD(theta + phi);
   return { L, R };
 }
