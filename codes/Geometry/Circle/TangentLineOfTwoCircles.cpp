@@ -1,20 +1,20 @@
-vector<Line>
-tanline(const Circle &c1, const Circle &c2, int sign1){
-  // sign1 = 1 for outer tang, -1 for inter tang
-  vector<Line> ret;
-  if (norm(c1.o - c2.o) < eps) return ret;
-  llf d = abs(c1.o - c2.o);
-  PTF v = (c2.o - c1.o) / d;
-  llf c = (c1.r - sign1 * c2.r) / d;
-  if (c * c > 1) return ret;
-  llf h = sqrt(max<llf>(0, 1 - c * c));
+// be careful of tangent / exact same circle
+// sign1 = 1 for outer tang, -1 for inter tang
+vector<Line> common_tan(const Cir &a, const Cir &b, int sign1) {
+  if (norm(a.o - b.o) < eps) return {};
+  llf d = abs(a.o - b.o), c = (a.r - sign1 * b.r) / d;
+  PTF v = (b.o - a.o) / d;
+  if (c * c > 1) return {};
+  if (abs(c * c - 1) < eps) {
+    PTF p = a.o + c * v * a.r;
+    return {Line(p, p + rot90(b.o - a.o))};
+  }
+  vector<Line> ret; llf h = sqrt(max(0.0l, 1-c*c));
   for (int sign2 : {1, -1}) {
     PTF n = c * v + sign2 * h * rot90(v);
-    PTF p1 = c1.o + n * c1.r;
-    PTF p2 = c2.o + n * (c2.r * sign1);
-    if (norm(p2 - p1) < eps)
-      p2 = p1 + rot90(c2.o - c1.o);
-    ret.push_back({p1, p2});
+    PTF p1 = a.o + n * a.r;
+    PTF p2 = b.o + n * (b.r * sign1);
+    ret.emplace_back(p1, p2);
   }
   return ret;
 }
