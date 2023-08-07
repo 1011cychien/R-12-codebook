@@ -1,10 +1,21 @@
+struct Line {
+  PT st, ed, dir;
+  Line (PT s, PT e)
+    : st(s), ed(e), dir(e - s) {}
+};
+PTF intersect(const Line &A, const Line &B) {
+  llf t = cross(B.st - A.st, B.dir) /
+    llf(cross(A.dir, B.dir));
+  return toPTF(A.st) + PTF(t) * toPTF(A.dir);
+}
 // cross(pt-line.st, line.dir)<=0 <-> pt in half plane
+// the LHS when going from st to ed
 bool operator<(const Line &lhs, const Line &rhs) {
     if (int cmp = argCmp(lhs.dir, rhs.dir))
         return cmp == -1;
     return ori(lhs.st, lhs.ed, rhs.st) < 0;
 }
-// intersect function is in "Segment Intersect"
+// be careful about the type of `ori` and `area`
 llf HPI(vector<Line> &lines) {
     sort(lines.begin(), lines.end());
     deque<Line> que;
