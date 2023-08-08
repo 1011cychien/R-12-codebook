@@ -21,8 +21,7 @@ bool isInter(U A, V B) {
     for (PT p: B.ends()) res |= isInter(A, p);
     return res;
   }
-  PT D = B.st - A.st;
-  lld C = cross(A.dir, B.dir);
+  PT D = B.st - A.st; lld C = cross(A.dir, B.dir);
   return U::valid(cross(D, B.dir), C) &&
     V::valid(cross(D, A.dir), C);
 }

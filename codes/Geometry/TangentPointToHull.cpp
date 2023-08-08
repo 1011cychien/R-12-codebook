@@ -10,18 +10,15 @@ pair<int, int> get_tangent(const vector<P> &v, P p) {
     };
     const auto gao = [&](int s) {
         const auto lt = [&](int x, int y) {
-            return cmp(v[x%N]-p, v[y%N]-p) == s; };
-        bool up = lt(0, 1);
-        int l = 0, r = N;
+          if (int c = cmp(v[x%N]-p, v[y%N]-p))
+            return c == s;
+          return norm(v[x%N]-p) < norm(v[y%N]-p);
+        };
+        int l = 0, r = N; bool up = lt(0, 1);
         while (r - l > 1) {
             int m = (l + r) / 2;
-            if (lt(m, 0)) {
-                if (up) r = m;
-                else l = m;
-            } else {
-                if (lt(m, m + 1)) l = m;
-                else r = m;
-            }
+            if (lt(m, 0) ? up : !lt(m, m+1)) r = m;
+            else l = m;
         }
         return lt(l, r) ? r : l;
     };
