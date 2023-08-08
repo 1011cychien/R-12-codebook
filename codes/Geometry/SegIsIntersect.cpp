@@ -1,6 +1,6 @@
-struct Segment { // closed segment
+struct Seg { // closed segment
   PT st, dir; // represent st + t*dir for 0<=t<=1
-  Segment(PT s, PT e) : st(s), dir(e - s) {}
+  Seg(PT s, PT e) : st(s), dir(e - s) {}
   static bool valid(lld p, lld q) {
     // is there t s.t. 0 <= t <= 1 && qt == p ?
     if (q < 0) q = -q, p = -p;
