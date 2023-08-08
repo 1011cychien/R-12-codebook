@@ -1,17 +1,13 @@
 #define rep(x, y, z) for (int x=y; x<z; x++)
 using VI = vector<int>; using VVI = vector<VI>;
-VVI Hessenberg(VVI H) { // test: 2021 PTZ korea K
-  int N = H.size();
+void Hessenberg(VVI &H, int N) {
   for (int i = 0; i < N - 2; ++i) {
-    if (!H[i + 1][i]) {
-      for (int j = i + 2; j < N; ++j) {
-        if (H[j][i]) {
-          rep(k, i, N) swap(H[i+1][k], H[j][k]);
-          rep(k, 0, N) swap(H[k][i+1], H[k][j]);
-          break;
-        }
+    if (!H[i + 1][i])
+      for (int j = i + 2; j < N; ++j) if (H[j][i]) {
+        rep(k, i, N) swap(H[i+1][k], H[j][k]);
+        rep(k, 0, N) swap(H[k][i+1], H[k][j]);
+        break;
       }
-    }
     if (!H[i + 1][i]) continue;
     int val = modinv(H[i + 1][i]);
     for (int j = i + 2; j < N; ++j) {
@@ -20,10 +16,9 @@ VVI Hessenberg(VVI H) { // test: 2021 PTZ korea K
       rep(k, 0, N) addeq(H[k][i+1], mul(H[k][j], co));
     }
   }
-  return H;
 }
-VI CharacteristicPoly(const VVI &A) {
-  int N = A.size(); auto H = Hessenberg(A);
+VI CharacteristicPoly(VVI &A) {
+  int N = A.size(); Hessenberg(A, N);
   VVI P(N + 1, VI(N + 1)); P[0][0] = 1;
   for (int i = 1; i <= N; ++i) {
     P[i][0] = 0;
@@ -35,5 +30,5 @@ VI CharacteristicPoly(const VVI &A) {
     }
   }
   if (N & 1) for (int &pi: P[N]) pi = sub(0, pi);
-  return P[N];
+  return P[N]; // test: 2021 PTZ korea K
 }

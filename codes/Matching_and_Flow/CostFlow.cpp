@@ -1,7 +1,6 @@
 template <typename F, typename C> class MCMF {
   static constexpr F INF_F = numeric_limits<F>::max();
   static constexpr C INF_C = numeric_limits<C>::max();
-
   struct E {
     int to, r;
     F f; C c;
@@ -37,7 +36,6 @@ template <typename F, typename C> class MCMF {
     }
     return pair{up[T], d[T]};
   }
-
 public:
   MCMF(int n) : g(n),f(n),inq(n),up(n),d(n,INF_C) {}
   void add_edge(int s, int t, F c, C w) {
