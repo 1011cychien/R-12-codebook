@@ -9,7 +9,7 @@ vector<Line> common_tan(const Cir &a, const Cir &b, int sign1) {
     PTF p = a.o + c * v * a.r;
     return {Line(p, p + rot90(b.o - a.o))};
   }
-  vector<Line> ret; llf h = sqrt(max(0.0l, 1-c*c));
+  vector<Line> ret; llf h = sqrt(max(0.0L, 1-c*c));
   for (int sign2 : {1, -1}) {
     PTF n = c * v + sign2 * h * rot90(v);
     PTF p1 = a.o + n * a.r;
