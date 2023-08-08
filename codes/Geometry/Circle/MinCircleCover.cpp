@@ -10,7 +10,7 @@ Cir getCircum(P a, P b, P c){
   cc.r = hypot(cc.o.x-a.x, cc.o.y-a.y);
   return cc;
 }
-Cir minCircleCover(ector<P> &pts) {
+Cir minCircleCover(vector<P> &pts) {
   shuffle(pts.begin(), pts.end(), mt19937(114514));
   Cir c = { pts[0], 0 };
   for(int i = 0; i < (int)pts.size(); i++) {
