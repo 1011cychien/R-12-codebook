@@ -1,4 +1,4 @@
-class TwoSat {
+class TwoSat { // test @ CSES Giant Pizza
 private:
   int n; vector<vector<int>> G, rG, sccs;
   vector<int> ord, idx, vis, res;
