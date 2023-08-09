@@ -1,6 +1,6 @@
 struct KDTree {
   struct Node {
-    int x, y, x1, y1, x2, y2; int id, f;
+    int x, y, x1, y1, x2, y2, id, f;
     Node *L, *R;
   } tree[maxn], *root;
   lld dis2(int x1, int y1, int x2, int y2) {
@@ -34,30 +34,27 @@ struct KDTree {
     }
     return tree+M;
   }
-  int touch(Node* r, int x, int y, lld d2){
-    lld dis = sqrt(d2)+1;
-    if (x<r->x1-dis || x>r->x2+dis ||
-        y<r->y1-dis || y>r->y2+dis)
-      return 0;
-    return 1;
+  bool touch(int x, int y, lld d2, Node *r){
+    lld d = sqrt(d2)+1;
+    return x >= r->x1 - d && x <= r->x2 + d &&
+                  y >= r->y1 - d && y <= r->y2 + d;
   }
   using P = pair<lld, int>;
-  void dfs(int x, int y, P &best, Node *r) {
-    if (!r || !touch(r, x, y, best.first)) return;
-    P cur(dis2(r->x, r->y, x, y), r->id);
-    best = min(best, cur);
+  void dfs(int x, int y, P &mn, Node *r) {
+    if (!r || !touch(x, y, mn.first, r)) return;
+    mn = min(mn, P(dis2(r->x, r->y, x, y), r->id));
     // search order depends on split dim
-    if ((r->f == 1 ? y < r->y : x < r->x)) {
-      dfs(x, y, best, r->L);
-      dfs(x, y, best, r->R);
+    if (r->f == 1 ? y < r->y : x < r->x) {
+      dfs(x, y, mn, r->L);
+      dfs(x, y, mn, r->R);
     } else {
-      dfs(x, y, best, r->R);
-      dfs(x, y, best, r->L);
+      dfs(x, y, mn, r->R);
+      dfs(x, y, mn, r->L);
     }
   }
   int query(int x, int y) {
-    P best(102938475612345678LL, 1029384756);
-    dfs(x, y, best, root);
-    return best.second;
+    P mn(INF, -1);
+    dfs(x, y, mn, root);
+    return mn.second;
   }
 } tree;
