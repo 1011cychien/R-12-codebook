@@ -10,16 +10,15 @@ Cir getCircum(P a, P b, P c){
   cc.r = hypot(cc.o.x-a.x, cc.o.y-a.y);
   return cc;
 }
-
-Cir minCircleCover(const vector<P>& pts){
-  random_shuffle(pts.begin(), pts.end());
+Cir minCircleCover(vector<P> &pts) {
+  shuffle(pts.begin(), pts.end(), mt19937(114514));
   Cir c = { pts[0], 0 };
-  for(int i=0;i<(int)pts.size();i++){
+  for(int i = 0; i < (int)pts.size(); i++) {
     if (dist(pts[i], c.o) <= c.r) continue;
     c = { pts[i], 0 };
     for (int j = 0; j < i; j++) {
-      if(dist(pts[j], c.o) <= c.r) continue;
-      c.o = (pts[i] + pts[j]) / 2;
+      if (dist(pts[j], c.o) <= c.r) continue;
+      c.o = (pts[i] + pts[j]) / llf(2);
       c.r = dist(pts[i], c.o);
       for (int k = 0; k < j; k++) {
         if (dist(pts[k], c.o) <= c.r) continue;

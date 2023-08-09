@@ -1,7 +1,8 @@
 struct palindromic_tree{
   struct node{
     int next[26],f,len;
-    int cnt,num,st,ed; // num = depth of fail link
+    int cnt,num,st,ed;
+    // num = depth of fail link
     node(int l=0):f(0),len(l),cnt(0),num(0) {
       memset(next, 0, sizeof(next)); }
   };

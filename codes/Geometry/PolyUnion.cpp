@@ -18,7 +18,7 @@ llf polyUnion(vector<vector<P>>& poly) {
       }
     }
     sort(segs.begin(), segs.end());
-    for (auto &s : segs) s.first = clamp<llf>(s.first, 0, 1);;
+    for (auto &s : segs) s.first = clamp<llf>(s.first, 0, 1);
     llf sum = 0;
     int cnt = segs[0].second;
     rep(j,1,sz(segs)) {

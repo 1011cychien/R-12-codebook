@@ -1,29 +1,14 @@
-struct BipartiteMatching {
-  vector<int> X[N];
-  int fX[N], fY[N], n;
-  bitset<N> vis;
-  bool dfs(int x) {
-    for (auto i : X[x]) if (not vis[i]) {
+// G[x] = edges from x. O(V(E+V))
+int solve(vector<vector<int>> &G, int n, int m) {
+  vector<int> fX(n, -1), fY(m, -1), vis; int c = 0;
+  const auto F = [&](auto self, int x) -> bool {
+    for (int i : G[x]) if (not vis[i]) {
       vis[i] = true;
-      if (fY[i] == -1 || dfs(fY[i])) {
-        fY[fX[x] = i] = x;
-        return true;
-      }
+      if (fY[i] == -1 || self(self, fY[i]))
+        return fY[fX[x] = i] = x, true;
     }
     return false;
-  }
-  void init(int n_, int m) {
-    fill_n(X, n = n_, vector<int>());
-    memset(fX, -1, sizeof(int) * n);
-    memset(fY, -1, sizeof(int) * m);
-  }
-  void add_edge(int x, int y) { X[x].push_back(y); }
-  int solve() { // return how many pair matched
-    int cnt = 0;
-    for (int i = 0; i < n; i++) {
-      vis.reset();
-      cnt += dfs(i);
-    }
-    return cnt;
-  }
-};
+  };
+  for (int i=0; i<n; i++) vis.assign(m,0), c+=F(F, i);
+  return c;
+}

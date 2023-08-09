@@ -1,7 +1,8 @@
 // be careful of abs<complex<int>> (replace _abs below)
 llf PointSegDist(P A, Seg B) {
   if (B.dir == P(0)) return _abs(A - B.st);
-  if (sgn(dot(A - B.st, B.dir)) * sgn(dot(A - B.ed, B.dir)) <= 0)
+  if (sgn(dot(A - B.st, B.dir)) *
+      sgn(dot(A - B.ed, B.dir)) <= 0)
     return abs(cross(A - B.st, B.dir)) / _abs(B.dir);
   return min(_abs(A - B.st), _abs(A - B.ed));
 }
