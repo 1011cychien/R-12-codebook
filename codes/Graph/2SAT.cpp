@@ -1,7 +1,6 @@
 class TwoSat {
 private:
-  int n;
-  vector<vector<int>> rG, G, sccs;
+  int n; vector<vector<int>> G, rG, sccs;
   vector<int> ord, idx, vis, res;
   void dfs(int u) {
     vis[u] = true;
@@ -25,8 +24,8 @@ public:
   bool solve() {
     for (int i = 0; i < n; ++i) if (not vis[i]) dfs(i);
     reverse(ord.begin(), ord.end());
-    for (int u : ord) if (vis[u])
-      sccs.emplace_back(), rdfs(u);
+    for (int u : ord)
+      if (vis[u]) sccs.emplace_back(), rdfs(u);
     for (int i = 0; i < n; i += 2)
       if (idx[i] == idx[i + 1]) return false;
     vector<bool> c(sccs.size());
@@ -38,4 +37,4 @@ public:
   bool get(int x) { return res[x]; }
   int get_id(int x) { return idx[x]; }
   int count() { return sccs.size(); }
-} sat2;
+};
