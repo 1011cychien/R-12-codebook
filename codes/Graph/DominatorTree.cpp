@@ -1,9 +1,9 @@
 struct Dominator {
-  vector<vector<int>> g, r, rdom;
-  vector<int> dfn, rev, fa, sdom, dom, val, rp, tk;
-  Dominator(int n) : g(n), r(n), rdom(n),
+  vector<vector<int>> g, r, rdom; int tk;
+  vector<int> dfn, rev, fa, sdom, dom, val, rp;
+  Dominator(int n) : g(n), r(n), rdom(n), tk(0),
     dfn(n, -1), rev(n, -1), fa(n, -1), sdom(n, -1),
-    dom(n, -1), val(n, -1), rp(n, -1), tk(0) {}
+    dom(n, -1), val(n, -1), rp(n, -1) {}
   void add_edge(int x, int y) { g[x].push_back(y); }
   void dfs(int x) {
     rev[dfn[x] = tk] = x;
@@ -25,8 +25,7 @@ struct Dominator {
   }
   vector<int> build(int s, int n) {
     // return the father of each node in dominator tree
-    // p[i] = -2 if i is unreachable from s
-    dfs(s);
+    dfs(s); // p[i] = -2 if i is unreachable from s
     for (int i = tk - 1; i >= 0; --i) {
       for (int u : r[i])
         sdom[i] = min(sdom[i], sdom[find(u)]);
@@ -43,5 +42,5 @@ struct Dominator {
     for (int i = 1; i < tk; ++i)
       p[rev[i]] = rev[dom[i]];
     return p;
-  }
+  } // test @ yosupo judge
 };
