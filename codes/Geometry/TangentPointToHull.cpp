@@ -9,11 +9,8 @@ pair<int, int> get_tangent(const vector<P> &v, P p) {
         return sgn(cross(b, a));
     };
     const auto gao = [&](int s) {
-        const auto lt = [&](int x, int y) {
-          if (int c = cmp(v[x%N]-p, v[y%N]-p))
-            return c == s;
-          return norm(v[x%N]-p) < norm(v[y%N]-p);
-        };
+      const auto lt = [&](int x, int y) {
+            return cmp(v[x%N]-p, v[y%N]-p) == s; };
         int l = 0, r = N; bool up = lt(0, 1);
         while (r - l > 1) {
             int m = (l + r) / 2;
