@@ -41,7 +41,7 @@ void sais(int *s, int *a, int *p, int *q,
   induce(a, c, s, t, n, z);
   for (int i = 0; i < n; ++i) {
     if (a[i] && t[a[i]] && !t[a[i] - 1]) {
-    bool neq = last < 0 || \
+    bool neq = last < 0 ||
      memcmp(s + a[i], s + last,
       (p[q[a[i]] + 1] - a[i]) * sizeof(int));
     ns[q[last = a[i]]] = nmxz += neq;
@@ -64,7 +64,7 @@ void build(const string &s) {
       ind = 0;
       continue;
     }
-    while (i + ind < n && \
+    while (i + ind < n &&
      s[i + ind] == s[sa[rev[i] - 1] + ind]) ++ind;
     hi[rev[i]] = ind ? ind-- : 0;
   }
