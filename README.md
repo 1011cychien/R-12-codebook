@@ -19,6 +19,7 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * Fix all geometry
     * [x] fix our 2d convex hull?
     * [x] MinMaxEnclosing Rectangle
+    * [x] half plane intersection precision
     * [ ] to add
         * [ ] triangle hearts?
         * [ ] adaptive simpson?
@@ -26,7 +27,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
     * [ ] del or fix
         * KD tree
         * KD closet pair
-    * [ ] half plane intersection precision
     * [ ] rotating sweep line
 
 ## might be done

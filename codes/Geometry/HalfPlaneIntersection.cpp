@@ -1,44 +1,41 @@
 struct Line {
-  PT st, ed, dir;
-  Line (PT s, PT e)
-    : st(s), ed(e), dir(e - s) {}
-};
-PTF intersect(const Line &A, const Line &B) {
+  P st, ed, dir;
+  Line (P s, P e) : st(s), ed(e), dir(e - s) {}
+}; using L = const Line &;
+PTF intersect(L A, L B) {
   llf t = cross(B.st - A.st, B.dir) /
     llf(cross(A.dir, B.dir));
-  return toPTF(A.st) + PTF(t) * toPTF(A.dir);
+  return toPTF(A.st) + toPTF(A.dir) * t; // C^3 / C^2
+}
+bool cov(L l, L A, L B) {
+  i128 u = cross(B.st-A.st, B.dir);
+  i128 v = cross(A.dir, B.dir);
+  // ori(l.st, l.ed, A.st + A.dir*(u/v) - l.st) <= 0?
+  i128 x = RE(A.dir) * u + RE(A.st - l.st) * v;
+  i128 y = IM(A.dir) * u + IM(A.st - l.st) * v;
+  return sgn(x*IM(l.dir) - y*RE(l.dir)) * sgn(v) >= 0;
+} // x, y are C^3, also sgn<i128> is needed
+bool operator<(L a, L b) {
+  if (int c = argCmp(a.dir, b.dir)) return c == -1;
+  return ori(a.st, a.ed, b.st) < 0;
 }
 // cross(pt-line.st, line.dir)<=0 <-> pt in half plane
-// the LHS when going from st to ed
-bool operator<(const Line &lhs, const Line &rhs) {
-    if (int cmp = argCmp(lhs.dir, rhs.dir))
-        return cmp == -1;
-    return ori(lhs.st, lhs.ed, rhs.st) < 0;
-}
-// be careful about the type of `ori` and `area`
-llf HPI(vector<Line> &lines) {
-    sort(lines.begin(), lines.end());
-    deque<Line> que;
-    deque<PTF> pt;
-    que.push_back(lines[0]);
-    for (int i = 1; i < (int)lines.size(); i++) {
-        if (argCmp(lines[i].dir, lines[i-1].dir) == 0)
-          continue;
-#define POP(L, R) \
-        while (pt.size() > 0 \
-            && ori(L.st, L.ed, pt.back()) < 0) \
-            pt.pop_back(), que.pop_back(); \
-        while (pt.size() > 0 \
-            && ori(R.st, R.ed, pt.front()) < 0) \
-            pt.pop_front(), que.pop_front();
-        POP(lines[i], lines[i]);
-        pt.push_back(intersect(que.back(), lines[i]));
-        que.push_back(lines[i]);
-    }
-    POP(que.front(), que.back())
-    if (que.size() <= 1 ||
-        argCmp(que.front().dir, que.back().dir) == 0)
-        return 0;
-    pt.push_back(intersect(que.front(), que.back()));
-    return area(pt);
-}
+// the half plane is the LHS when going from st to ed
+llf HPI(vector<Line> &q) {
+  sort(q.begin(), q.end());
+  int n = q.size(), l = 0, r = -1;
+  for (int i = 0; i < n; i++) {
+    if (i && !argCmp(q[i].dir, q[i-1].dir)) continue;
+    while (l < r && cov(q[i], q[r-1], q[r])) --r;
+    while (l < r && cov(q[i], q[l], q[l+1])) ++l;
+    q[++r] = q[i];
+  }
+  while (l < r && cov(q[l], q[r-1], q[r])) --r;
+  while (l < r && cov(q[r], q[l], q[l+1])) ++l;
+  n = r - l + 1; // q[l .. r] are the lines
+  if (n <= 1 || !argCmp(q[l].dir, q[r].dir)) return 0;
+  vector<PTF> pt(n);
+  for (int i = 0; i < n; i++)
+    pt[i] = intersect(q[i+l], q[(i+1)%n+l]);
+  return area(pt);
+} // test @ 2020 Nordic NCPC : BigBrother
