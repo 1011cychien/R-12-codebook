@@ -1,30 +1,24 @@
-bool in_cc(const array<P,3> &p, P q) {
-    i128 det = 0;
-    for (int i = 0; i < 3; i++)
-        det += i128(norm(p[i]) - norm(q)) *
-            cross(p[(i+1)%3] - q, p[(i+2)%3] - q);
-    return det > 0;
-}
-/* Delaunay Triangulation:
-Given a sets of points on 2D plane, find a
-triangulation such that no points will strictly
+/* A triangulation such that no points will strictly
 inside circumcircle of any triangle.
 find(root, p) : return a triangle contain given point
 add_point : add a point into triangulation
-A Triangle is in triangulation iff. its has_chd is 0.
 Region of triangle u: iterate each u.e[i].tri,
 each points are u.p[(i+1)%3], u.p[(i+2)%3]
-Voronoi diagram: for each triangle in triangulation,
-the bisector of all its edges will split the region.
-nearest point will belong to the triangle containing it
- */
+Voronoi diagram: for each triangle in `res`,
+the bisector of all its edges will split the region. */
 #define L(i) ((i)==0 ? 2 : (i)-1)
 #define R(i) ((i)==2 ? 0 : (i)+1)
 #define FOR for (int i = 0; i < 3; i++)
+bool in_cc(const array<P,3> &p, P q) {
+    i128 det = 0;
+    FOR det += i128(norm(p[i]) - norm(q)) *
+      cross(p[R(i)] - q, p[L(i)] - q);
+    return det > 0;
+}
 struct Tri;
 struct E {
   Tri *t; int side; E() : t(0), side(0) {}
-  E(Tri *_t, int _side) : t(_t), side(_side){}
+  E(Tri *t_, int side_) : t(t_), side(side_){}
 };
 struct Tri {
   array<P,3> p; array<Tri*,3> ch; array<E,3> e;
@@ -41,8 +35,8 @@ void link(E a, E b) {
 }
 struct Trigs {
   Tri *root;
-  Trigs() {
-    root = // should at least contain all points
+  Trigs() { // should at least contain all points
+    root =  // C is recommended to be about 100*MAXC^2
       new(it++) Tri(P(-C, -C), P(C*2, -C), P(-C, C*2));
   }
   void add_point(P p) { add_point(find(p, root), p); }
@@ -52,8 +46,7 @@ struct Trigs {
     return r;
   }
   void add_point(Tri *r, P p) {
-    array<Tri*, 3> t;
-    /* split it into three triangles */
+    array<Tri*, 3> t; /* split into 3 triangles */
     FOR t[i] = new(it++) Tri(r->p[i], r->p[R(i)], p);
     FOR link(E(t[i], 0), E(t[R(i)], 1));
     FOR link(E(t[i], 2), r->e[L(i)]);
@@ -61,9 +54,8 @@ struct Trigs {
     FOR flip(t[i], 2);
   }
   void flip(Tri* A, int a) {
-    auto [B, b] = A->e[a];
+    auto [B, b] = A->e[a]; /* flip edge between A,B */
     if (!B || !in_cc(A->p, B->p[b])) return;
-    /* flip edge between A, B */
     Tri *X = new(it++)Tri(A->p[R(a)],B->p[b],A->p[a]);
     Tri *Y = new(it++)Tri(B->p[R(b)],A->p[a],B->p[b]);
     link(E(X,0), E(Y,0));
