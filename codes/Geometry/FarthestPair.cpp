@@ -7,5 +7,4 @@ for (int i = 0; i < n; i++) {
     pos = (pos + 1) % n;
   for (int j: {i, (i + 1) % n})
     ans = max(ans, norm(p[pos] - p[j]));
-}
-// tested @ AOJ CGL_4_B
+} // tested @ AOJ CGL_4_B

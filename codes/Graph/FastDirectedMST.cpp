@@ -1,8 +1,5 @@
 using D = int64_t;
-struct E {
-  int s, t; // 0-base
-  D w;
-};
+struct E { int s, t; D w; }; // 0-base
 vector<int> dmst(const vector<E> &e, int n, int root) {
   using PQ = pair<min_heap<pair<D, int>>, D>;
   auto push = [](PQ &pq, pair<D, int> v) {
@@ -22,7 +19,7 @@ vector<int> dmst(const vector<E> &e, int n, int root) {
   vector<PQ> h(n * 2);
   for (size_t i = 0; i < e.size(); ++i)
     push(h[e[i].t], {e[i].w, i});
-  vector<int> a(n * 2), v(n * 2, -1), pa(n * 2, -1), r(n * 2);
+  vector<int> a(n*2), v(n*2, -1), pa(n*2, -1), r(n*2);
   iota(a.begin(), a.end(), 0);
   auto o = [&](int x) { int y;
     for (y = x; a[y] != y; y = a[y]);

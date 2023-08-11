@@ -14,23 +14,17 @@ namespace Treap {
   node* merge(node* L, node* R) {
     if (not L or not R) return L ? L : R;
     if (L->pri > R->pri) {
-      L->rc = merge(L->rc, R); L->pull();
-      return L;
+      return L->rc = merge(L->rc, R), L->pull(), L;
     } else {
-      R->lc = merge(L, R->lc); R->pull();
-      return R;
+      return R->lc = merge(L, R->lc), R->pull(), R;
     }
   }
-  void split_by_size(node*rt,int k,node*&L,node*&R) {
-    if (not rt) L = R = nullptr;
-    else if (int s = sz(rt->lc) + 1; s <= k) {
-      L = rt;
-      split_by_size(rt->rc, k - s, L->rc, R);
-      L->pull();
+  void splitBySize(node*o,int k,node*&L,node*&R) {
+    if (not o) L = R = nullptr;
+    else if (int s = sz(o->lc) + 1; s <= k) {
+      L=o; splitBySize(o->rc, k-s, L->rc, R); L->pull();
     } else {
-      R = rt;
-      split_by_size(rt->lc, k, L, R->lc);
-      R->pull();
+      R=o; splitBySize(o->lc, k, L, R->lc); R->pull();
     }
   } // sz(L) == k
   int getRank(node *o) { // 1-base

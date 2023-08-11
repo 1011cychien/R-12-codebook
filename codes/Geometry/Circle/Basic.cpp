@@ -25,5 +25,4 @@ vector<PTF> intersectPoint(Cir a, Cir b) {
   PTF u = dir * d1 + b.o;
   PTF v = rot90(dir) * sqrt(max(0.0L, b.r*b.r-d1*d1));
   return {u + v, u - v};
-}
-// test @ AOJ CGL probs
+} // test @ AOJ CGL probs

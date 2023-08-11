@@ -18,11 +18,14 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * bounded flow?
 * Fix all geometry
     * [x] fix our 2d convex hull?
-    * [ ] triangle hearts?
     * [x] MinMaxEnclosing Rectangle
-    * [ ] adaptive simpson?
-    * [ ] del KD tree
-    * [ ] add 3d point class
+    * [ ] to add
+        * [ ] triangle hearts?
+        * [ ] adaptive simpson?
+        * [ ] 3d point class
+    * [ ] del or fix
+        * KD tree
+        * KD closet pair
     * [ ] half plane intersection precision
     * [ ] rotating sweep line
 
