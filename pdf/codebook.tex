@@ -26,6 +26,10 @@
 }
 % \usepackage{CJKulem}
 
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+% \setlength{\columnseprule}{0.5pt}
+
 %\usepackage[T1]{fontenc}
 \usepackage{courier}
 \topmargin=-1pt
@@ -271,13 +275,13 @@ morestring=[b]' % defines that strings are enclosed in double quotes
 \includecodewithhash{Basic Geometry}{../codes/Geometry/Basic.cpp}
 \includecodewithhash{Segment Intersection}{../codes/Geometry/SegIsIntersect.cpp}
 \includecodewithhash{Half Plane Intersection}{../codes/Geometry/HalfPlaneIntersection.cpp}
-\includecodewithhash{Segment Distance (Sausage)}{../codes/Geometry/SegSegDist.cpp}
+\includecodewithhash{SegmentDist (Sausage)}{../codes/Geometry/SegSegDist.cpp}
 
 \includecodewithhash{Rotating Sweep Line}{../codes/Geometry/RotatingSweepLine.cpp}
 \includecodewithhash{2D Convex Hull}{../codes/Geometry/ConvexHull.cpp}
 \includecodewithhash{Minkowski Sum}{../codes/Geometry/MinkowskiSum.cpp}
 \includecodewithhash{2D Farthest Pair}{../codes/Geometry/FarthestPair.cpp}
-\includecodewithhash{MinMaxEnclosingRectangle}{../codes/Geometry/MinMaxEnclosingRect.cpp}
+\includecodewithhash{MinMaxEnclosingRect}{../codes/Geometry/MinMaxEnclosingRect.cpp}
 % \includecode{2D Closest Pair}{../codes/Geometry/2D_ClosestPair.cpp}
 
 \includecodewithhash{Point In Simple Polygon}{../codes/Geometry/PointInPoly.cpp}
@@ -287,9 +291,9 @@ morestring=[b]' % defines that strings are enclosed in double quotes
 
 \includecodewithhash{Circle Class \& Intersection}{../codes/Geometry/Circle/Basic.cpp}
 % \includecode{Intersection of Two Circle}{../codes/Geometry/intersection_of_two_circles.cpp}
-\includecodewithhash{Tangent Line of Two Circles}{../codes/Geometry/Circle/TangentLineOfTwoCircles.cpp}
+\includecodewithhash{Circle Common Tangent}{../codes/Geometry/Circle/TangentLineOfTwoCircles.cpp}
 \includecodewithhash{Line-Circle Intersection}{../codes/Geometry/Circle/InterWithLine.cpp}
-\includecodewithhash{Polygon-Circle Intersection}{../codes/Geometry/Circle/InterWithPoly.cpp}
+\includecodewithhash{Poly-Circle Intersection}{../codes/Geometry/Circle/InterWithPoly.cpp}
 \includecodewithhash{Minimum Covering Circle}{../codes/Geometry/Circle/MinCircleCover.cpp}
 \includecodewithhash{Circle Union}{../codes/Geometry/Circle/CircleUnion.cpp}
 
