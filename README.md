@@ -12,18 +12,19 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * 郵局設置問題無限大extreme
 * segment tree beats
 * Simplex
-* 回文自動機
-* fix SAM
+* fix SAM/PalTree
 * del old fft?
 * subset convolution
 * bounded flow?
 * Fix all geometry
-    * fix our 2d convex hull?
-    * triangle hearts?
-    * MinMaxEnclosing Rectangle
-
-    * adaptive simpson?
+    * [x] fix our 2d convex hull?
+    * [ ] triangle hearts?
+    * [x] MinMaxEnclosing Rectangle
+    * [ ] adaptive simpson?
+    * [ ] del KD tree
+    * [ ] add 3d point class
+    * [ ] half plane intersection precision
+    * [ ] rotating sweep line
 
 ## might be done
 * [fast DMST](https://github.com/yosupo06/library-checker-problems/blob/master/graph/directedmst/sol/correct.cpp)
-* del KD tree
