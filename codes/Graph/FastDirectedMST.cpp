@@ -50,5 +50,5 @@ vector<int> dmst(const vector<E> &e, int n, int root) {
       v[f] = n;
     ans.push_back(r[i]);
   }
-  return ans;
+  return ans; // default minimize, returns edgeid array
 }
