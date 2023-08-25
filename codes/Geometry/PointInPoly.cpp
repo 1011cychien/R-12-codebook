@@ -3,7 +3,8 @@ bool PIP(vector<P> &p, P z, bool strict = true) {
   for (int i = 0; i < n; i++) {
     P A = p[i], B = p[(i + 1) % n];
     if (isInter(Seg(A, B), z)) return !strict;
-    cnt ^= ((z.y<A.y) - (z.y<B.y)) * ori(z, A, B) > 0;
+    auto zy = IM(z), Ay = IM(A), By = IM(B);
+    cnt ^= ((zy<Ay) - (zy<By)) * ori(z, A, B) > 0;
   }
   return cnt;
 }
