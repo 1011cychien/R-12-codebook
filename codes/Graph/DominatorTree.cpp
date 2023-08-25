@@ -1,9 +1,9 @@
 struct Dominator {
   vector<vector<int>> g, r, rdom; int tk;
   vector<int> dfn, rev, fa, sdom, dom, val, rp;
-  Dominator(int n) : g(n), r(n), rdom(n), tk(0),
-    dfn(n, -1), rev(n, -1), fa(n, -1), sdom(n, -1),
-    dom(n, -1), val(n, -1), rp(n, -1) {}
+  Dominator(int n) : g(n), r(n), rdom(n), tk(0) {
+    dfn = rev = fa = sdom = dom =
+      val = rp = vector<int>(n, -1); }
   void add_edge(int x, int y) { g[x].push_back(y); }
   void dfs(int x) {
     rev[dfn[x] = tk] = x;

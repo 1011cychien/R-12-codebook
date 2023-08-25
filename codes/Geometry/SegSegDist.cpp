@@ -13,5 +13,4 @@ llf SegSegDist(const Seg &s1, const Seg &s2) {
       PointSegDist(s1.ed, s2),
       PointSegDist(s2.st, s1),
       PointSegDist(s2.ed, s1) });
-}
-// test @ QOJ2444 / PTZ19 Summer.D3
+} // test @ QOJ2444 / PTZ19 Summer.D3
