@@ -10,7 +10,7 @@ PTF intersect(L A, L B) {
 bool cov(L l, L A, L B) {
   i128 u = cross(B.st-A.st, B.dir);
   i128 v = cross(A.dir, B.dir);
-  // ori(l.st, l.ed, A.st + A.dir*(u/v) - l.st) <= 0?
+  // ori(l.st, l.ed, A.st + A.dir*(u/v)) <= 0?
   i128 x = RE(A.dir) * u + RE(A.st - l.st) * v;
   i128 y = IM(A.dir) * u + IM(A.st - l.st) * v;
   return sgn(x*IM(l.dir) - y*RE(l.dir)) * sgn(v) >= 0;
