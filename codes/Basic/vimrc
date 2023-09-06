@@ -1,4 +1,4 @@
-se is nu ru et tgc sc hls cin cino+=j1 sw=4 sts=4 bs=2 mouse=a "encoding=utf-8 ls=2
+se is nu ru et tgc sc hls cin cino+=j1 sw=2 sts=2 bs=2 mouse=a "encoding=utf-8 ls=2
 syn on | colo desert | filetype indent on
 inoremap {<CR> {<CR>}<ESC>O
 map <F8> <ESC>:w<CR>:!g++ %" -o "%<" -g -std=gnu++20 -DCKISEKI -Wall -Wextra -Wshadow -Wfatal-errors -Wconversion  -fsanitize=address,undefined && echo success<CR>
