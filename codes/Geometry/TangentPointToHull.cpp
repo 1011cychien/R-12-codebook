@@ -11,4 +11,4 @@ pair<int, int> get_tangent(const vector<P> &v, P p) {
     return (lt(l, r) ? r : l) % N;
   }; // test @ codeforces.com/gym/101201/problem/E
   return {gao(-1), gao(1)}; // (a,b):ori(p,v[a],v[b])<0
-} // please ensure that point strictly out of hull
+} // plz ensure that point strictly out of hull

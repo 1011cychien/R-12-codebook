@@ -1,4 +1,4 @@
-// from 8BQube, please ensure p is convex hull
+// from 8BQube, plz ensure p is strict convex hull
 const llf INF = 1e18, qi = acos(-1) / 2 * 3;
 pair<llf, llf> solve(vector<P> &p) {
 #define Z(v) (p[v] - p[i])
