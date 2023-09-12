@@ -3,8 +3,8 @@ struct segment {
   segment() {}
   segment(int a, int b, int c): i(a), l(b), r(c) {}
 };
-inline lld f(int l, int r){return dp[l] + w(l+1, r);}
 void solve() {
+  auto f = [](int l, int r){return dp[l] + w(l+1, r);}
   dp[0] = 0;
   deque<segment> dq; dq.push_back(segment(0, 1, n));
   for (int i = 1; i <= n; ++i) {

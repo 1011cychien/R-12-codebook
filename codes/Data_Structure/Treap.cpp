@@ -9,7 +9,7 @@ struct node {
     if (rc) { size += rc->size; rc->pa = this; }
   }
 };
-inline int SZ(node *x) { return x ? x->size : 0; }
+int SZ(node *x) { return x ? x->size : 0; }
 node *merge(node *L, node *R) {
   if (not L or not R) return L ? L : R;
   if (L->pri > R->pri)
