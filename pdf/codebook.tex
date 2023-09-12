@@ -30,6 +30,10 @@
 \renewcommand*{\multicolumntoc}{2}
 % \setlength{\columnseprule}{0.5pt}
 
+\usepackage{tocloft}
+\renewcommand\cftsubsecfont{\small}
+\renewcommand\cftsubsecpagefont{\scriptsize}
+
 %\usepackage[T1]{fontenc}
 \usepackage{courier}
 \topmargin=-1pt
@@ -65,7 +69,8 @@
 \setCJKmainfont[Path=./fonts/open-huninn-font/]{jf-openhuninn-1.1}           %中文字型
 \XeTeXlinebreaklocale "zh"						%中文自動換行
 \XeTeXlinebreakskip = 0pt plus 0pt				%設定段落之間的距離
-\setcounter{secnumdepth}{3}						%目錄顯示第三層
+\setcounter{secnumdepth}{2}						%目錄顯示第三層
+\setcounter{tocdepth}{2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
