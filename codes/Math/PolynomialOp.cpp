@@ -63,10 +63,10 @@ template <int mod, int G, int maxn> struct Poly : V {
     fi(0, size()) ret[i + 1] = modmul(modinv(i + 1), (*this)[i]);
     return ret;
   }
-  Poly Ln() const { // coef[0] == 1
+  Poly Ln() const { // coef[0] == 0
     return Dx().Mul(Inv()).Sx().isz(size());
   }
-  Poly Exp() const { // coef[0] == 0
+  Poly Exp() const { // coef[0] == 1
     if (size() == 1) return V{1};
     Poly X = Poly(*this, (size() + 1) / 2).Exp().isz(size());
     Poly Y = X.Ln(); Y[0] = mod - 1;
