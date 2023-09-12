@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 %\usepackage[margin=2cm]{geometry}
 \usepackage{fontspec}								%設定字體
+\usepackage{setspace}
 \usepackage{color}
 \usepackage[x11names]{xcolor}
 \usepackage{listings}								%顯示code用的
@@ -28,11 +29,17 @@
 
 \usepackage[toc]{multitoc}
 \renewcommand*{\multicolumntoc}{2}
-% \setlength{\columnseprule}{0.5pt}
 
-\usepackage{tocloft}
-\renewcommand\cftsubsecfont{\small}
-\renewcommand\cftsubsecpagefont{\scriptsize}
+\usepackage[titles]{tocloft}
+\renewcommand\cftsubsecfont{\footnotesize}
+\renewcommand\cftsubsecpagefont{\small}
+\renewcommand\cftsecindent{0.1em}
+\renewcommand\cftsecnumwidth{1.2em}
+\renewcommand\cftsubsecindent{0.5em}
+\renewcommand\cftsubsecnumwidth{2.0em}
+\renewcommand\cftdotsep{2}
+\renewcommand\cftbeforesecskip{0.4em}
+\renewcommand\cftbeforesubsecskip{0.2em}
 
 %\usepackage[T1]{fontenc}
 \usepackage{courier}
@@ -115,10 +122,13 @@ literate={\ \ }{{\ }}1
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\contentsname}{Contents} 
 
-\scriptsize
-\vspace{-2em}
+\vspace{-20em}
+\begin{spacing}{0.5}
 \tableofcontents
+\end{spacing}
 \vspace{-1em}
+
+\scriptsize
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -256,7 +266,7 @@ morestring=[b]' % defines that strings are enclosed in double quotes
 \includecppwithhash{DiscreteLog}{../codes/Math/DiscreteLog.cpp}
 \includecppwithhash{Quadratic residue}{../codes/Math/QuadraticResidue.cpp}
 \includetex{Extended Euler}{../codes/Math/ExtendedEuler.tex}
-\includetex{ExtendedFloorSum}{../codes/Math/ExtendedFloorSum.tex}
+\includetex{Extended FloorSum}{../codes/Math/ExtendedFloorSum.tex}
 \includecppwithhash{FloorSum}{../codes/Math/FloorSum.cpp}
 \includecppwithhash{ModMin}{../codes/Math/ModMin.cpp}
 
@@ -282,7 +292,7 @@ morestring=[b]' % defines that strings are enclosed in double quotes
 \includecppwithhash{Basic Geometry}{../codes/Geometry/Basic.cpp}
 \includecppwithhash{2D Convex Hull}{../codes/Geometry/ConvexHull.cpp}
 \includecppwithhash{2D Farthest Pair}{../codes/Geometry/FarthestPair.cpp}
-\includecppwithhash{MinMaxEnclosingRect}{../codes/Geometry/MinMaxEnclosingRect.cpp}
+\includecppwithhash{MinMax Enclosing Rect}{../codes/Geometry/MinMaxEnclosingRect.cpp}
 \includecppwithhash{Minkowski Sum}{../codes/Geometry/MinkowskiSum.cpp}
 
 \includecppwithhash{Segment Intersection}{../codes/Geometry/SegIsIntersect.cpp}
