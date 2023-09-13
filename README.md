@@ -13,6 +13,7 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * segment tree beats
 * [Network Simplex](https://gist.github.com/brunodccarvalho/fb9f2b47d7f8469d209506b336013473)/[Cost Scaling](https://ideone.com/q6PWgB)/[Capacity Scaling](https://github.com/brianbbsu/8BQube/commit/d8c66b165274277c5b2ea8c32d7cd388fc1dba09)
 * [MCMF Dual](https://github.com/brianbbsu/8BQube/commit/6277ef72c0f371195d79a432e374b44ed77a9807)
+* [Submodylar Mincut](https://theory-and-me.hatenablog.com/entry/2020/03/17/180157)
 * [最小费用可行流(?)](https://www.cnblogs.com/smashfun/p/13259192.html)
 * Simplex
 * fix SAM/PalTree
