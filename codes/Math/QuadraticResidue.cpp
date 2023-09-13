@@ -4,11 +4,8 @@ struct S {
   S(int m, int w_=-1, int64_t x_=1, int64_t y_=0)
     : MOD(m), w(w_), x(x_), y(y_) {}
   S operator*(const S &rhs) const {
-    int w_ = w;
-    if (w_ == -1) w_ = rhs.w;
-    assert(w_ != -1 and w_ == rhs.w);
-    return { MOD, w_,
-      (x * rhs.x + y * rhs.y % MOD * w) % MOD,
+    return { MOD, rhs.w,
+      (x * rhs.x + y * rhs.y % MOD * rhs.w) % MOD,
       (x * rhs.y + y * rhs.x) % MOD };
   }
 };
