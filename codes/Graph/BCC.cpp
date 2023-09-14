@@ -7,7 +7,7 @@ class BCC {
     dfn[u] = low[u] = dfn[f] + 1;
     int ch = 0;
     for (auto [v, t] : g[u]) if (bcc[t] == -1) {
-      bcc[t] = 0;stk.push_back(t);
+      bcc[t] = 0; stk.push_back(t);
       if (dfn[v]) {
         low[u] = min(low[u], dfn[v]);
         continue;
@@ -26,7 +26,6 @@ class BCC {
     }
     ap[u] = ap[u] and (ch != 1 or u != f);
   }
-
 public:
   BCC(int n_) : n(n_), ecnt(0), bcnt(0), g(n), dfn(n), low(n), stk(), ap(n) {}
   void add_edge(int u, int v) {
@@ -34,10 +33,8 @@ public:
     g[v].emplace_back(u, ecnt++);
   }
   void solve() {
-    bridge.assign(ecnt, false);
-    bcc.assign(ecnt, -1);
-    for (int i = 0; i < n; ++i)
-      if (not dfn[i]) dfs(i, i);
+    bridge.assign(ecnt, false); bcc.assign(ecnt, -1);
+    for (int i = 0; i < n; ++i) if (!dfn[i]) dfs(i, i);
   }
   int bcc_id(int x) const { return bcc[x]; }
   bool is_ap(int x) const { return ap[x]; }

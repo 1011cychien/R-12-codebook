@@ -1,22 +1,20 @@
-int N, M, cnt;
-vector<int> G[maxn], T[maxn * 2];
-int dfn[maxn], low[maxn], dfc, stk[maxn], tp;
-void Tarjan(int u) {
-  low[u] = dfn[u] = ++dfc; stk[++tp] = u;
-  for (int v : G[u]) if (!dfn[v]) {
-    Tarjan(v); low[u] = min(low[u], low[v]);
-    if (low[v] == dfn[u]) {
-      ++cnt;
-      for (int x = 0; x != v; --tp) {
-        x = stk[tp];
-        T[cnt].push_back(x); T[x].push_back(cnt);
-      }
-      T[cnt].push_back(u); T[u].push_back(cnt);
-    }
-  } else low[u] = min(low[u], dfn[v]);
-}
-void solve() { // remember initialize G, T, dfn, low
-  cnt = N; dfc = tp = 0;
-  for (int u = 1; u <= N; ++u)
-    if (!dfn[u]) Tarjan(u), --tp;
-}
+struct RST {
+  int n; vector<vector<int>> T;
+  RST(auto &G) : n(G.size()), T(n) {
+    vector<int> stk, vis(n), low(n);
+    auto dfs = [&](auto self, int u, int d) -> void {
+      low[u] = vis[u] = d; stk.push_back(u);
+      for (int v : G[u]) if (!vis[v]) {
+        self(self, v, d + 1);
+        if (low[v] == vis[u]) {
+          int cnt = T.size(); T.emplace_back();
+          for (int x = -1; x != v; stk.pop_back())
+            T[cnt].push_back(x = stk.back());
+          T[u].push_back(cnt); // T is rooted
+        } else low[u] = min(low[u], low[v]);
+      } else low[u] = min(low[u], vis[v]);
+    };
+    for (int u = 0; u < N; u++)
+      if (!vis[u]) dfs(dfs, u, 1);
+  } // T may be forest; after dfs, stk are the roots
+}; // test @ 2020 Shanghai K
