@@ -1,4 +1,4 @@
-// A, B are convex hull sort by (X, Y)
+// A, B are convex hull rotate to min by (X, Y)
 vector<P> Minkowski(vector<P> A, vector<P> B) {
   vector<P> C(1, A[0] + B[0]), s1, s2;
   const int N = (int)A.size(), M = (int)B.size();

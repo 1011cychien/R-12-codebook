@@ -23,7 +23,7 @@ bool operator<(L a, L b) {
 // the half plane is the LHS when going from st to ed
 llf HPI(vector<Line> &q) {
   sort(q.begin(), q.end());
-  int n = q.size(), l = 0, r = -1;
+  int n = (int)q.size(), l = 0, r = -1;
   for (int i = 0; i < n; i++) {
     if (i && !argCmp(q[i].dir, q[i-1].dir)) continue;
     while (l < r && cov(q[i], q[r-1], q[r])) --r;
