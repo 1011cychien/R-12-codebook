@@ -71,7 +71,7 @@ void go(Tri *now) { // store all tri into res
   if (!now->has_chd()) return res.push_back(now);
   for (Tri *c: now->ch) if (c) go(c);
 }
-void build(vector<P> &ps) {
+void build(vector<P> ps) {
   it = pool; res.clear(); vis.clear();
   shuffle(ps.begin(), ps.end(), mt19937(114514));
   Trigs tr; for (P p: ps) tr.add_point(p);
