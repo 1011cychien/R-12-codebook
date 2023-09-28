@@ -17,6 +17,7 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * [最小费用可行流(?)](https://www.cnblogs.com/smashfun/p/13259192.html)
 * [MaxCliqueDyn](https://github.com/OmeletWithoutEgg/ckiseki/blob/master/codes/Graph/MaxCliqueDyn.cpp)/[邀請函](https://omeletwithoutegg.github.io/2020/11/22/TIOJ-1978/)
 * bipartite clique
+* [Tree Hash test](https://uoj.ac/problem/763)
 * Simplex (e.g. with custom type?)
 * fix SAM/PalTree
 * del old fft?
