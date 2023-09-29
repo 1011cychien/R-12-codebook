@@ -1,14 +1,9 @@
 // be careful of type
 Cir getCircum(P a, P b, P c){
-  llf a1 = a.x-b.x, b1 = a.y-b.y;
-  llf c1 = (a.x+b.x)/2 * a1 + (a.y+b.y)/2 * b1;
-  llf a2 = a.x-c.x, b2 = a.y-c.y;
-  llf c2 = (a.x+c.x)/2 * a2 + (a.y+c.y)/2 * b2;
-  Cir cc;
-  cc.o.x = (c1*b2-b1*c2)/(a1*b2-b1*a2);
-  cc.o.y = (a1*c2-c1*a2)/(a1*b2-b1*a2);
-  cc.r = hypot(cc.o.x-a.x, cc.o.y-a.y);
-  return cc;
+  P z1 = a - b, z2 = a - c; llf D = cross(z1, z2) * 2;
+  llf c1 = dot(a + b, z1), c2 = dot(a + c, z2);
+  P o = (c2 * conj(z1) - c1 * conj(z2)) / D;
+  return { o, abs(o - a) };
 }
 Cir minCircleCover(vector<P> &pts) {
   shuffle(pts.begin(), pts.end(), mt19937(114514));
