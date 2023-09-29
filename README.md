@@ -18,14 +18,14 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 
 * [ ] del old fft and polynomial?
 * [ ] shorten SA
-* [ ] make KM modern
+* [x] make KM modern
 * shorten weighted general matching
 * shorten floor sum
 
 
 ### To add
 * [ ] bipartite independent set / vertex cover construction
-* [ ] count 3 cycle / 4 cycle
+* [x] count 3 cycle / 4 cycle
 * [ ] faster Pollard Rho (127(?))
 * 郵局設置問題無限大extreme
 * segment tree beats
@@ -48,8 +48,8 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * [x] rotating sweep line
 * [ ] [3d hull test](https://vjudge.net/problem/HDU-3662)
 * [ ] to add
-    * [ ] triangle hearts?
-    * [ ] adaptive simpson?
+    * [x] triangle hearts?
+    * [x] adaptive simpson?
     * [ ] 3d point class
 * [ ] del or fix
     * KD tree
