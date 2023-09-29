@@ -30,7 +30,6 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * 郵局設置問題無限大extreme
 * segment tree beats
 * [MaxCliqueDyn](https://github.com/OmeletWithoutEgg/ckiseki/blob/master/codes/Graph/MaxCliqueDyn.cpp)/[邀請函](https://omeletwithoutegg.github.io/2020/11/22/TIOJ-1978/)
-* [Tree Hash test](https://uoj.ac/problem/763)
 * subset convolution
 * bounded flow?
 * bipartite coloring on library checker
