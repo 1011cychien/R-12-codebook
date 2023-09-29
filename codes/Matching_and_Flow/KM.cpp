@@ -1,61 +1,32 @@
-class KM {
-private:
-  static constexpr lld INF = 1LL << 60;
-  vector<lld> hl,hr,slk;
-  vector<int> fl,fr,pre,qu;
-  vector<vector<lld>> w;
-  vector<bool> vl,vr;
-  int n, ql, qr;
-  bool check(int x) {
-    if (vl[x] = true, fl[x] != -1)
-      return vr[qu[qr++] = fl[x]] = true;
-    while (x != -1) swap(x, fr[fl[x] = pre[x]]);
-    return false;
-  }
-  void bfs(int s) {
-    fill(slk.begin(), slk.end(), INF);
-    fill(vl.begin(), vl.end(), false);
-    fill(vr.begin(), vr.end(), false);
-    ql = qr = 0;
-    vr[qu[qr++] = s] = true;
+struct KM { // maximize, test @ UOJ 80
+  int n, l, r; lld ans; // fl and fr are the match
+  vector<lld> hl, hr; vector<int> fl, fr, pre, q;
+  void bfs(const auto &w, int s) {
+    vector<int> vl(n), vr(n); vector<lld> slk(n, INF);
+    l = r = 0; vr[q[r++] = s] = true;
+    const auto check = [&](int x) -> bool {
+      if (vl[x] || slk[x] > 0) return true;
+      vl[x] = true; slk[x] = INF;
+      if (fl[x] != -1) return vr[q[r++] = fl[x]] = true;
+      while (x != -1) swap(x, fr[fl[x] = pre[x]]);
+      return false;
+    };
     while (true) {
-      lld d;
-      while (ql < qr) {
-        for (int x = 0, y = qu[ql++]; x < n; ++x) {
-          if(!vl[x]&&slk[x]>=(d=hl[x]+hr[y]-w[x][y])){
-            if (pre[x] = y, d) slk[x] = d;
-            else if (!check(x)) return;
-          }
-        }
-      }
-      d = INF;
+      while (l < r)
+        for (int x = 0, y = q[l++]; x < n; ++x) if (!vl[x])
+          if (chmin(slk[x], hl[x] + hr[y] - w[x][y]))
+            if (pre[x] = y, !check(x)) return;
+      lld d = ranges::min(slk);
       for (int x = 0; x < n; ++x)
-        if (!vl[x] && d > slk[x]) d = slk[x];
-      for (int x = 0; x < n; ++x) {
-        if (vl[x]) hl[x] += d;
-        else slk[x] -= d;
-        if (vr[x]) hr[x] -= d;
-      }
-      for (int x = 0; x < n; ++x)
-        if (!vl[x] && !slk[x] && !check(x)) return;
+        vl[x] ? hl[x] += d : slk[x] -= d;
+      for (int x = 0; x < n; ++x) if (vr[x]) hr[x] -= d;
+      for (int x = 0; x < n; ++x) if (!check(x)) return;
     }
   }
-public:
-  void init( int n_ ) {
-    qu.resize(n = n_);
-    fl.assign(n, -1); fr.assign(n, -1);
-    hr.assign(n, 0); hl.resize(n);
-    w.assign(n, vector<lld>(n));
-    slk.resize(n); pre.resize(n);
-    vl.resize(n); vr.resize(n);
+  KM(int n_, const auto &w) : n(n_), ans(0),
+    hl(n), hr(n), fl(n, -1), fr(fl), pre(n), q(n) {
+    for (int i = 0; i < n; ++i) hl[i]=ranges::max(w[i]);
+    for (int i = 0; i < n; ++i) bfs(w, i);
+    for (int i = 0; i < n; ++i) ans += w[i][fl[i]];
   }
-  void set_edge( int u, int v, lld x ) {w[u][v] = x;}
-  lld solve() {
-    for (int i = 0; i < n; ++i)
-      hl[i] = *max_element(w[i].begin(), w[i].end());
-    for (int i = 0; i < n; ++i) bfs(i);
-    lld res = 0;
-    for (int i = 0; i < n; ++i) res += w[i][fl[i]];
-    return res;
-  }
-} km;
+};
