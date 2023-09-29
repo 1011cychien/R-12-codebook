@@ -47,7 +47,7 @@ struct Trigs {
   }
   void add_point(Tri *r, P p) {
     array<Tri*, 3> t; /* split into 3 triangles */
-    F3 t[i] = new(it++) Tri(r->p[i], r->p[R(i)], p);
+    F3 t[i] = new (it++) Tri(r->p[i], r->p[R(i)], p);
     F3 link(E(t[i], 0), E(t[R(i)], 1));
     F3 link(E(t[i], 2), r->e[L(i)]);
     r->ch = t;

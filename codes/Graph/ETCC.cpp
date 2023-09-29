@@ -4,8 +4,7 @@ vector<vector<int>> ETCC(auto &adj) {
   in = out = nx = id = vector<int>(n, -1);
   int dfc = 0, cnt = 0; Dsu dsu(n);
   auto merge = [&](int u, int v) {
-    dsu.join(u, v); up[u] += up[v];
-  };
+    dsu.join(u, v); up[u] += up[v]; };
   auto dfs = [&](auto self, int u, int p) -> void {
     in[u] = low[u] = dfc++;
     for (int v : adj[u]) if (v != u) {
@@ -39,4 +38,4 @@ vector<vector<int>> ETCC(auto &adj) {
   for (int i = 0; i < n; i++)
     comps[id[dsu.anc(i)]].push_back(i);
   return comps;
-}
+} // test @ yosupo judge

@@ -5,6 +5,7 @@ using llf = long double;
 using PT = std::complex<lld>;
 using PTF = std::complex<llf>;
 using P = PT;
+llf abs(P p) { return sqrtl(norm(p)); }
 PTF toPTF(PT p) { return PTF{RE(p), IM(p)}; }
 int sgn(lld x) { return (x > 0) - (x < 0); }
 lld dot(P a, P b) { return RE(conj(a) * b); }
