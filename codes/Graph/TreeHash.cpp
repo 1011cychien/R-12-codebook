@@ -1,4 +1,4 @@
-llu F(llu z) { // xorshift64 from iwiwi
+llu F(llu z) { // xorshift64star from iwiwi
   z ^= z >> 12; z ^= z << 25; z ^= z >> 27;
   return z * 2685821657736338717LL;
 }
