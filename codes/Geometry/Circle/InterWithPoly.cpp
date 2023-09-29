@@ -18,10 +18,10 @@ llf _area(PTF pa, PTF pb, llf r) {
     S = 0.5 * sin(C) * a * b;
   return S;
 }
-llf area_poly_circle(const vector<PTF> &poly, PTF O, llf r) {
+llf area_poly_circle(const vector<PTF> &v, PTF O, llf r) {
   llf S = 0;
-  for (int i = 0, N = poly.size(); i < N; ++i)
-    S += _area(poly[i] - O, poly[(i + 1) % N] - O, r) *
-         ori(O, poly[i], poly[(i + 1) % N]);
+  for (size_t i = 0, N = v.size(); i < N; ++i)
+    S += _area(v[i] - O, v[(i + 1) % N] - O, r) *
+         ori(O, v[i], v[(i + 1) % N]);
   return abs(S);
 }

@@ -1,4 +1,4 @@
-bool PIH(vector<P> &h, P z, bool strict = true) {
+bool PIH(const vector<P> &h, P z, bool strict = true) {
   int n = (int)h.size(), a = 1, b = n - 1, r = !strict;
   if (n < 3) return r && isInter(Seg(h[0], h[n-1]), z);
   if (ori(h[0],h[a],h[b]) > 0) swap(a, b);
