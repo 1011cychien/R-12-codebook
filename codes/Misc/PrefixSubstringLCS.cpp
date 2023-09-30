@@ -1,13 +1,9 @@
-void all_lcs(string s, string t) { // 0-base
-  vector<int> h(SZ(t));
-  iota(ALL(h), 0);
-  for (int a = 0; a < SZ(s); ++a) {
-    int v = -1;
-    for (int c = 0; c < SZ(t); ++c)
-      if (s[a] == t[c] || h[c] < v)
-        swap(h[c], v);
-    // LCS(s[0, a], t[b, c]) =
-    // c - b + 1 - sum([h[i] >= b] | i <= c)
-    // h[i] might become -1 !!
+void all_lcs(string S, string T) { // 0-base
+  vector<size_t> h(T.size()); iota(all(h), 1);
+  for (size_t a = 0; a < S.size(); ++a) {
+    for (size_t c = 0, v = 0; c < T.size(); ++c)
+      if (S[a] == T[c] || h[c] < v) swap(h[c], v);
+    // here, LCS(s[0, a], t[b, c]) =
+    // c - b + 1 - sum([h[i] > b] | i <= c)
   }
 }
