@@ -111,8 +111,8 @@ literate={\ \ }{{\ }}1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\footnotesize{\fontsize{8}{9.5}\selectfont}
-\titlespacing*{\section} {0pt}{2ex plus 1ex minus .2ex}{0.8ex plus .2ex}  % minimize margin
-\titlespacing*{\subsection} {0pt}{1.75ex plus 1ex minus .2ex}{0ex plus .2ex} % minimize margin
+\titlespacing*{\section} {0pt}{*1}{*0}  % minimize margin
+\titlespacing*{\subsection} {0pt}{*1}{*0} % minimize margin
 
 \begin{document}
 \pagestyle{fancy}
@@ -148,31 +148,32 @@ literate={\ \ }{{\ }}1
   call,
   ca,
    },
-morecomment=[l]{"}, % l is for line comment
-morestring=[b]' % defines that strings are enclosed in double quotes
+  morecomment=[l]{"}, % l is for line comment
+  morestring=[b]' % defines that strings are enclosed in double quotes
 }
 
+\newcommand{\Prefix}{./}
 
-\newcommand{\includecode}[3][C++]{
+\newcommand{\IncludeCode}[3][C++]{
   \subsection{#2}
   \vspace{-0.8em}
-  \lstinputlisting[language=#1]{#3}
+  \lstinputlisting[language=#1]{\Prefix#3}
   \vspace{-1.2em}
 }
 
-\newcommand{\includecppwithhash}[2]{
+\newcommand{\IncludeCpp}[2]{
     \subsection[#1] {#1
-        \immediate\write18{./hash.sh "#2"}
-        {\small [\immediate\protect\input{/tmp/hash/pdf/#2.md5}\unskip]}
+        \immediate\write18{./hash.sh \Prefix"#2"}
+        {\small [\immediate\protect\input{/tmp/hash/pdf/\Prefix#2.md5}\unskip]}
     }
     \vspace{-0.8em}
-    \lstinputlisting{#2}
+    \lstinputlisting{\Prefix#2}
     \vspace{-1.2em}
 }
 
-\newcommand{\includetex}[2]{
+\newcommand{\IncludeTex}[2]{
   \subsection{#1}
-  \input{#2}
+  \input{\Prefix#2}
   \vspace{-1.2em}
 }
 
@@ -185,183 +186,187 @@ morestring=[b]' % defines that strings are enclosed in double quotes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectiontitle{Basic}
+\renewcommand\Prefix{../codes/Basic/}
 
-\includecode[vim]{vimrc}{../codes/Basic/vimrc}
-\includecppwithhash{Debug Macro}{../codes/Basic/debug.cpp}
-\includecode{Increase Stack}{../codes/Basic/IncStack.cpp}
-\includecppwithhash{Pragma Optimization}{../codes/Basic/Pragma.cpp}
-% \subsection{Debugger}
-% \lstinputlisting[language=python]{../codes/Basic/debug_checker.py}
-% \subsection{Quick Random}
-% \lstinputlisting{../codes/Basic/random_generator.cpp}
-\includecppwithhash{IO Optimization}{../codes/Basic/IOOptimize.cpp}
+\IncludeCode[vim]{vimrc}{vimrc}
+\IncludeCpp{Debug Macro}{debug.cpp}
 
+\IncludeCode{Increase Stack}{IncStack.cpp}
+\IncludeCpp{Pragma Optimization}{Pragma.cpp}
+\IncludeCpp{IO Optimization}{IOOptimize.cpp}
 
 \sectiontitle{Data Structure}
+\renewcommand\Prefix{../codes/Data_Structure/}
 
-%\includecppwithhash{Bigint}{../codes/Data_Structure/Bigint.cpp}
-\includecppwithhash{Dark Magic}{../codes/Data_Structure/ext_pbds.cpp}
-% \subsection{SkewHeap}
-% \lstinputlisting{../codes/Data_Structure/SkewHeap.cpp}
-% \includecppwithhash{Disjoint Set}{../codes/Data_Structure/DisjointSet.cpp}
-\includecppwithhash{Link-Cut Tree}{../codes/Data_Structure/LCT.cpp}
-\includecppwithhash{LiChao Segment Tree}{../codes/Data_Structure/LiChao.cpp}
-\includecppwithhash{Treap}{../codes/Data_Structure/Treap.cpp}
-%\includecppwithhash{Sparse Table}{../codes/Data_Structure/SparseTable.cpp}
-\includecppwithhash{Linear Basis}{../codes/Data_Structure/LinearBasis.cpp}
-\includecppwithhash{Binary Search On Segtree}{../codes/Data_Structure/binary_search_on_segtree.cpp}
+\IncludeCpp{Dark Magic}{ext_pbds.cpp}
+\IncludeCpp{Link-Cut Tree}{LCT.cpp}
+\IncludeCpp{LiChao Segment Tree}{LiChao.cpp}
+\IncludeCpp{Treap}{Treap.cpp}
+\IncludeCpp{Linear Basis}{LinearBasis.cpp}
 
+\IncludeCpp{Binary Search On Segtree}{binary_search_on_segtree.cpp}
 
 \sectiontitle{Graph}
+\renewcommand\Prefix{../codes/Graph/}
+% \IncludeCpp{Euler Circuit}{../codes/Graph/EulerCircuit.cpp}
 
-% \includecppwithhash{Euler Circuit}{../codes/Graph/EulerCircuit.cpp}
-\includecppwithhash{2-SAT (SCC)}{../codes/Graph/2SAT.cpp}
-%\includecppwithhash{BCC Edge}{../codes/Graph/BCC_Edge.cpp}
-%\includecppwithhash{BCC Vertex}{../codes/Graph/BCC_Vertex.cpp}
-\includecppwithhash{BCC}{../codes/Graph/BCC.cpp}
-\includecppwithhash{Round Square Tree}{../codes/Graph/RoundSquareTree.cpp}
-\includecppwithhash{Edge TCC}{../codes/Graph/ETCC.cpp}
-\includecppwithhash{Centroid Decomposition}{../codes/Graph/CenDec.cpp}
-\includecppwithhash{DMST}{../codes/Graph/FastDirectedMST.cpp}
-\includecppwithhash{Dominator Tree}{../codes/Graph/DominatorTree.cpp}
-\includecppwithhash{Edge Coloring}{../codes/Graph/Misra.cpp}
-\includecppwithhash{Lowbit Decomposition}{../codes/Graph/LowbitDecomposition.cpp}
-\includecppwithhash{Manhattan MST}{../codes/Graph/ManhattanMST.cpp}
-\includecppwithhash{MaximalClique}{../codes/Graph/MaxClique.cpp}
-\includecppwithhash{MaximumClique}{../codes/Graph/MaxCliqueDyn.cpp}
-\includecppwithhash{Minimum Mean Cycle}{../codes/Graph/MinMeanCycle.cpp}
-% \includecppwithhash{Minimum Steiner Tree}{../codes/Graph/MinSteinerTree.cpp}
-\includetex{Mo's Algorithm on Tree}{../codes/Graph/MoTree.tex}
-\includecppwithhash{Tree Hashing}{../codes/Graph/TreeHash.cpp}
-\includecppwithhash{Virtual Tree}{../codes/Graph/virtual_tree.cpp}
-% \includetex{Differential Constraints}{../codes/Graph/DiffConstraints.tex}
+\IncludeCpp{2-SAT (SCC)}{2SAT.cpp}
+\IncludeCpp{BCC}{BCC.cpp}
+\IncludeCpp{Round Square Tree}{RoundSquareTree.cpp}
+\IncludeCpp{Edge TCC}{ETCC.cpp}
 
+\IncludeCpp{Centroid Decomposition}{CenDec.cpp}
+\IncludeCpp{Lowbit Decomposition}{LowbitDecomposition.cpp}
+\IncludeCpp{Virtual Tree}{virtual_tree.cpp}
+\IncludeCpp{Tree Hashing}{TreeHash.cpp}
+\IncludeTex{Mo's Algorithm on Tree}{MoTree.tex}
+
+\IncludeCpp{DMST}{FastDirectedMST.cpp}
+\IncludeCpp{Dominator Tree}{DominatorTree.cpp}
+\IncludeCpp{Edge Coloring}{Misra.cpp}
+
+\IncludeCpp{Count Cycles}{CountCycles.cpp}
+\IncludeCpp{MaximalClique}{MaxClique.cpp}
+\IncludeCpp{MaximumClique}{MaxCliqueDyn.cpp}
+\IncludeCpp{Minimum Mean Cycle}{MinMeanCycle.cpp}
+\IncludeCpp{Manhattan MST}{ManhattanMST.cpp}
 
 \sectiontitle{Matching \& Flow}
+\renewcommand\Prefix{../codes/Matching_and_Flow/}
 
-\includecppwithhash{HopcroftKarp}{../codes/Matching_and_Flow/Bi_Pair_Fast.cpp}
-\includecppwithhash{Dijkstra Cost Flow}{../codes/Matching_and_Flow/DijkstraCostFlow.cpp}
-\includecppwithhash{Dinic}{../codes/Matching_and_Flow/Dinic.cpp}
+\IncludeCpp{HopcroftKarp}{Bi_Pair_Fast.cpp}
+\IncludeCpp{Dijkstra Cost Flow}{DijkstraCostFlow.cpp}
+\IncludeCpp{Dinic}{Dinic.cpp}
 
-%\includecppwithhash{Construct VC}{../codes/Matching_and_Flow/GenVertexCover.cpp}
-\includetex{Flow Models}{../codes/Matching_and_Flow/FlowModels.tex}
-\includecppwithhash{General Graph Matching}{../codes/Matching_and_Flow/GeneralMatching.cpp}
-\includecppwithhash{Global Min-Cut}{../codes/Matching_and_Flow/SW.cpp}
-\includecppwithhash{GomoryHu Tree}{../codes/Matching_and_Flow/GomoryHu.cpp}
-\includecppwithhash{Kuhn Munkres}{../codes/Matching_and_Flow/KM.cpp}
-\includecppwithhash{Minimum Cost Circulation}{../codes/Matching_and_Flow/MinCostCirculation.cpp}
-\includecppwithhash{Minimum Cost Max Flow}{../codes/Matching_and_Flow/CostFlow.cpp}
-\includecppwithhash{Weighted Matching}{../codes/Matching_and_Flow/WeightedGeneralMatching.cpp}
+% \IncludeCpp{Construct VC}{GenVertexCover.cpp}
+\IncludeTex{Flow Models}{FlowModels.tex}
+\IncludeCpp{General Graph Matching}{GeneralMatching.cpp}
+\IncludeCpp{Global Min-Cut}{SW.cpp}
+\IncludeCpp{GomoryHu Tree}{GomoryHu.cpp}
+\IncludeCpp{Kuhn Munkres}{KM.cpp}
+\IncludeCpp{Minimum Cost Circulation}{MinCostCirculation.cpp}
+\IncludeCpp{Minimum Cost Max Flow}{CostFlow.cpp}
+\IncludeCpp{Weighted Matching}{WeightedGeneralMatching.cpp}
 
 \sectiontitle{Math}
+\renewcommand\Prefix{../codes/Math/}
 
-%\includetex{Prime Table}{../codes/Math/primes.tex}
-%\includetex{$\lfloor \frac{n}{i} \rfloor$ Enumeration}{../codes/Math/ReciprocalEnum.tex}
-\includetex{Common Bounds}{../codes/Math/Bounds.tex}
-\includetex{Strling Number}{../codes/Math/StirlingNumber.tex}
-\includecppwithhash{ax+by=gcd}{../codes/Math/ExtendedGCD.cpp}
-\includecppwithhash{Chinese Remainder}{../codes/Math/ChineseRemainder.cpp}
-%\includetex{Chinese Remainder}{../codes/Math/ChineseRemainder.tex}
-\includecppwithhash{De-Bruijn}{../codes/Math/debruijn.cpp}
-\includecppwithhash{DiscreteLog}{../codes/Math/DiscreteLog.cpp}
-\includecppwithhash{Quadratic residue}{../codes/Math/QuadraticResidue.cpp}
-\includetex{Extended Euler}{../codes/Math/ExtendedEuler.tex}
-\includetex{Extended FloorSum}{../codes/Math/ExtendedFloorSum.tex}
-\includecppwithhash{FloorSum}{../codes/Math/FloorSum.cpp}
-\includecppwithhash{ModMin}{../codes/Math/ModMin.cpp}
+%\IncludeTex{Prime Table}{primes.tex}
+%\IncludeTex{$\lfloor \frac{n}{i} \rfloor$ Enumeration}{ReciprocalEnum.tex}
+\IncludeTex{Common Bounds}{Bounds.tex}
+\IncludeTex{Stirling Number}{StirlingNumber.tex}
 
-\includecppwithhash{Fast Fourier Transform}{../codes/Math/FFT.cpp}
-\includecppwithhash{FWT}{../codes/Math/FWT.cpp}
-\includecppwithhash{CRT for arbitrary mod}{../codes/Math/superBigCRT.cpp}
-\includecppwithhash{NTT}{../codes/Math/NTT.cpp}
+\IncludeCpp{ax+by=gcd}{ExtendedGCD.cpp}
+\IncludeCpp{Chinese Remainder}{ChineseRemainder.cpp}
 
-\includecppwithhash{Partition Number}{../codes/Math/PartitionNumber.cpp}
-\includecppwithhash{Pi Count (+Linear Sieve)}{../codes/Math/MeisselLehmer.cpp}
-\includecppwithhash{Miller Rabin}{../codes/Math/MillerRabin.cpp}
-\includecppwithhash{Pollard Rho}{../codes/Math/PollardRho.cpp}
+\IncludeCpp{DiscreteLog}{DiscreteLog.cpp}
+\IncludeCpp{Quadratic residue}{QuadraticResidue.cpp}
 
-\includecppwithhash{Berlekamp Massey}{../codes/Math/Berlekamp-Massey.cpp}
-%\includecppwithhash{Gauss Elimination}{../codes/Math/GaussElimination.cpp}
-\includecppwithhash{Charateristic Polynomial}{../codes/Math/CharPoly.cpp}
-\includecppwithhash{Polynomial Operations}{../codes/Math/PolynomialOp.cpp}
-\includecppwithhash{Simplex}{../codes/Math/simplex.cpp}
-\includetex{Simplex Construction}{../codes/Math/SimplexConstruction.tex}
-\includecppwithhash{Adaptive Simpson}{../codes/Math/AdaptiveSimpson.cpp}
+\IncludeTex{Extended Euler}{ExtendedEuler.tex}
+\IncludeTex{Extended FloorSum}{ExtendedFloorSum.tex}
+
+\IncludeCpp{FloorSum}{FloorSum.cpp}
+\IncludeCpp{ModMin}{ModMin.cpp}
+
+\IncludeCpp{Fast Fourier Transform}{FFT.cpp}
+\IncludeCpp{FWT}{FWT.cpp}
+\IncludeCpp{CRT for arbitrary mod}{superBigCRT.cpp}
+\IncludeCpp{NTT}{NTT.cpp}
+
+\IncludeCpp{Partition Number}{PartitionNumber.cpp}
+\IncludeCpp{Pi Count (+Linear Sieve)}{MeisselLehmer.cpp}
+\IncludeCpp{Miller Rabin}{MillerRabin.cpp}
+\IncludeCpp{Pollard Rho}{PollardRho.cpp}
+
+\IncludeCpp{Berlekamp Massey}{Berlekamp-Massey.cpp}
+%\IncludeCpp{Gauss Elimination}{GaussElimination.cpp}
+\IncludeCpp{Charateristic Polynomial}{CharPoly.cpp}
+\IncludeCpp{Polynomial Operations}{PolynomialOp.cpp}
+
+\IncludeCpp{Simplex}{simplex.cpp}
+\IncludeTex{Simplex Construction}{SimplexConstruction.tex}
+\IncludeCpp{Adaptive Simpson}{AdaptiveSimpson.cpp}
 
 \sectiontitle{Geometry}
+\renewcommand\Prefix{../codes/Geometry/}
 
-\includecppwithhash{Basic Geometry}{../codes/Geometry/Basic.cpp}
-\includecppwithhash{2D Convex Hull}{../codes/Geometry/ConvexHull.cpp}
-\includecppwithhash{2D Farthest Pair}{../codes/Geometry/FarthestPair.cpp}
-\includecppwithhash{MinMax Enclosing Rect}{../codes/Geometry/MinMaxEnclosingRect.cpp}
-\includecppwithhash{Minkowski Sum}{../codes/Geometry/MinkowskiSum.cpp}
+\IncludeCpp{Basic Geometry}{Basic.cpp}
+\IncludeCpp{2D Convex Hull}{ConvexHull.cpp}
+\IncludeCpp{2D Farthest Pair}{FarthestPair.cpp}
+\IncludeCpp{MinMax Enclosing Rect}{MinMaxEnclosingRect.cpp}
+\IncludeCpp{Minkowski Sum}{MinkowskiSum.cpp}
 
-\includecppwithhash{Segment Intersection}{../codes/Geometry/SegIsIntersect.cpp}
-\includecppwithhash{Half Plane Intersection}{../codes/Geometry/HalfPlaneIntersection.cpp}
-\includecppwithhash{SegmentDist (Sausage)}{../codes/Geometry/SegSegDist.cpp}
+\IncludeCpp{Segment Intersection}{SegIsIntersect.cpp}
+\IncludeCpp{Half Plane Intersection}{HalfPlaneIntersection.cpp}
+\IncludeCpp{SegmentDist (Sausage)}{SegSegDist.cpp}
 
-\includecppwithhash{Rotating Sweep Line}{../codes/Geometry/RotatingSweepLine.cpp}
-% \includecppwithhash{2D Closest Pair}{../codes/Geometry/2D_ClosestPair.cpp}
+\IncludeCpp{Rotating Sweep Line}{RotatingSweepLine.cpp}
+% \IncludeCpp{2D Closest Pair}{2D_ClosestPair.cpp}
 
-\includecppwithhash{Point In Simple Polygon}{../codes/Geometry/PointInPoly.cpp}
-\includecppwithhash{Point In Hull (Fast)}{../codes/Geometry/PointInHull.cpp}
-% \includecppwithhash{Convex Hulls Tangent}{../codes/Geometry/convex_hulls_tangent.cpp}
-\includecppwithhash{Tangent of Points To Hull}{../codes/Geometry/TangentPointToHull.cpp}
+\IncludeCpp{Point In Simple Polygon}{PointInPoly.cpp}
+\IncludeCpp{Point In Hull (Fast)}{PointInHull.cpp}
+% \IncludeCpp{Convex Hulls Tangent}{convex_hulls_tangent.cpp}
+\IncludeCpp{Tangent of Points To Hull}{TangentPointToHull.cpp}
 
-\includecppwithhash{Circle Class \& Intersection}{../codes/Geometry/Circle/Basic.cpp}
-% \includecppwithhash{Intersection of Two Circle}{../codes/Geometry/intersection_of_two_circles.cpp}
-\includecppwithhash{Circle Common Tangent}{../codes/Geometry/Circle/TangentLineOfTwoCircles.cpp}
-\includecppwithhash{Line-Circle Intersection}{../codes/Geometry/Circle/InterWithLine.cpp}
-\includecppwithhash{Poly-Circle Intersection}{../codes/Geometry/Circle/InterWithPoly.cpp}
-\includecppwithhash{Minimum Covering Circle}{../codes/Geometry/Circle/MinCircleCover.cpp}
-\includecppwithhash{Circle Union}{../codes/Geometry/Circle/CircleUnion.cpp}
+\IncludeCpp{Circle Class \& Intersection}{Circle/Basic.cpp}
+% \IncludeCpp{Intersection of Two Circle}{intersection_of_two_circles.cpp}
+\IncludeCpp{Circle Common Tangent}{Circle/TangentLineOfTwoCircles.cpp}
+\IncludeCpp{Line-Circle Intersection}{Circle/InterWithLine.cpp}
+\IncludeCpp{Poly-Circle Intersection}{Circle/InterWithPoly.cpp}
+\IncludeCpp{Minimum Covering Circle}{Circle/MinCircleCover.cpp}
+\IncludeCpp{Circle Union}{Circle/CircleUnion.cpp}
 
-\includecppwithhash{Polygon Union}{../codes/Geometry/PolyUnion.cpp}
+\IncludeCpp{Polygon Union}{PolyUnion.cpp}
 
-\includecppwithhash{3D Convex Hull}{../codes/Geometry/3d/ConvexHull.cpp}
-\includecppwithhash{Delaunay}{../codes/Geometry/Delaunay.cpp}
-\includecppwithhash{kd Tree (Nearest Point)}{../codes/Geometry/KDTree.cpp}
-\includecppwithhash{kd Closest Pair (3D ver.)}{../codes/Geometry/3d/ClosestPair.cpp}
-\includecppwithhash{Simulated Annealing}{../codes/Geometry/SimulateAnnealing.cpp}
-\includecppwithhash{Triangle Centers}{../codes/Geometry/TriCenter.cpp}
-% \includecppwithhash{Ternary Search on Integer}{../codes/Geometry/Ternary_Search.cpp}
-
+\IncludeCpp{3D Convex Hull}{3d/ConvexHull.cpp}
+\IncludeCpp{Delaunay}{Delaunay.cpp}
+\IncludeCpp{kd Tree (Nearest Point)}{KDTree.cpp}
+\IncludeCpp{kd Closest Pair (3D ver.)}{3d/ClosestPair.cpp}
+\IncludeCpp{Simulated Annealing}{SimulateAnnealing.cpp}
+\IncludeCpp{Triangle Centers}{TriCenter.cpp}
+% \IncludeCpp{Ternary Search on Integer}{Ternary_Search.cpp}
 
 \sectiontitle{Stringology}
+\renewcommand\Prefix{../codes/String/}
 
-\includecppwithhash{Hash}{../codes/String/Hash.cpp}
-\includecppwithhash{Suffix Array}{../codes/String/Suffix_Array.cpp}
-% \includecppwithhash{Aho-Corasick Algorithm}{../codes/String/Aho_Corasick.cpp}
-\includecppwithhash{Ex SAM}{../codes/String/exSAM.cpp}
-% \includecppwithhash{KMP}{../codes/String/KMP.cpp}
-\includecppwithhash{Z value}{../codes/String/Z_Value.cpp}
-\includecppwithhash{Manacher}{../codes/String/Manacher.cpp}
-\includecppwithhash{Lexico Smallest Rotation}{../codes/String/smallest_rotation.cpp}
-\includecppwithhash{Main Lorentz}{../codes/String/MainLorentz.cpp}
-\includecppwithhash{BWT}{../codes/String/BWT.cpp}
-\includecppwithhash{Palindromic Tree}{../codes/String/palindromic_tree.cpp}
+\IncludeCpp{Hash}{Hash.cpp}
+\IncludeCpp{Suffix Array}{Suffix_Array.cpp}
+% \IncludeCpp{Aho-Corasick Algorithm}{../codes/String/Aho_Corasick.cpp}
+\IncludeCpp{Ex SAM}{exSAM.cpp}
+% \IncludeCpp{KMP}{../codes/String/KMP.cpp}
+\IncludeCpp{Z value}{Z_Value.cpp}
+\IncludeCpp{Manacher}{Manacher.cpp}
+\IncludeCpp{Lexico Smallest Rotation}{smallest_rotation.cpp}
+\IncludeCpp{Main Lorentz}{MainLorentz.cpp}
+\IncludeCpp{BWT}{BWT.cpp}
+\IncludeCpp{Palindromic Tree}{palindromic_tree.cpp}
 
 
 \sectiontitle{Misc}
+\renewcommand\Prefix{../codes/Misc/}
 
-\includetex{Theorems}{../codes/Misc/Theorems.tex}
-\includecppwithhash{Weight Matroid Intersection}{../codes/Misc/MatroidIntersection.cpp}
-% \includecppwithhash{MaximumEmptyRect}{../codes/Misc/EmptyRect.cpp}
-%\includetex{DP-opt Condition}{../codes/Misc/DPcondition.tex}
-\includecppwithhash{Bitset LCS}{../codes/Misc/BitsetLCS.cpp}
-\includecppwithhash{Prefix Substring LCS}{../codes/Misc/PrefixSubstringLCS.cpp}
-\includecppwithhash{Convex 1D/1D DP}{../codes/Misc/Convex1D1D.cpp}
-\includecppwithhash{ConvexHull Optimization}{../codes/Misc/SlopeDP.cpp}
-\includecppwithhash{Josephus Problem}{../codes/Misc/Josephus.cpp}
-% \includecppwithhash{Cactus Matching}{../codes/Misc/CactusMatching.cpp}
-%\includecppwithhash{DLX}{../codes/Misc/DLX.cpp}
-\includecppwithhash{Tree Knapsack}{../codes/Misc/tree_knapsack.cpp}
-\includecppwithhash{N Queens Problem}{../codes/Misc/NQueens.cpp}
-\includetex{Stable Marriage}{../codes/Misc/StableMarriage.tex}
-%\includecppwithhash{Aliens Optimization}{../codes/Misc/Aliens.cpp}
-%\includecppwithhash{Hilbert Curve}{../codes/Misc/Hilbert.cpp}
-\includecppwithhash{Binary Search On Fraction}{../codes/Misc/BinarySearchOnFraction.cpp}
-%\includetex{To Check When Submit}{../codes/Misc/tocheck.tex}
+\IncludeTex{Theorems}{Theorems.tex}
+\IncludeCpp{Weight Matroid Intersection}{MatroidIntersection.cpp}
+
+% \IncludeCpp{MaximumEmptyRect}{EmptyRect.cpp}
+% \IncludeTex{DP-opt Condition}{DPcondition.tex}
+\IncludeCpp{Bitset LCS}{BitsetLCS.cpp}
+\IncludeCpp{Prefix Substring LCS}{PrefixSubstringLCS.cpp}
+\IncludeCpp{Convex 1D/1D DP}{Convex1D1D.cpp}
+\IncludeCpp{ConvexHull Optimization}{SlopeDP.cpp}
+
+\IncludeCpp{De-Bruijn}{debruijn.cpp}
+\IncludeCpp{Josephus Problem}{Josephus.cpp}
+% \IncludeCpp{Cactus Matching}{CactusMatching.cpp}
+% \IncludeCpp{DLX}{DLX.cpp}
+\IncludeCpp{Tree Knapsack}{tree_knapsack.cpp}
+\IncludeCpp{N Queens Problem}{NQueens.cpp}
+\IncludeTex{Stable Marriage}{StableMarriage.tex}
+% \IncludeCpp{Aliens Optimization}{Aliens.cpp}
+% \IncludeCpp{Hilbert Curve}{Hilbert.cpp}
+\IncludeCpp{Binary Search On Fraction}{BinarySearchOnFraction.cpp}
+
+% \IncludeTex{To Check When Submit}{tocheck.tex}
 
 
 \end{document}
