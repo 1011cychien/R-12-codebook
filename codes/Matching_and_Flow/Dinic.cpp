@@ -38,7 +38,7 @@ public:
 		st = st_, ed = ed_; Cap ret = 0, f;
 		while (BFS()) {
 			idx.assign(n, 0);
-			f = DFS(st, numeric_limits<Cap>::max()); ret += f;
+			ret += (f = DFS(st, numeric_limits<Cap>::max()));
 			if (f == 0) break;
 		}
 		return ret;
