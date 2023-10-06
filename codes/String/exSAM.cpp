@@ -1,7 +1,7 @@
 struct exSAM {
   int len[maxn * 2], link[maxn * 2]; // maxlen, suflink
   int next[maxn * 2][maxc], tot; // [0, tot), root = 0
-  int ord[maxn * 2]; // topo. order
+  int ord[maxn * 2]; // topo. order (sort by length)
   int cnt[maxn * 2]; // occurence
   int newnode() {
     fill_n(next[tot], maxc, 0);
@@ -29,7 +29,7 @@ struct exSAM {
   }
   void insert(const string &s) {
     int cur = 0;
-    for (auto ch : s) {
+    for (char ch : s) {
       int &nxt = next[cur][int(ch - 'a')];
       if (!nxt) nxt = newnode();
       cnt[cur = nxt] += 1;
@@ -45,10 +45,10 @@ struct exSAM {
     vector<int> lc(tot);
     for (int i = 1; i < tot; ++i) ++lc[len[i]];
     partial_sum(all(lc), lc.begin());
-    for (int i = 1; i < tot; ++i) lenSorted[--lc[len[i]]] = i;
+    for (int i = 1; i < tot; ++i) ord[--lc[len[i]]] = i;
   }
   void solve() {
     for (int i = tot - 2; i >= 0; --i)
-      cnt[link[lenSorted[i]]] += cnt[lenSorted[i]];
+      cnt[link[ord[i]]] += cnt[ord[i]];
   }
 };
