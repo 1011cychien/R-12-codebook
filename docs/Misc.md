@@ -36,6 +36,12 @@ Maintain upper envelope of lines.
 ### Test Status
 Passed yosupo library checker.
 
+## De-Bruijn
+### Description
+De-Bruijn sequence construction
+### Test Status
+Passed CSES and local test.
+
 ## Josephus Problem
 ### Description
 Josephus problem $O(N)$ and faster algo.
@@ -45,14 +51,15 @@ Not even used or tested
 ## Tree Knapsack
 ### Description
 TODO
+don't know its usage
 ### Test Status
-Not even used or tested
+Not even used or tested.
 
 ## N Queens Problem
 ### Description
 N Queens Problem construction
 ### Test Status
-Not even used or tested
+Not even used or tested.
 
 ## Stable Marriage
 ### Description
@@ -65,4 +72,4 @@ No test needed.
 Binary search on stern-borcot tree, binary search
 over $p/q$ such that $0 <= p, q <= N$.
 ### Test Status
-TODO. Copied from NaCl
+TODO. Copied from NaCl.
