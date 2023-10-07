@@ -166,7 +166,8 @@ TODO
 ### Description
 3d closest pair
 ### Test Status
-TODO. Cannot pass TIOJ.
+Correct, but might be too slow. Can pass [TIOJ](https://tioj.ck.tp.edu.tw/submissions/357857) using fast hash table.  
+Need more test.
 
 ## Simulated Annealing
 ### Description
