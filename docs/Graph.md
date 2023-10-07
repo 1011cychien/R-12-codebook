@@ -8,27 +8,28 @@ Don't forget we can do bitset optimization.
 To use 2-SAT, $2i$ and $2i+1$ represents $x$ and $\neg x$.
 $x \lor x$ or $\neg x \lor \neg x$ is OK.
 ### Test Status
-Passed CSES Giant Pizza and CF Radio Stations.
+Passed CSES Giant Pizza and [CF Radio Stations](https://codeforces.com/contest/1215/submission/219711833).
 
 ## BCC
 ### Description
 Gives AP and bridge and `bcc_id`.
 `bcc_id[edge_id]` is the bcc of the edge.
 ### Test Status
-TODO
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/154125).  
+Need more tests.
 
 ## Round Square Tree
 ### Description
 Or block-cut-tree. Useful tree for "simple path" queries.
 There will be at most $2N$ vertices in the new tree.
 ### Test Status
-Passed 2020 Shanghai K
+Passed [2020 Shanghai K](https://codeforces.com/gym/102900/submission/223293046)
 
 ## Edge TCC
 ### Description
 Edge triconnected component.
 ### Test Status
-Passed yosupo library checker.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/161793).
 
 ## Centroid Decomposition
 ### Description
@@ -42,7 +43,7 @@ Need rewrite or smt.
 Directed Minimum Spanning Tree in $O(E\log ^2 E)$.
 Use mergable heap instead of small-to-big for better complexity?
 ### Test Status
-Passed yosupo library checker.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/164973).
 
 ## Dominator Tree
 ### Description
@@ -51,7 +52,7 @@ The ancestor relation on the tree is the
 "must-pass-from-source" relation in original graph.
 
 ### Test Status
-Passed yosupo library checker.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/154753).
 
 ## Lowbit Decomposition
 ### Description
@@ -63,7 +64,7 @@ TODO
 ### Description
 Minimum Spanning Tree of manhattan distance.
 ### Test Status
-The code is from kactl.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/69901).
 
 ## MaximalClique
 ### Description
@@ -71,7 +72,7 @@ Enumerate maximal clique.
 Time complexity $O(n3^(n/3))$ or $O(nC)$ where $C$
 is the number of such cliques.
 ### Test Status
-Can run on $n=80$ on TIOJ.
+Can run on $n=80$ on [TIOJ](https://tioj.ck.tp.edu.tw/submissions/357847).
 
 ## Maximum Clique (Dyn)
 ### Description
@@ -99,7 +100,7 @@ TODO
 ### Description
 Some PRNG random hash.
 ### Test Status
-Passed UOJ 763.
+Passed [UOJ 763](https://uoj.ac/submission/656801).
 
 ## Virtual Tree
 ### Description

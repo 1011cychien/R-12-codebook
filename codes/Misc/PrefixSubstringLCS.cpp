@@ -6,4 +6,4 @@ void all_lcs(string S, string T) { // 0-base
     // here, LCS(s[0, a], t[b, c]) =
     // c - b + 1 - sum([h[i] > b] | i <= c)
   }
-}
+} // test @ yosupo judge

@@ -1,3 +1,4 @@
+#define all(x) begin(x), end(x)
 #ifdef CKISEKI
 #define safe cerr<<__PRETTY_FUNCTION__<<" line "<<__LINE__<<" safe\n"
 #define debug(a...) debug_(#a, a)

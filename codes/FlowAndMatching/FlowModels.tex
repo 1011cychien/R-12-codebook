@@ -55,14 +55,14 @@
       \item Connect $v \to v^\prime$ with weight $2\mu(v)$, where $\mu(v)$ is the cost of the cheapest edge incident to $v$.
       \item Find the minimum weight perfect matching on $G^\prime$.
     \end{enumerate}
-    \item Project selection problem
-    \vspace{-1em}
-    \begin{enumerate}
-      \itemsep-0.3em
-      \item If $p_v > 0$, create edge $(s, v)$ with capacity $p_v$; otherwise, create edge $(v, t)$ with capacity $-p_v$.
-      \item Create edge $(u, v)$ with capacity $w$ with $w$ being the cost of choosing $u$ without choosing $v$.
-      \item The mincut is equivalent to the maximum profit of a subset of projects.
-    \end{enumerate}
+    %\item Project selection problem
+    %\vspace{-1em}
+    %\begin{enumerate}
+      %\itemsep-0.3em
+      %\item If $p_v > 0$, create edge $(s, v)$ with capacity $p_v$; otherwise, create edge $(v, t)$ with capacity $-p_v$.
+      %\item Create edge $(u, v)$ with capacity $w$ with $w$ being the cost of choosing $u$ without choosing $v$.
+      %\item The mincut is equivalent to the maximum profit of a subset of projects.
+    %\end{enumerate}
     % \item 0/1 quadratic programming
     % \vspace{-0.5em}
     % \[ \sum_x{c_xx} + \sum_y{c_y\bar{y}} + \sum_{xy}c_{xy}x\bar{y} + \sum_{xyx^\prime y^\prime}c_{xyx^\prime y^\prime}(x\bar{y} + x^\prime\bar{y^\prime}) \]
@@ -74,4 +74,18 @@
     %   \item Create edge $(x, y)$ with capacity $c_{xy}$.
     %   \item Create edge $(x, y)$ and edge $(x^\prime, y^\prime)$ with capacity $c_{xyx^\prime y^\prime}$.
     % \end{enumerate}
+    \item Submodular functions minimization
+    \vspace{-1em}
+    \begin{itemize}
+        \item For a function $f: 2^V \to \mathbb{R}$, $f$ is a submodular function iff
+            \begin{itemize}
+                \item $\forall S,T \subseteq V$, $f(S) + f(T) \geq f(S \cup T) + f(S \cap T)$, or
+                \item $\forall X \subseteq Y \subseteq V$, $x\notin Y$, $f(X\cup\{x\})-f(X)\geq f(Y\cup\{x\})-f(Y)$.
+            \end{itemize}
+        \item To minimize $\sum_i \theta_i (x_i) + \sum_{i< j} \phi_{ij} (x_i, x_j) + \sum_{i< j< k}  \psi_{ijk} (x_i, x_j, x_k)$
+        \item If $\theta_i(1)\geq\theta_i(0)$, add edge ($S$, $i$, $\theta_i(1)-\theta_i(0)$) and $\theta_i(0)$ to answer; otherwise, ($i$, $T$, $\theta_i(0)-\theta_i(1)$) and $\theta_i(1)$.
+        \item Add edges ($i$, $j$, $\phi_{ij}(0,1)+\phi_{ij}(1,0)-\phi_{ij}(0,0)-\phi_{ij}(1,1)$).
+        \item Denote $x_{ijk}$ as helper nodes. Let $P=\psi_{ijk}(0,0,0)+\psi_{ijk}(0,1,1)+\psi_{ijk}(1,0,1)+\psi_{ijk}(1,1,0)-\psi_{ijk}(0,0,1)-\psi_{ijk}(0,1,0)-\psi_{ijk}(1,0,0)-\psi_{ijk}(1,1,1)$. Add $-P$ to answer. If $P \geq 0$, add edges ($i$, $x_{ijk}$, $P$), ($j$,$x_{ijk}$,$P$), ($k$,$x_{ijk}$,$P$), ($x_{ijk}$, $T$, $P$); otherwise ($x_{ijk}$,$i$,$-P$), ($x_{ijk}$,$j$,$-P$), ($x_{ijk}$,$k$,$-P$), ($S$, $x_{ijk}$, $-P$).
+        \item The minimum cut of this graph will be the the minimum value of the function above.
+    \end{itemize}
 \end{itemize}

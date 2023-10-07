@@ -14,7 +14,7 @@ Supports link or cut edge.
 
 Subtree queries are tricky.
 ### Test Status
-Rarely used. Need test.
+[CF 603E](https://codeforces.com/contest/603/submission/175289794)
 
 ## LiChao Segment Tree
 ### Description
