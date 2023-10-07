@@ -83,7 +83,7 @@
                 \item $\forall X \subseteq Y \subseteq V$, $x\notin Y$, $f(X\cup\{x\})-f(X)\geq f(Y\cup\{x\})-f(Y)$.
             \end{itemize}
         \item To minimize $\sum_i \theta_i (x_i) + \sum_{i< j} \phi_{ij} (x_i, x_j) + \sum_{i< j< k}  \psi_{ijk} (x_i, x_j, x_k)$
-        \item If $\theta_i(1)\geq\theta_i(0)$, add edge ($S$, $i$, $\theta_i(1)-\theta_i(0)$) and $\theat_i(0)$ to answer; otherwise, ($i$, $T$, $\theta_i(0)-\theta_i(1)$) and $\theta_i(1)$.
+        \item If $\theta_i(1)\geq\theta_i(0)$, add edge ($S$, $i$, $\theta_i(1)-\theta_i(0)$) and $\theta_i(0)$ to answer; otherwise, ($i$, $T$, $\theta_i(0)-\theta_i(1)$) and $\theta_i(1)$.
         \item Add edges ($i$, $j$, $\phi_{ij}(0,1)+\phi_{ij}(1,0)-\phi_{ij}(0,0)-\phi_{ij}(1,1)$).
         \item Denote $x_{ijk}$ as helper nodes. Let $P=\psi_{ijk}(0,0,0)+\psi_{ijk}(0,1,1)+\psi_{ijk}(1,0,1)+\psi_{ijk}(1,1,0)-\psi_{ijk}(0,0,1)-\psi_{ijk}(0,1,0)-\psi_{ijk}(1,0,0)-\psi_{ijk}(1,1,1)$. Add $-P$ to answer. If $P \geq 0$, add edges ($i$, $x_{ijk}$, $P$), ($j$,$x_{ijk}$,$P$), ($k$,$x_{ijk}$,$P$), ($x_{ijk}$, $T$, $P$); otherwise ($x_{ijk}$,$i$,$-P$), ($x_{ijk}$,$j$,$-P$), ($x_{ijk}$,$k$,$-P$), ($S$, $x_{ijk}$, $-P$).
         \item The minimum cut of this graph will be the the minimum value of the function above.
