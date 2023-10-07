@@ -12,6 +12,12 @@ Almost an implementation.
 ### Test Status
 Copied from NaCl
 
+## Stable Marriage
+### Description
+Stable Marriage algo.
+### Test Status
+No test needed.
+
 ## Bitset LCS
 ### Description
 $O(n^2/w)$. need hand-written bitset (needs subtraction)
@@ -48,24 +54,24 @@ Josephus problem $O(N)$ and faster algo.
 ### Test Status
 Not even used or tested
 
-## Tree Knapsack
-### Description
-TODO
-don't know its usage
-### Test Status
-Not even used or tested.
-
 ## N Queens Problem
 ### Description
 N Queens Problem construction
 ### Test Status
 Not even used or tested.
 
-## Stable Marriage
+## Manhattan MST
 ### Description
-Stable Marriage algo.
+Minimum Spanning Tree of manhattan distance.
 ### Test Status
-No test needed.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/69901).
+
+## Tree Knapsack
+### Description
+TODO
+don't know its usage
+### Test Status
+Not even used or tested.
 
 ## Binary Search On Fraction
 ### Description
