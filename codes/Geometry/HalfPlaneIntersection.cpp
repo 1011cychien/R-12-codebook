@@ -1,13 +1,13 @@
 struct Line {
   P st, ed, dir;
   Line (P s, P e) : st(s), ed(e), dir(e - s) {}
-}; using L = const Line &;
-PTF intersect(L A, L B) {
+}; using LN = const Line &;
+PTF intersect(LN A, LN B) {
   llf t = cross(B.st - A.st, B.dir) /
     llf(cross(A.dir, B.dir));
   return toPTF(A.st) + toPTF(A.dir) * t; // C^3 / C^2
 }
-bool cov(L l, L A, L B) {
+bool cov(LN l, LN A, LN B) {
   i128 u = cross(B.st-A.st, B.dir);
   i128 v = cross(A.dir, B.dir);
   // ori(l.st, l.ed, A.st + A.dir*(u/v)) <= 0?
@@ -15,7 +15,7 @@ bool cov(L l, L A, L B) {
   i128 y = IM(A.dir) * u + IM(A.st - l.st) * v;
   return sgn(x*IM(l.dir) - y*RE(l.dir)) * sgn(v) >= 0;
 } // x, y are C^3, also sgn<i128> is needed
-bool operator<(L a, L b) {
+bool operator<(LN a, LN b) {
   if (int c = argCmp(a.dir, b.dir)) return c == -1;
   return ori(a.st, a.ed, b.st) < 0;
 }
