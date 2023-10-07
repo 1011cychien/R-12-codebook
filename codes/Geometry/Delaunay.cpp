@@ -1,3 +1,4 @@
+/* please ensure input points are unique */
 /* A triangulation such that no points will strictly
 inside circumcircle of any triangle.
 find(root, p) : return a triangle contain given point
@@ -21,8 +22,9 @@ struct E {
   E(Tri *t_, int side_) : t(t_), side(side_){}
 };
 struct Tri {
+  bool vis;
   array<P,3> p; array<Tri*,3> ch; array<E,3> e;
-  Tri(P a = 0, P b = 0, P c = 0) : p{a, b, c}, ch{} {}
+  Tri(P a=0, P b=0, P c=0) : vis(0), p{a,b,c}, ch{} {}
   bool has_chd() const { return ch[0] != nullptr; }
   bool contains(P q) const {
     F3 if (ori(p[i], p[R(i)], q) < 0) return false;
@@ -65,15 +67,17 @@ struct Trigs {
     flip(X, 1); flip(X, 2); flip(Y, 1); flip(Y, 2);
   }
 };
-vector<Tri*> res; set<Tri*> vis;
+vector<Tri*> res;
 void go(Tri *now) { // store all tri into res
-  if (!vis.insert(now).second) return;
-  if (!now->has_chd()) return res.push_back(now);
+  if (now->vis) return;
+  now->vis = true;
+  if (!now->has_chd()) res.push_back(now);
   for (Tri *c: now->ch) if (c) go(c);
 }
 void build(vector<P> ps) {
-  it = pool; res.clear(); vis.clear();
+  it = pool; res.clear();
   shuffle(ps.begin(), ps.end(), mt19937(114514));
   Trigs tr; for (P p: ps) tr.add_point(p);
   go(tr.root); // use `res` afterwards
+  // build_voronoi_cells(ps, res);
 }
