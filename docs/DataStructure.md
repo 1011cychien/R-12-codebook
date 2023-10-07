@@ -34,7 +34,7 @@ Rarely used. Need test?
 ### Description
 Given a set of integers:
 - `query_kth` to find the $k$-th integer in the (sorted)
-    set of XOR combination of the integers.
+    set of XOR combination of the integers with $v$.
 - The `second` field is for range XOR basis query or smt,
     greedily maintained in `insert` function.
 
