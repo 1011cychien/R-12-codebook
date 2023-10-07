@@ -9,7 +9,7 @@ P3 ver(P3 a, P3 b, P3 c) { return (b - a) * (c - a); }
 // all points coplanar case will WA
 vector<Face> convex_hull_3D(vector<P3> pt) {
   int n = int(pt.size()); vector<Face> now;
-  if (n <= 2) return {}; // be careful about edge case
+  if (n <= 3) return {}; // be careful about edge case
   // ensure first 4 points are not coplanar
 #define S(I, E...) swap(pt[I], *find_if(all(pt), \
       [&](auto z) { return E; }))
