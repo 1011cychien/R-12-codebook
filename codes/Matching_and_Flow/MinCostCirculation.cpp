@@ -52,7 +52,7 @@ void pushflow(int x, ll &cost) {
     swap(le ^= 1, fae[o]), swap(l, fa[o]), swap(l, o);
   }
 }
-ll simplex() {
+ll simplex() { // 1-based
   ll cost = 0;
   memset(fa, -1, sizeof(fa)), dfs(1);
   vis[1] = visc = 2, fa[1] = -1;
