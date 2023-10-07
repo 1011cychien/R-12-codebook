@@ -6,11 +6,16 @@ struct P3 { lld x,y,z;
 struct Face { int a, b, c;
   Face(int ta,int tb,int tc):a(ta),b(tb),c(tc){} };
 P3 ver(P3 a, P3 b, P3 c) { return (b - a) * (c - a); }
-// plz ensure that first 4 points are not coplanar
 // all points coplanar case will WA
-vector<Face> convex_hull_3D(const vector<P3> &pt) {
+vector<Face> convex_hull_3D(vector<P3> pt) {
   int n = int(pt.size()); vector<Face> now;
-  if (n <= 2) return {}; // be careful about edge case
+  if (n <= 3) return {}; // be careful about edge case
+  // ensure first 4 points are not coplanar
+#define S(I, E...) swap(pt[I], *find_if(all(pt), \
+      [&](auto z) { return E; }))
+  S(1, pt[0] != z);
+  S(2, ver(z, pt[0], pt[1]) != (P3){0, 0, 0});
+  S(3, (z - pt[0]).dot(ver(pt[0], pt[1], pt[2])) != 0);
   vector<vector<int>> flag(n, vector<int>(n));
   now.emplace_back(0,1,2); now.emplace_back(2,1,0);
   for (int i = 3; i < n; i++) {
@@ -22,16 +27,16 @@ vector<Face> convex_hull_3D(const vector<P3> &pt) {
       int ff = (d > 0) - (d < 0);
       flag[f.a][f.b]=flag[f.b][f.c]=flag[f.c][f.a]=ff;
     }
-    for (const auto &f : now) {
-      const auto F = [&](int x, int y) {
-        if (flag[x][y] > 0 && flag[y][x] <= 0)
-          next.emplace_back(x, y, i);
-      };
-      F(f.a, f.b); F(f.b, f.c); F(f.c, f.a);
-    }
+    const auto F = [&](int x, int y) {
+      if (flag[x][y] > 0 && flag[y][x] <= 0)
+        next.emplace_back(x, y, i);
+    };
+    for (const auto &f : now)
+      F(f.a, f.b), F(f.b, f.c), F(f.c, f.a);
     now = next;
   }
   return now;
 }
-// delaunay: facets with negative z normal of
-// convexhull of (x, y, x^2 + y^2)
+// n^2 delaunay: facets with negative z normal of
+// convexhull of (x, y, x^2 + y^2), use a pseudo-point
+// (0, 0, inf) to avoid degenerate case
