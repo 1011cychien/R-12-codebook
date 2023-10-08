@@ -16,7 +16,7 @@ void Hessenberg(VVI &H, int N) {
   }
 }
 VI CharacteristicPoly(VVI &A) {
-  int N = A.size(); Hessenberg(A, N);
+  int N = (int)A.size(); Hessenberg(A, N);
   VVI P(N + 1, VI(N + 1)); P[0][0] = 1;
   for (int i = 1; i <= N; ++i) {
     rep(j, 0, i+1) P[i][j] = j ? P[i-1][j-1] : 0;
@@ -26,6 +26,6 @@ VI CharacteristicPoly(VVI &A) {
       if (j) val = mul(val, A[j][j - 1]);
     }
   }
-  if (N & 1) for (int &pi: P[N]) pi = sub(0, pi);
+  if (N & 1) for (int &x: P[N]) x = sub(0, x);
   return P[N]; // test: 2021 PTZ Korea K
 }

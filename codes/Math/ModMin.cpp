@@ -1,7 +1,7 @@
 // min{k | l <= ((ak) mod m) <= r}
-optional<uint64_t> mod_min(uint32_t a, uint32_t m, uint32_t l, uint32_t r) {
+optional<llu> mod_min(u32 a, u32 m, u32 l, u32 r) {
 	if (a == 0) return l ? nullopt : 0;
-	if (auto k = uint64_t(l + a - 1) / a; k * a <= r)
+	if (auto k = llu(l + a - 1) / a; k * a <= r)
 		return k;
 	auto b = m / a, c = m % a;
 	if (auto y = mod_min(c, a, a - r % a, a - l % a))

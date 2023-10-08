@@ -2,15 +2,12 @@ namespace simplex {
 // maximize c^Tx under Ax <= B
 // return VD(n, -inf) if the solution doesn't exist
 // return VD(n, +inf) if the solution is unbounded
-using VD = vector<double>;
-using VVD = vector<vector<double>>;
-const double eps = 1e-9;
-const double inf = 1e+9;
-int n, m;
-VVD d;
-vector<int> p, q;
+using VD = vector<llf>;
+using VVD = vector<vector<llf>>;
+const llf eps = 1e-9, inf = 1e+9;
+int n, m; VVD d; vector<int> p, q;
 void pivot(int r, int s) {
-  double inv = 1.0 / d[r][s];
+  llf inv = 1.0 / d[r][s];
   for (int i = 0; i < m + 2; ++i)
     for (int j = 0; j < n + 2; ++j)
       if (i != r && j != s)
@@ -31,7 +28,7 @@ bool phase(int z) {
     int r = -1;
     for (int i = 0; i < m; ++i) {
       if (d[i][s] < eps) continue;
-      if (r == -1 || \
+      if (r == -1 ||
         d[i][n+1]/d[i][s] < d[r][n+1]/d[r][s]) r = i;
     }
     if (r == -1) return false;
@@ -39,7 +36,7 @@ bool phase(int z) {
   }
 }
 VD solve(const VVD &a, const VD &b, const VD &c) {
-  m = b.size(), n = c.size();
+  m = (int)b.size(), n = (int)c.size();
   d = VVD(m + 2, VD(n + 2));
   for (int i = 0; i < m; ++i)
     for (int j = 0; j < n; ++j) d[i][j] = a[i][j];
