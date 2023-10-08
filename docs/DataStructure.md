@@ -40,7 +40,8 @@ Given a set of integers:
 
 ### Test Status
 - [ABC223 H](https://atcoder.jp/contests/abc223/submissions/35070056)
-- kth problem needed.
+- kth problem [1st Hunger Games S](https://codeforces.com/group/qcIqFPYhVr/contest/203881/problem/S)
+- maybe need a combined problem?
 
 ## Binary Search On Segtree
 ### Description
