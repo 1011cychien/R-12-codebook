@@ -54,7 +54,7 @@ No test.
 ### Description
 Calculate $sum_{i=0}^{n-1} floor((ai + b)/m)$.
 ### Test Status
-Passed yosupo judge (negative coefficient not tested).
+Passed [yosupo judge](https://judge.yosupo.jp/submission/165193) (negative coefficient not tested).
 
 ## ModMin
 ### Description
@@ -73,7 +73,7 @@ TODO
 ### Description
 Bitwise XOR/AND/OR convolution.
 ### Test Status
-Passed yosupo judge, XOR and AND version.
+Passed yosupo judge, [XOR](https://judge.yosupo.jp/submission/165179) and [AND](https://judge.yosupo.jp/submission/165183) version.
 
 ## CRT for arbitrary mod
 ### Description
@@ -91,33 +91,33 @@ Passed yosupo judge. See also "CRT for arbitrary mod".
 ### Description
 Calculate first $N$ partition number in $O(N\sqrt{N})$.
 ### Test Status
-Passed yosupo judge $N=500000$ in 557ms.
+Passed [yosupo judge](https://judge.yosupo.jp/submission/165173) $N=500000$ in 557ms.
 
 ## Pi Count (+Linear Sieve)
 ### Description
 Count prime in sublinear time.
 TODO improve performance (or delete this?)
 ### Test Status
-Passed yosupo judge, but very slow.
+Passed [yosupo judge](https://judge.yosupo.jp/submission/165124), but very slow.
 
 ## Miller Rabin
 ### Description
 Prime detect. Be careful about mpow and mmul.
 ### Test Status
-Passed yosupo judge.
+Passed [yosupo judge](https://judge.yosupo.jp/submission/165367).
 
 ## Pollard Rho
 ### Description
 Factorization. Be careful about mpow and mmul.
 Should we add some boost?
 ### Test Status
-Passed yosupo judge.
+Passed [yosupo judge](https://judge.yosupo.jp/submission/165368).
 
 ## Berlekamp Massey
 ### Description
 BM algo.
 ### Test Status
-Used in some contest. TODO.
+Passed [yosupo judge](https://judge.yosupo.jp/submission/165366).
 
 ## Charateristic Polynomial
 ### Description
