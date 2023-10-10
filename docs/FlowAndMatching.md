@@ -7,7 +7,7 @@ An $O(|E| \sqrt{|V|})$ bipartite matching algorithm.
 Basically a low constant Dinic's algorithm.
 
 Number of matching saved in `ans`, and the corresponding matching saved in `l` and `r`.
-Not sure about what `a` and `p` does.
+~~Not sure about what `a` and `p` does.~~ `a` and `p` are auxiliary array when doing BFS.
 
 ### Test Status
 
@@ -26,19 +26,20 @@ Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501)
 
 ## Dinic
 ### Description
+$O(V^2E)$ and $\Theta(acceptable)$ in practice.
 ### Test Status
+Passed luogu P3376
 
 
 ## Flow Models
 ### Description
 ### Test Status
 
-
 ## General Graph Matching
 ### Description
 
-Blossom Algorithm runs in $O(EV^2)$. Not sure about the complexity of ours.  
-Can solve $|V|=500$ testcases though.
+Matching in $O(|V|^3)$.
+[ref-slide](https://jacky860226.github.io/general-graph-weighted-match-slides/#/22)
 
 ### Test Status
 
@@ -54,10 +55,11 @@ Tested on [Library Checker](https://judge.yosupo.jp/submission/69588)
 ### Description
 ### Test Status
 
-
 ## Kuhn Munkres
 ### Description
+KM algo.
 ### Test Status
+Passed UOJ 80.
 
 
 ## Minimum Cost Circulation
@@ -79,8 +81,8 @@ Tested on [UOJ #487](https://uoj.ac/submission/658107).
 ## Weighted Matching
 ### Description
 
-Blossom Algorithm runs in $O(EV^2)$. Not sure about the complexity of ours.  
-Can solve $|V|=500$ testcases though.
+Weighted matching in $O(|V|^3)$.
+[ref-slide](https://jacky860226.github.io/general-graph-weighted-match-slides/#/22)
 
 ### Test Status
 
