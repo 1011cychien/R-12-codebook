@@ -48,4 +48,4 @@ Given a set of integers:
 Binary search on ZKW segtree.
 `sz` should be power of $2$ (be careful of other parts!).
 ### Test Status
-Used in contest. TODO.
+Passed [Quick Sort](https://codeforces.com/gym/104076/problem/G

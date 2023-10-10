@@ -1,43 +1,35 @@
-// find_first = x -> minimal x s.t. check( [a, x) )
-// find_last = x -> maximal x s.t. check( [x, b) )
-template <typename C>
-int find_first(int l, const C &check) {
+// find_first = l -> minimal x s.t. check( [l, x) )
+// find_last = r -> maximal x s.t. check( [x, r) )
+int find_first(int l, auto &&check) {
   if (l >= n) return n + 1;
-  l += sz;
-  for (int i = hei; i > 0; i--) propagate(l >> i);
-  Monoid sum = identity;
+  l += sz; push(l); Monoid sum; // identity
   do {
     while ((l & 1) == 0) l >>= 1;
-    if (check(f(sum, data[l]))) {
+    if (auto s = sum + nd[l]; check(s)) {
       while (l < sz) {
-        propagate(l); l <<= 1;
-        if (auto nxt = f(sum,data[l]); not check(nxt))
+        prop(l); l = (l << 1);
+        if (auto nxt = sum + nd[l]; not check(nxt))
           sum = nxt, l++;
       }
       return l + 1 - sz;
-    }
-    sum = f(sum, data[l++]);
-  } while ((l & -l) != l);
+    } else sum = s, l++;
+  } while (lowbit(l) != l);
   return n + 1;
 }
-template <typename C>
-int find_last(int r, const C &check) {
+int find_last(int r, auto &&check) {
   if (r <= 0) return -1;
-  r += sz;
-  for (int i = hei; i > 0; i--) propagate((r-1) >> i);
-  Monoid sum = identity;
+  r += sz; push(r - 1); Monoid sum; // identity
   do {
     r--;
     while (r > 1 and (r & 1)) r >>= 1;
-    if (check(f(data[r], sum))) {
+    if (auto s = nd[r] + sum; check(s)) {
       while (r < sz) {
-        propagate(r); r = (r << 1) + 1;
-        if (auto nxt = f(data[r],sum); not check(nxt))
+        prop(r); r = (r << 1) | 1;
+        if (auto nxt = nd[r] + sum; not check(nxt))
           sum = nxt, r--;
       }
       return r - sz;
-    }
-    sum = f(data[r], sum);
-  } while ((r & -r) != r);
+    } else sum = s;
+  } while (lowbit(r) != r);
   return -1;
 }
