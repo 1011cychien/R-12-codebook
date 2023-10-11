@@ -10,22 +10,20 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 ## TODO
 
 ### To delete/fix/shorten
+* [x] binary search on segtree
+* [x] make KM modern
+* [x] shorten floor sum
 * [ ] fix SAM/PalTree
-* binary search on segtree
-* tree knapsack
-* min mean cycle
-* simulate annealing
-
+* [ ] tree knapsack
+* [ ] min mean cycle
+* [ ] simulate annealing
 * [ ] del old fft and polynomial?
 * [ ] shorten SA
-* [x] make KM modern
 * shorten weighted general matching
-* shorten floor sum
-
 
 ### To add
-* [ ] bipartite independent set / vertex cover construction
 * [x] count 3 cycle / 4 cycle
+* [ ] bipartite independent set / vertex cover construction
 * [ ] faster Pollard Rho (127(?))
 * 郵局設置問題無限大extreme
 * segment tree beats
@@ -46,18 +44,17 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * [x] MinMaxEnclosing Rectangle
 * [x] half plane intersection precision
 * [x] rotating sweep line
-* [ ] [3d hull test](https://vjudge.net/problem/HDU-3662)
-* [ ] to add
+* [x] convex cut
+* [x] make delaunay easier to use (make postprocess voronoi)
+* [x] to add
     * [x] triangle hearts?
     * [x] adaptive simpson?
-    * [ ] 3d point class
+    * [x] 3d point class
+* [ ] [3d hull test](https://vjudge.net/problem/HDU-3662)
 * [ ] del or fix
     * KD tree
     * KD closet pair
-* [ ] convex cut
-* [ ] angle compare in tangent line, further compare by abs?
 * [ ] offline PointInSimplePolygon (NaCl)
-* [ ] make delaunay easier to use (make postprocess)
+* [ ] convex hull trick linear?
 * be careful of `std::abs<complex<int>>`
-* convex hull trick linear?
 * https://vjudge.net/problem/UVA-12311
