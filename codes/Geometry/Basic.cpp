@@ -23,13 +23,21 @@ int argCmp(P a, P b) {
   if (qa != qb) return sgn(qa - qb);
   return sgn(cross(b, a));
 }
+P rot90(P p) { return P{-IM(p), RE(p)}; }
 template <typename V> llf area(const V & pt) {
   lld ret = 0;
   for (int i = 1; i + 1 < (int)pt.size(); i++)
     ret += cross(pt[i] - pt[0], pt[i+1] - pt[0]);
   return ret / 2.0;
 }
-P rot90(P p) { return P{-IM(p), RE(p)}; }
+template <typename V> PTF center(const V & pt) {
+  P ret = 0; lld A = 0;
+  for (int i = 1; i + 1 < (int)pt.size(); i++) {
+    lld cur = cross(pt[i] - pt[0], pt[i+1] - pt[0]);
+    ret += (pt[i] + pt[i + 1] + pt[0]) * cur; A += cur;
+  }
+  return toPTF(ret) / llf(A * 3);
+}
 PTF project(PTF p, PTF q) { // p onto q
   return dot(p, q) * q / dot(q, q); // dot<llf>
 }
