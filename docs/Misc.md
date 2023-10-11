@@ -79,3 +79,9 @@ Binary search on stern-borcot tree, binary search
 over $p/q$ such that $0 <= p, q <= N$.
 ### Test Status
 TODO. Copied from NaCl.
+
+## Barret Reduction
+### Description
+Fast modulo operation of non-constexpr constant.
+### Test Status
+Copied from kactl. Guess it's ok to have no test.

@@ -10,13 +10,14 @@
 - `project` projection onto a vector
 ### Test Status
 No test. Used extensively in other template.
+TODO Center of polygon needs test.
 
 ## 2D Convex Hull
 
 ### Description
 Returns strict convex hull of given points.
 The result is counter-clockwise and the first point is the lex-min point.
-Be carefule about edge case (0/1/2 points on CV)
+Be carefule about edge case (0/1/2/3 points on CV)
 ### Test Status
 Used in some contest.
 
@@ -71,6 +72,12 @@ Passed QOJ 2444 and PTZ 19 summer D3.
 A skeleton of rotating sweep line.
 ### Test Status
 TODO. Needs template problem.
+
+## Polygon Cut
+### Description
+Cut simple polygon by a line.
+### Test Status
+Copied from kactl. TODO.
 
 ## Point in Simple Polygon
 ### Description
@@ -139,13 +146,31 @@ Union area of simple polygon.
 ### Test Status
 TODO.
 
+## 3D Point
+### Description
+Basic 3d point.
+- cross
+- mix product
+- rotate around an axis
+### Test Status
+`rotate_around` is copied from NaCl.
+Others are tested by 3d hull.
+
+## 3D projection
+### Description
+Get the 2d coordinate of the projection
+of a point $p$ onto plane $q^Tx = 0$.
+### Test Status
+Passed [stars in a can](https://open.kattis.com/problems/starsinacan).
+
 ## 3D Convex Hull
 ### Description
 Return the face of 3d convex hull of $N$ points.
 There will be $O(N)$ faces and time complexity is $O(N^2)$.
 Be careful of degenerate cases.
 ### Test Status
-Passed SPOJ and [stars in a can](https://open.kattis.com/problems/starsinacan)
+Passed SPOJ and [stars in a can](https://open.kattis.com/problems/starsinacan).
+Needs test coplanar case.
 
 ## Delaunay
 ### Description
