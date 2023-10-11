@@ -1,24 +1,25 @@
 namespace fft {
 using VI = vector<int>;
 using VL = vector<long long>;
-const double pi = acos(-1);
+const llf PI = acos(-1);
 cplx omega[maxn + 1];
 void prefft() {
   for (int i = 0; i <= maxn; i++)
-    omega[i] = cplx(cos(2 * pi * j / maxn),
-          sin(2 * pi * j / maxn));
+    omega = std::polar<llf>(1./n, 2*PI*j/maxn);
+}
+int round2k(int n) {
+  int sz = 1; while (sz < n) sz *= 2; return sz;
 }
 void fft(vector<cplx> &v, int n) {
-  int z = __builtin_ctz(n) - 1;
+  int h = __builtin_ctz(n) - 1;
   for (int i = 0; i < n; ++i) {
     int x = 0, j = 0;
-    for (;(1 << j) < n;++j) x^=(i >> j & 1)<<(z - j);
+    for (;(1 << j) < n;++j) x^=(i >> j & 1)<<(h - j);
     if (x > i) swap(v[x], v[i]);
   }
   for (int s = 2; s <= n; s <<= 1) {
-    int z = s >> 1;
     for (int i = 0; i < n; i += s) {
-      for (int k = 0; k < z; ++k) {
+      for (int k = 0, z = s >> 1; k < z; ++k) {
         cplx x = v[i + z + k] * omega[maxn / s * k];
         v[i + z + k] = v[i + k] - x;
         v[i + k] = v[i + k] + x;
@@ -31,13 +32,12 @@ void ifft(vector<cplx> &v, int n) {
   for (int i=0;i<n;++i) v[i] = v[i] * cplx(1. / n, 0);
 }
 VL convolution(const VI &a, const VI &b) {
+  const int sz = round2k(a.size() + b.size() - 1);
   // Should be able to handle N <= 10^5, C <= 10^4
-  int sz = 1;
-  while (sz < a.size() + b.size() - 1) sz <<= 1;
   vector<cplx> v(sz);
   for (int i = 0; i < sz; ++i) {
-    double re = i < a.size() ? a[i] : 0;
-    double im = i < b.size() ? b[i] : 0;
+    llf re = i < a.size() ? a[i] : 0;
+    llf im = i < b.size() ? b[i] : 0;
     v[i] = cplx(re, im);
   }
   fft(v, sz);
@@ -53,17 +53,16 @@ VL convolution(const VI &a, const VI &b) {
   return c;
 }
 VI convolution_mod(const VI &a, const VI &b, int p) {
-  int sz = 1;
-  while (sz + 1 < a.size() + b.size()) sz <<= 1;
+  const int sz = round2k(a.size() + b.size() - 1);
   vector<cplx> fa(sz), fb(sz);
   for (int i = 0; i < (int)a.size(); ++i)
     fa[i] = cplx(a[i] & ((1 << 15) - 1), a[i] >> 15);
   for (int i = 0; i < (int)b.size(); ++i)
     fb[i] = cplx(b[i] & ((1 << 15) - 1), b[i] >> 15);
   fft(fa, sz), fft(fb, sz);
-  double r = 0.25 / sz;
+  llf r = 0.25 / sz;
   cplx r2(0, -1), r3(r, 0), r4(0, -r), r5(0, 1);
-  for (int i = 0; i <= (sz >> 1); ++i) {
+  for (int i = 0; i <= sz / 2; ++i) {
     int j = (sz - i) & (sz - 1);
     cplx a1 = (fa[i] + fa[j].conj());
     cplx a2 = (fa[i] - fa[j].conj()) * r2;
