@@ -12,5 +12,5 @@ lld volume(P3 a, P3 b, P3 c, P3 d) {
 P3 rotate_around(P3 p, llf angle, P3 axis) {
   llf s = sin(angle), c = cos(angle);
   P3 u = normalize(axis);
-  return u*dot(p, u)*(1-c) + p * c - cross(p, u)*s;
+  return u*dot(u, p)*(1-c) + p * c + cross(u, p)*s;
 }

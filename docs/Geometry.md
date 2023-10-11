@@ -145,7 +145,7 @@ Return the face of 3d convex hull of $N$ points.
 There will be $O(N)$ faces and time complexity is $O(N^2)$.
 Be careful of degenerate cases.
 ### Test Status
-TODO.
+Passed SPOJ and [stars in a can](https://open.kattis.com/problems/starsinacan)
 
 ## Delaunay
 ### Description
