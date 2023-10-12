@@ -29,7 +29,7 @@ class LBD {
   }
 public:
   LBD(int n) : timer(0), chains(0), G(n), tl(n), tr(n),
-        chain(n), head(n, -1), dep(n), pa(n) {}
+        chain(n), head(n + 1, -1), dep(n), pa(n) {}
   void add_edge(int u, int v) {
     G[u].push_back(v); G[v].push_back(u);
   }
