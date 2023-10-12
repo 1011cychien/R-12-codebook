@@ -19,6 +19,7 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * [ ] simulate annealing
 * [ ] del old fft and polynomial?
 * [ ] shorten SA
+* [ ] Add Manacher comment
 * shorten weighted general matching
 
 ### To add
