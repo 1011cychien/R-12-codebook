@@ -10,26 +10,27 @@ void preprocess(vector<P3> &pt) {
   S(2, ver(z, pt[0], pt[1]) != P3(0, 0, 0));
   S(3, volume(z, pt[0], pt[1], pt[2]) != 0);
 }
+// return the faces with pt indexes
 // all points coplanar case will WA
 vector<Face> convex_hull_3D(vector<P3> pt) {
-  const int n = int(pt.size()); vector<Face> now;
+  const int n = int(pt.size());
   if (n <= 3) return {}; // be careful about edge case
-  preprocess(pt);
-  vector<vector<int>> flag(n, vector<int>(n));
+  preprocess(pt); vector<Face> now;
+  vector<vector<int>> z(n, vector<int>(n));
   now.emplace_back(0, 1, 2); now.emplace_back(2, 1, 0);
   for (int i = 3; i < n; i++) {
     vector<Face> next;
     for (const auto &f : now) {
-      lld d = volume(pt[i], pt[f.a], pt[f.b], pt[f.c]);
+      lld d = volume(pt[f.a], pt[f.b], pt[f.c], pt[i]);
       if (d <= 0) next.push_back(f);
-      int ff = (d > 0) - (d < 0);
-      flag[f.a][f.b] = flag[f.b][f.c] = flag[f.c][f.a] = ff;
+      z[f.a][f.b] = z[f.b][f.c] = z[f.c][f.a] = sgn(d);
     }
     const auto F = [&](int x, int y) {
-      if (flag[x][y] > 0 && flag[y][x] <= 0)
+      if (z[x][y] > 0 && z[y][x] <= 0)
         next.emplace_back(x, y, i);
     };
-    for (auto &f : now) F(f.a, f.b), F(f.b, f.c), F(f.c, f.a);
+    for (const auto &f : now)
+      F(f.a, f.b), F(f.b, f.c), F(f.c, f.a);
     now = next;
   }
   return now;
@@ -41,7 +42,7 @@ vector<Face> convex_hull_3D(vector<P3> pt) {
 // llf area = 0, vol = 0; // surface area / volume
 // for (auto [a, b, c]: faces) {
 //   area += abs(ver(p[a], p[b], p[c]));
-//   vol += volume(p[a], p[b], p[c], P3(0, 0, 0));
+//   vol += volume(P3(0, 0, 0), p[a], p[b], p[c])
 // }
 // area /= 2; vol /= 6;
 

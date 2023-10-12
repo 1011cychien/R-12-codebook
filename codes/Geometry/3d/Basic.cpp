@@ -1,4 +1,3 @@
-// return the faces with pt indexes
 struct P3 {
   lld x, y, z;
   P3 operator^(const P3 &b) const {
