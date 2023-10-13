@@ -15,4 +15,4 @@ llu pollard_rho(llu n) {
     }
     if (t != 1 && t != n) return t;
   }
-}
+} // passed yosupo judge
