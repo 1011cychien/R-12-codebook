@@ -28,7 +28,7 @@ TODO
 ### Description
 Calculate the LCS of a prefix of $S$ and a substring of $T$ in $O((|S||T| + Q)\log |T|)$
 ### Test Status
-Passed yosupo library checker. Copied from 8BQube.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/163705). Copied from 8BQube.
 
 ## Convex 1D/1D DP
 ### Description
