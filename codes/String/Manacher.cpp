@@ -1,16 +1,18 @@
-int z[maxn];
-int manacher(const string& s) {
-  string t = ".";
-  for(char c: s) t += c, t += '.';
-  int l = 0, r = 0, ans = 0;
-  for (int i = 1; i < t.length(); ++i) {
+vector<int> manacher(const string &S) {
+  const int n = (int)S.size(), m = n * 2 + 1;
+  vector<int> z(m);
+  string t = "."; for (char c: S) t += c, t += '.';
+  for (int i = 1, l = 0, r = 0; i < m; ++i) {
     z[i] = (r > i ? min(z[2 * l - i], r - i) : 1);
-    while (i - z[i] >= 0 && i + z[i] < t.length()) {
-      if(t[i - z[i]] == t[i + z[i]]) ++z[i];
+    while (i - z[i] >= 0 && i + z[i] < m) {
+      if (t[i - z[i]] == t[i + z[i]]) ++z[i];
       else break;
     }
     if (i + z[i] > r) r = i + z[i], l = i;
   }
-  for(int i=1;i<t.length();++i) ans = max(ans, z[i]-1);
-  return ans;
+  return z; // the palindrome lengths are z[i] - 1
 }
+/* for (int i = 1; i + 1 < m; ++i) {
+   int l = (i - z[i] + 2) / 2, r = (i + z[i]) / 2;
+   if (l != r) // [l, r) is maximal palindrome
+} */
