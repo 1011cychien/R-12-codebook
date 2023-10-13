@@ -1,69 +1,49 @@
-constexpr int kN = 150;
-struct MaxClique {  // Maximum Clique
-  bitset<kN> a[kN], cs[kN];
+constexpr size_t kN = 150; using bits = bitset<kN>;
+struct MaxClique {
+  bits G[kN], cs[kN];
   int ans, sol[kN], q, cur[kN], d[kN], n;
   void init(int _n) {
-    n = _n, ans = q = 0;
-    for (int i = 0; i < n; i++) a[i].reset();
+    n = _n;
+    for (int i = 0; i < n; ++i) G[i].reset();
   }
-  void addEdge(int u, int v) { a[u][v] = a[v][u] = 1; }
-  void csort(vector<int> &r, vector<int> &c) {
-    int mx = 1, km = max(ans - q + 1, 1), t = 0,
-        m = int(r.size());
-    cs[1].reset(); cs[2].reset();
-    for (int i = 0; i < m; i++) {
-      int p = r[i], k = 1;
-      while ((cs[k] & a[p]).count()) k++;
-      if (k > mx) cs[++mx + 1].reset();
+  void add_edge(int u, int v) { G[u][v] = G[v][u] = 1; }
+  void pre_dfs(vector<int> &v, int i, bits mask) {
+    if (i < 4) {
+      for (int x : v) d[x] = (int)(G[x] & mask).count();
+      sort(all(v), [&](int x, int y) {
+        return d[x] > d[y]; });
+    }
+    vector<int> c(v.size());
+    cs[1].reset(), cs[2].reset();
+    int l = max(ans - q + 1, 1), r = 2, tp = 0, k;
+    for (int p : v) {
+      for (k = 1; (cs[k] & G[p]).any(); ++k);
+      if (k >= r) cs[++r].reset();
       cs[k][p] = 1;
-      if (k < km) r[t++] = p;
+      if (k < l) v[tp++] = p;
     }
-    c.resize(m);
-    if (t) c[t - 1] = 0;
-    for (int k = km; k <= mx; k++) {
-      for (int p = int(cs[k]._Find_first());
-           p < kN; p = int(cs[k]._Find_next(p))) {
-        r[t] = p; c[t++] = k;
-      }
-    }
+    for (k = l; k < r; ++k)
+      for (auto p = cs[k]._Find_first();
+          p < kN; p = cs[k]._Find_next(p))
+        v[tp] = (int)p, c[tp] = k, ++tp;
+    dfs(v, c, i + 1, mask);
   }
-  void dfs(vector<int> &r, vector<int> &c, int l,
-    bitset<kN> mask) {
-    while (!r.empty()) {
-      int p = r.back(); r.pop_back();
-      mask[p] = 0;
+  void dfs(vector<int> &v, vector<int> &c,
+      int i, bits mask) {
+    while (!v.empty()) {
+      int p = v.back(); v.pop_back(); mask[p] = 0;
       if (q + c.back() <= ans) return;
       cur[q++] = p;
-      vector<int> nr, nc;
-      bitset<kN> nmask = mask & a[p];
-      for (int i : r)
-        if (a[p][i]) nr.push_back(i);
-      if (!nr.empty()) {
-        if (l < 4) {
-          for (int i : nr)
-            d[i] = int((a[i] & nmask).count());
-          sort(nr.begin(), nr.end(),
-            [&](int x, int y) {
-              return d[x] > d[y];
-            });
-        }
-        csort(nr, nc); dfs(nr, nc, l + 1, nmask);
-      } else if (q > ans) {
-        ans = q; copy(cur, cur + q, sol);
-      }
-      c.pop_back(); q--;
+      vector<int> nr;
+      for (int x : v) if (G[p][x]) nr.push_back(x);
+      if (!nr.empty()) pre_dfs(nr, i, mask & G[p]);
+      else if (q > ans) ans = q, copy_n(cur, q, sol);
+      c.pop_back(); --q;
     }
   }
-  int solve(bitset<kN> mask) {  // vertex mask
-    vector<int> r, c;
-    for (int i = 0; i < n; i++)
-      if (mask[i]) r.push_back(i);
-    for (int i = 0; i < n; i++)
-      d[i] = int((a[i] & mask).count());
-    sort(r.begin(), r.end(),
-      [&](int i, int j) { return d[i] > d[j]; });
-    csort(r, c);
-    dfs(r, c, 1, mask);
-    return ans;  // sol[0 ~ ans-1]
+  int solve() {
+    vector<int> v(n); iota(all(v), 0);
+    ans = q = 0; pre_dfs(v, 0, bits(string(n, '1')));
+    return ans; // sol[0 ~ ans-1]
   }
-} graph;
+} cliq; // test @ yosupo judge
