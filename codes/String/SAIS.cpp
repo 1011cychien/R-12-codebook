@@ -11,7 +11,8 @@ void pre(int *a, int *c, int n, int z) {
   memset(a, 0, sizeof(int) * n);
   memcpy(x, c, sizeof(int) * z);
 }
-void induce(int *a,int *c,int *s,bool *t,int n,int z){
+void induce(int *a, int *c, int *s,
+    bool *t, int n, int z) {
   memcpy(x + 1, c, sizeof(int) * (z - 1));
   for (int i = 0; i < n; ++i)
     if (a[i] && !t[a[i] - 1])
@@ -24,7 +25,7 @@ void induce(int *a,int *c,int *s,bool *t,int n,int z){
 void sais(int *s, int *a, int *p, int *q,
  bool *t, int *c, int n, int z) {
   bool uniq = t[n - 1] = true;
-  int nn=0, nmxz=-1, *nsa = a+n, *ns=s+n, last=-1;
+  int nn=0, nz=-1, *nsa = a+n, *ns=s+n, last=-1;
   memset(c, 0, sizeof(int) * z);
   for (int i = 0; i < n; ++i) uniq &= ++c[s[i]] < 2;
   for (int i = 0; i < z - 1; ++i) c[i + 1] += c[i];
@@ -39,14 +40,13 @@ void sais(int *s, int *a, int *p, int *q,
     if (t[i] && !t[i - 1])
       a[--x[s[i]]] = p[q[i] = nn++] = i;
   induce(a, c, s, t, n, z);
-  for (int i = 0; i < n; ++i) {
+  for (int i = 0; i < n; ++i)
     if (a[i] && t[a[i]] && !t[a[i] - 1]) {
-    bool neq = last < 0 ||
-     memcmp(s + a[i], s + last,
-      (p[q[a[i]] + 1] - a[i]) * sizeof(int));
-    ns[q[last = a[i]]] = nmxz += neq;
-  }}
-  sais(ns, nsa, p+nn, q+n, t+n, c+z, nn, nmxz+1);
+      bool neq = last < 0 || memcmp(s + a[i], s + last,
+        (p[q[a[i]] + 1] - a[i]) * sizeof(int));
+      ns[q[last = a[i]]] = nz += neq;
+    }
+  sais(ns, nsa, p+nn, q+n, t+n, c+z, nn, nz+1);
   pre(a, c, n, z);
   for (int i = nn - 1; i >= 0; --i)
     a[--x[s[p[nsa[i]]]]] = p[nsa[i]];
@@ -60,12 +60,9 @@ void build(const string &s) {
   for(int i = 0; i < n; ++i) rev[sa[i] = sa[i+1]] = i;
   int ind = hi[0] = 0;
   for (int i = 0; i < n; ++i) {
-    if (!rev[i]) {
-      ind = 0;
-      continue;
-    }
+    if (!rev[i]) { ind = 0; continue; }
     while (i + ind < n &&
-     s[i + ind] == s[sa[rev[i] - 1] + ind]) ++ind;
+        s[i + ind] == s[sa[rev[i] - 1] + ind]) ++ind;
     hi[rev[i]] = ind ? ind-- : 0;
   }
 }}

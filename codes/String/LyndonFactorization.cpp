@@ -2,8 +2,7 @@
 // w[0] >= w[1] >= ... >= w[k-1]
 // each w[i] strictly smaller than all its suffix
 void duval(const auto &s, auto &&report) {
-  int n = (int)s.size(), i = 0, j, k;
-  while (i < n) {
+  for (int n = (int)s.size(), i = 0, j, k; i < n; ) {
     for (j = i + 1, k = i; j < n && s[k] <= s[j]; j++)
       k = (s[k] < s[j] ? i : k + 1);
     // if (i < n / 2 && j >= n / 2) {
