@@ -21,7 +21,7 @@ Successive Shortest Path Algorithm using Dijkstra's algorithm.
 
 ### Test Status
 
-Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501)
+Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501) and [LibreOJ 102](https://loj.ac/s/1911311)
 
 
 ## Dinic
@@ -43,23 +43,41 @@ Matching in $O(|V|^3)$.
 
 ### Test Status
 
-Tested on [Library Checker](https://judge.yosupo.jp/submission/69588)
+Tested on [Library Checker](https://judge.yosupo.jp/submission/166034)
 
 
 ## Global Min-Cut
 ### Description
+
+Stoer-Wagner algorithm solves the minimum cut problem in undirected weighted graphs with non-negative weights.  
+Our code looks like an $O(N^3)$ implementation.
+
 ### Test Status
+
+TODO
 
 
 ## GomoryHu Tree
 ### Description
+
+For a given non-negative weighted tree, this algorithm returns a weighted tree (Gomory-Hu Tree).
+For any $s$, $t$, the minimum $s$-$t$ cut in the orginal graph is equal to the minimum values among the path between $s$ and $t$ in the Gomory-Hu Tree.
+
+Runs in $(|V|-1)\times O(\text{maflow})$.
+
+Something I don't understand: In the Gomory-Hu tree, for any pair of vertices not just the size of the minimum cut between them is equal to the size of the minimum cut in the original graph (as Wikipedia claims), but also the minimum cut itself (as a partition of the vertex set into two). ([Petr's blog](https://blog.mitrichev.ch/2022/02/a-gomory-hu-week.html))
+
+Fun Fact: Gomory-Hu Tree can be computed in almost linear time. (see [this](https://arxiv.org/abs/2111.04958))
+
 ### Test Status
+
+TODO: CF 343E
 
 ## Kuhn Munkres
 ### Description
 KM algo.
 ### Test Status
-Passed UOJ 80.
+Passed [UOJ 80](https://uoj.ac/submission/656805) and [Library Checker](https://judge.yosupo.jp/submission/166079).
 
 
 ## Minimum Cost Circulation
@@ -69,13 +87,19 @@ Network simplex method. Exponential time complexity, but it runs not too slow in
 
 ### Test Status
 
-Tested on [UOJ #487](https://uoj.ac/submission/658107).  
+Tested on [UOJ #487](https://uoj.ac/submission/659272) and [LibreOJ 102](https://loj.ac/s/1911317).  
 **Cannot** pass [QOJ 7185](https://qoj.ac/contest/1356/problem/7185)
 
 
 ## Minimum Cost Max Flow
 ### Description
+
+Successive Shortest Path Algorithm using SPFA (Bellman-Ford algorithm).
+
 ### Test Status
+
+Passed [LibreOJ 102](https://loj.ac/s/1911310).
+Testdata in LOJ is not strong in general.
 
 
 ## Weighted Matching
@@ -86,4 +110,4 @@ Weighted matching in $O(|V|^3)$.
 
 ### Test Status
 
-Tested on [Library Checker](https://judge.yosupo.jp/submission/160271)
+Tested on [Library Checker](https://judge.yosupo.jp/submission/166076)
