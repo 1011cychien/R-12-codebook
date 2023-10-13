@@ -107,6 +107,7 @@ Get maximum clique with ?? time complexity.
 ### Test Status
 kactl says it can run on $n=155$.
 For $n=100$ on POJ, runs in 32ms.
+Passwd [library checker](https://judge.yosupo.jp/submission/165918).
 
 ## Minimum Mean Cycle
 ### Description
