@@ -65,13 +65,15 @@ For any $s$, $t$, the minimum $s$-$t$ cut in the orginal graph is equal to the m
 
 Runs in $(|V|-1)\times O(\text{maflow})$.
 
+Need to adapt current Dinic's algorithm.
+
 Something I don't understand: In the Gomory-Hu tree, for any pair of vertices not just the size of the minimum cut between them is equal to the size of the minimum cut in the original graph (as Wikipedia claims), but also the minimum cut itself (as a partition of the vertex set into two). ([Petr's blog](https://blog.mitrichev.ch/2022/02/a-gomory-hu-week.html))
 
 Fun Fact: Gomory-Hu Tree can be computed in almost linear time. (see [this](https://arxiv.org/abs/2111.04958))
 
 ### Test Status
 
-TODO: CF 343E
+Passed [CF 343E](https://codeforces.com/contest/343/submission/228226556)
 
 ## Kuhn Munkres
 ### Description
