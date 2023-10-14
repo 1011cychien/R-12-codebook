@@ -26,7 +26,7 @@ Not even used
 
 ## Pragma Optimization
 ### Description
-Magic Pragmas. It depends to choose Ofast or O3.  
+Magic Pragmas. It depends to choose Ofast or O3. For target related stuff, adding `arch=skylake` should work (no need for others). 
 Also, a [way](https://codeforces.com/blog/entry/104586) to avoid [denormal numbers](https://en.wikipedia.org/wiki/Subnormal_number).
 0x8000 for FTZ and 0x0040 for DAZ. [Intel Compiler Docs](https://www.intel.com/content/www/us/en/docs/cpp-compiler/developer-guide-reference/2021-10/set-the-ftz-and-daz-flags.html).
 Only works for SSE/AVX stuff.
