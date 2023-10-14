@@ -60,6 +60,7 @@ Duval algorithm: $O(N)$.
 ### Test Status
 
 Tested @ luogu 6114, 1368 & UVA 719.
+Passed [Library Checker](https://judge.yosupo.jp/submission/166342)
 
 ## Main Lorentz
 ### Description
