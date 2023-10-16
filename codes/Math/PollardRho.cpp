@@ -1,18 +1,14 @@
-// does not work when n is prime
+// does not work when n is prime or n == 1
 // return any non-trivial factor
 llu pollard_rho(llu n) {
-  static auto f = [](llu x, llu k, llu m) {
-        return add(k, mul(x, x, m), m); };
+  static mt19937_64 rnd(120821011);
   if (!(n & 1)) return 2;
-  mt19937_64 rnd(120821011);
-  while (true) {
-    llu y = 2, yy = y, x = rnd() % n, t = 1;
-    for (llu sz = 2; t == 1; sz <<= 1, y = yy) {
-      for (llu i = 0; t == 1 && i < sz; ++i) {
-        yy = f(yy, x, n);
-        t = gcd(yy > y ? yy - y : y - yy, n);
-      }
-    }
-    if (t != 1 && t != n) return t;
-  }
-} // passed yosupo judge
+  llu y = 2, z = y, c = rnd() % n, p = 1, i = 0, t;
+  auto f = [&](llu x) {
+    return madd(mmul(x, x, n), c, n); };
+  do {
+    p = mmul(msub(z = f(f(z)), y = f(y), n), p, n);
+    if (++i &= 63) if (i == (i & -i)) t = gcd(p, n);
+  } while (t == 1);
+  return t == n ? pollard_rho(n) : t;
+} // test @ yosupo judge
