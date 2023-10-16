@@ -1,5 +1,5 @@
 namespace simplex {
-// maximize c^Tx under Ax <= B
+// maximize c^Tx under Ax <= B and x >= 0
 // return VD(n, -inf) if the solution doesn't exist
 // return VD(n, +inf) if the solution is unbounded
 using VD = vector<llf>;
