@@ -1,9 +1,5 @@
 #define fi(l, r) for (size_t i = (l); i < (r); ++i)
 using Poly = vector<int>;
-uint32_t n2k(uint32_t n) {
-  if (n <= 1) return 1;
-  return 1u << (32 - __builtin_clz(n - 1));
-}
 auto Mul(auto a, auto b, size_t sz) {
   a.resize(sz), b.resize(sz);
   ntt(a.data(), sz); ntt(b.data(), sz);
@@ -37,7 +33,7 @@ Poly Sx(Poly A) {
   return A;
 }
 Poly Ln(const Poly &A) { // coef[0] == 1; res[0] == 0
-  auto B = Sx(Mul(Dx(A), Inv(A), n2k(A.size() * 2)));
+  auto B = Sx(Mul(Dx(A), Inv(A), bit_ceil(A.size() * 2)));
   return B.resize(A.size()), B;
 }
 Poly Exp(const Poly &v) { // coef[0] == 0; res[0] == 1
@@ -68,7 +64,7 @@ Poly Sqrt(const Poly &v) { // need: QuadraticResidue
 }
 Poly Mul(auto &&a, auto &&b) {
   const int n = a.size() + b.size() - 1;
-  auto R = Mul(a, b, n2k(n));
+  auto R = Mul(a, b, bit_ceil(n));
   return R.resize(n), R;
 }
 Poly MulT(Poly a, Poly b, int k) {
@@ -107,7 +103,7 @@ pair<Poly, Poly> DivMod(const Poly &A, const Poly &B) {
 } // empty means zero polynomial
 int LinearRecursionKth(Poly a, Poly c, int64_t k) {
   const auto d = a.size(); assert(c.size() == d + 1);
-  const int sz = n2k(2 * d + 1), o = sz / 2;
+  const int sz = bit_ceil(2 * d + 1), o = sz / 2;
   Poly q = c; for (int &x: q) x = modsub(0, x); q[0]=1;
   Poly p = Mul(a, q); p.resize(sz); q.resize(sz);
   for (int r; r = (k & 1), k; k >>= 1) {

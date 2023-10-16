@@ -7,7 +7,7 @@ bool isprime(llu x) {
     return a != 1;
   };
   if (x <= 2 || ~x & 1) return x == 2;
-  int t = __builtin_ctzll(x-1); llu odd = (x-1) >> t;
+  int t = countr_zero(x-1); llu odd = (x-1) >> t;
   for (llu m:
     {2, 325, 9375, 28178, 450775, 9780504, 1795265022})
     if (m % x != 0 && witn(mpow(m % x, odd, x), t))
