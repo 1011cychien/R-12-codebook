@@ -23,8 +23,7 @@ public:
   }
   bool solve() {
     for (int i = 0; i < n; ++i) if (not vis[i]) dfs(i);
-    reverse(ord.begin(), ord.end());
-    for (int u : ord)
+    for (int u : ord | views::reverse)
       if (vis[u]) sccs.emplace_back(), rdfs(u);
     for (int i = 0; i < n; i += 2)
       if (idx[i] == idx[i + 1]) return false;
