@@ -2,17 +2,19 @@
 #ifdef CKISEKI
 #include <experimental/iterator>
 #define safe cerr<<__PRETTY_FUNCTION__<<" line "<<__LINE__<<" safe\n"
-#define debug(a...) cerr<<"\e[1;32m("#a") = (",debug_(cerr,a)<<")\e[0m\n"
-#define orange(a...) cerr<<"\e[1;33m[ "#a" ] = [ ",orange_(cerr,a)<<" ]\e[0m\n"
-auto &debug_(auto &ss, auto ...a) {
+#define debug(a...) debug_(#a, a)
+#define orange(a...) orange_(#a, a)
+void debug_(const char *s, auto ...a) {
+  cerr << "\e[1;32m(" << s << ") = (";
   int f = 0;
-  (..., (ss << (f++ ? ", " : "") << a));
-  return ss;
+  (..., (cerr << (f++ ? ", " : "") << a));
+  cerr << ")\e[0m\n";
 }
-auto &orange_(auto &ss, auto L, auto R) {
+void orange_(const char *s, auto L, auto R) {
+  cerr << "\e[1;33m[ " << s << " ] = [ ";
   using namespace experimental;
-  copy(L, R, make_ostream_joiner(ss, ", "));
-  return ss; // or ostream_iterator<decltype(*L)>
+  copy(L, R, make_ostream_joiner(cerr, ", "));
+  cerr << " ]\e[0m\n";
 }
 #else
 #define safe ((void)0)
