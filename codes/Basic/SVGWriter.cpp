@@ -3,7 +3,7 @@ struct SVGWriter {
   FILE *f;
   F sc = 20;
   SVGWriter(char *name, F u, F l, F d, F r) : f(fopen(name, "w")) {
-    fprintf(f, "<svg xmlns='http://www.w3.org/2000/svg' viewBox='%f %f %f %f'>\n", u, l, d, r);
+    fprintf(f, "<svg viewBox='%f %f %f %f'>\n", u, l, d, r);
   }
   ~SVGWriter() {
     fputs("</svg>", f);
