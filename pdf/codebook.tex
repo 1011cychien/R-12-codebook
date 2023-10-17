@@ -153,6 +153,7 @@
 }
 
 \newcommand{\Prefix}{./}
+\newcommand{\HashFile}{}
 
 \newcommand{\IncludeCode}[3][C++]{
   \subsection{#2}
@@ -162,13 +163,14 @@
 }
 
 \newcommand{\IncludeCpp}[2]{
-    \subsection[#1] {#1
-        \immediate\write18{./hash.sh \Prefix"#2"}
-        {\small [\immediate\protect\input{/tmp/hash/pdf/\Prefix#2.md5}\unskip]}
-    }
-    \vspace{-0.8em}
-    \lstinputlisting{\Prefix#2}
-    \vspace{-1.2em}
+  \renewcommand\HashFile{/tmp/codebook-hash/pdf/\Prefix#2.md5}
+  \subsection[#1] {#1
+    \immediate\write18{./hash.sh \Prefix"#2" \HashFile}
+    {\small [\immediate\protect\input{\HashFile}\unskip]}
+  }
+  \vspace{-0.8em}
+  \lstinputlisting{\Prefix#2}
+  \vspace{-1.2em}
 }
 
 \newcommand{\IncludeTex}[2]{

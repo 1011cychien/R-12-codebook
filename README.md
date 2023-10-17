@@ -13,21 +13,21 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * [x] binary search on segtree
 * [x] make KM modern
 * [x] shorten floor sum
+* [x] shorten weighted general matching
+* [x] Add Manacher comment
 * [ ] fix SAM/PalTree
 * [ ] tree knapsack
 * [ ] min mean cycle
 * [ ] simulate annealing
 * [ ] del old fft and polynomial?
 * [ ] shorten SA
-* [ ] Add Manacher comment
-* shorten weighted general matching
 * [ ] Simplex (Performance, e.g. with custom type?)
 * [ ] FPS
 
 ### To add
 * [x] count 3 cycle / 4 cycle
+* [x] faster Pollard Rho (127(?))
 * [ ] bipartite independent set / vertex cover construction
-* [ ] faster Pollard Rho (127(?))
 * 郵局設置問題無限大extreme
 * segment tree beats
 * [邀請函](https://omeletwithoutegg.github.io/2020/11/22/TIOJ-1978/)?
