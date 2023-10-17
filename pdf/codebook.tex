@@ -1,31 +1,29 @@
 %!TEX program = xelatex
 \documentclass[a4paper,10pt,twocolumn,oneside]{article}
-\setlength{\columnsep}{10pt}                                                                    %兩欄模式的間距
-\setlength{\columnseprule}{0pt}                                                                %兩欄模式間格線粗細
+\setlength{\columnsep}{10pt}     %兩欄模式的間距
+\setlength{\columnseprule}{0pt}  %兩欄模式間格線粗細
 
 \usepackage{algpseudocode}
-\usepackage{amsthm}								%定義，例題
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsmath}
 %\usepackage[margin=2cm]{geometry}
-\usepackage{fontspec}								%設定字體
+\usepackage{fontspec}
 \usepackage{setspace}
 \usepackage{color}
 \usepackage[x11names]{xcolor}
-\usepackage{listings}								%顯示code用的
-%\usepackage[Glenn]{fncychap}						%排版，頁面模板
-\usepackage{fancyhdr}								%設定頁首頁尾
-\usepackage{graphicx}								%Graphic
+\usepackage{listings}          % 顯示code用的
+%\usepackage[Glenn]{fncychap}  % 排版，頁面模板
+\usepackage{fancyhdr}          % 設定頁首頁尾
+\usepackage{graphicx}          % Graphic
 \usepackage{enumitem}
 \usepackage{changepage}
 \usepackage[compact]{titlesec}    %compact mode for reducing margin
-\usepackage[CheckSingle, CJKmath]{xeCJK}
 \usepackage{hyperref}
 \hypersetup{
   linktoc=all,
   hidelinks
 }
-% \usepackage{CJKulem}
 
 \usepackage[toc]{multitoc}
 \renewcommand*{\multicolumntoc}{2}
@@ -56,11 +54,18 @@
 \evensidemargin=0pt
 \hoffset=-42pt
 
-%\renewcommand\listfigurename{圖目錄}
-%\renewcommand\listtablename{表目錄} 
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% minimize margin
+\def\footnotesize{\fontsize{8}{9.5}\selectfont}
+\titlespacing*{\section} {0pt}{*0}{*0}
+\titlespacing*{\subsection} {0pt}{*1}{*0}
+\titlespacing*{\subsubsection} {0pt}{*1}{*0}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage[CheckSingle, CJKmath]{xeCJK}
 \setmainfont[
   Path=./fonts/Montserrat/,
   BoldFont=Montserrat-SemiBold,
@@ -73,47 +78,41 @@
   ItalicFont=SourceCodePro-Italic,
   BoldItalicFont=SourceCodePro-BlackItalic,
 ]{SourceCodePro-Regular}
-\setCJKmainfont[Path=./fonts/open-huninn-font/]{jf-openhuninn-1.1}           %中文字型
-\XeTeXlinebreaklocale "zh"						%中文自動換行
-\XeTeXlinebreakskip = 0pt plus 0pt				%設定段落之間的距離
-\setcounter{secnumdepth}{2}						%目錄顯示第三層
-\setcounter{tocdepth}{2}
+\setCJKmainfont[Path=./fonts/open-huninn-font/]{jf-openhuninn-1.1}  %中文字型
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 0pt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \makeatletter
 \lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
 \@empty\z@\@empty
 \makeatother
-\lstset{											% Code顯示
-language=[11]C++,										% the language of the code
-basicstyle=\footnotesize\ttfamily, 						% the size of the fonts that are used for the code
-%numbers=left,										% where to put the line-numbers
-numberstyle=\footnotesize,						% the size of the fonts that are used for the line-numbers
-stepnumber=1,										% the step between two line-numbers. If it's 1, each line  will be numbered
-numbersep=5pt,										% how far the line-numbers are from the code
-backgroundcolor=\color{white},					% choose the background color. You must add \usepackage{color}
-showspaces=false,									% show spaces adding particular underscores
-showstringspaces=false,							% underline spaces within strings
-showtabs=false,									% show tabs within strings adding particular underscores
-frame=false,											% adds a frame around the code
-tabsize=2,											% sets default tabsize to 2 spaces
-captionpos=b,										% sets the caption-position to bottom
-breaklines=true,									% sets automatic line breaking
-breakatwhitespace=false,							% sets if automatic breaks should only happen at whitespace
-escapeinside={\%*}{*)},							% if you want to add a comment within your code
-morekeywords={*},									% if you want to add more keywords to the set
-keywordstyle=\bfseries\color{Blue1},
-commentstyle=\itshape\color{Red4},
-stringstyle=\itshape\color{Green4},
-literate={\ \ }{{\ }}1
+\lstset{
+  language=[11]C++,                   % the language of the code
+  basicstyle=\footnotesize\ttfamily,  % the size of the fonts that are used for the code
+  %numbers=left,                      % where to put the line-numbers
+  %numberstyle=\footnotesize,         % the size of the fonts that are used for the line-numbers
+  %stepnumber=1,                      % the step between two line-numbers. If it's 1, each line  will be numbered
+  %numbersep=5pt,                     % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. requires \usepackage{color}
+  showspaces=false,                   % show spaces adding particular underscores
+  showstringspaces=false,             % underline spaces within strings
+  showtabs=false,                     % show tabs within strings adding particular underscores
+  frame=false,                        % adds a frame around the code
+  tabsize=2,                          % sets default tabsize to 2 spaces
+  captionpos=b,                       % sets the caption-position to bottom
+  breaklines=true,                    % sets automatic line breaking
+  breakatwhitespace=false,            % sets if automatic breaks should only happen at whitespace
+  escapeinside={\%*}{*)},             % if you want to add a comment within your code
+  morekeywords={*},                   % if you want to add more keywords to the set
+  keywordstyle=\bfseries\color{Blue1},
+  commentstyle=\itshape\color{Red4},
+  stringstyle=\itshape\color{Green4},
+  literate={\ \ }{{\ }}1
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\def\footnotesize{\fontsize{8}{9.5}\selectfont}
-\titlespacing*{\section} {0pt}{*0}{*0}  % minimize margin
-\titlespacing*{\subsection} {0pt}{*1}{*0} % minimize margin
-\titlespacing*{\subsubsection} {0pt}{*1}{*0} % minimize margin
 
 \begin{document}
 \pagestyle{fancy}
@@ -178,7 +177,7 @@ literate={\ \ }{{\ }}1
   \vspace{-1.2em}
 }
 
-\newcommand{\sectiontitle}[1]{
+\newcommand{\SectionTitle}[1]{
   \section{#1}
   \vspace{-0.5em}
 }
@@ -186,7 +185,7 @@ literate={\ \ }{{\ }}1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\sectiontitle{Basic}
+\SectionTitle{Basic}
 \renewcommand\Prefix{../codes/Basic/}
 
 \IncludeCode[vim]{vimrc}{vimrc}
@@ -196,7 +195,7 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{Pragma Optimization}{Pragma.cpp}
 \IncludeCpp{IO Optimization}{IOOptimize.cpp}
 
-\sectiontitle{Data Structure}
+\SectionTitle{Data Structure}
 \renewcommand\Prefix{../codes/DataStructure/}
 
 \IncludeCpp{Dark Magic}{pbds.cpp}
@@ -207,7 +206,7 @@ literate={\ \ }{{\ }}1
 
 \IncludeCpp{Binary Search On Segtree}{BinarySearchOnSegtree.cpp}
 
-\sectiontitle{Graph}
+\SectionTitle{Graph}
 \renewcommand\Prefix{../codes/Graph/}
 % \IncludeCpp{Euler Circuit}{../codes/Graph/EulerCircuit.cpp}
 
@@ -216,22 +215,22 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{Round Square Tree}{RoundSquareTree.cpp}
 \IncludeCpp{Edge TCC}{ETCC.cpp}
 
+\IncludeCpp{DMST}{FastDirectedMST.cpp}
+\IncludeCpp{Dominator Tree}{DominatorTree.cpp}
+\IncludeCpp{Edge Coloring}{Misra.cpp}
+
 \IncludeCpp{Centroid Decomposition}{CenDec.cpp}
 \IncludeCpp{Lowbit Decomposition}{LowbitDecomposition.cpp}
 \IncludeCpp{Virtual Tree}{VirtualTree.cpp}
 \IncludeCpp{Tree Hashing}{TreeHash.cpp}
 \IncludeTex{Mo's Algorithm on Tree}{MoTree.tex}
 
-\IncludeCpp{DMST}{FastDirectedMST.cpp}
-\IncludeCpp{Dominator Tree}{DominatorTree.cpp}
-\IncludeCpp{Edge Coloring}{Misra.cpp}
-
 \IncludeCpp{Count Cycles}{CountCycles.cpp}
 \IncludeCpp{MaximalClique}{MaxClique.cpp}
 \IncludeCpp{MaximumClique}{MaxCliqueDyn.cpp}
 \IncludeCpp{Minimum Mean Cycle}{MinMeanCycle.cpp}
 
-\sectiontitle{Flow \& Matching}
+\SectionTitle{Flow \& Matching}
 \renewcommand\Prefix{../codes/FlowAndMatching/}
 
 \IncludeCpp{HopcroftKarp}{HopcroftKarp.cpp}
@@ -248,7 +247,7 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{Minimum Cost Max Flow}{CostFlow.cpp}
 \IncludeCpp{Weighted Matching}{WeightedGeneralMatching.cpp}
 
-\sectiontitle{Math}
+\SectionTitle{Math}
 \renewcommand\Prefix{../codes/Math/}
 
 %\IncludeTex{Prime Table}{primes.tex}
@@ -260,7 +259,7 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{Chinese Remainder}{ChineseRemainder.cpp}
 
 \IncludeCpp{DiscreteLog}{DiscreteLog.cpp}
-\IncludeCpp{Quadratic residue}{QuadraticResidue.cpp}
+\IncludeCpp{Quadratic Residue}{QuadraticResidue.cpp}
 
 \IncludeTex{Extended Euler}{ExtendedEuler.tex}
 \IncludeTex{Extended FloorSum}{ExtendedFloorSum.tex}
@@ -268,10 +267,11 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{FloorSum}{FloorSum.cpp}
 \IncludeCpp{ModMin}{ModMin.cpp}
 
+\IncludeCpp{FWT}{FWT.cpp}
 \IncludeCpp{Packed FFT}{PackedFFT.cpp}
 \IncludeCpp{CRT for arbitrary mod}{superBigCRT.cpp}
 \IncludeCpp{NTT / FFT}{NTT.cpp}
-\IncludeCpp{FWT}{FWT.cpp}
+\IncludeCpp{Polynomial Operations}{PolynomialOp.cpp}
 
 \IncludeCpp{Partition Number}{PartitionNumber.cpp}
 \IncludeCpp{Pi Count (+Linear Sieve)}{MeisselLehmer.cpp}
@@ -281,13 +281,12 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{Berlekamp Massey}{Berlekamp-Massey.cpp}
 %\IncludeCpp{Gauss Elimination}{GaussElimination.cpp}
 \IncludeCpp{Charateristic Polynomial}{CharPoly.cpp}
-\IncludeCpp{Polynomial Operations}{PolynomialOp.cpp}
 
 \IncludeCpp{Simplex}{simplex.cpp}
 \IncludeTex{Simplex Construction}{SimplexConstruction.tex}
 \IncludeCpp{Adaptive Simpson}{AdaptiveSimpson.cpp}
 
-\sectiontitle{Geometry}
+\SectionTitle{Geometry}
 \renewcommand\Prefix{../codes/Geometry/}
 
 \IncludeCpp{Basic Geometry}{Basic.cpp}
@@ -330,7 +329,7 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{Triangle Centers}{TriCenter.cpp}
 % \IncludeCpp{Ternary Search on Integer}{Ternary_Search.cpp}
 
-\sectiontitle{Stringology}
+\SectionTitle{Stringology}
 \renewcommand\Prefix{../codes/String/}
 
 \IncludeCpp{Hash}{Hash.cpp}
@@ -349,7 +348,7 @@ literate={\ \ }{{\ }}1
 \IncludeCpp{BWT}{BWT.cpp}
 \IncludeCpp{Palindromic Tree}{PalindromicTree.cpp}
 
-\sectiontitle{Misc}
+\SectionTitle{Misc}
 \renewcommand\Prefix{../codes/Misc/}
 
 \IncludeTex{Theorems}{Theorems.tex}
