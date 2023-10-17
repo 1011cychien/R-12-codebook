@@ -1,9 +1,9 @@
-scanf("%d%d", &n, &m), u = n / 64 + 1;
-for (int i = 1, c; i <= n; i++)
-  scanf("%d", &c), p[c].set(i);
-for (int i = 1, c; i <= m; i++) {
-  scanf("%d", &c), (g = f) |= p[c];
+cin >> n >> m;
+for (int i = 1, x; i <= n; ++i)
+  cin >> x, p[x].set(i);
+for (int i = 1, x; i <= m; i++) {
+  cin >> x, (g = f) |= p[x];
   f.shiftLeftByOne(), f.set(0);
   ((f = g - f) ^= g) &= g;
 }
-printf("%d\n", f.count());
+cout << f.count() << '\n';

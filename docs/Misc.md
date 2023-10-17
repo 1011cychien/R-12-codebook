@@ -22,7 +22,7 @@ No test needed.
 ### Description
 $O(n^2/w)$. need hand-written bitset (needs subtraction)
 ### Test Status
-TODO
+Passed [LibreOJ #6564](https://loj.ac/s/1914563)
 
 ## Prefix Substring LCS
 ### Description
