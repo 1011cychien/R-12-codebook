@@ -1,24 +1,16 @@
-template <typename F = double>
-struct SVGWriter {
-  FILE *f;
-  F sc = 20;
-  SVGWriter(char *name, F u, F l, F d, F r) : f(fopen(name, "w")) {
-    fprintf(f, "<svg viewBox='%f %f %f %f'>\n", u, l, d, r);
+struct SVG {
+  ofstream o;
+  SVG(string fn, auto x1, auto y1, auto x2, auto y2) : o(fn) {
+    o << "<svg xmlns='http://www.w3.org/2000/svg' viewBox='" << x1 << " " << -y2 << " " << x2 - x1 << " " << y2 - y1 << "'>\n";
   }
-  ~SVGWriter() {
-    fputs("</svg>", f);
-    fclose(f);
+  ~SVG() { o << "</svg>" << endl; }
+  void line(auto x1, auto y1, auto x2, auto y2, string c = "red") {
+    o << "<line x1='" << x1 << "' y1='" << -y1 << "' x2='" << x2 << "' y2='" << -y2 << "' stroke='" + c + "'/>\n";
   }
-  void line(F ax, F ay, F bx, F by, const char *color = "red") {
-    ax = ax * sc, ay = ay * sc, bx = bx * sc, by = by * sc;
-    fprintf(f, "<line x1='%f' y1='%f' x2='%f' y2='%f' stroke='%s'/>\n", ax, -ay, bx, -by, color);
+  void circle(auto x, auto y, auto r, string c = "red") {
+    o << "<circle cx='" << x << "' cy='" << -y << "' r='" << r << "' stroke='" + c + "' fill='none'/>\n";
   }
-  void circle(F ax, F ay, F r = 0.5, const char *color = "red") {
-    ax = ax * sc, ay = ay * sc, r = sc * r;
-    fprintf(f, "<circle cx='%f' cy='%f' r='%f' stroke='%s' fill='none'/>\n", ax, -ay, r, color);
-  }
-  void text(F ax, F ay, const char *s, int fSize = 12) {
-    ax = ax * sc, ay = ay * sc;
-    fprintf(f, "<text x='%f' y='%f' font-size='%dpx'>%s</text>\n", ax, -ay, fSize, s);
+  void text(auto x, auto y, string s, int w = 12) {
+    o << "<text x='" << x << "' y='" << -y << "' font-size='" << w << "px'>" + s + "</text>\n";
   }
 };

@@ -38,3 +38,10 @@ Rarely used, no test
 I/O bounded program needs this sweet optimization.
 ### Test Status
 Rarely used, no test.
+
+## SVG Writer
+### Description
+A helper to generate SVG. Support Line, Circle, and Text.
+Should adjust sizes properly.
+### Test Status
+No Test
