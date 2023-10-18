@@ -57,7 +57,7 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
     * [x] triangle hearts?
     * [x] adaptive simpson?
     * [x] 3d point class
-* [ ] [3d hull test](https://vjudge.net/problem/HDU-3662)
+* [x] [3d hull test](https://vjudge.net/problem/HDU-3662)
 * [ ] del or fix
     * KD tree
     * KD closet pair

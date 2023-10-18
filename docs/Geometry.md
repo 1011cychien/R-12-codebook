@@ -150,7 +150,7 @@ TODO.
 ### Description
 Basic 3d point.
 - cross
-- mix product
+- triple product
 - rotate around an axis
 ### Test Status
 `rotate_around` is copied from NaCl.
@@ -168,9 +168,10 @@ Passed [stars in a can](https://open.kattis.com/problems/starsinacan).
 Return the face of 3d convex hull of $N$ points.
 There will be $O(N)$ faces and time complexity is $O(N^2)$.
 Be careful of degenerate cases.
+
 ### Test Status
 Passed SPOJ and [stars in a can](https://open.kattis.com/problems/starsinacan).
-Needs test coplanar case.
+Passed [HDU 3662](https://vjudge.net/solution/46392862). (need to combine coplanar triangles to one face).
 
 ## Delaunay
 ### Description
