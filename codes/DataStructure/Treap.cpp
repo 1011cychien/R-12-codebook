@@ -1,4 +1,4 @@
-__gnu_cxx::sfmt19937 rnd(7122);
+__gnu_cxx::sfmt19937 rnd(7122); // <ext/random>
 namespace Treap {
 struct node {
   int size, pri; node *lc, *rc, *pa;
