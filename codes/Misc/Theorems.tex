@@ -1,11 +1,22 @@
+\subsubsection{Spherical Coordinate}
+
+\begin{center}
+\includegraphics[width=25mm]{../codes/Misc/sphericalCoordinates.pdf}
+\end{center}
+\[\begin{array}{cc}
+x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
+y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
+z = r\cos\theta & \phi = \textrm{atan2}(y,x)
+\end{array}\]
+
 \subsubsection{Sherman-Morrison formula}
 $\left(A + uv^\textsf{T}\right)^{-1} = A^{-1} - \frac{A^{-1}uv^\textsf{T}A^{-1}}{1 + v^\textsf{T}A^{-1}u}$
 
 \subsubsection{Kirchhoff's Theorem}
 Denote $L$ be a $n \times n$ matrix as the Laplacian matrix of graph $G$, where $L_{ii} = d(i)$, $L_{ij} = -c$ where $c$ is the number of edge $(i, j)$ in $G$.
 \begin{itemize}[nosep]
-    \item The number of undirected spanning in $G$ is $\lvert \det(\tilde{L}_{11}) \rvert$.
-    \item The number of directed spanning tree rooted at $r$ in $G$ is $\lvert \det(\tilde{L}_{rr}) \rvert$.
+    \item The number of undirected spanning in $G$ is $\det(\tilde{L}_{11})$.
+    \item The number of directed spanning tree rooted at $r$ in $G$ is $\det(\tilde{L}_{rr})$.
 \end{itemize}
 
 \subsubsection{Tutte's Matrix}
