@@ -53,7 +53,7 @@ Passed CSES, [regional prob](https://codeforces.com/gym/102001/problem/C) and lo
 
 ## Josephus Problem
 ### Description
-Josephus problem $O(N)$ and faster algo ($O(\log N)$).
+Josephus problem $O(N)$ and faster algo ($O(M\log N)$).
 ### Test Status
 Not even used or tested
 
