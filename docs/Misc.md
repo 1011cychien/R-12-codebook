@@ -49,11 +49,11 @@ Passed yosupo library checker.
 ### Description
 De-Bruijn sequence construction
 ### Test Status
-Passed CSES and local test.
+Passed CSES, [regional prob](https://codeforces.com/gym/102001/problem/C) and local test.
 
 ## Josephus Problem
 ### Description
-Josephus problem $O(N)$ and faster algo.
+Josephus problem $O(N)$ and faster algo ($O(\log N)$).
 ### Test Status
 Not even used or tested
 
