@@ -1,8 +1,8 @@
 class SVG {
-  void p(string_view fmt) { o << fmt; }
-  void p(string_view fmt, auto v, auto... vs) {
-    auto p = fmt.find('$');
-    o<<fmt.substr(0, p)<<v,p(fmt.substr(p+1),vs...);
+  void p(string_view s) { o << s; }
+  void p(string_view s, auto v, auto... vs) {
+    auto p = s.find('$');
+    o << s.substr(0, p) << v, p(s.substr(p + 1), vs...);
   }
   ofstream o; string c = "red";
 public:
@@ -12,6 +12,7 @@ public:
       "<style>*{stroke-width:0.5%;}</style>\n",
       x1, -y2, x2 - x1, y2 - y1); }
   ~SVG() { p("</svg>\n"); }
+  SVG &color(string nc) { return c = nc, *this; }
   void line(auto x1, auto y1, auto x2, auto y2) {
     p("<line x1='$' y1='$' x2='$' y2='$' stroke='$'/>\n",
       x1, -y1, x2, -y2, c); }
