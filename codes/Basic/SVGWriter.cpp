@@ -1,8 +1,8 @@
 class SVG {
   void p(string_view s) { o << s; }
   void p(string_view s, auto v, auto... vs) {
-    auto p = s.find('$');
-    o << s.substr(0, p) << v, p(s.substr(p + 1), vs...);
+    auto i = s.find('$');
+    o << s.substr(0, i) << v, p(s.substr(i + 1), vs...);
   }
   ofstream o; string c = "red";
 public:
