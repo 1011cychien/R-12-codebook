@@ -5,7 +5,7 @@ struct L {
   bool operator<(lld x) const { return p < x; }
 };
 lld Div(lld a, lld b) {
-  return a / b - ((a ^ b) < 0 && a % b); };
+  return a / b - ((a ^ b) < 0 && a % b); }
 struct DynamicHull : multiset<L, less<>> {
   static const lld kInf = 1e18;
   bool Isect(iterator x, iterator y) {
