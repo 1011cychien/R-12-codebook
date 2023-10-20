@@ -43,7 +43,7 @@ TODO. Rarely used.
 ### Description
 Maintain upper envelope of lines.
 ### Test Status
-Passed yosupo library checker.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/163740).
 
 ## De-Bruijn
 ### Description
