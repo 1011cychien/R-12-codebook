@@ -45,7 +45,7 @@ jobs:
         run: latexmk --xelatex --shell-escape codebook.tex
       - name: Build docs
         working-directory: docs
-        run: make
+        run: bash -c "printf -- \"---\\nscript:\\n  - path: mathjax-config.js\\n  - url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js\\n---\\n\" | cat - Basic.md DataStructure.md FlowAndMatching.md Graph.md Math.md Geometry.md String.md Misc.md | md-to-pdf --launch-options '{ \"args\": [\"--no-sandbox\", \"--disable-setuid-sandbox\"] }' > docs.pdf"
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: auto build - ${{ github.sha }}
