@@ -1,3 +1,4 @@
+// a is convex a[i+1]-a[i] <= a[i+2]-a[i-1]
 vector<int> min_plus_convolution(auto &a, auto &b) {
   const int n = (int)a.size(), m = (int)b.size();
   vector<int> c(n + m - 1, numeric_limits<int>::max());
