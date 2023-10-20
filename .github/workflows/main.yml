@@ -21,20 +21,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Check if only codebook changed
+      - name: Check if not only codebook changed
         id: if-not-only-codebook-changed
         uses: tj-actions/changed-files@v39
         with:
           files: '**'
           files_ignore_yaml: |
-            - 'pdf/*'
-            - 'codes/*'
-      - name: Check if only docs changed
+            codebook:
+              - 'pdf/**'
+              - 'codes/**'
+      - name: Check if not only docs changed
         id: if-not-only-docs-changed
         uses: tj-actions/changed-files@v39
         with:
           files: '**'
-          files_ignore: 'docs/*'
+          files_ignore: 'docs/**'
       - name: Use Node.js 20.x
         if: steps.if-not-only-codebook-changed.outputs.any_changed == 'true'
         uses: actions/setup-node@v3
