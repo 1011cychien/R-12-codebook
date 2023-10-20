@@ -26,10 +26,9 @@ jobs:
         uses: tj-actions/changed-files@v39
         with:
           files: '**'
-          files_ignore_yaml: |
-            codebook:
-              - 'pdf/**'
-              - 'codes/**'
+          files_ignore: |
+            'pdf/**'
+            'codes/**'
       - name: Check if not only docs changed
         id: if-not-only-docs-changed
         uses: tj-actions/changed-files@v39
