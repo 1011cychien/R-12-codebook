@@ -70,8 +70,9 @@ Passed QOJ 2444 and PTZ 19 summer D3.
 ## Rotating Sweep Line
 ### Description
 A skeleton of rotating sweep line.
+Support colinear cases.
 ### Test Status
-TODO. Needs template problem.
+Passed [NAIPC 2016 G](https://codeforces.com/gym/101002/submission/228911692)
 
 ## Polygon Cut
 ### Description
