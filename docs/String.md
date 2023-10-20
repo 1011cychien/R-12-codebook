@@ -12,7 +12,7 @@ Used in contest. No test.
 ## Suffix Array
 ### Description
 
-SA-IS algorithm.  
+SA-IS algorithm.
 Complexity: $O(N + C)$
 
 ### Test Status
@@ -53,7 +53,7 @@ Tested on [Library Checker](https://judge.yosupo.jp/submission/166048)
 ### Description
 
 A string is called simple (or a Lyndon word), if it is strictly smaller than any of its own nontrivial suffixes.
-The Lyndon factorization of the string $s$  is a factorization $s = w_1 w_2 \dots w_k$ , where all strings $w_i$  are simple, and they are in non-increasing order $w_1 \ge w_2 \ge \dots \ge w_k$.
+The Lyndon factorization of the string $s$ is a factorization $s = w_1 w_2 \dots w_k$, where all strings $w_i$ are simple, and they are in non-increasing order $w_1 \ge w_2 \ge \dots \ge w_k$.
 
 Duval algorithm: $O(N)$.
 
