@@ -79,7 +79,7 @@ Not even used or tested.
 ## Binary Search On Fraction
 ### Description
 Binary search on stern-borcot tree, binary search
-over $p/q$ such that $0 <= p, q <= N$.
+over $p/q$ such that $0 \leq p, q \leq N$.
 ### Test Status
 TODO. Copied from NaCl.
 
