@@ -1,13 +1,20 @@
 \subsubsection{Spherical Coordinate}
 
-\begin{center}
+\begin{tabular}{ccc}
+{$\begin{aligned}
+  x = r\sin\theta\cos\phi \\
+  y = r\sin\theta\sin\phi \\
+  z = r\cos\theta
+\end{aligned}$}
+&
 \includegraphics[width=25mm]{../codes/Misc/sphericalCoordinates.pdf}
-\end{center}
-\[\begin{array}{cc}
-x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
-y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
-z = r\cos\theta & \phi = \textrm{atan2}(y,x)
-\end{array}\]
+&
+{$\begin{aligned}
+  r = \sqrt{x^2+y^2+z^2} \\
+  \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2}) \\
+  \phi = \textrm{atan2}(y,x)
+\end{aligned}$}
+\end{tabular}
 
 \subsubsection{Sherman-Morrison formula}
 $\left(A + uv^\textsf{T}\right)^{-1} = A^{-1} - \frac{A^{-1}uv^\textsf{T}A^{-1}}{1 + v^\textsf{T}A^{-1}u}$
