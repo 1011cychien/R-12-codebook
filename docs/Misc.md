@@ -21,8 +21,7 @@ No test needed.
 ## Bitset LCS
 ### Description
 $O(n^2/w)$. need hand-written bitset (needs subtraction)  
-The result bitset $f$ contains the answer.
-If the $i$-th position is true, the $i$-th number of the first sequence is in the answer. (Need test for this claim) 
+TODO: Find a way to recove the answer. [Prob](https://tioj.ck.tp.edu.tw/problems/2010)
 
 ### Test Status
 Passed [LibreOJ #6564](https://loj.ac/s/1914563)
