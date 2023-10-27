@@ -33,8 +33,8 @@ auto sais(const auto &s) {
     }
     j = i;
   }
-  ranges::fill(sa, 0);
-  for (auto x = c; int y : sais(ns) | views::reverse)
+  ranges::fill(sa, 0); auto nsa = sais(ns);
+  for (auto x = c; int y : nsa | views::reverse)
     y = lms[y], sa[--x[s[y]]] = y;
   return induce(), sa;
 }
