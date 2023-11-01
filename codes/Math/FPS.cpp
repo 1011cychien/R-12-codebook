@@ -33,7 +33,7 @@ Poly Sx(Poly A) {
   return A;
 }
 Poly Ln(const Poly &A) { // coef[0] == 1; res[0] == 0
-  auto B = Sx(Mul(Dx(A), Inv(A), bit_ceil(A.size() * 2)));
+  auto B = Sx(Mul(Dx(A), Inv(A), bit_ceil(A.size()*2)));
   return B.resize(A.size()), B;
 }
 Poly Exp(const Poly &v) { // coef[0] == 0; res[0] == 1
