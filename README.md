@@ -15,29 +15,29 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * [x] shorten floor sum
 * [x] shorten weighted general matching
 * [x] Add Manacher comment
+* [x] del old fft and polynomial?
+* [x] FPS
 * [ ] fix SAM/PalTree
 * [ ] tree knapsack
 * [ ] min mean cycle
 * [ ] simulate annealing
-* [ ] del old fft and polynomial?
 * [ ] shorten SA
 * [ ] Simplex (Performance, e.g. with custom type?)
-* [ ] FPS
 
 ### To add
 * [x] count 3 cycle / 4 cycle
 * [x] faster Pollard Rho (127(?))
-* [ ] bipartite independent set / vertex cover construction
+* [x] bipartite independent set / vertex cover construction
+* [ ] bounded flow?
+* [ ] LP dual formula!
+* [ ] add simple polygon sweep line
 * 郵局設置問題無限大extreme
 * segment tree beats
 * [邀請函](https://omeletwithoutegg.github.io/2020/11/22/TIOJ-1978/)?
 * subset convolution
-* bounded flow?
 * bipartite coloring on library checker
 * HLPP? $(N^2\sqrt{M})$ max-flow
-* LP dual formula!
 * add 3d geometry
-* add simple polygon sweep line
 * BitsetLCS with solution
 
 ### Flow series
