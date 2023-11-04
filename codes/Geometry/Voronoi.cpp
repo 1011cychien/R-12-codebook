@@ -1,16 +1,8 @@
 void build_voronoi_cells(auto &&p, auto &&res) {
   vector<vector<int>> adj(p.size());
-  map<pair<lld,lld>,int> mp;
-  for (size_t i = 0; i < p.size(); ++i)
-    mp[{RE(p[i]), IM(p[i])}] = i;
-  const auto Get = [&](P z) {
-    auto it = mp.find({RE(z), IM(z)});
-    return it==mp.end() ? -1 : it->second;
-  };
-  for (Tri *t: res) F3 {
-    P A = t->p[i], B = t->p[R(i)];
-    int a = Get(A), b = Get(B);
-    if (a == -1 || b == -1) continue;
+  for (auto f: res) F3 {
+    int a = f[i], b = f[R(i)];
+    if (a >= p.size() || b >= p.size()) continue;
     adj[a].emplace_back(b);
   }
   // use `adj` and `p` and HPI to build cells
