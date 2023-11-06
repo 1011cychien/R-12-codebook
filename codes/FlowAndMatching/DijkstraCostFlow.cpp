@@ -31,12 +31,13 @@ template <typename F, typename C> class MCMF {
     return pair{up[T], h[T]};
   }
 public:
-  MCMF(int n) : g(n), f(n), up(n), d(n, INF_C), h(n) {}
+  MCMF(int n) : g(n), f(n), up(n), d(n, INF_C) {}
   void add_edge(int s, int t, F c, C w) {
     g[s].emplace_back(t, int(g[t].size()), c, w);
     g[t].emplace_back(s, int(g[s].size()) - 1, 0, -w);
   }
   pair<F, C> solve(int a, int b) {
+    h.assign(g.size(), 0);
     F c = 0; C w = 0;
     while (auto r = step(a, b)) {
       c += r->first, w += r->first * r->second;
