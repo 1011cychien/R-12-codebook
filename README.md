@@ -39,6 +39,7 @@ The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/cki
 * HLPP? $(N^2\sqrt{M})$ max-flow
 * add 3d geometry
 * BitsetLCS with solution
+* Gaussian Elimination
 
 ### Flow series
 * [Network Simplex](https://gist.github.com/brunodccarvalho/fb9f2b47d7f8469d209506b336013473)/[Cost Scaling](https://ideone.com/q6PWgB)/[Capacity Scaling](https://ouuan.github.io/post/%E5%9F%BA%E4%BA%8E-capacity-scaling-%E7%9A%84%E5%BC%B1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E7%AE%97%E6%B3%95/)
