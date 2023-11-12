@@ -1,15 +1,17 @@
-"""Convert content.yaml to content.tex"""
+"""Convert content.yaml to content.tex + content.html"""
 
 import hashlib
 import subprocess
+from typing import List, Dict, Any
 from os import path
 import yaml
+from git import Repo
 
 
 def md5hex(raw_s: str) -> str:
     """compute md5 hex string"""
     md5 = hashlib.md5()
-    md5.update(raw_s.encode('utf8'))
+    md5.update(raw_s.encode("utf8"))
     return md5.hexdigest()
 
 
@@ -31,13 +33,12 @@ def escape_latex(raw_s: str) -> str:
     return "".join(escape_list.get(char, char) for char in raw_s)
 
 
-if __name__ == "__main__":
-    with open("content.yaml", "r", encoding="utf8") as content_yaml:
-        sections = yaml.safe_load(content_yaml)
+def gen_tex(sections: List[Dict[str, Any]]) -> None:
+    """generate content.tex"""
     with open("content.tex", "w", encoding="utf8") as out:
         for section in sections:
             title = escape_latex(section["name"])
-            prefix = escape_latex(section["prefix"])
+            prefix = section["prefix"]
             out.write("\\SectionTitle{%s}\n" % title)
             out.write("\\renewcommand\\Prefix{%s}\n" % prefix)
             for content in section["content"]:
@@ -73,4 +74,118 @@ if __name__ == "__main__":
                         % (escape_latex(content["name"]), content["path"])
                     )
                 else:
-                    raise NotImplementedError(f"unsupported extension name: {ext}")
+                    raise NotImplementedError(
+                        f"unsupported extension name: {ext}"
+                    )
+
+
+def gen_html(sections: List[Dict[str, Any]]) -> None:
+    """generate content.html"""
+    with open("content.html", "w", encoding="utf8") as out:
+        out.write(
+            """<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf8">
+<title>ckiseki codebook</title>
+<style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  font-family: sans-serif;
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.container {
+  padding: 80px 10%;
+}
+li {
+  margin-top: 5px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>ckiseki</h1>
+  <hr/>
+"""
+        )
+        repo = Repo("..")
+        for section in sections:
+            prefix = section["prefix"]
+            out.write(f"<h2>{section['name']}</h2><ul>\n")
+            for content in section["content"]:
+                out.write("<li>")
+                file_path = path.join(prefix, content["path"])
+                real_path = path.realpath(file_path)
+                commit_hash = str(
+                    list(repo.iter_commits(max_count=1, paths=real_path))[0]
+                )
+                if content["verified"] is None:
+                    out.write(b"\xe2\x9d\x8c".decode("utf8"))
+                elif (
+                    content["verified"]
+                    != commit_hash[: len(content["verified"])]
+                ):
+                    out.write(b"\xe2\x9a\xa0\xef\xb8\x8f".decode("utf8"))
+                else:
+                    out.write(b"\xe2\x9c\x85".decode("utf8"))
+                out.write(f" {content['name']}</li>")
+            out.write("</ul>")
+        out.write("</div></body></html>")
+
+
+if __name__ == "__main__":
+    with open("content.yaml", "r", encoding="utf8") as content_yaml:
+        sections_list = yaml.safe_load(content_yaml)
+        gen_tex(sections_list)
+        gen_html(sections_list)
