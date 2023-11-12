@@ -1,0 +1,389 @@
+- name: Basic
+  prefix: ../codes/Basic/
+  content:
+    - name: vimrc
+      path: vimrc
+      verified:
+    - name: Debug Macro
+      path: debug.cpp
+      verified:
+    - name: Increase Stack
+      path: IncStack.cpp
+      verified:
+    - name: Pragma Optimization
+      path: Pragma.cpp
+      verified:
+    - name: IO Optimization
+      path: IOOptimize.cpp
+      verified:
+    - name: SVG Writer
+      path: SVGWriter.cpp
+      verified:
+
+- name: Data Structure
+  prefix: ../codes/DataStructure/
+  content:
+    - name: Dark Magic
+      path: pbds.cpp
+      verified:
+    - name: Link-Cut Tree
+      path: LCT.cpp
+      verified:
+    - name: LiChao Segment Tree
+      path: LiChao.cpp
+      verified:
+    - name: Treap
+      path: Treap.cpp
+      verified:
+    - name: Linear Basis
+      path: LinearBasis.cpp
+      verified:
+    - name: Binary Search On Segtree
+      path: BinarySearchOnSegtree.cpp
+      verified:
+
+- name: Graph
+  prefix: ../codes/Graph/
+  content:
+    - name: 2-SAT (SCC)
+      path: 2SAT.cpp
+      verified:
+    - name: BCC
+      path: BCC.cpp
+      verified:
+    - name: Round Square Tree
+      path: RoundSquareTree.cpp
+      verified:
+    - name: Edge TCC
+      path: ETCC.cpp
+      verified:
+    - name: DMST
+      path: FastDirectedMST.cpp
+      verified:
+    - name: Dominator Tree
+      path: DominatorTree.cpp
+      verified:
+    - name: Edge Coloring
+      path: Misra.cpp
+      verified:
+    - name: Centroid Decomposition
+      path: CenDec.cpp
+      verified:
+    - name: Lowbit Decomposition
+      path: LowbitDecomposition.cpp
+      verified:
+    - name: Virtual Tree
+      path: VirtualTree.cpp
+      verified:
+    - name: Tree Hashing
+      path: TreeHash.cpp
+      verified:
+    - name: Mo's Algorithm on Tree
+      path: MoTree.tex
+      verified:
+    - name: Count Cycles
+      path: CountCycles.cpp
+      verified:
+    - name: MaximalClique
+      path: MaxClique.cpp
+      verified:
+    - name: MaximumClique
+      path: MaxCliqueDyn.cpp
+      verified:
+    - name: Minimum Mean Cycle
+      path: MinMeanCycle.cpp
+      verified:
+
+- name: Flow & Matching
+  prefix: ../codes/FlowAndMatching/
+  content:
+    - name: HopcroftKarp
+      path: HopcroftKarp.cpp
+      verified:
+    - name: Dijkstra Cost Flow
+      path: DijkstraCostFlow.cpp
+      verified:
+    - name: Dinic
+      path: Dinic.cpp
+      verified:
+    - name: Flow Models
+      path: FlowModels.tex
+      verified:
+    - name: General Graph Matching
+      path: GeneralMatching.cpp
+      verified:
+    - name: Global Min-Cut
+      path: SW.cpp
+      verified:
+    - name: GomoryHu Tree
+      path: GomoryHu.cpp
+      verified:
+    - name: Kuhn Munkres
+      path: KM.cpp
+      verified:
+    - name: Minimum Cost Circulation
+      path: MinCostCirculation.cpp
+      verified:
+    - name: Minimum Cost Max Flow
+      path: CostFlow.cpp
+      verified:
+    - name: Weighted Matching
+      path: WeightedGeneralMatching.cpp
+      verified:
+
+- name: Math
+  prefix: ../codes/Math/
+  content:
+    - name: Common Bounds
+      path: Bounds.tex
+      verified:
+    - name: Stirling Number
+      path: StirlingNumber.tex
+      verified:
+    - name: ax+by=gcd
+      path: ExtendedGCD.cpp
+      verified:
+    - name: Chinese Remainder
+      path: ChineseRemainder.cpp
+      verified:
+    - name: DiscreteLog
+      path: DiscreteLog.cpp
+      verified:
+    - name: Quadratic Residue
+      path: QuadraticResidue.cpp
+      verified:
+    - name: Extended Euler
+      path: ExtendedEuler.tex
+      verified:
+    - name: Extended FloorSum
+      path: ExtendedFloorSum.tex
+      verified:
+    - name: Extended Euclidean
+      path: ExtendedEuclidean.cpp
+      verified:
+    - name: FloorSum
+      path: FloorSum.cpp
+      verified:
+    - name: ModMin
+      path: ModMin.cpp
+      verified:
+    - name: FWT
+      path: FWT.cpp
+      verified:
+    - name: Packed FFT
+      path: PackedFFT.cpp
+      verified:
+    - name: CRT for arbitrary mod
+      path: superBigCRT.cpp
+      verified:
+    - name: NTT / FFT
+      path: NTT.cpp
+      verified:
+    - name: Formal Power Series
+      path: FPS.cpp
+      verified:
+    - name: Partition Number
+      path: PartitionNumber.cpp
+      verified:
+    - name: Pi Count (+Linear Sieve)
+      path: MeisselLehmer.cpp
+      verified:
+    - name: Miller Rabin
+      path: MillerRabin.cpp
+      verified:
+    - name: Pollard Rho
+      path: PollardRho.cpp
+      verified:
+    - name: Berlekamp Massey
+      path: Berlekamp-Massey.cpp
+      verified:
+    - name: Gauss Elimination
+      path: GaussElimination.cpp
+      verified:
+    - name: Charateristic Polynomial
+      path: CharPoly.cpp
+      verified:
+    - name: Simplex
+      path: simplex.cpp
+      verified:
+    - name: Simplex Construction
+      path: SimplexConstruction.tex
+      verified:
+    - name: Adaptive Simpson
+      path: AdaptiveSimpson.cpp
+      verified:
+
+- name: Geometry
+  prefix: ../codes/Geometry/
+  content:
+    - name: Basic Geometry
+      path: Basic.cpp
+      verified:
+    - name: 2D Convex Hull
+      path: ConvexHull.cpp
+      verified:
+    - name: 2D Farthest Pair
+      path: FarthestPair.cpp
+      verified:
+    - name: MinMax Enclosing Rect
+      path: MinMaxEnclosingRect.cpp
+      verified:
+    - name: Minkowski Sum
+      path: MinkowskiSum.cpp
+      verified:
+    - name: Segment Intersection
+      path: SegIsIntersect.cpp
+      verified:
+    - name: Half Plane Intersection
+      path: HalfPlaneIntersection.cpp
+      verified:
+    - name: SegmentDist (Sausage)
+      path: SegSegDist.cpp
+      verified:
+    - name: Rotating Sweep Line
+      path: RotatingSweepLine.cpp
+      verified:
+    - name: Polygon Cut
+      path: PolyCut.cpp
+      verified:
+    - name: Point In Simple Polygon
+      path: PointInPoly.cpp
+      verified:
+    - name: Point In Hull (Fast)
+      path: PointInHull.cpp
+      verified:
+    - name: Tangent of Points To Hull
+      path: TangentPointToHull.cpp
+      verified:
+    - name: Circle Class & Intersection
+      path: Circle/Basic.cpp
+      verified:
+    - name: Circle Common Tangent
+      path: Circle/TangentLineOfTwoCircles.cpp
+      verified:
+    - name: Line-Circle Intersection
+      path: Circle/InterWithLine.cpp
+      verified:
+    - name: Poly-Circle Intersection
+      path: Circle/InterWithPoly.cpp
+      verified:
+    - name: Minimum Covering Circle
+      path: Circle/MinCircleCover.cpp
+      verified:
+    - name: Circle Union
+      path: Circle/CircleUnion.cpp
+      verified:
+    - name: Polygon Union
+      path: PolyUnion.cpp
+      verified:
+    - name: 3D Point
+      path: 3d/Basic.cpp
+      verified:
+    - name: 3D Convex Hull
+      path: 3d/ConvexHull.cpp
+      verified:
+    - name: 3D Projection
+      path: 3d/Projection.cpp
+      verified:
+    - name: 3D Skew Line Nearest Point
+      path: 3d/SkewLine.tex
+      verified:
+    - name: Delaunay
+      path: Delaunay.cpp
+      verified:
+    - name: Build Voronoi
+      path: Voronoi.cpp
+      verified:
+    - name: kd Tree (Nearest Point)
+      path: KDTree.cpp
+      verified:
+    - name: kd Closest Pair (3D ver.)
+      path: 3d/ClosestPair.cpp
+      verified:
+    - name: Simulated Annealing
+      path: SimulateAnnealing.cpp
+      verified:
+    - name: Triangle Centers
+      path: TriCenter.cpp
+      verified:
+
+- name: Stringology
+  prefix: ../codes/String/
+  content:
+    - name: Hash
+      path: Hash.cpp
+      verified:
+    - name: Suffix Array
+      path: SAIS.cpp
+      verified:
+    - name: Ex SAM
+      path: exSAM.cpp
+      verified:
+    - name: Z value
+      path: ZValue.cpp
+      verified:
+    - name: Manacher
+      path: Manacher.cpp
+      verified:
+    - name: Lyndon Factorization
+      path: LyndonFactorization.cpp
+      verified:
+    - name: Main Lorentz
+      path: MainLorentz.cpp
+      verified:
+    - name: BWT
+      path: BWT.cpp
+      verified:
+    - name: Palindromic Tree
+      path: PalindromicTree.cpp
+      verified:
+
+
+- name: Misc
+  prefix: ../codes/Misc/
+  content:
+    - name: Theorems
+      path: Theorems.tex
+      verified:
+    - name: Weight Matroid Intersection
+      path: MatroidIntersection.cpp
+      verified:
+    - name: Stable Marriage
+      path: StableMarriage.tex
+      verified:
+    - name: Bitset LCS
+      path: BitsetLCS.cpp
+      verified:
+    - name: Prefix Substring LCS
+      path: PrefixSubstringLCS.cpp
+      verified:
+    - name: Convex 1D/1D DP
+      path: Convex1D1D.cpp
+      verified:
+    - name: ConvexHull Optimization
+      path: SlopeDP.cpp
+      verified:
+    - name: Min Plus Convolution
+      path: MinPlusConv.cpp
+      verified:
+    - name: De-Bruijn
+      path: DeBruijn.cpp
+      verified:
+    - name: Josephus Problem
+      path: Josephus.cpp
+      verified:
+    - name: N Queens Problem
+      path: NQueens.cpp
+      verified:
+    - name: Tree Knapsack
+      path: TreeKnapsack.cpp
+      verified:
+    - name: Manhattan MST
+      path: ManhattanMST.cpp
+      verified:
+    - name: Binary Search On Fraction
+      path: BinarySearchOnFraction.cpp
+      verified:
+    - name: Barrett Reduction
+      path: Barrett.cpp
+      verified:
