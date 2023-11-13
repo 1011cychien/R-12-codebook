@@ -57,7 +57,7 @@ jobs:
       - name: Build codebook
         if: steps.if-not-only-docs-changed.outputs.any_changed == 'true'
         working-directory: pdf
-        run: make clean && make all
+        run: make clean && make codebook.pdf
       - name: Build docs
         if: steps.if-not-only-codebook-changed.outputs.any_changed == 'true'
         working-directory: docs
