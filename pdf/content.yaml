@@ -1,5 +1,6 @@
 - name: Basic
   prefix: ../codes/Basic/
+  doc: Basic.md
   content:
     - name: vimrc
       path: vimrc
@@ -22,6 +23,7 @@
 
 - name: Data Structure
   prefix: ../codes/DataStructure/
+  doc: DataStructure.md
   content:
     - name: Dark Magic
       path: pbds.cpp
@@ -44,6 +46,7 @@
 
 - name: Graph
   prefix: ../codes/Graph/
+  doc: Graph.md
   content:
     - name: 2-SAT (SCC)
       path: 2SAT.cpp
@@ -96,6 +99,7 @@
 
 - name: Flow & Matching
   prefix: ../codes/FlowAndMatching/
+  doc: FlowAndMatching.md
   content:
     - name: HopcroftKarp
       path: HopcroftKarp.cpp
@@ -133,6 +137,7 @@
 
 - name: Math
   prefix: ../codes/Math/
+  doc: Math.md
   content:
     - name: Common Bounds
       path: Bounds.tex
@@ -215,6 +220,7 @@
 
 - name: Geometry
   prefix: ../codes/Geometry/
+  doc: Geometry.md
   content:
     - name: Basic Geometry
       path: Basic.cpp
@@ -309,6 +315,7 @@
 
 - name: Stringology
   prefix: ../codes/String/
+  doc: String.md
   content:
     - name: Hash
       path: Hash.cpp
@@ -341,6 +348,7 @@
 
 - name: Misc
   prefix: ../codes/Misc/
+  doc: Misc.md
   content:
     - name: Theorems
       path: Theorems.tex
