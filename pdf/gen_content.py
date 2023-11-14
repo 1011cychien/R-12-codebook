@@ -168,7 +168,7 @@ li {
         out.write(
             "<h2>"
             + "<a href='https://github.com/OmeletWithoutEgg"
-            + f"/ckiseki/blob/master/docs/{section['doc']}.md'>"
+            + f"/ckiseki/blob/master/docs/{section['doc']}'>"
             + section['name']
             + "</a>"
             + "</h2>"
