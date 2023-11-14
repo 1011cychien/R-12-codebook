@@ -11,7 +11,7 @@ template <typename Val, typename SVal> class LCT {
 #define rc cur.ch[1]
   vector<node> o;
   bool is_root(int u) const {
-    return o[cur.pa].ch[0]!=u && o[cur.pa].ch[1]!=u;
+    return o[cur.pa].ch[0] != u && o[cur.pa].ch[1] != u;
   }
   bool is_rch(int u) const {
     return o[cur.pa].ch[1] == u && !is_root(u);
@@ -33,7 +33,7 @@ template <typename Val, typename SVal> class LCT {
     cur.rev ^= 1;
   }
   void rotate(int u) {
-    int f=cur.pa, g=o[f].pa, l=is_rch(u);
+    int f = cur.pa, g = o[f].pa, l = is_rch(u);
     if (cur.ch[l ^ 1]) o[cur.ch[l ^ 1]].pa = f;
     if (not is_root(f)) o[g].ch[is_rch(f)] = u;
     o[f].ch[l] = cur.ch[l ^ 1];
@@ -50,7 +50,8 @@ template <typename Val, typename SVal> class LCT {
       stk.pop_back();
     }
     for (int f = cur.pa; not is_root(u); f = cur.pa) {
-      if(!is_root(f))rotate(is_rch(u)==is_rch(f)?f:u);
+      if (!is_root(f))
+        rotate(is_rch(u) == is_rch(f) ? f : u);
       rotate(u);
     }
     up(u);
@@ -68,8 +69,8 @@ template <typename Val, typename SVal> class LCT {
     for (access(u); u; u = lc) down(la = u);
     return la;
   }
-  void split(int x, int y) {change_root(x);access(y);}
-  void change_root(int u) { access(u); set_rev(u); }
+  void split(int x, int y) { chroot(x); access(y); }
+  void chroot(int u) { access(u); set_rev(u); }
 public:
   LCT(int n = 0) : o(n + 1) {}
   int add(const Val &v = {}) {
@@ -90,13 +91,13 @@ public:
     split(++x, ++y); return o[y].prod;
   }
   SVal subtree(int p, int u) {
-    change_root(++p); access(++u);
+    chroot(++p); access(++u);
     return cur.vir + cur.sv;
   }
   bool connected(int u, int v) {
     return find_root(++u) == find_root(++v); }
   void link(int x, int y) {
-    change_root(++x); access(++y);
+    chroot(++x); access(++y);
     o[y].vir = o[y].vir + o[x].sub;
     up(o[x].pa = y);
   }
