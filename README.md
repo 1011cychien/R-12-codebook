@@ -5,7 +5,9 @@ ckiseki
 
 ICPC codebook used by team ckiseki from National Taiwan University
 
-The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/ckiseki/raw/master/pdf/codebook.pdf)
+* [Latest content](https://github.com/OmeletWithoutEgg/ckiseki/raw/master/pdf/codebook.pdf)
+* [Latest document](https://github.com/OmeletWithoutEgg/ckiseki/raw/master/docs/docs.pdf)
+* [Test Status](https://omeletwithoutegg.github.io/ckiseki/)
 
 ## TODO
 
