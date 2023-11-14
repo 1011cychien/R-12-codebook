@@ -45,6 +45,10 @@ jobs:
       - name: Install codebook build dependencies
         if: steps.if-not-only-docs-changed.outputs.any_changed == 'true'
         run: sudo apt-get install -y cpp latexmk texlive-lang-chinese texlive-science texlive-xetex
+      - name: Install codebook build Python dependencies
+        if: steps.if-not-only-docs-changed.outputs.any_changed == 'true'
+        working-directory: pdf
+        run: pip install -r requirements.txt
       - name: Install docs build dependencies
         if: steps.if-not-only-codebook-changed.outputs.any_changed == 'true'
         run: |
@@ -53,7 +57,7 @@ jobs:
       - name: Build codebook
         if: steps.if-not-only-docs-changed.outputs.any_changed == 'true'
         working-directory: pdf
-        run: latexmk --xelatex --shell-escape codebook.tex
+        run: make clean && make codebook.pdf
       - name: Build docs
         if: steps.if-not-only-codebook-changed.outputs.any_changed == 'true'
         working-directory: docs

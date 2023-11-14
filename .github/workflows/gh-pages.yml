@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: gh-pages
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - 'docs/docs.pdf'
+      - 'pdf/codebook.pdf'
+      - 'README.md'
+      - '.editorconfig'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  all:
+    name: build gh-pages and commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: update apt package list
+        run: sudo apt-get update
+      - name: Install codebook build Python dependencies
+        working-directory: pdf
+        run: pip install -r requirements.txt
+      - name: Build codebook
+        working-directory: pdf
+        run: make clean && make content.html
+      - name: move out html
+        run: mv pdf/content.html /tmp/index.html
+      - name: Checkout `gh-pages`
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          clean: true
+      - name: move back html
+        run: mv /tmp/index.html index.html
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: auto build - ${{ github.sha }}
+          file_pattern: index.html
