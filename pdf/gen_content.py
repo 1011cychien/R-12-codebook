@@ -179,10 +179,10 @@ li {
             file_path = path.join(prefix, content["path"])
             real_path = path.realpath(file_path)
             commit_hash = str(
-                list(repo.iter_commits(max_count=1, paths=real_path))[0]
+                list(repo.iter_commits(all=True, max_count=1, paths=real_path))[0]
             )
             # debug
-            print(content["name"], ":", commit_hash, content["verified"])
+            print(content["name"], "-", real_path, ":", commit_hash, content["verified"])
             if content["verified"] is None:
                 out.write(b"\xe2\x9d\x8c".decode("utf8"))
             elif (
@@ -195,7 +195,7 @@ li {
                 " "
                 + "<a href='https://github.com/OmeletWithoutEgg"
                 + "/ckiseki/blob/master"
-                + real_path[len(root_path) :]
+                + real_path[len(root_path):]
                 + "'>"
                 + content["name"]
                 + "</a></li>"
