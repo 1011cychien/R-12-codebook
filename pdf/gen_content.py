@@ -6,7 +6,6 @@ import subprocess
 from typing import List, Dict, Any, IO
 from os import path
 import yaml
-from git import Repo
 
 
 def md5hex(raw_s: str) -> str:
@@ -161,7 +160,6 @@ li {
   <hr/>
 """
     )
-    repo = Repo("..")
     root_path = path.realpath("..")
     for section in sections:
         prefix = section["prefix"]
@@ -178,15 +176,14 @@ li {
             out.write("<li>")
             file_path = path.join(prefix, content["path"])
             real_path = path.realpath(file_path)
-            commit_hash = str(
-                list(repo.iter_commits(all=True, max_count=1, paths=real_path))[0]
-            )
-            # debug
-            print(content["name"], "-", real_path, ":", commit_hash, content["verified"])
+            commit_hash = subprocess.check_output(
+                ["git", "log", '--format=%H', "-n", "1", file_path]
+            ).decode("utf8").strip()
+            print(content["name"], commit_hash, content["verified"])
             if content["verified"] is None:
                 out.write(b"\xe2\x9d\x8c".decode("utf8"))
             elif (
-                content["verified"] != commit_hash[: len(content["verified"])]
+                content["verified"] != commit_hash[:len(content["verified"])]
             ):
                 out.write(b"\xe2\x9a\xa0\xef\xb8\x8f".decode("utf8"))
             else:
