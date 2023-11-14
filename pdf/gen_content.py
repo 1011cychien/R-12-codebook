@@ -107,11 +107,6 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
 body {
   line-height: 1;
 }
@@ -159,7 +154,7 @@ li {
     repo = Repo("..")
     for section in sections:
         prefix = section["prefix"]
-        out.write(f"<h2>{section['name']}</h2><ul>\n")
+        out.write(f"<h2>{section['name']}</h2><ul>")
         for content in section["content"]:
             out.write("<li>")
             file_path = path.join(prefix, content["path"])
