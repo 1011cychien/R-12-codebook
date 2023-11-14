@@ -137,6 +137,16 @@ h2 {
   font-weight: 600;
   margin-top: 10px;
 }
+a {
+  text-decoration: none;
+  color: #375af0;
+}
+a:active {
+  color: #375af0;
+}
+a:hover {
+  text-decoration: underline;
+}
 .container {
   padding: 80px 10%;
 }
@@ -147,14 +157,23 @@ li {
 </head>
 <body>
 <div class="container">
-  <h1>ckiseki</h1>
+  <h1><a href="https://github.com/OmeletWithoutEgg/ckiseki">ckiseki</a></h1>
   <hr/>
 """
     )
     repo = Repo("..")
+    root_path = path.realpath("..")
     for section in sections:
         prefix = section["prefix"]
-        out.write(f"<h2>{section['name']}</h2><ul>")
+        out.write(
+            "<h2>"
+            + "<a href='https://github.com/OmeletWithoutEgg"
+            + f"/ckiseki/blob/master/docs/{section['name']}.md'>"
+            + section['name']
+            + "</a>"
+            + "</h2>"
+            + "<ul>"
+        )
         for content in section["content"]:
             out.write("<li>")
             file_path = path.join(prefix, content["path"])
@@ -170,7 +189,15 @@ li {
                 out.write(b"\xe2\x9a\xa0\xef\xb8\x8f".decode("utf8"))
             else:
                 out.write(b"\xe2\x9c\x85".decode("utf8"))
-            out.write(f" {content['name']}</li>")
+            out.write(
+                " "
+                + "<a href='https://github.com/OmeletWithoutEgg"
+                + "/ckiseki/blob/master"
+                + real_path[len(root_path):]
+                + "'>"
+                + content['name']
+                + "</a></li>"
+            )
         out.write("</ul>")
     out.write("</div></body></html>")
 
