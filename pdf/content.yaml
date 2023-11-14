@@ -4,22 +4,22 @@
   content:
     - name: vimrc
       path: vimrc
-      verified:
+      verified: 5a589b9
     - name: Debug Macro
       path: debug.cpp
       verified:
     - name: Increase Stack
       path: IncStack.cpp
-      verified:
+      verified: d2fe73a
     - name: Pragma Optimization
       path: Pragma.cpp
-      verified:
+      verified: 0a2277b
     - name: IO Optimization
       path: IOOptimize.cpp
-      verified:
+      verified: 15830f6
     - name: SVG Writer
       path: SVGWriter.cpp
-      verified:
+      verified: 6324b1f
 
 - name: Data Structure
   prefix: ../codes/DataStructure/
@@ -27,10 +27,10 @@
   content:
     - name: Dark Magic
       path: pbds.cpp
-      verified:
+      verified: af6f1af
     - name: Link-Cut Tree
       path: LCT.cpp
-      verified:
+      verified: 8adc23e
     - name: LiChao Segment Tree
       path: LiChao.cpp
       verified:
@@ -42,7 +42,7 @@
       verified:
     - name: Binary Search On Segtree
       path: BinarySearchOnSegtree.cpp
-      verified:
+      verified: ad4edbd
 
 - name: Graph
   prefix: ../codes/Graph/
@@ -50,7 +50,7 @@
   content:
     - name: 2-SAT (SCC)
       path: 2SAT.cpp
-      verified:
+      verified: 425370c
     - name: BCC
       path: BCC.cpp
       verified:
@@ -59,13 +59,13 @@
       verified:
     - name: Edge TCC
       path: ETCC.cpp
-      verified:
+      verified: c9c0d6e
     - name: DMST
       path: FastDirectedMST.cpp
-      verified:
+      verified: 7bfae78
     - name: Dominator Tree
       path: DominatorTree.cpp
-      verified:
+      verified: 15830f6
     - name: Edge Coloring
       path: Misra.cpp
       verified:
@@ -80,22 +80,22 @@
       verified:
     - name: Tree Hashing
       path: TreeHash.cpp
-      verified:
+      verified: 05387f0
     - name: Mo's Algorithm on Tree
       path: MoTree.tex
       verified:
     - name: Count Cycles
       path: CountCycles.cpp
-      verified:
+      verified: 871cd2e
     - name: MaximalClique
       path: MaxClique.cpp
-      verified:
+      verified: 3646d07
     - name: MaximumClique
       path: MaxCliqueDyn.cpp
-      verified:
+      verified: cb8ce66
     - name: Minimum Mean Cycle
       path: MinMeanCycle.cpp
-      verified:
+      verified: bc70800
 
 - name: Flow & Matching
   prefix: ../codes/FlowAndMatching/
