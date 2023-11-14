@@ -13,6 +13,9 @@ on:
       - 'README.md'
       - '.editorconfig'
 
+env:
+  SOURCE_DATE_EPOCH: 0 # reproducible latex build
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   all:
