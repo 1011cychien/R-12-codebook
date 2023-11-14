@@ -21,8 +21,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: update apt package list
-        run: sudo apt-get update
       - name: Install codebook build Python dependencies
         working-directory: pdf
         run: pip install -r requirements.txt
