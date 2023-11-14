@@ -6,7 +6,7 @@ name: build
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ _master ]
     paths-ignore:
       - 'docs/docs.pdf'
       - 'pdf/codebook.pdf'

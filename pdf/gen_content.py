@@ -169,7 +169,7 @@ li {
             "<h2>"
             + "<a href='https://github.com/OmeletWithoutEgg"
             + f"/ckiseki/blob/master/docs/{section['doc']}'>"
-            + section['name']
+            + section["name"]
             + "</a>"
             + "</h2>"
             + "<ul>"
@@ -181,6 +181,8 @@ li {
             commit_hash = str(
                 list(repo.iter_commits(max_count=1, paths=real_path))[0]
             )
+            # debug
+            print(content["name"], ":", commit_hash, content["verified"])
             if content["verified"] is None:
                 out.write(b"\xe2\x9d\x8c".decode("utf8"))
             elif (
@@ -193,9 +195,9 @@ li {
                 " "
                 + "<a href='https://github.com/OmeletWithoutEgg"
                 + "/ckiseki/blob/master"
-                + real_path[len(root_path):]
+                + real_path[len(root_path) :]
                 + "'>"
-                + content['name']
+                + content["name"]
                 + "</a></li>"
             )
         out.write("</ul>")
