@@ -52,7 +52,7 @@ No test.
 
 ## Floor Sum
 ### Description
-Calculate $sum_{i=0}^{n-1} floor((ai + b)/m)$.
+Calculate $\sum_{i=0}^{n-1} floor((ai + b)/m)$.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/165193) (negative coefficient not tested).
 

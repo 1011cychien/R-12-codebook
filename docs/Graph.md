@@ -96,7 +96,7 @@ Passed [CCPC Guangzhou](https://codeforces.com/gym/104053/problem/K).
 ## MaximalClique
 ### Description
 Enumerate maximal clique.
-Time complexity $O(n3^(n/3))$ or $O(nC)$ where $C$
+Time complexity $O(n3^{n/3})$ or $O(nC)$ where $C$
 is the number of such cliques.
 ### Test Status
 Can run on $n=80$ on [TIOJ](https://tioj.ck.tp.edu.tw/submissions/357847).
