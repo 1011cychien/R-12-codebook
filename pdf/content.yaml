@@ -56,7 +56,7 @@
       verified:
     - name: Round Square Tree
       path: RoundSquareTree.cpp
-      verified:
+      verified: d0dcb10
     - name: Edge TCC
       path: ETCC.cpp
       verified: c9c0d6e
@@ -103,7 +103,7 @@
   content:
     - name: HopcroftKarp
       path: HopcroftKarp.cpp
-      verified:
+      verified: bed73b9
     - name: Dijkstra Cost Flow
       path: DijkstraCostFlow.cpp
       verified:
@@ -115,7 +115,7 @@
       verified:
     - name: General Graph Matching
       path: GeneralMatching.cpp
-      verified:
+      verified: b9722f5
     - name: Global Min-Cut
       path: SW.cpp
       verified:
@@ -124,7 +124,7 @@
       verified:
     - name: Kuhn Munkres
       path: KM.cpp
-      verified:
+      verified: af6f1af
     - name: Minimum Cost Circulation
       path: MinCostCirculation.cpp
       verified:
@@ -133,7 +133,7 @@
       verified:
     - name: Weighted Matching
       path: WeightedGeneralMatching.cpp
-      verified:
+      verified: 7c73a5f
 
 - name: Math
   prefix: ../codes/Math/
@@ -147,16 +147,16 @@
       verified:
     - name: ax+by=gcd
       path: ExtendedGCD.cpp
-      verified:
+      verified: 23ef28e
     - name: Chinese Remainder
       path: ChineseRemainder.cpp
-      verified:
+      verified: fee608d
     - name: DiscreteLog
       path: DiscreteLog.cpp
-      verified:
+      verified: 23ef28e
     - name: Quadratic Residue
       path: QuadraticResidue.cpp
-      verified:
+      verified: b1b82a1
     - name: Extended Euler
       path: ExtendedEuler.tex
       verified:
@@ -168,7 +168,7 @@
       verified:
     - name: FloorSum
       path: FloorSum.cpp
-      verified:
+      verified: 23ef28e
     - name: ModMin
       path: ModMin.cpp
       verified:
@@ -207,7 +207,7 @@
       verified:
     - name: Charateristic Polynomial
       path: CharPoly.cpp
-      verified:
+      verified: 23ef28e
     - name: Simplex
       path: simplex.cpp
       verified:
@@ -216,7 +216,7 @@
       verified:
     - name: Adaptive Simpson
       path: AdaptiveSimpson.cpp
-      verified:
+      verified: f4675eb
 
 - name: Geometry
   prefix: ../codes/Geometry/
