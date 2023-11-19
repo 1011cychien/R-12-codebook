@@ -1,0 +1,18 @@
+---
+babel-lang: chinese-traditional
+CJKmainfont: "Noto Sans CJK TC"
+mainfont: "JetBrains Mono"
+pdfa: yes
+geometry: margin=1.5cm
+colorlinks: true
+urlcolor: blue
+# linkcolor: red
+# toccolor: orange
+header-includes:
+  - \special {pdf:trailerid [ <00112233445566778899aabbccddeeff> <00112233445566778899aabbccddeeff> ]}
+    # https://github.com/jgm/pandoc/issues/6539
+  - \usepackage{xeCJKfntef}
+  - \usepackage[most,breakable]{tcolorbox}
+  - \definecolor{textttBoxColor}{HTML}{EEEEEE}
+  - \renewcommand{\texttt}[1]{\colorbox{textttBoxColor}{#1}}
+---
