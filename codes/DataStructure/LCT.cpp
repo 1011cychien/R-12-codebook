@@ -11,11 +11,9 @@ template <typename Val, typename SVal> class LCT {
 #define rc cur.ch[1]
   vector<node> o;
   bool is_root(int u) const {
-    return o[cur.pa].ch[0] != u && o[cur.pa].ch[1] != u;
-  }
+    return o[cur.pa].ch[0] != u && o[cur.pa].ch[1] != u; }
   bool is_rch(int u) const {
-    return o[cur.pa].ch[1] == u && !is_root(u);
-  }
+    return o[cur.pa].ch[1] == u && !is_root(u); }
   void down(int u) {
     if (not cur.rev) return;
     if (lc) set_rev(lc);
@@ -28,8 +26,7 @@ template <typename Val, typename SVal> class LCT {
     cur.sub = cur.vir + o[lc].sub + o[rc].sub + cur.sv;
   }
   void set_rev(int u) {
-    swap(lc, rc);
-    swap(cur.prod, cur.rprod);
+    swap(lc, rc), swap(cur.prod, cur.rprod);
     cur.rev ^= 1;
   }
   void rotate(int u) {
@@ -75,10 +72,6 @@ public:
   LCT(int n = 0) : o(n + 1) {}
   int add(const Val &v = {}) {
     o.push_back(v);
-    return int(o.size()) - 2;
-  }
-  int add(Val &&v) {
-    o.emplace_back(move(v));
     return int(o.size()) - 2;
   }
   void set_val(int u, const Val &v) {
