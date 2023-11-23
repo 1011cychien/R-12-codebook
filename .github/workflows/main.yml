@@ -27,7 +27,7 @@ jobs:
       - name: Install codebook build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y cpp latexmk texlive-lang-chinese texlive-science texlive-xetex
+          sudo apt-get install -y cpp latexmk texlive-lang-chinese texlive-science texlive-xetex make pandoc
       - name: Install codebook build Python dependencies
         working-directory: pdf
         run: pip install -r requirements.txt
