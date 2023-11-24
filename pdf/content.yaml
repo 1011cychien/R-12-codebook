@@ -242,7 +242,7 @@
       verified: 2f36a8b
     - name: Half Plane Intersection
       path: HalfPlaneIntersection.cpp
-      verified: 9848187
+      verified: 984818755a1e
     - name: SegmentDist (Sausage)
       path: SegSegDist.cpp
       verified: 15830f6
