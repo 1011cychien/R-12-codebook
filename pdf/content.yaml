@@ -109,7 +109,7 @@
       verified:
     - name: Dinic
       path: Dinic.cpp
-      verified:
+      verified: af6f1af
     - name: Flow Models
       path: FlowModels.tex
       verified:
@@ -174,19 +174,19 @@
       verified:
     - name: FWT
       path: FWT.cpp
-      verified:
+      verified: bf2f6f6
     - name: Packed FFT
       path: PackedFFT.cpp
-      verified:
+      verified: 5ff4496
     - name: CRT for arbitrary mod
       path: superBigCRT.cpp
-      verified:
+      verified: 23ef28e
     - name: NTT / FFT
       path: NTT.cpp
-      verified:
+      verified: 5ff4496
     - name: Formal Power Series
       path: FPS.cpp
-      verified:
+      verified: 9d06e56
     - name: Partition Number
       path: PartitionNumber.cpp
       verified:
@@ -195,10 +195,10 @@
       verified:
     - name: Miller Rabin
       path: MillerRabin.cpp
-      verified:
+      verified: c884955
     - name: Pollard Rho
       path: PollardRho.cpp
-      verified:
+      verified: 151c21a
     - name: Berlekamp Massey
       path: Berlekamp-Massey.cpp
       verified:
@@ -224,34 +224,34 @@
   content:
     - name: Basic Geometry
       path: Basic.cpp
-      verified:
+      verified: a0248e3
     - name: 2D Convex Hull
       path: ConvexHull.cpp
-      verified:
+      verified: fbc4a90
     - name: 2D Farthest Pair
       path: FarthestPair.cpp
-      verified:
+      verified: 780c077
     - name: MinMax Enclosing Rect
       path: MinMaxEnclosingRect.cpp
-      verified:
+      verified: 253adb0
     - name: Minkowski Sum
       path: MinkowskiSum.cpp
       verified:
     - name: Segment Intersection
       path: SegIsIntersect.cpp
-      verified:
+      verified: 2f36a8b
     - name: Half Plane Intersection
       path: HalfPlaneIntersection.cpp
-      verified:
+      verified: 9848187
     - name: SegmentDist (Sausage)
       path: SegSegDist.cpp
-      verified:
+      verified: 15830f6
     - name: Rotating Sweep Line
       path: RotatingSweepLine.cpp
-      verified:
+      verified: 33b8a27
     - name: Polygon Cut
       path: PolyCut.cpp
-      verified:
+      verified: 780c077
     - name: Point In Simple Polygon
       path: PointInPoly.cpp
       verified:
@@ -260,46 +260,46 @@
       verified:
     - name: Tangent of Points To Hull
       path: TangentPointToHull.cpp
-      verified:
+      verified: fa8a9a7
     - name: Circle Class & Intersection
       path: Circle/Basic.cpp
-      verified:
+      verified: c1ac19f
     - name: Circle Common Tangent
       path: Circle/TangentLineOfTwoCircles.cpp
-      verified:
+      verified: bc70800
     - name: Line-Circle Intersection
       path: Circle/InterWithLine.cpp
-      verified:
+      verified: 
     - name: Poly-Circle Intersection
       path: Circle/InterWithPoly.cpp
-      verified:
+      verified: 780c077
     - name: Minimum Covering Circle
       path: Circle/MinCircleCover.cpp
-      verified:
+      verified: 815eee2
     - name: Circle Union
       path: Circle/CircleUnion.cpp
-      verified:
+      verified: bc70800
     - name: Polygon Union
       path: PolyUnion.cpp
       verified:
     - name: 3D Point
       path: 3d/Basic.cpp
-      verified:
+      verified: 10869cb
     - name: 3D Convex Hull
       path: 3d/ConvexHull.cpp
-      verified:
+      verified: 59a45c2
     - name: 3D Projection
       path: 3d/Projection.cpp
-      verified:
+      verified: 2abb613
     - name: 3D Skew Line Nearest Point
       path: 3d/SkewLine.tex
       verified:
     - name: Delaunay
       path: Delaunay.cpp
-      verified:
+      verified: 5d49aa0
     - name: Build Voronoi
       path: Voronoi.cpp
-      verified:
+      verified: 5d49aa0
     - name: kd Tree (Nearest Point)
       path: KDTree.cpp
       verified:
@@ -319,22 +319,22 @@
   content:
     - name: Hash
       path: Hash.cpp
-      verified:
+      verified: ed35bd3
     - name: Suffix Array
-      path: SAIS.cpp
-      verified:
+      path: SAIS-C++20.cpp
+      verified: d56707c
     - name: Ex SAM
       path: exSAM.cpp
       verified:
     - name: Z value
       path: ZValue.cpp
-      verified:
+      verified: af6f1af
     - name: Manacher
       path: Manacher.cpp
-      verified:
+      verified: 504f9e0
     - name: Lyndon Factorization
       path: LyndonFactorization.cpp
-      verified:
+      verified: 9a46078
     - name: Main Lorentz
       path: MainLorentz.cpp
       verified:
@@ -361,7 +361,7 @@
       verified:
     - name: Bitset LCS
       path: BitsetLCS.cpp
-      verified:
+      verified: a1d4cba
     - name: Prefix Substring LCS
       path: PrefixSubstringLCS.cpp
       verified:
@@ -370,13 +370,13 @@
       verified:
     - name: ConvexHull Optimization
       path: SlopeDP.cpp
-      verified:
+      verified: d5d9c7a
     - name: Min Plus Convolution
       path: MinPlusConv.cpp
-      verified:
+      verified: 4d49c76
     - name: De-Bruijn
       path: DeBruijn.cpp
-      verified:
+      verified: 0a332cf
     - name: Josephus Problem
       path: Josephus.cpp
       verified:
