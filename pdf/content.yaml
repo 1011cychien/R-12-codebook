@@ -68,7 +68,7 @@
       verified: 15830f6
     - name: Edge Coloring
       path: Misra.cpp
-      verified:
+      verified: 74bf918
     - name: Centroid Decomposition
       path: CenDec.cpp
       verified:
