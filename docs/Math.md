@@ -21,7 +21,7 @@ See CRT section.
 
 ## Chinese Remainder
 ### Description
-Solves $x \equiv r_1 \pmod m_1$ and $x \equiv r_2 \pmod m_2$.
+Solves $x \equiv r_1 \pmod {m_1}$ and $x \equiv r_2 \pmod {m_2}$.
 If no solution, returns false
 ### Test Status
 Passed luogu P4777.
@@ -52,7 +52,7 @@ No test.
 
 ## Floor Sum
 ### Description
-Calculate $\sum_{i=0}^{n-1} floor((ai + b)/m)$.
+Calculate $\sum _ {i=0} ^ {n-1} \lfloor \frac{ai + b}{m} \rfloor$.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/165193) (negative coefficient not tested).
 
