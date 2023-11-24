@@ -1,6 +1,6 @@
 .PHONY: clean
 
-docs.pdf: *.md
+docs.pdf: *.md meta.yaml
 	sed 's/^#/\n#/g' \
 		Basic.md DataStructure.md FlowAndMatching.md \
 		Graph.md Math.md Geometry.md String.md Misc.md > docs.md
