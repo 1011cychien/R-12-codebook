@@ -13,4 +13,4 @@ bool isprime(llu x) {
     if (m % x != 0 && witn(mpow(m % x, odd, x), t))
       return false;
   return true;
-} // test @ luogu 143 & yosupo judge
+} // test @ luogu 143 & yosupo judge, 1688ms for Q=1e5

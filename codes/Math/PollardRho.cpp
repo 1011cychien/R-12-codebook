@@ -11,4 +11,4 @@ llu pollard_rho(llu n) {
     if (++i &= 63) if (i == (i & -i)) t = gcd(p, n);
   } while (t == 1);
   return t == n ? pollard_rho(n) : t;
-} // test @ yosupo judge
+} // test @ yosupo judge, 264ms for Q=100
