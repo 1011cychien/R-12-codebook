@@ -83,9 +83,10 @@ Passed [yosupo library checker](https://judge.yosupo.jp/submission/154753).
 
 ## Edge Coloring
 ### Description
-TODO
+[Misra & Gries edge coloring algorithm](https://en.wikipedia.org/wiki/Misra_%26_Gries_edge_coloring_algorithm).
+Runs in $O(NM)$
 ### Test Status
-Passed a problem in template HW.
+Passed [NCPC 2018 G](https://codeforces.com/gym/101933/submission/233996239).
 
 ## Count Cycles
 ### Description
