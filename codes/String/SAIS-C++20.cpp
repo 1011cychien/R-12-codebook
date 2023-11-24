@@ -38,6 +38,9 @@ auto sais(const auto &s) {
     y = lms[y], sa[--x[s[y]]] = y;
   return induce(), sa;
 }
+// sa[i]: sa[i]-th suffix is the
+// i-th lexigraphically smallest suffix.
+// hi[i]: LCP of suffix sa[i] and suffix sa[i - 1].
 struct Suffix {
   int n; vector<int> sa, hi, rev;
   Suffix(const string &s) : n(int(s.size())),
