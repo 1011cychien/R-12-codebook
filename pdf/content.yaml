@@ -251,13 +251,13 @@
       verified: 33b8a27
     - name: Polygon Cut
       path: PolyCut.cpp
-      verified: 780c077
+      verified:
     - name: Point In Simple Polygon
       path: PointInPoly.cpp
-      verified:
+      verified: 780c077
     - name: Point In Hull (Fast)
       path: PointInHull.cpp
-      verified:
+      verified: 780c077
     - name: Point In Polygon (Fast)
       path: PointInPolyFast.cpp
       verified: 1abcdf6
