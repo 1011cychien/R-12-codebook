@@ -258,6 +258,9 @@
     - name: Point In Hull (Fast)
       path: PointInHull.cpp
       verified:
+    - name: Point In Polygon (Fast)
+      path: PointInPolyFast.cpp
+      verified: 1abcdf6
     - name: Tangent of Points To Hull
       path: TangentPointToHull.cpp
       verified: fa8a9a7
