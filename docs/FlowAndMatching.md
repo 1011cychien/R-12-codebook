@@ -26,7 +26,9 @@ Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501) an
 
 ## Dinic
 ### Description
-$O(V^2E)$ and $\Theta(acceptable)$ in practice.
+Dinic with capacity scaling.
+See [this](https://codeforces.com/blog/entry/52714) and [this](https://codeforces.com/blog/entry/66006).
+$O(VE \log U)$ and $\Theta(acceptable)$ in practice.
 ### Test Status
 Passed luogu P3376
 
