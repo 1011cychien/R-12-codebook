@@ -2,12 +2,12 @@ template <typename Cap = int64_t> class Dinic {
 private:
   struct E { int to, rev; Cap cap; }; int n, st, ed;
   vector<vector<E>> G; vector<size_t> lv, idx;
-  bool BFS() {
+  bool BFS(int k) {
     lv.assign(n, 0); idx.assign(n, 0);
     queue<int> bfs; bfs.push(st); lv[st] = 1;
-    while (not bfs.empty()) {
+    while (not bfs.empty() and not lv[ed]) {
       int u = bfs.front(); bfs.pop();
-      for (auto e: G[u]) if (e.cap > 0 and !lv[e.to])
+      for (auto e: G[u]) if (e.cap >> k and !lv[e.to])
         bfs.push(e.to), lv[e.to] = lv[u] + 1;
     }
     return lv[ed];
@@ -34,7 +34,8 @@ public:
   }
   Cap max_flow(int st_, int ed_) {
     st = st_, ed = ed_; Cap ret = 0;
-    while (BFS()) ret += DFS(st);
+    for (int i = 63; i >= 0; --i)
+      while (BFS(i)) ret += DFS(st);
     return ret;
   }
 }; // test @ luogu P3376
