@@ -26,6 +26,17 @@ Denote $L$ be a $n \times n$ matrix as the Laplacian matrix of graph $G$, where 
     \item The number of directed spanning tree rooted at $r$ in $G$ is $\det(\tilde{L}_{rr})$.
 \end{itemize}
 
+\subsubsection{Random Walk on Graph}
+Let $P$ be the transition matrix of a strongly connected directed graph, $\sum _ j P_{i,j} = 1$.
+Let $F_{i,j}$ be the expected time to reach $j$ from $i$.
+Let $g_i$ be the expected time from $i$ to $i$, $G = \operatorname{diag}(g)$
+and $J$ be a matrix all of 1, i.e. $J_{i,j} = 1$.
+Then, $F = J - G + PF$
+
+First solve $G$: let $\pi P = \pi$ be a stationary distribution. Then $\pi_i g_i = 1$.
+The rank of $I - P$ is $n - 1$, so we first solve a special solution $X$ such that $(I - P)X = J - G$ and adjust $X$ to $F$ by
+$F_{i,j} = X_{i,j} - X_{j,j}$.
+
 \subsubsection{Tutte's Matrix}
 Let $D$ be a $n \times n$ matrix, where $d_{ij} = x_{ij}$ ($x_{ij}$ is chosen uniform randomly) if $i < j$ and $(i, j) \in E$, otherwise $d_{ij} = -d_{ji}$. $\frac{rank(D)}{2}$ is the maximum matching on $G$.
 
