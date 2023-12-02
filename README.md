@@ -11,6 +11,8 @@ ICPC codebook used by team ckiseki from National Taiwan University
 
 ## TODO
 
+* Make all include cpps have corresponding docs.
+
 ### To delete/fix/shorten
 * [x] binary search on segtree
 * [x] make KM modern
@@ -19,21 +21,23 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [x] Add Manacher comment
 * [x] del old fft and polynomial?
 * [x] FPS
+* [x] shorten SA
+* [ ] 修萬能歐幾里得
 * [ ] fix SAM/PalTree
 * [ ] tree knapsack
 * [ ] min mean cycle
 * [ ] simulate annealing
-* [ ] shorten SA
 * [ ] Simplex (Performance, e.g. with custom type?)
 
 ### To add
 * [x] count 3 cycle / 4 cycle
 * [x] faster Pollard Rho (127(?))
 * [x] bipartite independent set / vertex cover construction
+* [ ] add simple polygon sweep line docs
 * [ ] bounded flow?
 * [ ] LP dual formula!
-* [ ] add simple polygon sweep line
-* 郵局設置問題無限大extreme
+* [ ] Gaussian Elimination
+* 郵局設置問題無限大extreme (aliens trick + convex 1d 1d opt)
 * segment tree beats
 * [邀請函](https://omeletwithoutegg.github.io/2020/11/22/TIOJ-1978/)?
 * subset convolution
@@ -41,10 +45,9 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * HLPP? $(N^2\sqrt{M})$ max-flow
 * add 3d geometry
 * BitsetLCS with solution
-* Gaussian Elimination
 * QR decomposition
-* highly composite number?
-* [more submodular minimization](https://noshi91.hatenablog.com/entry/2021/06/29/044225)
+* [ ] highly composite number?
+* [ ] [more submodular minimization](https://noshi91.hatenablog.com/entry/2021/06/29/044225)
 
 ### Flow series
 * [Network Simplex](https://gist.github.com/brunodccarvalho/fb9f2b47d7f8469d209506b336013473)/[Cost Scaling](https://ideone.com/q6PWgB)/[Capacity Scaling](https://ouuan.github.io/post/%E5%9F%BA%E4%BA%8E-capacity-scaling-%E7%9A%84%E5%BC%B1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E7%AE%97%E6%B3%95/)
@@ -64,10 +67,10 @@ ICPC codebook used by team ckiseki from National Taiwan University
     * [x] adaptive simpson?
     * [x] 3d point class
 * [x] [3d hull test](https://vjudge.net/problem/HDU-3662)
+* [x] offline PointInSimplePolygon (NaCl)
 * [ ] del or fix
     * KD tree
     * KD closet pair
-* [ ] offline PointInSimplePolygon (NaCl)
 * [ ] convex hull trick linear?
 * be careful of `std::abs<complex<int>>`
 * https://vjudge.net/problem/UVA-12311
