@@ -398,3 +398,6 @@
     - name: Barrett Reduction
       path: Barrett.cpp
       verified:
+    - name: Montgomery
+      path: Montgomery.cpp
+      verified:

@@ -113,13 +113,17 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165124), but very slow.
 ### Description
 Prime detect. Be careful about mpow and mmul.
 ### Test Status
-Passed [yosupo judge](https://judge.yosupo.jp/submission/166708).
+Passed [yosupo judge](https://judge.yosupo.jp/submission/166708) in 1688ms ($10^5$ tests).
+w/ Montgomery Multiplication runs in
+[235ms](https://judge.yosupo.jp/submission/175658).
 
 ## Pollard Rho
 ### Description
 Factorization. Be careful about mpow and mmul.
 ### Test Status
-Passed [yosupo judge](https://judge.yosupo.jp/submission/166714).
+Passed [yosupo judge](https://judge.yosupo.jp/submission/166714) in 276ms ($100$ tests).
+w/ Montgomery Multiplication runs in
+[66ms](https://judge.yosupo.jp/submission/175656)
 
 ## Berlekamp Massey
 ### Description
