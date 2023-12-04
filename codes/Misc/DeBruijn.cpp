@@ -8,6 +8,6 @@ vector<int> de_bruijn(int k, int n) {
         aux[t] = i, self(self, t + 1, p);
     else if (n % p == 0) for (int i = 1; i <= p; ++i)
       res.push_back(aux[i]);
-  }; db(db, 1, 1);
-  return res;
+  };
+  return db(db, 1, 1), res;
 }
