@@ -1,26 +1,29 @@
-struct segment {
-  int i, l, r;
-  segment() {}
-  segment(int a, int b, int c): i(a), l(b), r(c) {}
-};
-void solve() {
-  auto f = [](int l, int r){return dp[l] + w(l+1, r);}
+struct S { int i, l, r; };
+auto solve(int n, int k, auto &w) {
+  vector<int64_t> dp(n + 1);
+  auto f = [&](int l, int r) -> int64_t {
+    if (r - l > k) return -INF;
+    return dp[l] + w(l + 1, r);
+  };
   dp[0] = 0;
-  deque<segment> dq; dq.push_back(segment(0, 1, n));
+  deque<S> dq; dq.emplace_back(0, 1, n);
   for (int i = 1; i <= n; ++i) {
     dp[i] = f(dq.front().i, i);
-    while(dq.size()&&dq.front().r<i+1) dq.pop_front();
+    while (!dq.empty() && dq.front().r <= i)
+      dq.pop_front();
     dq.front().l = i + 1;
-    segment seg = segment(i, i + 1, n);
-    while (dq.size() &&
-      f(i, dq.back().l)<f(dq.back().i, dq.back().l))
-        dq.pop_back();
-    if (dq.size()) {
-      int d = 1 << 20, c = dq.back().l;
-      while (d >>= 1) if (c + d <= dq.back().r)
-        if(f(i, c+d) > f(dq.back().i, c+d)) c += d;
-      dq.back().r = c; seg.l = c + 1;
+    while (!dq.empty() &&
+        f(i, dq.back().l) >= f(dq.back().i, dq.back().l))
+      dq.pop_back();
+    int p = i + 1;
+    if (!dq.empty()) {
+      auto [j, l, r] = dq.back();
+      for (int s = 1 << 20; s; s >>= 1)
+        if (l + s <= n && f(i, l + s) < f(j, l + s))
+          l += s;
+      dq.back().r = l; p = l + 1;
     }
-    if (seg.l <= n) dq.push_back(seg);
+    if (p <= n) dq.emplace_back(i, p, n);
   }
-}
+  return dp;
+} // test @ tioj 烏龜疊疊樂
