@@ -36,7 +36,7 @@ Passed [yosupo library checker](https://judge.yosupo.jp/submission/163705). Copi
 ### Description
 1D/1D optimization.
 ### Test Status
-TODO. Rarely used.
+[TIOJ 烏龜疊疊樂](https://tioj.ck.tp.edu.tw/submissions/364949)
 
 ## ConvexHull Optimization
 ### Description
@@ -54,7 +54,7 @@ Passed CSES, [regional prob](https://codeforces.com/gym/102001/problem/C) and lo
 ### Description
 Josephus problem $O(N)$ and faster algo ($O(M\log N)$).
 ### Test Status
-Not even used or tested
+Passed [2018 Asia Nanjing](https://codeforces.com/gym/101955/submission/235686980).
 
 ## N Queens Problem
 ### Description
@@ -85,5 +85,13 @@ TODO. Copied from NaCl.
 ## Barret Reduction
 ### Description
 Fast modulo operation of non-constexpr constant.
+Only able to handle int-size modulo.
 ### Test Status
 Copied from kactl. Guess it's ok to have no test.
+
+## Montgomery Multiplication
+### Description
+Fast modulo operation of non-constexpr constant.
+Only able to handle odd modulo.
+### Test Status
+Tested with MillerRabin and PollardRho.

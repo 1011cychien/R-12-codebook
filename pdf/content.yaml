@@ -370,7 +370,7 @@
       verified:
     - name: Convex 1D/1D DP
       path: Convex1D1D.cpp
-      verified:
+      verified: 554baef
     - name: ConvexHull Optimization
       path: SlopeDP.cpp
       verified: d5d9c7a
@@ -379,10 +379,10 @@
       verified: 4d49c76
     - name: De-Bruijn
       path: DeBruijn.cpp
-      verified: 0a332cf
+      verified: 4afad87
     - name: Josephus Problem
       path: Josephus.cpp
-      verified:
+      verified: cb6f28f
     - name: N Queens Problem
       path: NQueens.cpp
       verified:
@@ -391,7 +391,7 @@
       verified:
     - name: Manhattan MST
       path: ManhattanMST.cpp
-      verified:
+      verified: af6f1af
     - name: Binary Search On Fraction
       path: BinarySearchOnFraction.cpp
       verified:
@@ -400,4 +400,4 @@
       verified:
     - name: Montgomery
       path: Montgomery.cpp
-      verified:
+      verified: 4afad87
