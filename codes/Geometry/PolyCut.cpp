@@ -1,4 +1,4 @@
-using P = PTF;
+using P = PF;
 vector<P> cut(const vector<P>& poly, P s, P e) {
   vector<P> res;
   for (size_t i = 0; i < poly.size(); i++) {

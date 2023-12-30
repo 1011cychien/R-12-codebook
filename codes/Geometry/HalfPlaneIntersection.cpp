@@ -2,10 +2,10 @@ struct Line {
   P st, ed, dir;
   Line (P s, P e) : st(s), ed(e), dir(e - s) {}
 }; using LN = const Line &;
-PTF intersect(LN A, LN B) {
+PF intersect(LN A, LN B) {
   llf t = cross(B.st - A.st, B.dir) /
     llf(cross(A.dir, B.dir));
-  return toPTF(A.st) + toPTF(A.dir) * t; // C^3 / C^2
+  return toPF(A.st) + toPF(A.dir) * t; // C^3 / C^2
 }
 bool cov(LN l, LN A, LN B) {
   i128 u = cross(B.st-A.st, B.dir);
@@ -34,7 +34,7 @@ llf HPI(vector<Line> &q) {
   while (l < r && cov(q[r], q[l], q[l+1])) ++l;
   n = r - l + 1; // q[l .. r] are the lines
   if (n <= 1 || !argCmp(q[l].dir, q[r].dir)) return 0;
-  vector<PTF> pt(n);
+  vector<PF> pt(n);
   for (int i = 0; i < n; i++)
     pt[i] = intersect(q[i+l], q[(i+1)%n+l]);
   return area(pt);

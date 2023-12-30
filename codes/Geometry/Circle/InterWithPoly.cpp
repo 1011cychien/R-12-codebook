@@ -1,6 +1,6 @@
 // Divides into multiple triangle, and sum up
 // from 8BQube, test by HDU2892 & AOJ CGL_7_H
-llf _area(PTF pa, PTF pb, llf r) {
+llf _area(PF pa, PF pb, llf r) {
   if (abs(pa) < abs(pb)) swap(pa, pb);
   if (abs(pb) < eps) return 0;
   llf S, h, theta;
@@ -18,7 +18,7 @@ llf _area(PTF pa, PTF pb, llf r) {
     S = 0.5 * sin(C) * a * b;
   return S;
 }
-llf area_poly_circle(const vector<PTF> &v, PTF O, llf r) {
+llf area_poly_circle(const vector<PF> &v, PF O, llf r) {
   llf S = 0;
   for (size_t i = 0, N = v.size(); i < N; ++i)
     S += _area(v[i] - O, v[(i + 1) % N] - O, r) *

@@ -1,7 +1,7 @@
 #define eb emplace_back
 struct Teve { // test@SPOJ N=1000, 0.3~0.5s
-  PTF p; llf a; int add; // point, ang, add
-  Teve(PTF x, llf y, int z) : p(x), a(y), add(z) {}
+  PF p; llf a; int add; // point, ang, add
+  Teve(PF x, llf y, int z) : p(x), a(y), add(z) {}
   bool operator<(Teve &b) const { return a < b.a; }
 };
 // strict: x = 0, otherwise x = -1
@@ -32,7 +32,7 @@ vector<llf> CircleUnion(vector<Cir> &c) {
     // if (cnt > 1) continue; (if only need area[1])
     for (int j = 0; j < N; ++j) if (g[i][j]) {
       auto IP = intersectPoint(c[i], c[j]);
-      PTF aa = IP[1], bb = IP[0];
+      PF aa = IP[1], bb = IP[0];
       llf A = arg(aa - c[i].o), B = arg(bb - c[i].o);
       eve.eb(bb, B, 1); eve.eb(aa, A, -1);
       if (B > A) ++cnt;
