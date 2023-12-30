@@ -28,6 +28,8 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [ ] min mean cycle
 * [ ] simulate annealing
 * [ ] Simplex (Performance, e.g. with custom type?)
+* [ ] treap
+* [ ] network simplex
 
 ### To add
 * [x] count 3 cycle / 4 cycle
