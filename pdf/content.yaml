@@ -329,6 +329,9 @@
     - name: Ex SAM
       path: exSAM.cpp
       verified:
+    - name: KMP
+      path: KMP.cpp
+      verified:
     - name: Z value
       path: ZValue.cpp
       verified: af6f1af
