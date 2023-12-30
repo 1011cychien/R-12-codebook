@@ -7,12 +7,12 @@ void fwt(int x[], int N, bool inv = false) {
     for (int s = 0; s < N; s += d * 2)
       for (int i = s; i < s + d; i++) {
         int j = i + d, ta = x[i], tb = x[j];
-        x[i] = modadd(ta, tb);
-        x[j] = modsub(ta, tb);
+        x[i] = add(ta, tb);
+        x[j] = sub(ta, tb);
       }
   if (inv) {
     const int invn = modinv(N);
     for (int i = 0; i < N; i++)
-      x[i] = modmul(x[i], invn);
+      x[i] = mul(x[i], invn);
   }
 }
