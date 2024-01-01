@@ -82,3 +82,21 @@ In each iteration, \(|E| = O(RN)\).
 For weighted case, assign weight \(-w(x)\) and \(w(x)\) to \(x\in S\) and \(x\notin S\), resp.
 Use Bellman-Ford to find the weighted shortest path.
 The maximum iteration of Bellman-Ford is \(2R+1\).
+
+\subsubsection{Dual of LP}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Primal} & \textbf{Dual} \\
+\hline
+Maximize $c^\intercal x$ s.t. $Ax \leq b$, $x \geq 0$ & Minimize $b^\intercal y$ s.t. $A^\intercal y \geq c$, $y \geq 0$ \\
+\hline
+Maximize $c^\intercal x$ s.t. $Ax \leq b$ & Minimize $b^\intercal y$ s.t. $A^\intercal y = c$, $y \geq 0$ \\
+\hline
+Maximize $c^\intercal x$ s.t. $Ax = b$, $x \geq 0$ & Minimize $b^\intercal y$ s.t. $A^\intercal y \geq c$ \\
+\hline
+\end{tabular}
+
+\subsubsection{Parallel Axis Theorem}
+The second moment of area $I_z = \int\int x^2+y^2 \mathrm{d}A$
+$I_{z'} = I_z + Ad^2$ where $d$ is the distance between two parallel axis $z, z'$.
