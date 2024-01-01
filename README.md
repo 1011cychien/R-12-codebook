@@ -35,10 +35,10 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [x] count 3 cycle / 4 cycle
 * [x] faster Pollard Rho (127(?))
 * [x] bipartite independent set / vertex cover construction
+* [x] LP dual formula
+* [x] Gaussian Elimination
 * [ ] add simple polygon sweep line docs
 * [ ] bounded flow?
-* [ ] LP dual formula!
-* [ ] Gaussian Elimination
 * 郵局設置問題無限大extreme (aliens trick + convex 1d 1d opt)
 * segment tree beats
 * [邀請函](https://omeletwithoutegg.github.io/2020/11/22/TIOJ-1978/)?
