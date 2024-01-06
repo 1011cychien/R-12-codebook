@@ -66,8 +66,8 @@ Tested on [SEERC'20 G](https://codeforces.com/gym/102411/submission/212888594)
 ### Description
 Make FFT precision better.
 reference:
-- [浅谈FFT](https://www.luogu.com.cn/blog/105254/qian-tan-fft-zong-ft-dao-fft)
-- [题解 P4245](https://www.luogu.com.cn/blog/command-block/solution-p4245#)
+- [淺談 FFT](https://www.luogu.com.cn/blog/105254/qian-tan-fft-zong-ft-dao-fft)
+- [題解 P4245](https://www.luogu.com.cn/blog/command-block/solution-p4245#)
 
 ### Test Status
 Passed [convolution mod](https://judge.yosupo.jp/submission/166003) with long double.
