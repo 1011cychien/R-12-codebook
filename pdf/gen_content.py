@@ -158,6 +158,12 @@ li {
 <body>
 <div class="container">
   <h1><a href="https://github.com/OmeletWithoutEgg/ckiseki">ckiseki</a></h1>
+  <a href="https://github.com/OmeletWithoutEgg/ckiseki/raw/master/pdf/codebook.pdf">
+    Latest content
+  </a>
+  <a href="https://github.com/OmeletWithoutEgg/ckiseki/raw/master/docs/docs.pdf">
+    Latest document
+  </a>
   <hr/>
 """
     )
