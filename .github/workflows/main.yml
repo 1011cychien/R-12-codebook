@@ -31,7 +31,6 @@ jobs:
       - name: Install codebook build Python dependencies
         working-directory: pdf
         run: pip install -r requirements.txt
-      - name: Install docs build dependencies
       - name: Build codebook
         working-directory: pdf
         run: make clean && make codebook.pdf
