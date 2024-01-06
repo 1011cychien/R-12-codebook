@@ -21,16 +21,10 @@ jobs:
   all:
     name: build and commit
     runs-on: ubuntu-latest
+    container: ghcr.io/${{ github.repository }}/builder:master
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Install codebook build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cpp latexmk texlive-lang-chinese texlive-science texlive-xetex make pandoc
-      - name: Install codebook build Python dependencies
-        working-directory: pdf
-        run: pip install -r requirements.txt
       - name: Build codebook
         working-directory: pdf
         run: make clean && make codebook.pdf
