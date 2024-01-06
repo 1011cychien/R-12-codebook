@@ -21,7 +21,7 @@ jobs:
   all:
     name: build and commit
     runs-on: ubuntu-latest
-    container: ghcr.io/${{ github.repository }}/builder:master
+    container: ghcr.io/omeletwithoutegg/ckiseki/builder:master
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
