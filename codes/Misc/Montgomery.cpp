@@ -1,4 +1,4 @@
-struct Mont { // Montegomery multiplication
+struct Mont { // Montgomery multiplication
   constexpr static int W = 64;
   llu mod, R1Mod, R2Mod, NPrime;
   void set_mod(llu _mod) {
