@@ -13,14 +13,15 @@ template <int mod, int G, int maxn> struct NTT {
     }
   }
   // n must be 2^k, and 0 <= F[i] < mod
-  void operator()(int F[], int n, bool inv = false) {
-    for (int i = 0, j = 0; i < n; i++) {
+  template <typename T>
+  void operator()(int F[], T n, bool inv = false) {
+    for (T i = 0, j = 0; i < n; i++) {
       if (i < j) swap(F[i], F[j]);
-      for (int k = n>>1; (j^=k) < k; k>>=1);
+      for (T k = n>>1; (j^=k) < k; k>>=1);
     }
-    for (int s = 1; s < n; s *= 2) {
-      for (int i = 0; i < n; i += s * 2) {
-        for (int j = 0; j < s; j++) {
+    for (T s = 1; s < n; s *= 2) {
+      for (T i = 0; i < n; i += s * 2) {
+        for (T j = 0; j < s; j++) {
           int a = F[i+j], b = mul(F[i+j+s], roots[s+j]);
           F[i+j] = add(a, b);   // a + b
           F[i+j+s] = sub(a, b); // a - b
@@ -28,8 +29,8 @@ template <int mod, int G, int maxn> struct NTT {
       }
     }
     if (inv) {
-      int iv = modinv(n);
-      for (int i = 0; i < n; i++) F[i] = mul(F[i], iv);
+      int iv = modinv(int(n));
+      for (T i = 0; i < n; i++) F[i] = mul(F[i], iv);
       reverse(F + 1, F + n);
     }
   }

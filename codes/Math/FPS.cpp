@@ -29,7 +29,7 @@ S Dx(S A) {
 }
 S Sx(S A) {
   A.insert(A.begin(), 0);
-  fi(1, A.size()) A[i] = mul(modinv(i), A[i]);
+  fi(1, A.size()) A[i] = mul(modinv(int(i)), A[i]);
   return A;
 }
 S Ln(const S &A) { // coef[0] == 1; res[0] == 0
@@ -45,12 +45,11 @@ S Exp(const S &v) { // coef[0] == 0; res[0] == 1
 }
 S Pow(S a, lld M) { // period mod*(mod-1)
   assert(!a.empty() && a[0] != 0);
-  const int N = int(a.size()); // mod x^N
   const auto imul = [&a](int s) {
     for (int &x: a) x = mul(x, s); }; int c = a[0];
-  imul(modinv(c)); a = Ln(a); imul(M % mod);
-  a = Exp(a); imul(modpow(c, M % (mod - 1)));
-  return a;
+  imul(modinv(c)); a = Ln(a); imul(int(M % mod));
+  a = Exp(a); imul(modpow(c, int(M % (mod - 1))));
+  return a; // mod x^N where N=a.size()
 }
 S Sqrt(const S &v) { // need: QuadraticResidue
   assert(!v.empty() && v[0] != 0);
@@ -63,11 +62,11 @@ S Sqrt(const S &v) { // need: QuadraticResidue
         X[i] = mul(inv2, add(X[i], B[i])); });
 }
 S Mul(auto &&a, auto &&b) {
-  const int n = a.size() + b.size() - 1;
+  const auto n = a.size() + b.size() - 1;
   auto R = Mul(a, b, bit_ceil(n));
   return R.resize(n), R;
 }
-S MulT(S a, S b, int k) {
+S MulT(S a, S b, size_t k) {
   assert(b.size()); reverse(all(b)); auto R = Mul(a, b);
   R = vector(R.begin() + b.size() - 1, R.end());
   return R.resize(k), R;
@@ -91,7 +90,7 @@ S Eval(const S &f, const S &x) {
 pair<S, S> DivMod(const S &A, const S &B) {
   assert(!B.empty() && B.back() != 0);
   if (A.size() < B.size()) return {{}, A};
-  const int sz = A.size() - B.size() + 1;
+  const auto sz = A.size() - B.size() + 1;
   S X = B; reverse(all(X)); X.resize(sz);
   S Y = A; reverse(all(Y)); Y.resize(sz);
   S Q = Mul(Inv(X), Y);
@@ -103,19 +102,19 @@ pair<S, S> DivMod(const S &A, const S &B) {
 } // empty means zero polynomial
 int LinearRecursionKth(S a, S c, int64_t k) {
   const auto d = a.size(); assert(c.size() == d + 1);
-  const int sz = bit_ceil(2 * d + 1), o = sz / 2;
+  const auto sz = bit_ceil(2 * d + 1), o = sz / 2;
   S q = c; for (int &x: q) x = sub(0, x); q[0]=1;
   S p = Mul(a, q); p.resize(sz); q.resize(sz);
   for (int r; r = (k & 1), k; k >>= 1) {
     fill(d + all(p), 0); fill(d + 1 + all(q), 0);
     ntt(p.data(), sz); ntt(q.data(), sz);
-    for(int i = 0; i < sz; i++)
+    for (size_t i = 0; i < sz; i++)
       p[i] = mul(p[i], q[(i + o) & (sz - 1)]);
-    for(int i = 0, j = o; j < sz; i++, j++)
+    for (size_t i = 0, j = o; j < sz; i++, j++)
       q[i] = q[j] = mul(q[i], q[j]);
     ntt(p.data(), sz, true); ntt(q.data(), sz, true);
-    for (int i = 0; i < d; i++) p[i] = p[i << 1 | r];
-    for (int i = 0; i <= d; i++) q[i] = q[i << 1];
+    for (size_t i = 0; i < d; i++) p[i] = p[i << 1 | r];
+    for (size_t i = 0; i <= d; i++) q[i] = q[i << 1];
   } // Bostan-Mori
   return mul(p[0], modinv(q[0]));
 } // a_n = \sum c_j a_(n-j), c_0 is not used
