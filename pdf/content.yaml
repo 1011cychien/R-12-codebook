@@ -190,8 +190,8 @@
     - name: Partition Number
       path: PartitionNumber.cpp
       verified:
-    - name: Pi Count (+Linear Sieve)
-      path: MeisselLehmer.cpp
+    - name: Pi Count
+      path: PiCount.cpp
       verified:
     - name: Miller Rabin
       path: MillerRabin.cpp
