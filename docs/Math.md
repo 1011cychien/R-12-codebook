@@ -32,7 +32,7 @@ BSGS algorithm.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/165189)
 
-## Quadratic residue
+## Quadratic Residue
 ### Description
 Square root under modulo prime.
 ### Test Status
@@ -137,10 +137,22 @@ Calculate the charateristic polynomial of matrix in $O(N^3)$.
 ### Test Status
 Passed 2021 PTZ Korea and yosupo library checker.
 
-## Polynomial Operations
+## FPS
 ### Description
+Common Formal Power Series operations.
+Exp and Pow are relatively slow at yosupo library checker.
+
+Do we need [Consecutive Terms of Linear Recurrent Sequence](https://judge.yosupo.jp/submission/182351)?
+
 ### Test Status
-TODO.
+[Inv](https://judge.yosupo.jp/submission/182577)
+[Ln](https://judge.yosupo.jp/submission/182580)
+[Exp](https://judge.yosupo.jp/submission/182581)
+[Pow](https://judge.yosupo.jp/submission/182585)
+[Sqrt](https://judge.yosupo.jp/submission/182589)
+[Eval](https://judge.yosupo.jp/submission/182593)
+[DivMod](https://judge.yosupo.jp/submission/182594)
+[LinearRecursionKth](https://judge.yosupo.jp/submission/182594)
 
 ## Simplex / Simplex Construction
 ### Description

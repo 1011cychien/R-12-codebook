@@ -183,10 +183,10 @@
       verified: 23ef28e
     - name: NTT / FFT
       path: NTT.cpp
-      verified: 5ff4496
+      verified: ffe75a5
     - name: Formal Power Series
       path: FPS.cpp
-      verified: 9d06e56
+      verified: ffe75a5
     - name: Partition Number
       path: PartitionNumber.cpp
       verified:
