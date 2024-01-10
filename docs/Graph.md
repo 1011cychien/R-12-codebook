@@ -15,8 +15,8 @@ Passed CSES Giant Pizza and [CF Radio Stations](https://codeforces.com/contest/1
 Gives AP and bridge and `bcc_id`.
 `bcc_id[edge_id]` is the bcc of the edge.
 ### Test Status
-Passed [yosupo library checker](https://judge.yosupo.jp/submission/154125).  
-Need more tests.
+Passed [Two-Edge-Connected-Components](https://judge.yosupo.jp/submission/182663) and [Biconnected Components](https://judge.yosupo.jp/submission/182798).
+`is_ap` function is not tested.
 
 ## Round Square Tree
 ### Description
@@ -24,12 +24,36 @@ Or block-cut-tree. Useful tree for "simple path" queries.
 There will be at most $2N$ vertices in the new tree.
 ### Test Status
 Passed [2020 Shanghai K](https://codeforces.com/gym/102900/submission/223293046)
+Passed [Biconnected Components](https://judge.yosupo.jp/submission/182668)
 
 ## Edge TCC
 ### Description
 Edge triconnected component.
 ### Test Status
 Passed [yosupo library checker](https://judge.yosupo.jp/submission/161793).
+
+## DMST
+### Description
+Directed Minimum Spanning Tree in $O(E\log ^2 E)$.
+Use mergable heap instead of small-to-big for better complexity?
+### Test Status
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/182697)
+[CF 100307 D](https://codeforces.com/gym/100307/submission/241048738)
+
+## Dominator Tree
+### Description
+Dominator tree in $O(E\log V)$.
+The ancestor relation on the tree is the
+"must-pass-from-source" relation in original graph.
+### Test Status
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/182701).
+
+## Edge Coloring
+### Description
+[Misra & Gries edge coloring algorithm](https://en.wikipedia.org/wiki/Misra_%26_Gries_edge_coloring_algorithm).
+Runs in $O(NM)$
+### Test Status
+Passed [NCPC 2018 G](https://codeforces.com/gym/101933/submission/233996239).
 
 ## Centroid Decomposition
 ### Description
@@ -44,12 +68,6 @@ Some chain decomposition of tree.
 ### Test Status
 TODO
 
-## Tree Hashing
-### Description
-Some PRNG random hash.
-### Test Status
-Passed [UOJ 763](https://uoj.ac/submission/656801).
-
 ## Virtual Tree
 ### Description
 Dependency: `lca`.
@@ -59,34 +77,18 @@ The edges are given in rooted tree format.
 ### Test Status
 Used in contest. TODO.
 
+## Tree Hashing
+### Description
+Some PRNG random hash.
+### Test Status
+Passed [UOJ 763](https://uoj.ac/submission/672367) and [library checker](https://judge.yosupo.jp/submission/182721).
+
 ## Mo's Algorithm on Tree
 ### Description
 Pseudo code of mo's algo on tree.
 `push` means XOR the contribution.
 ### Test Status
 TODO
-
-## DMST
-### Description
-Directed Minimum Spanning Tree in $O(E\log ^2 E)$.
-Use mergable heap instead of small-to-big for better complexity?
-### Test Status
-Passed [yosupo library checker](https://judge.yosupo.jp/submission/164973).
-
-## Dominator Tree
-### Description
-Dominator tree in $O(E\log V)$.
-The ancestor relation on the tree is the
-"must-pass-from-source" relation in original graph.
-### Test Status
-Passed [yosupo library checker](https://judge.yosupo.jp/submission/154753).
-
-## Edge Coloring
-### Description
-[Misra & Gries edge coloring algorithm](https://en.wikipedia.org/wiki/Misra_%26_Gries_edge_coloring_algorithm).
-Runs in $O(NM)$
-### Test Status
-Passed [NCPC 2018 G](https://codeforces.com/gym/101933/submission/233996239).
 
 ## Count Cycles
 ### Description
