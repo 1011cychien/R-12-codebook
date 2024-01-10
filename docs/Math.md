@@ -102,12 +102,14 @@ Calculate first $N$ partition number in $O(N\sqrt{N})$.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/165173) $N=500000$ in 557ms.
 
-## Pi Count (+Linear Sieve)
+## Pi Count
 ### Description
 Count prime in sublinear time.
-TODO improve performance (or delete this?)
+<!-- TODO improve performance (or delete this?) -->
+The code is copied from 8BQube and simplified.
 ### Test Status
-Passed [yosupo judge](https://judge.yosupo.jp/submission/165124), but very slow.
+<!-- Passed [yosupo judge](https://judge.yosupo.jp/submission/165124), but very slow. -->
+Passed [yosupo judge](https://judge.yosupo.jp/submission/182619)
 
 ## Miller Rabin
 ### Description
