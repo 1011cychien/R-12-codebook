@@ -20,7 +20,7 @@ lld PrimeCount(lld n) { // n ~ 10^13 => < 1s
     }
     z.resize(ns);
     for (int j = v / p; j >= p; --j) {
-      const int c = smalls[j] - pc, e = min(j * p + p, v + 1);
+      int c = smalls[j] - pc, e = min(j * p + p, v + 1);
       for (int i = j * p; i < e; ++i) smalls[i] -= c;
     }
   }
