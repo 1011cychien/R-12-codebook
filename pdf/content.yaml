@@ -53,16 +53,16 @@
       verified: 425370c
     - name: BCC
       path: BCC.cpp
-      verified:
+      verified: d0dcb10
     - name: Round Square Tree
       path: RoundSquareTree.cpp
-      verified: d0dcb10
+      verified: b653b23
     - name: Edge TCC
       path: ETCC.cpp
       verified: c9c0d6e
     - name: DMST
       path: FastDirectedMST.cpp
-      verified: 7bfae78
+      verified: b653b23
     - name: Dominator Tree
       path: DominatorTree.cpp
       verified: 15830f6
@@ -103,13 +103,13 @@
   content:
     - name: HopcroftKarp
       path: HopcroftKarp.cpp
-      verified: bed73b9
+      verified: d6b18bf
     - name: Dijkstra Cost Flow
       path: DijkstraCostFlow.cpp
       verified:
     - name: Dinic
       path: Dinic.cpp
-      verified: af6f1af
+      verified: a37bcb9
     - name: Flow Models
       path: FlowModels.tex
       verified:
