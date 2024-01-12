@@ -17,7 +17,7 @@ Complexity: $O(N + C)$
 
 ### Test Status
 
-Tested on [Library Checker](https://judge.yosupo.jp/submission/69586)
+Tested on [Suffix Array](https://judge.yosupo.jp/submission/183057) and [Number of Substrings](https://judge.yosupo.jp/submission/183056).
 
 
 ## Ex SAM
