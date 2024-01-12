@@ -39,11 +39,11 @@ auto sais(const auto &s) {
   return induce(), sa;
 }
 // sa[i]: sa[i]-th suffix is the
-// i-th lexigraphically smallest suffix.
+// i-th lexicographically smallest suffix.
 // hi[i]: LCP of suffix sa[i] and suffix sa[i - 1].
 struct Suffix {
   int n; vector<int> sa, hi, rev;
-  Suffix(const string &s) : n(int(s.size())),
+  Suffix(const auto &s) : n(int(s.size())),
     hi(n), rev(n) {
     vector<int> _s(n + 1); _s[n] = 0;
     copy(all(s), begin(_s)); // s shouldn't contain 0
@@ -51,8 +51,8 @@ struct Suffix {
     for (int i = 0; i < n; i++) rev[sa[i]] = i;
     for (int i = 0, h = 0; i < n; ++i) {
       if (!rev[i]) { h = 0; continue; }
-      for (int j = sa[rev[i] - 1]; i + h < n
-          && s[i + h] == s[j + h]; ++h);
+      for (int j = sa[rev[i] - 1]; i + h < n && j + h < n
+          && s[i + h] == s[j + h];) ++h;
       hi[rev[i]] = h ? h-- : 0;
     }
   }
