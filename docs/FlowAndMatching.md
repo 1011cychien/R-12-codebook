@@ -57,15 +57,15 @@ Stoer-Wagner algorithm solves the minimum cut problem in undirected weighted gra
 Our code looks like an $O(N^3)$ implementation.
 
 ### Test Status
-
-TODO
+Passed [luogu](https://www.luogu.com.cn/record/142731652)
+Didn't find a $O(VE + V^2\log V)$ version.
 
 
 ## GomoryHu Tree
 ### Description
 
 For a given non-negative weighted tree, this algorithm returns a weighted tree (Gomory-Hu Tree).
-For any $s$, $t$, the minimum $s$-$t$ cut in the orginal graph is equal to the minimum values among the path between $s$ and $t$ in the Gomory-Hu Tree.
+For any $s$, $t$, the minimum $s$-$t$ cut in the original graph is equal to the minimum values among the path between $s$ and $t$ in the Gomory-Hu Tree.
 
 Runs in $(|V|-1)\times O(\text{maflow})$.
 

@@ -118,7 +118,7 @@
       verified:
     - name: Global Min-Cut
       path: SW.cpp
-      verified:
+      verified: 5b1b960
     - name: GomoryHu Tree
       path: GomoryHu.cpp
       verified:
