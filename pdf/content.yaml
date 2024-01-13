@@ -104,33 +104,36 @@
     - name: HopcroftKarp
       path: HopcroftKarp.cpp
       verified: d6b18bf
-    - name: Dijkstra Cost Flow
-      path: DijkstraCostFlow.cpp
+    - name: Kuhn Munkres
+      path: KM.cpp
+      verified: af6f1af
+    - name: Flow Models
+      path: FlowModels.tex
       verified:
     - name: Dinic
       path: Dinic.cpp
       verified: a37bcb9
-    - name: Flow Models
-      path: FlowModels.tex
+    - name: HLPP
+      path: hlpp.cpp
       verified:
-    - name: General Graph Matching
-      path: GeneralMatching.cpp
-      verified: b9722f5
     - name: Global Min-Cut
       path: SW.cpp
       verified:
     - name: GomoryHu Tree
       path: GomoryHu.cpp
       verified:
-    - name: Kuhn Munkres
-      path: KM.cpp
-      verified: af6f1af
-    - name: Minimum Cost Circulation
-      path: MinCostCirculation.cpp
-      verified:
     - name: Minimum Cost Max Flow
       path: CostFlow.cpp
       verified:
+    - name: Dijkstra Cost Flow
+      path: DijkstraCostFlow.cpp
+      verified:
+    - name: Minimum Cost Circulation
+      path: MinCostCirculation.cpp
+      verified:
+    - name: General Graph Matching
+      path: GeneralMatching.cpp
+      verified: b9722f5
     - name: Weighted Matching
       path: WeightedGeneralMatching.cpp
       verified: 7c73a5f
