@@ -189,10 +189,10 @@
       verified: ffe75a5
     - name: Partition Number
       path: PartitionNumber.cpp
-      verified:
+      verified: 5bffa18
     - name: Pi Count
       path: PiCount.cpp
-      verified:
+      verified: 20eebd1
     - name: Miller Rabin
       path: MillerRabin.cpp
       verified: c884955
@@ -201,7 +201,7 @@
       verified: 151c21a
     - name: Berlekamp Massey
       path: Berlekamp-Massey.cpp
-      verified:
+      verified: bbbb590
     - name: Gauss Elimination
       path: GaussElimination.cpp
       verified:

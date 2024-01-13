@@ -43,7 +43,7 @@ struct HLPP {
   bool discharge(int v) {
     int nh = n;
     for (size_t j = 0, S = G[v].size(); j < S; ++j) {
-      auto i = j + arc[v] >= S ? j + arc[v] - S : j + arc[v];
+      auto i = j+arc[v]>=S ? j+arc[v]-S : j+arc[v];
       auto &e = G[v][i];
       if (e.f == 0) continue;
       if (h[v] == h[e.to] + 1) {
