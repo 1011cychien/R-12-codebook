@@ -1,6 +1,7 @@
 # Matching & Flow
 
 ## HopcroftKarp
+
 ### Description
 
 An $O(|E| \sqrt{|V|})$ bipartite matching algorithm.
@@ -13,55 +14,52 @@ Number of matching saved in `ans`, and the corresponding matching saved in `l` a
 
 Tested on [Library Checker](https://judge.yosupo.jp/submission/175638)
 
+## Kuhn Munkres
 
-## Dijkstra Cost Flow
 ### Description
 
-Successive Shortest Path Algorithm using Dijkstra's algorithm.
+KM algo.
 
 ### Test Status
 
-Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501) and [LibreOJ 102](https://loj.ac/s/1911311)
+Passed [UOJ 80](https://uoj.ac/submission/656805) and [Library Checker](https://judge.yosupo.jp/submission/166079).
 
+## Flow Models
+
+### Description
+
+Some models. Need check.
+
+### Test Status
+
+TODO
 
 ## Dinic
+
 ### Description
+
 Dinic with capacity scaling.
 See [this](https://codeforces.com/blog/entry/52714) and [this](https://codeforces.com/blog/entry/66006).
 $O(VE \log U)$ and $\Theta(acceptable)$ in practice.
+
 ### Test Status
+
 Passed [luogu P3376](https://www.luogu.com.cn/record/142472662).
 
-
-## Flow Models
-### Description
-Some models. Need check.
-### Test Status
-TODO
-
-## General Graph Matching
-### Description
-
-Matching in $O(|V|^3)$.
-[ref-slide](https://jacky860226.github.io/general-graph-weighted-match-slides/#/22)
-
-### Test Status
-
-Tested on [Library Checker](https://judge.yosupo.jp/submission/182801).
-
-
 ## Global Min-Cut
+
 ### Description
 
 Stoer-Wagner algorithm solves the minimum cut problem in undirected weighted graphs with non-negative weights.
 Our code looks like an $O(N^3)$ implementation.
 
 ### Test Status
+
 Passed [luogu](https://www.luogu.com.cn/record/142731652)
 Didn't find a $O(VE + V^2\log V)$ version.
 
-
 ## GomoryHu Tree
+
 ### Description
 
 For a given non-negative weighted tree, this algorithm returns a weighted tree (Gomory-Hu Tree).
@@ -77,27 +75,10 @@ Fun Fact: Gomory-Hu Tree can be computed in almost linear time. (see [this](http
 
 ### Test Status
 
-Passed [CF 343E](https://codeforces.com/contest/343/submission/228226556)
-
-## Kuhn Munkres
-### Description
-KM algo.
-### Test Status
-Passed [UOJ 80](https://uoj.ac/submission/656805) and [Library Checker](https://judge.yosupo.jp/submission/166079).
-
-
-## Minimum Cost Circulation
-### Description
-
-Network simplex method. Exponential time complexity, but it runs not too slow in practice.
-
-### Test Status
-
-Tested on [UOJ #487](https://uoj.ac/submission/659272), [UOJ #680](https://uoj.ac/submission/659396), and [LibreOJ 102](https://loj.ac/s/1911317).
-**Cannot** pass [QOJ 7185](https://qoj.ac/contest/1356/problem/7185)
-
+Passed [CF 343E](https://codeforces.com/contest/343/submission/241516652).
 
 ## Minimum Cost Max Flow
+
 ### Description
 
 Successive Shortest Path Algorithm using SPFA (Bellman-Ford algorithm).
@@ -107,8 +88,40 @@ Successive Shortest Path Algorithm using SPFA (Bellman-Ford algorithm).
 Passed [LibreOJ 102](https://loj.ac/s/1911310).
 Testdata in LOJ is not strong in general.
 
+## Dijkstra Cost Flow
+
+### Description
+
+Successive Shortest Path Algorithm using Dijkstra's algorithm.
+
+### Test Status
+
+Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501) and [LibreOJ 102](https://loj.ac/s/1911311)
+
+## Minimum Cost Circulation
+
+### Description
+
+Network simplex method. Exponential time complexity, but it runs not too slow in practice.
+
+### Test Status
+
+Tested on [UOJ #487](https://uoj.ac/submission/659272), [UOJ #680](https://uoj.ac/submission/659396), and [LibreOJ 102](https://loj.ac/s/1911317).
+**Cannot** pass [QOJ 7185](https://qoj.ac/contest/1356/problem/7185)
+
+## General Graph Matching
+
+### Description
+
+Matching in $O(|V|^3)$.
+[ref-slide](https://jacky860226.github.io/general-graph-weighted-match-slides/#/22)
+
+### Test Status
+
+Tested on [Library Checker](https://judge.yosupo.jp/submission/182801).
 
 ## Weighted Matching
+
 ### Description
 
 Weighted matching in $O(|V|^3)$.
