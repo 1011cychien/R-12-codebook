@@ -4,11 +4,11 @@ VL convolution(const VI &a, const VI &b) {
   const int sz = round2k(a.size() + b.size() - 1);
   // Should be able to handle N <= 10^5, C <= 10^4
   vector<P> v(sz);
-  for (size_t i = 0; i < a.size(); i++) v[i].RE(a[i]);
-  for (size_t i = 0; i < b.size(); i++) v[i].IM(b[i]);
+  for (size_t i = 0; i < a.size(); ++i) v[i].RE(a[i]);
+  for (size_t i = 0; i < b.size(); ++i) v[i].IM(b[i]);
   fft(v.data(), sz, /*inv=*/false);
   auto rev = v; reverse(1 + all(rev));
-  for (int i = 0; i < sz; i++) {
+  for (int i = 0; i < sz; ++i) {
     P A = (v[i] + conj(rev[i])) / P(2, 0);
     P B = (v[i] - conj(rev[i])) / P(0, 2);
     v[i] = A * B;

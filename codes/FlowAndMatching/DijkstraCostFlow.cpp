@@ -23,7 +23,7 @@ template <typename F, typename C> class MCMF {
       }
     }
     if (d[T] == INF_C) return nullopt;
-    for (size_t i = 0; i < d.size(); i++) h[i]+=d[i];
+    for (size_t i = 0; i < d.size(); ++i) h[i]+=d[i];
     for (int i = T; i != S; i = f[i].first) {
       auto &eg = g[f[i].first][f[i].second];
       eg.f -= up[T]; g[eg.to][eg.r].f += up[T];

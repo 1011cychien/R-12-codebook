@@ -1,4 +1,4 @@
-#define fi(l, r) for (size_t i = (l); i < (r); ++i)
+#define fi(l, r) for (size_t i = (l); i < (r); i++)
 using S = vector<int>;
 auto Mul(auto a, auto b, size_t sz) {
   a.resize(sz), b.resize(sz);

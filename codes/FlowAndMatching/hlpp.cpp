@@ -7,7 +7,7 @@ struct HLPP {
   int nxt[2 * maxn], prv[2 * maxn], h[maxn], mxgap;
   HLPP(const vector<int> &deg) {
     n = (int)deg.size(); assert(n <= maxn);
-    for (int i = 0; i < n; i++) G[i].reserve(deg[i]);
+    for (int i = 0; i < n; ++i) G[i].reserve(deg[i]);
   }
   void add_edge(int from, int to, int f, bool isDirected = true) {
     G[from].emplace_back(to, int(G[to].size()), f);
@@ -24,7 +24,7 @@ struct HLPP {
     nxt[nh + n] = v; prv[nxt[v]] = v;
   }
   void bfs(int t) {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i)
       h[i] = n, nxt[i] = prv[i] = i;
     vector<int> que = {t}; h[t] = 0;
     for (size_t i = 0; i < que.size(); ++i)
