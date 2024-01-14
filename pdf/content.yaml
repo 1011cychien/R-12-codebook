@@ -180,7 +180,7 @@
       verified: bf2f6f6
     - name: Packed FFT
       path: PackedFFT.cpp
-      verified: 5ff4496
+      verified: be320a4
     - name: CRT for arbitrary mod
       path: superBigCRT.cpp
       verified: 23ef28e
@@ -189,7 +189,7 @@
       verified: ffe75a5
     - name: Formal Power Series
       path: FPS.cpp
-      verified: ffe75a5
+      verified: be320a4
     - name: Partition Number
       path: PartitionNumber.cpp
       verified: 5bffa18
@@ -328,7 +328,7 @@
       verified: ed35bd3
     - name: Suffix Array
       path: SAIS-C++20.cpp
-      verified: c5af3da
+      verified: be320a4
     - name: Ex SAM
       path: exSAM.cpp
       verified:
