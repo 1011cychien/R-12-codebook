@@ -37,6 +37,7 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [x] bipartite independent set / vertex cover construction
 * [x] LP dual formula
 * [x] Gaussian Elimination
+* [x] HLPP? $(N^2\sqrt{M})$ max-flow
 * [ ] add simple polygon sweep line docs
 * [ ] bounded flow?
 * 郵局設置問題無限大extreme (aliens trick + convex 1d 1d opt)
@@ -44,7 +45,6 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [邀請函](https://omeletwithoutegg.github.io/2020/11/22/TIOJ-1978/)?
 * subset convolution
 * bipartite coloring on library checker
-* HLPP? $(N^2\sqrt{M})$ max-flow
 * add 3d geometry
 * BitsetLCS with solution
 * QR decomposition
