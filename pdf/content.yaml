@@ -177,7 +177,7 @@
       verified:
     - name: FWT
       path: FWT.cpp
-      verified: bf2f6f6
+      verified: 1d47c5d
     - name: Packed FFT
       path: PackedFFT.cpp
       verified: be320a4

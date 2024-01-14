@@ -50,6 +50,12 @@ A recursion formula.
 ### Test Status
 No test.
 
+## Extended Euclidean
+### Description
+萬歐
+### Test Status
+TODO need test
+
 ## Floor Sum
 ### Description
 Calculate $\sum _ {i=0} ^ {n-1} \lfloor \frac{ai + b}{m} \rfloor$.
@@ -61,6 +67,12 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165193) (negative coeff
 Return the minimum $x \geq 0$ such that $l \leq ax \mod m \leq r$.
 ### Test Status
 Tested on [SEERC'20 G](https://codeforces.com/gym/102411/submission/212888594)
+
+## FWT
+### Description
+Bitwise XOR/AND/OR convolution.
+### Test Status
+Passed yosupo judge, [XOR](https://judge.yosupo.jp/submission/183213) and [AND](https://judge.yosupo.jp/submission/183214) version.
 
 ## Packed FFT
 ### Description
@@ -90,11 +102,22 @@ Can be modified to FFT easily.
 ### Test Status
 Passed yosupo judge. See also "CRT for arbitrary mod".
 
-## FWT
+## FPS
 ### Description
-Bitwise XOR/AND/OR convolution.
+Common Formal Power Series operations.
+Exp and Pow are relatively slow at yosupo library checker.
+
+Do we need [Consecutive Terms of Linear Recurrent Sequence](https://judge.yosupo.jp/submission/182351)?
+
 ### Test Status
-Passed yosupo judge, [XOR](https://judge.yosupo.jp/submission/165179) and [AND](https://judge.yosupo.jp/submission/165183) version.
+[Inv](https://judge.yosupo.jp/submission/182577)
+[Ln](https://judge.yosupo.jp/submission/182580)
+[Exp](https://judge.yosupo.jp/submission/182581)
+[Pow](https://judge.yosupo.jp/submission/182585)
+[Sqrt](https://judge.yosupo.jp/submission/182589)
+[Eval](https://judge.yosupo.jp/submission/182593)
+[DivMod](https://judge.yosupo.jp/submission/182594)
+[LinearRecursionKth](https://judge.yosupo.jp/submission/182594)
 
 ## Partition Number
 ### Description
@@ -138,23 +161,6 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165366).
 Calculate the charateristic polynomial of matrix in $O(N^3)$.
 ### Test Status
 Passed 2021 PTZ Korea and yosupo library checker.
-
-## FPS
-### Description
-Common Formal Power Series operations.
-Exp and Pow are relatively slow at yosupo library checker.
-
-Do we need [Consecutive Terms of Linear Recurrent Sequence](https://judge.yosupo.jp/submission/182351)?
-
-### Test Status
-[Inv](https://judge.yosupo.jp/submission/182577)
-[Ln](https://judge.yosupo.jp/submission/182580)
-[Exp](https://judge.yosupo.jp/submission/182581)
-[Pow](https://judge.yosupo.jp/submission/182585)
-[Sqrt](https://judge.yosupo.jp/submission/182589)
-[Eval](https://judge.yosupo.jp/submission/182593)
-[DivMod](https://judge.yosupo.jp/submission/182594)
-[LinearRecursionKth](https://judge.yosupo.jp/submission/182594)
 
 ## Simplex / Simplex Construction
 ### Description
