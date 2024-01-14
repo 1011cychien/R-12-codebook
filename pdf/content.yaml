@@ -121,7 +121,7 @@
       verified: 5b1b960
     - name: GomoryHu Tree
       path: GomoryHu.cpp
-      verified:
+      verified: be10f4c
     - name: Minimum Cost Max Flow
       path: CostFlow.cpp
       verified:
