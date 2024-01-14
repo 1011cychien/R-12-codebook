@@ -198,10 +198,10 @@
       verified: 20eebd1
     - name: Miller Rabin
       path: MillerRabin.cpp
-      verified: c884955
+      verified: 537aeb6
     - name: Pollard Rho
       path: PollardRho.cpp
-      verified: 151c21a
+      verified: 537aeb6
     - name: Berlekamp Massey
       path: Berlekamp-Massey.cpp
       verified: bbbb590
@@ -354,7 +354,6 @@
       path: PalindromicTree.cpp
       verified:
 
-
 - name: Misc
   prefix: ../codes/Misc/
   doc: Misc.md
@@ -406,4 +405,4 @@
       verified:
     - name: Montgomery
       path: Montgomery.cpp
-      verified: 4afad87
+      verified: aca97437
