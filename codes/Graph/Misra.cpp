@@ -34,9 +34,9 @@ void solve(vector<pair<int, int>> &E, int N) {
     vector<pair<int, int>> L; int vst[kN] = {};
     while (!G[u][v0]) {
       L.emplace_back(v, d = X[v]);
-      if (!C[v][c]) for(a=L.size()-1;a>=0;a--)
+      if (!C[v][c]) for (a=L.size()-1;a>=0;a--)
           c = color(u, L[a].first, c);
-      else if(!C[u][d])for(a=L.size()-1;a>=0;a--)
+      else if (!C[u][d]) for (a=L.size()-1;a>=0;a--)
           color(u, L[a].first, L[a].second);
       else if (vst[d]) break;
       else vst[d] = 1, v = C[u][d];

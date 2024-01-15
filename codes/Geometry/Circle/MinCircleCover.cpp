@@ -8,7 +8,7 @@ Cir minCircleCover(vector<P> p) {
   assert (!p.empty());
   ranges::shuffle(p, mt19937(114514));
   Cir c = { 0, 0 };
-  for(size_t i = 0; i < p.size(); i++) {
+  for (size_t i = 0; i < p.size(); i++) {
     if (abs(p[i] - c.o) <= c.r) continue;
     c = { p[i], 0 };
     for (size_t j = 0; j < i; j++) {
