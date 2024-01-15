@@ -36,7 +36,7 @@ vector<int> dmst(const vector<E> &e, int n, int root) {
     }
   vector<int> ans;
   for (int i = pc - 1; i >= 0; i--) if (v[i] != n) {
-    for (int f = e[r[i]].t; f != -1 && v[f] != n; f = pa[f])
+    for (int f = e[r[i]].t; f!=-1 && v[f]!=n; f = pa[f])
       v[f] = n;
     ans.push_back(r[i]);
   }
