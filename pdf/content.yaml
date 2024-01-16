@@ -220,6 +220,9 @@
     - name: Adaptive Simpson
       path: AdaptiveSimpson.cpp
       verified: f4675eb
+    - name: Integer Division
+      path: Division.cpp
+      verified:
 
 - name: Geometry
   prefix: ../codes/Geometry/
