@@ -25,7 +25,7 @@ struct MinCostCirculation {
     }
     return -1;
   }
-  void pushflow(int x, F &flow, C &cost) {
+  void pushflow(int x, C &cost) {
     int v = e[x ^ 1].to, u = e[x].to;
     ++visc;
     if (int w = lca(u, v); w == -1) {
@@ -43,7 +43,6 @@ struct MinCostCirculation {
         e[i].flow -= f; e[i ^ 1].flow += f;
         cost += f * e[i].cost;
       }
-      flow += f;
       if (dir) x ^= 1, swap(u, v);
       while (u != z)
         swap(x ^= 1, fae[v]), swap(u, fa[v]), swap(u, v);
@@ -55,15 +54,15 @@ struct MinCostCirculation {
       if (int v = e[i].to; vis[v] != visc and e[i].flow)
         fa[v] = u, fae[v] = i, dfs(v);
   }
-  pair<F, C> simplex() {
-    F flow = 0; C cost = 0;
+  C simplex() {
+    C cost = 0;
     fa.assign(g.size(), -1); fae.assign(e.size(), -1);
     ++visc; dfs(0);
     for (int fail = 0; fail < ssize(e); )
       for (int i = 0; i < ssize(e); i++)
         if (e[i].flow and e[i].cost < phi(e[i ^ 1].to) - phi(e[i].to))
-          fail = 0, pushflow(i, flow, cost), ++visc;
+          fail = 0, pushflow(i, cost), ++visc;
         else ++fail;
-    return {flow, cost};
+    return cost;
   }
 };
