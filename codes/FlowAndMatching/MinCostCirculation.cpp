@@ -41,8 +41,9 @@ struct MinCostCirculation {
         }
       for (int i : cyc) {
         e[i].flow -= f; e[i ^ 1].flow += f;
-        flow += f; cost += f * e[i].cost;
+        cost += f * e[i].cost;
       }
+      flow += f;
       if (dir) x ^= 1, swap(u, v);
       while (u != z)
         swap(x ^= 1, fae[v]), swap(u, fa[v]), swap(u, v);
