@@ -81,7 +81,13 @@ Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501) an
 Network simplex method. Exponential time complexity, but it runs not too slow in practice.
 ### Test Status
 Tested on [UOJ #487](https://uoj.ac/submission/659272), [UOJ #680](https://uoj.ac/submission/659396), and [LibreOJ 102](https://loj.ac/s/1911317).
+[min_cost_b_flow](https://judge.yosupo.jp/submission/183609).
 **Cannot** pass [QOJ 7185](https://qoj.ac/contest/1356/problem/7185)
+
+## Capacity Scaling
+### Description
+### Test Status
+[min_cost_b_flow](https://judge.yosupo.jp/submission/183528)
 
 ## General Graph Matching
 ### Description
