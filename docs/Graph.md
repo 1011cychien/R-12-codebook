@@ -9,6 +9,7 @@ To use 2-SAT, $2i$ and $2i+1$ represents $x$ and $\neg x$.
 $x \lor x$ or $\neg x \lor \neg x$ is OK.
 ### Test Status
 Passed CSES Giant Pizza and [CF Radio Stations](https://codeforces.com/contest/1215/submission/219711833).
+Passed [library checker](https://judge.yosupo.jp/submission/183418).
 
 ## BCC
 ### Description
