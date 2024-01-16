@@ -182,8 +182,8 @@
       path: PackedFFT.cpp
       verified: be320a4
     - name: CRT for arbitrary mod
-      path: superBigCRT.cpp
-      verified: 23ef28e
+      path: GarnerCRT.cpp
+      verified: 56e6571
     - name: NTT / FFT
       path: NTT.cpp
       verified: ffe75a5
@@ -212,7 +212,7 @@
       path: CharPoly.cpp
       verified: 23ef28e
     - name: Simplex
-      path: simplex.cpp
+      path: Simplex.cpp
       verified:
     - name: Simplex Construction
       path: SimplexConstruction.tex
