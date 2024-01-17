@@ -78,7 +78,7 @@ public:
     splay(++u); cur.v = v; up(u);
   }
   void set_sval(int u, const SVal &v) {
-    splay(++u); cur.sv = v; up(u);
+    access(++u); cur.sv = v; up(u);
   }
   Val query(int x, int y) {
     split(++x, ++y); return o[y].prod;

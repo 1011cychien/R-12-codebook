@@ -14,7 +14,8 @@ Supports link or cut edge.
 
 Subtree queries are tricky.
 ### Test Status
-[CF 603E](https://codeforces.com/contest/603/submission/175289794)
+[CF 603E](https://codeforces.com/contest/603/submission/175289794).
+Passed [dynamic_tree_vertex_set_path_composite](https://judge.yosupo.jp/submission/183880) and [dynamic_tree_vertex_add_subtree_sum](https://judge.yosupo.jp/submission/183905).
 
 ## LiChao Segment Tree
 ### Description
