@@ -38,7 +38,7 @@ The rank of $I - P$ is $n - 1$, so we first solve a special solution $X$ such th
 $F_{i,j} = X_{i,j} - X_{j,j}$.
 
 \subsubsection{Tutte's Matrix}
-Let $D$ be a $n \times n$ matrix, where $d_{ij} = x_{ij}$ ($x_{ij}$ is chosen uniform randomly) if $i < j$ and $(i, j) \in E$, otherwise $d_{ij} = -d_{ji}$. $\frac{rank(D)}{2}$ is the maximum matching on $G$.
+Let $D$ be a $n \times n$ matrix, where $d_{ij} = x_{ij}$ ($x_{ij}$ is chosen uniform randomly) if $i < j$ and $(i, j) \in E$, otherwise $d_{ij} = -d_{ji}$. $\frac{\operatorname{rank}(D)}{2}$ is the maximum matching on $G$.
 
 \subsubsection{Cayley's Formula}
 \begin{itemize}[nosep]
@@ -48,17 +48,17 @@ Let $D$ be a $n \times n$ matrix, where $d_{ij} = x_{ij}$ ($x_{ij}$ is chosen un
 
 \subsubsection{Erdős–Gallai theorem}
 A sequence of non-negative integers $d_1 \geq d_2 \geq \ldots \geq d_n$ can be represented as the degree sequence of a finite simple graph on $n$ vertices if and only if $d_1 + d_2 + \ldots + d_n$ is even and
-$$ \sum_{i = 1}^{k}d_i \leq k(k - 1) + \sum_{i = k + 1}^{n}\min(d_i, k) $$
+$\sum_{i = 1}^{k}d_i \leq k(k - 1) + \sum_{i = k + 1}^{n}\min(d_i, k)$
 holds for all $1 \leq k \leq n$.
 
 \subsubsection{Havel–Hakimi algorithm}
 find the vertex who has greatest degree unused, connect it with other greatest vertex.
 
 \subsubsection{Gale–Ryser theorem}
-A pair of sequences of nonnegative integers $a_1\ge\cdots\ge a_n$ and $b_1,\ldots,b_n$ is bigraphic if and only if $\displaystyle\sum_{i=1}^n a_i=\displaystyle\sum_{i=1}^n b_i$ and $\displaystyle\sum_{i=1}^k a_i\le \displaystyle\sum_{i=1}^n\min(b_i,k)$ holds for every $1\le k\le n$.
+A pair of sequences of nonnegative integers $a_1\ge\cdots\ge a_n$ and $b_1,\ldots,b_n$ is bigraphic if and only if $\sum_{i=1}^n a_i=\sum_{i=1}^n b_i$ and $\sum_{i=1}^k a_i\le \sum_{i=1}^n\min(b_i,k)$ holds for every $1\le k\le n$.
 
 \subsubsection{Fulkerson–Chen–Anstee theorem}
-A sequence $(a_1,b_1),\ldots,(a_n,b_n)$ of nonnegative integer pairs with $a_1\ge\cdots\ge a_n$ is digraphic if and only if $\displaystyle\sum_{i=1}^n a_i=\displaystyle\sum_{i=1}^n b_i$ and $\displaystyle\sum_{i=1}^k a_i\le \displaystyle\sum_{i=1}^k\min(b_i,k-1)+\displaystyle\sum_{i=k+1}^n\min(b_i,k)$ holds for every $1\le k\le n$.
+A sequence $(a_1,b_1),\ldots,(a_n,b_n)$ of nonnegative integer pairs with $a_1\ge\cdots\ge a_n$ is digraphic if and only if $\sum_{i=1}^n a_i=\sum_{i=1}^n b_i$ and $\sum_{i=1}^k a_i\le \sum_{i=1}^k\min(b_i,k-1)+\sum_{i=k+1}^n\min(b_i,k)$ holds for every $1\le k\le n$.
 
 %\subsubsection{Hall's marriage theorem}
 %Let $G$ be a finite bipartite graph with bipartite sets $X$ and $Y$.
@@ -103,6 +103,21 @@ Maximize $c^\intercal x$ s.t. $Ax = b$, $x \geq 0$ & Minimize $b^\intercal y$ s.
 \hline
 \end{tabular}
 
+\subsubsection{Minimax Theorem}
+Let $f : X \times Y \to \mathbb R$ be continuous where $X \subseteq \mathbb R ^ n, Y \subseteq \mathbb R ^ m$ are compact and convex.
+If
+\begin{enumerate}[nosep]
+  \item $f(\cdot, y) : X \to \mathbb R$ is concave for fixed $y$.
+  \item $f(x, \cdot) : Y \to \mathbb R$ is convex for fixed $x$.
+\end{enumerate}
+
+Then,
+$
+\max\limits _{x\in X}\min\limits _{y\in Y}f(x,y)=\min\limits _{y\in Y}\max\limits _{x\in X}f(x,y)
+$.
+
+e.g. $f(x, y) = x^\intercal A y$ for zero-sum matrix game.
+
 \subsubsection{Parallel Axis Theorem}
-The second moment of area $I_z = \int\int x^2+y^2 \mathrm{d}A$
+The second moment of area is $I_z = \iint x^2+y^2 \mathrm{d}A$.
 $I_{z'} = I_z + Ad^2$ where $d$ is the distance between two parallel axis $z, z'$.
