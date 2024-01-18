@@ -30,7 +30,7 @@
       verified: af6f1af
     - name: Link-Cut Tree
       path: LCT.cpp
-      verified: 8adc23e
+      verified: 7086d69
     - name: LiChao Segment Tree
       path: LiChao.cpp
       verified:
@@ -62,13 +62,13 @@
       verified: c9c0d6e
     - name: DMST
       path: FastDirectedMST.cpp
-      verified: b653b23
+      verified: 9bca9d7
     - name: Dominator Tree
       path: DominatorTree.cpp
       verified: 15830f6
     - name: Edge Coloring
       path: Misra.cpp
-      verified: 74bf918
+      verified: 6ae6737
     - name: Centroid Decomposition
       path: CenDec.cpp
       verified:
@@ -121,7 +121,7 @@
       verified: 5b1b960
     - name: GomoryHu Tree
       path: GomoryHu.cpp
-      verified: be10f4c
+      verified: 9bca9d7
     - name: Minimum Cost Max Flow
       path: CostFlow.cpp
       verified:
