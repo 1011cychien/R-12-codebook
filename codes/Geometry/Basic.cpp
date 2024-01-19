@@ -2,8 +2,8 @@
 #define RE real
 using lld = int64_t;
 using llf = long double;
-using PT = std::complex<lld>;
-using PF = std::complex<llf>;
+using PT = complex<lld>;
+using PF = complex<llf>;
 using P = PT;
 llf abs(P p) { return sqrtl(norm(p)); }
 PF toPF(PT p) { return PF{RE(p), IM(p)}; }
