@@ -1,37 +1,32 @@
 \subsubsection{First Kind}
 
-\vspace{-0.5em}
 $S_1(n, k)$ counts the number of permutations of $n$ elements with $k$ disjoint cycles.
 
-\vspace{-1.5em}
-$$
-S_1(n, k) = (n - 1) \cdot S_1(n - 1, k) + S_1(n - 1, k - 1)
-$$
-
-\vspace{-1.5em}
-$$
-x (x + 1) \ldots (x + n - 1) = \sum\limits_{k = 0}^n S_1(n, k) x^k
-$$
-
-\vspace{-1.5em}
-$$
-\begin{gathered}
-g(x) = x(x + 1) \ldots (x + n - 1) = \sum\limits_{k = 0}^n a_kx^k \\ 
-\Rightarrow g(x + n) = \sum\limits_{k = 0}^n \frac{b_k}{(n - k)!} x^{n - k}, \\
-b_k = \sum\limits_{i = 0}^k ((n - i)! a_{n - i}) \cdot (\frac{n^{k - i}}{(k - i)!})
-\end{gathered}
-$$ 
+\begin{itemize}[nosep]
+  \item
+    $S_1(n, k) = (n - 1) \cdot S_1(n - 1, k) + S_1(n - 1, k - 1)$
+  \item
+    $S_1(n, i) = [x^i] \left(\prod _ {i=0} ^ {n-1} (x + i)\right)$,
+    use D\&Q and taylor shift.
+  \item
+    \(
+    S_1(i, k) = \frac{i!}{k!} \left[x^i\right] 
+    \left(\sum _ {j \ge 1} \frac{x^j}{j}\right)^k
+    \)
+\end{itemize}
 
 \subsubsection{Second Kind}
 
 $S_2(n, k)$ counts the number of ways to partition a set of $n$ elements into $k$ nonempty sets.
 
-\vspace{-1.5em}
-$$
-S_2(n, k) = S_2(n - 1, k - 1) + k \cdot S_2(n - 1, k)
-$$
-
-\vspace{-1.5em}
-$$
-S_2(n, k) = \sum\limits_{i = 0}^k \binom{k}{i}i^n (-1)^{k - i} = \sum\limits_{i = 0}^k \frac{(-1)^i}{i!} \cdot \frac{(k - i)^n}{(k - i)!}
-$$
+\begin{itemize}[nosep]
+  \item $S_2(n, k) = S_2(n - 1, k - 1) + k \cdot S_2(n - 1, k)$
+  \item
+    \(
+    S_2(n, k) = \sum_{i = 0}^k \binom{k}{i}i^n (-1)^{k - i} = \sum_{i = 0}^k \frac{(-1)^i}{i!} \cdot \frac{(k - i)^n}{(k - i)!}
+    \)
+  \item
+    \(
+    S_2(i, k) = \frac{i!}{k!} [x^i] \left(e^x - 1\right)^k
+    \)
+\end{itemize}
