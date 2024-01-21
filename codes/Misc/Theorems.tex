@@ -1,5 +1,7 @@
+\vspace{-0.5em}
 \subsubsection{Spherical Coordinate}
-
+{
+\centering
 \begin{tabular}{ccc}
 {$\begin{aligned}
   x = r\sin\theta\cos\phi \\
@@ -15,13 +17,14 @@
   \phi = \textrm{atan2}(y,x)
 \end{aligned}$}
 \end{tabular}
+}
 
 \subsubsection{Sherman-Morrison formula}
 $\left(A + uv^\textsf{T}\right)^{-1} = A^{-1} - \frac{A^{-1}uv^\textsf{T}A^{-1}}{1 + v^\textsf{T}A^{-1}u}$
 
 \subsubsection{Kirchhoff's Theorem}
 Denote $L$ be a $n \times n$ matrix as the Laplacian matrix of graph $G$, where $L_{ii} = d(i)$, $L_{ij} = -c$ where $c$ is the number of edge $(i, j)$ in $G$.
-\begin{itemize}[nosep]
+\begin{itemize}
     \item The number of undirected spanning in $G$ is $\det(\tilde{L}_{11})$.
     \item The number of directed spanning tree rooted at $r$ in $G$ is $\det(\tilde{L}_{rr})$.
 \end{itemize}
@@ -33,6 +36,7 @@ Let $g_i$ be the expected time from $i$ to $i$, $G = \operatorname{diag}(g)$
 and $J$ be a matrix all of 1, i.e. $J_{i,j} = 1$.
 Then, $F = J - G + PF$
 
+\noindent
 First solve $G$: let $\pi P = \pi$ be a stationary distribution. Then $\pi_i g_i = 1$.
 The rank of $I - P$ is $n - 1$, so we first solve a special solution $X$ such that $(I - P)X = J - G$ and adjust $X$ to $F$ by
 $F_{i,j} = X_{i,j} - X_{j,j}$.
@@ -41,7 +45,7 @@ $F_{i,j} = X_{i,j} - X_{j,j}$.
 Let $D$ be a $n \times n$ matrix, where $d_{ij} = x_{ij}$ ($x_{ij}$ is chosen uniform randomly) if $i < j$ and $(i, j) \in E$, otherwise $d_{ij} = -d_{ji}$. $\frac{\operatorname{rank}(D)}{2}$ is the maximum matching on $G$.
 
 \subsubsection{Cayley's Formula}
-\begin{itemize}[nosep]
+\begin{itemize}
   \item Given a degree sequence $d_1, d_2, \ldots, d_n$ for each labeled vertices, there're $\frac{(n - 2)!}{(d_1 - 1)!(d_2 - 1)!\cdots(d_n - 1)!}$ spanning trees.
   \item Let $T_{n, k}$ be the number of labeled forests on $n$ vertices with $k$ components, such that vertex $1, 2, \ldots, k$ belong to different components. Then $T_{n, k} = kn^{n - k - 1}$.
 \end{itemize}
@@ -52,7 +56,7 @@ $\sum_{i = 1}^{k}d_i \leq k(k - 1) + \sum_{i = k + 1}^{n}\min(d_i, k)$
 holds for all $1 \leq k \leq n$.
 
 \subsubsection{Havel–Hakimi algorithm}
-find the vertex who has greatest degree unused, connect it with other greatest vertex.
+Find the vertex who has greatest degree unused, connect it with other greatest vertex.
 
 \subsubsection{Gale–Ryser theorem}
 A pair of sequences of nonnegative integers $a_1\ge\cdots\ge a_n$ and $b_1,\ldots,b_n$ is bigraphic if and only if $\sum_{i=1}^n a_i=\sum_{i=1}^n b_i$ and $\sum_{i=1}^k a_i\le \sum_{i=1}^n\min(b_i,k)$ holds for every $1\le k\le n$.
@@ -76,17 +80,17 @@ For simple polygon, when points are all integer, we have $A=\text{\#\{lattice po
 \subsubsection{Matroid Intersection}
 Given matroids \(M_1=(G,I_1),M_2=(G,I_2)\), find maximum \(S\in I_1\cap I_2\).
 For each iteration, build the directed graph and find a shortest path from \(s\) to \(t\).
-\begin{itemize}[nosep]
+\begin{itemize}
     \item \(s \to x: S \sqcup \{x\} \in I_1\)
     \item \(x \to t: S \sqcup \{x\} \in I_2\)
     \item \(y \to x: S \setminus \{y\} \sqcup \{x\} \in I_1\) (\(y\) is in the unique circuit of \(S \sqcup \{x\}\))
     \item \(x \to y: S \setminus \{y\} \sqcup \{x\} \in I_2\) (\(y\) is in the unique circuit of \(S \sqcup \{x\}\))
 \end{itemize}
 Alternate the path, and \(|S|\) will increase by \(1\).
-Let \(R = \min(\operatorname{rank}(I_1), \operatorname{rank}(I_2)), N = |G|\).
-In each iteration, \(|E| = O(RN)\).
+In each iteration, \(|E| = O(RN)\), where
+\(R = \min(\operatorname{rank}(I_1), \operatorname{rank}(I_2)), N = |G|\).
 For weighted case, assign weight \(-w(x)\) and \(w(x)\) to \(x\in S\) and \(x\notin S\), resp.
-Use Bellman-Ford to find the weighted shortest path.
+Find the shortest path by Bellman-Ford.
 The maximum iteration of Bellman-Ford is \(2R+1\).
 
 \subsubsection{Dual of LP}
@@ -105,17 +109,12 @@ Maximize $c^\intercal x$ s.t. $Ax = b$, $x \geq 0$ & Minimize $b^\intercal y$ s.
 
 \subsubsection{Minimax Theorem}
 Let $f : X \times Y \to \mathbb R$ be continuous where $X \subseteq \mathbb R ^ n, Y \subseteq \mathbb R ^ m$ are compact and convex.
-If
-\begin{enumerate}[nosep]
-  \item $f(\cdot, y) : X \to \mathbb R$ is concave for fixed $y$.
-  \item $f(x, \cdot) : Y \to \mathbb R$ is convex for fixed $x$.
-\end{enumerate}
-
-Then,
+If $f(\cdot, y) : X \to \mathbb R$ is concave for fixed $y$, and
+$f(x, \cdot) : Y \to \mathbb R$ is convex for fixed $x$,
+then
 $
 \max\limits _{x\in X}\min\limits _{y\in Y}f(x,y)=\min\limits _{y\in Y}\max\limits _{x\in X}f(x,y)
-$.
-
+$,
 e.g. $f(x, y) = x^\intercal A y$ for zero-sum matrix game.
 
 \subsubsection{Parallel Axis Theorem}

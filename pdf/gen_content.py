@@ -56,7 +56,7 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
                 stripped = strip_whitespaces(preprocessed)
                 cpp_hash = md5hex(stripped)[:6]
                 out.write(
-                    "\\IncludeCode[C++][%s]{%s}{%s}\n"
+                    "\\IncludeCode[][%s]{%s}{%s}\n"
                     % (
                         " {\\small [%s]}" % cpp_hash,
                         escape_latex(content["name"]),
@@ -70,7 +70,7 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
                 )
             elif base == "vimrc":
                 out.write(
-                    "\\IncludeCode[vim]{%s}{%s}\n"
+                    "\\IncludeCode[language=vim]{%s}{%s}\n"
                     % (escape_latex(content["name"]), content["path"])
                 )
             else:

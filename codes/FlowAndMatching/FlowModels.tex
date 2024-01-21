@@ -1,26 +1,24 @@
-% \normalsize
-\begin{itemize}[nosep]
+\begin{itemize}
   \item Maximum/Minimum flow with lower bound / Circulation problem
-    \begin{enumerate}[nosep]
+    \begin{enumerate}
       \item Construct super source $S$ and sink $T$.
       \item For each edge $(x, y, l, u)$, connect $x \rightarrow y$ with capacity $u - l$.
       \item For each vertex $v$, denote by $in(v)$ the difference between the sum of incoming lower bounds and the sum of outgoing lower bounds.
       \item If $in(v) > 0$, connect $S \rightarrow v$ with capacity $in(v)$, otherwise, connect $v \rightarrow T$ with capacity $-in(v)$.
-        \begin{itemize}[nosep]
+        \begin{itemize}
           \item To maximize, connect $t \rightarrow s$ with capacity $\infty$ (skip this in circulation problem), and let $f$ be the maximum flow from $S$ to $T$. If $f \neq \sum_{v \in V, in(v) > 0}{in(v)}$, there's no solution. Otherwise, the maximum flow from $s$ to $t$ is the answer. Also, $f$ is a mincost valid flow.
           \item To minimize, let $f$ be the maximum flow from $S$ to $T$. Connect $t \rightarrow s$ with capacity $\infty$ and let the flow from $S$ to $T$ be $f^\prime$. If $f + f^\prime \neq \sum_{v \in V, in(v) > 0}{in(v)}$, there's no solution. Otherwise, $f^\prime$ is the answer.
         \end{itemize}
       \item The solution of each edge $e$ is $l_e + f_e$, where $f_e$ corresponds to the flow of edge $e$ on the graph.
     \end{enumerate}
   \item Construct minimum vertex cover from maximum matching $M$ on bipartite graph $(X, Y)$
-    \begin{enumerate}[nosep]
+    \begin{enumerate}
       \item Redirect every edge: $y \rightarrow x$ if $(x, y) \in M$, $x \rightarrow y$ otherwise.
       \item DFS from unmatched vertices in $X$.
-      \item $x \in X$ is chosen iff $x$ is unvisited.
-      \item $y \in Y$ is chosen iff $y$ is visited.
+      \item $x \in X$ is chosen iff $x$ is unvisited; $y \in Y$ is chosen iff $y$ is visited.
     \end{enumerate}
   \item Minimum cost cyclic flow
-    \begin{enumerate}[nosep]
+    \begin{enumerate}
       \item Consruct super source $S$ and sink $T$
       \item For each edge $(x, y, c)$, connect $x \rightarrow y$ with $(cost, cap) = (c, 1)$ if $c > 0$, otherwise connect $y \rightarrow x$ with $(cost, cap) = (-c, 1)$
       \item For each edge with $c < 0$, sum these cost as $K$, then increase $d(y)$ by 1, decrease $d(x)$ by 1
@@ -29,7 +27,7 @@
       \item Flow from $S$ to $T$, the answer is the cost of the flow $C + K$
     \end{enumerate}
   \item Maximum density induced subgraph
-    \begin{enumerate}[nosep]
+    \begin{enumerate}
       \item Binary search on answer, suppose we're checking answer $T$
       \item Construct a max flow model, let $K$ be the sum of all weights
       \item Connect source $s \rightarrow v$, $v \in G$ with capacity $K$
@@ -38,7 +36,7 @@
       \item $T$ is a valid answer if the maximum flow $f < K \lvert V \rvert$
     \end{enumerate}
   \item Minimum weight edge cover
-    \begin{enumerate}[nosep]
+    \begin{enumerate}
       \item For each $v \in V$ create a copy $v^\prime$, and connect $u^\prime \to v^\prime$ with weight $w(u, v)$.
       \item Connect $v \to v^\prime$ with weight $2\mu(v)$, where $\mu(v)$ is the cost of the cheapest edge incident to $v$.
       \item Find the minimum weight perfect matching on $G^\prime$.
@@ -61,9 +59,9 @@
       $i, j$ 同時是 $1$ 時得到 $c$ & 直接得到 $c$；$(i, w, \infty), (j, w, \infty), (w, T, c)$ \\
     \end{tabular}
   \item Submodular functions minimization
-    \begin{itemize}[nosep]
+    \begin{itemize}
       \item For a function $f: 2^V \to \mathbb{R}$, $f$ is a submodular function iff
-        \begin{itemize}[nosep]
+        \begin{itemize}
           \item $\forall S,T \subseteq V$, $f(S) + f(T) \geq f(S \cup T) + f(S \cap T)$, or
           \item $\forall X \subseteq Y \subseteq V$, $x\notin Y$, $f(X\cup\{x\})-f(X)\geq f(Y\cup\{x\})-f(Y)$.
         \end{itemize}

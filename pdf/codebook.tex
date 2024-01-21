@@ -18,6 +18,15 @@
 \usepackage{fancyhdr}          % 設定頁首頁尾
 \usepackage{graphicx}          % Graphic
 \usepackage{enumitem}
+\setlist[enumerate]{
+  leftmargin=*,
+  nolistsep,
+}
+\setlist[itemize]{
+  leftmargin=*,
+  nolistsep,
+}
+
 \usepackage{changepage}
 \usepackage[compact]{titlesec}    %compact mode for reducing margin
 \usepackage{hyperref}
@@ -61,8 +70,8 @@
 % minimize margin
 \def\footnotesize{\fontsize{8}{9.5}\selectfont}
 \titlespacing*{\section} {0pt}{*0}{*0}
-\titlespacing*{\subsection} {0pt}{*1}{*0}
-\titlespacing*{\subsubsection} {0pt}{*1}{*0}
+\titlespacing*{\subsection} {0pt}{*0}{*0}
+\titlespacing*{\subsubsection} {0pt}{*{-0.5}}{*{-0.5}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -92,6 +101,7 @@
 \lstset{
   language=[11]C++,                   % the language of the code
   basicstyle=\footnotesize\ttfamily,  % the size of the fonts that are used for the code
+  % basicstyle=\linespread{0.6}\footnotesize\ttfamily,
   %numbers=left,                      % where to put the line-numbers
   %numberstyle=\footnotesize,         % the size of the fonts that are used for the line-numbers
   %stepnumber=1,                      % the step between two line-numbers. If it's 1, each line  will be numbered
@@ -106,11 +116,13 @@
   breaklines=true,                    % sets automatic line breaking
   breakatwhitespace=false,            % sets if automatic breaks should only happen at whitespace
   escapeinside={\%*}{*)},             % if you want to add a comment within your code
-  morekeywords={*},                   % if you want to add more keywords to the set
+  morekeywords={*,size_t,int64_t},    % if you want to add more keywords to the set
   keywordstyle=\bfseries\color{Blue1},
   commentstyle=\itshape\color{Red4},
   stringstyle=\itshape\color{Green4},
-  literate={\ \ }{{\ }}1
+  literate={\ \ }{{\ }}1,
+  aboveskip=-0.4375em,
+  belowskip=-0.4375em,
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,11 +135,11 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\contentsname}{Contents} 
 
-\vspace{-20em}
+% \vspace{-20em}
 \begin{spacing}{0.5}
 \tableofcontents
 \end{spacing}
-\vspace{-1em}
+% \vspace{-1em}
 
 \scriptsize
 
@@ -158,20 +170,18 @@
 
 \NewDocumentCommand{\IncludeCode}{ O{C++} O{} m m }{
   \subsection[#3]{#3#2}
-  \vspace{-0.8em}
-  \lstinputlisting[language=#1]{\Prefix#4}
-  \vspace{-1.2em}
+  \lstinputlisting[#1]{\Prefix#4}
 }
 
 \newcommand{\IncludeTex}[2]{
   \subsection{#1}
   \input{\Prefix#2}
-  \vspace{-1.2em}
 }
 
 \newcommand{\SectionTitle}[1]{
-  \section{#1}
   \vspace{-0.5em}
+  \section{#1}
+  \vspace{-1.0em}
 }
 
 \input{content.tex}
