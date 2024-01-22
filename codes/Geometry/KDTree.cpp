@@ -6,22 +6,19 @@ struct KDTree {
     lld dx = x1 - x2, dy = y1 - y2;
     return dx * dx + dy * dy;
   }
-  static bool cmpx(Node& a, Node& b){return a.x<b.x;}
-  static bool cmpy(Node& a, Node& b){return a.y<b.y;}
+  static bool cmpx(Node& a, Node& b) { return a.x<b.x; }
+  static bool cmpy(Node& a, Node& b) { return a.y<b.y; }
   void init(vector<pair<int,int>> &ip) {
-    const int n = ip.size();
-    for (int i = 0; i < n; i++) {
-      tree[i].id = i;
-      tree[i].x = ip[i].first;
-      tree[i].y = ip[i].second;
-    }
-    root = build(0, n-1, 0);
+    for (int i = 0; i < ssize(ip); i++)
+      tie(tree[i].x, tree[i].y) = ip[i], tree[i].id = i;
+    root = build(0, (int)ip.size()-1, 0);
   }
   Node* build(int L, int R, int d) {
-    if (L>R) return nullptr; int M = (L+R)/2;
+    if (L>R) return nullptr;
+    int M = (L+R)/2;
     nth_element(tree+L,tree+M,tree+R+1,d%2?cmpy:cmpx);
     Node &o = tree[M]; o.f = d % 2;
-    o.x1 = o.x2 = o.x; o.y1 = o.y1 = o.y;
+    o.x1 = o.x2 = o.x; o.y1 = o.y2 = o.y;
     o.L = build(L, M-1, d+1); o.R = build(M+1, R, d+1);
     for (Node *s: {o.L, o.R}) if (s) {
       o.x1 = min(o.x1, s->x1); o.x2 = max(o.x2, s->x2);
@@ -30,7 +27,7 @@ struct KDTree {
     return tree+M;
   }
   bool touch(int x, int y, lld d2, Node *r){
-    lld d = sqrt(d2)+1;
+    lld d = (lld)sqrt(d2)+1;
     return x >= r->x1 - d && x <= r->x2 + d &&
                   y >= r->y1 - d && y <= r->y2 + d;
   }
