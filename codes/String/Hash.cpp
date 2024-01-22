@@ -8,7 +8,7 @@ public:
     generate(all(p), [x = 1, y = 1, this]() mutable {
       return y = x, x = mul(x, P), y; });
   }
-  int query(int l, int r) const { // 1-base (l, r]
+  int query(int l, int r) const { // 0-base [l, r)
     return sub(h[r], mul(h[l], p[r - l]));
   }
 };
