@@ -190,6 +190,8 @@ li {
             print(content["name"], commit_hash, content["verified"])
             if content["verified"] is None:
                 out.write(b"\xe2\x9d\x8c".decode("utf8"))
+            elif content["verified"] == "skip":
+                out.write(b"\xf0\x9f\x93\x9d".decode("utf8"))
             elif (
                 content["verified"] != commit_hash[:len(content["verified"])]
             ):

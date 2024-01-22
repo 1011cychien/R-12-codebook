@@ -7,13 +7,13 @@
       verified: 5a589b9
     - name: Debug Macro
       path: debug.cpp
-      verified:
+      verified: 25d3041
     - name: Increase Stack
       path: IncStack.cpp
-      verified: d2fe73a
+      verified: skip
     - name: Pragma Optimization
       path: Pragma.cpp
-      verified: 0a2277b
+      verified: skip
     - name: IO Optimization
       path: IOOptimize.cpp
       verified: 15830f6
@@ -83,7 +83,7 @@
       verified: 3d3870f
     - name: Mo's Algorithm on Tree
       path: MoTree.tex
-      verified:
+      verified: skip
     - name: Count Cycles
       path: CountCycles.cpp
       verified: 871cd2e
@@ -109,7 +109,7 @@
       verified: af6f1af
     - name: Flow Models
       path: FlowModels.tex
-      verified:
+      verified: skip
     - name: Dinic
       path: Dinic.cpp
       verified: a37bcb9
@@ -144,10 +144,10 @@
   content:
     - name: Common Bounds
       path: Bounds.tex
-      verified:
+      verified: skip
     - name: Stirling Number
       path: StirlingNumber.tex
-      verified:
+      verified: skip
     - name: ax+by=gcd
       path: ExtendedGCD.cpp
       verified: 23ef28e
@@ -302,7 +302,7 @@
       verified: 2abb613
     - name: 3D Skew Line Nearest Point
       path: 3d/SkewLine.tex
-      verified:
+      verified: skip
     - name: Delaunay
       path: Delaunay.cpp
       verified: 5d49aa0
@@ -363,19 +363,19 @@
   content:
     - name: Theorems
       path: Theorems.tex
-      verified:
+      verified: skip
     - name: Weight Matroid Intersection
       path: MatroidIntersection.cpp
       verified:
     - name: Stable Marriage
       path: StableMarriage.tex
-      verified:
+      verified: skip
     - name: Bitset LCS
       path: BitsetLCS.cpp
       verified: a1d4cba
     - name: Prefix Substring LCS
       path: PrefixSubstringLCS.cpp
-      verified:
+      verified: skip
     - name: Convex 1D/1D DP
       path: Convex1D1D.cpp
       verified: 554baef
