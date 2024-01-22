@@ -20,7 +20,7 @@ No test needed.
 
 ## Bitset LCS
 ### Description
-$O(n^2/w)$. need hand-written bitset (needs subtraction)  
+$O(n^2/w)$. need hand-written bitset (needs subtraction)
 TODO: Find a way to recove the answer. [Prob](https://tioj.ck.tp.edu.tw/problems/2010)
 
 ### Test Status

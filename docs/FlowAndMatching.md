@@ -29,7 +29,6 @@ See [this](https://codeforces.com/blog/entry/52714) and [this](https://codeforce
 $O(VE \log U)$ and $\Theta(acceptable)$ in practice.
 ### Test Status
 Passed [luogu P3376](https://www.luogu.com.cn/record/142472662).
-Passed [Matching on Bipartite Graph](https://judge.yosupo.jp/submission/183348).
 
 ## HLPP
 ### Description
@@ -37,8 +36,11 @@ HLPP algo with gap heuristics.
 
 Theoritical complexity is $O(V^2\sqrt{E})$.
 But heuristic is powerful!
+
+Note: Lowest Label Push Relabel is $O(\sqrt{V}E)$ on bipartie matching graph.
 ### Test Status
 [LOJ 127](https://loj.ac/s/1978510) and [library checker bipartite matching](https://judge.yosupo.jp/submission/183404).
+Passed [Matching on Bipartite Graph](https://judge.yosupo.jp/submission/183348).
 
 ## Global Min-Cut
 ### Description

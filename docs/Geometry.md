@@ -90,7 +90,7 @@ Used in some contest. TODO.
 ### Description
 Testing PIH in $O(\log N)$.
 ### Test Status
-[Enclosure](codeforces.com/gym/101201/problem/E)
+[Enclosure](https://codeforces.com/gym/101201/problem/E)
 Used in some contest.
 
 ## Tangent of Points To Hull
@@ -100,7 +100,7 @@ Requires the hull to be strictly convex.
 Can be modified to find extreme point on hull.
 
 ### Test Status
-[Enclosure](codeforces.com/gym/101201/problem/E)
+[Enclosure](https://codeforces.com/gym/101201/problem/E)
 
 ## Circle Class & Intersection
 ### Description
