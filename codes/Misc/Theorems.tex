@@ -1,23 +1,22 @@
 \vspace{-0.5em}
 \subsubsection{Spherical Coordinate}
-{
-\centering
-\begin{tabular}{ccc}
-{$\begin{aligned}
-  x = r\sin\theta\cos\phi \\
-  y = r\sin\theta\sin\phi \\
-  z = r\cos\theta
-\end{aligned}$}
-&
-\includegraphics[width=25mm]{../codes/Misc/sphericalCoordinates.pdf}
-&
-{$\begin{aligned}
-  r = \sqrt{x^2+y^2+z^2} \\
-  \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2}) \\
-  \phi = \textrm{atan2}(y,x)
-\end{aligned}$}
+\begin{tabular}{b{2.5cm}m{2cm}b{2.5cm}}
+  {$\begin{aligned}
+      x = r\sin\theta\cos\phi \\
+      y = r\sin\theta\sin\phi \\
+      z = r\cos\theta
+  \end{aligned}$}
+    &
+    \hbox{
+      \includegraphics[width=20mm]{../codes/Misc/sphericalCoordinates.pdf}
+    }
+    &
+    {$\begin{aligned}
+        r = \sqrt{x^2+y^2+z^2} \\
+        \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2}) \\
+        \phi = \textrm{atan2}(y,x)
+    \end{aligned}$}
 \end{tabular}
-}
 
 \subsubsection{Sherman-Morrison formula}
 $\left(A + uv^\textsf{T}\right)^{-1} = A^{-1} - \frac{A^{-1}uv^\textsf{T}A^{-1}}{1 + v^\textsf{T}A^{-1}u}$
@@ -28,6 +27,13 @@ Denote $L$ be a $n \times n$ matrix as the Laplacian matrix of graph $G$, where 
     \item The number of undirected spanning in $G$ is $\det(\tilde{L}_{11})$.
     \item The number of directed spanning tree rooted at $r$ in $G$ is $\det(\tilde{L}_{rr})$.
 \end{itemize}
+
+\subsubsection{BEST Theorem}
+$
+\text{\#\{Eulerian circuits\}} =
+  \text{\#\{arborescences rooted at 1\}} \cdot
+   \prod _ {v \in V} (\deg(v) - 1)!
+$
 
 \subsubsection{Random Walk on Graph}
 Let $P$ be the transition matrix of a strongly connected directed graph, $\sum _ j P_{i,j} = 1$.
@@ -41,8 +47,10 @@ First solve $G$: let $\pi P = \pi$ be a stationary distribution. Then $\pi_i g_i
 The rank of $I - P$ is $n - 1$, so we first solve a special solution $X$ such that $(I - P)X = J - G$ and adjust $X$ to $F$ by
 $F_{i,j} = X_{i,j} - X_{j,j}$.
 
-\subsubsection{Tutte's Matrix}
-Let $D$ be a $n \times n$ matrix, where $d_{ij} = x_{ij}$ ($x_{ij}$ is chosen uniform randomly) if $i < j$ and $(i, j) \in E$, otherwise $d_{ij} = -d_{ji}$. $\frac{\operatorname{rank}(D)}{2}$ is the maximum matching on $G$.
+\subsubsection{Tutte Matrix}
+For $i < j$, $d_{ij} = x_{ij}$ (in practice, a random number) if $(i, j) \in E$, otherwise $d_{ij} = 0$.
+For $i \geq j, d_{ij} = -d_{ji}$.
+$\frac{\operatorname{rank}(D)}{2}$ is the maximum matching.
 
 \subsubsection{Cayley's Formula}
 \begin{itemize}
