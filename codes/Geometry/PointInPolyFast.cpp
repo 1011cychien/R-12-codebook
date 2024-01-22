@@ -36,6 +36,18 @@ vector<int> PIPfast(vector<P> p, vector<P> q) {
         pbds::rb_tree_tag,
         pbds::tree_order_statistics_node_update>;
   Tree st(cmp);
+  auto answer = [&](P ep) {
+    if (binary_search(all(vtx), ep))
+      return 1; // on vertex
+    Seg H(ep, ep); // ??
+    auto it = st.lower_bound(H);
+    if (it != st.end() && isInter(it->first, ep))
+      return 1; // on edge
+    if (it != st.begin() && isInter(prev(it)->first, ep))
+      return 1; // on edge
+    auto rk = st.order_of_key(H);
+    return rk % 2 == 0 ? 0 : 2; // 0: outside, 2: inside
+  };
   vector<int> ans(Q);
   for (auto [ep, i] : evt) {
     cur_x = RE(ep);
@@ -44,26 +56,8 @@ vector<int> PIPfast(vector<P> p, vector<P> q) {
     } else if (i < N) { // insert
       auto [it, succ] = st.insert({edge[i], i});
       assert (succ);
-    } else {
-      int qid = i - N;
-      if (binary_search(all(vtx), ep)) { // on vertex
-        ans[qid] = 1;
-        continue;
-      }
-      Seg H(ep, ep); // ??
-      auto it = st.lower_bound(H);
-      if (it != st.end() && isInter(it->first, ep)) {
-        ans[qid] = 1; // on edge
-        continue;
-      }
-      if (it != st.begin() && isInter(prev(it)->first, ep)) {
-        ans[qid] = 1; // on edge
-        continue;
-      }
-      auto rk = st.order_of_key(H);
-      if (rk % 2 == 0) ans[qid] = 0; // outside
-      else ans[qid] = 2; // inside
-    }
+    } else
+      ans[i - N] = answer(ep);
   }
   return ans;
 } // test @ AOJ CGL_3_C
