@@ -4,13 +4,13 @@
 #define safe cerr<<__PRETTY_FUNCTION__<<" line "<<__LINE__<<" safe\n"
 #define debug(a...) debug_(#a, a)
 #define orange(a...) orange_(#a, a)
-void debug_(const char *s, auto ...a) {
+void debug_(auto s, auto ...a) {
   cerr << "\e[1;32m(" << s << ") = (";
   int f = 0;
   (..., (cerr << (f++ ? ", " : "") << a));
   cerr << ")\e[0m\n";
 }
-void orange_(const char *s, auto L, auto R) {
+void orange_(auto s, auto L, auto R) {
   cerr << "\e[1;33m[ " << s << " ] = [ ";
   using namespace experimental;
   copy(L, R, make_ostream_joiner(cerr, ", "));
