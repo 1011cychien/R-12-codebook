@@ -7,7 +7,7 @@
       verified: 5a589b9
     - name: Debug Macro
       path: debug.cpp
-      verified: 25d3041
+      verified: 28869cf
     - name: Increase Stack
       path: IncStack.cpp
       verified: skip
