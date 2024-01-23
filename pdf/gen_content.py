@@ -184,15 +184,15 @@ li {
             out.write("<li>")
             file_path = path.join(prefix, content["path"])
             real_path = path.realpath(file_path)
-            commit_hash = commit_hash = str(
-                list(repo.iter_commits(max_count=1, paths=real_path))[0]
-            )
+            commits = list(repo.iter_commits(max_count=1, paths=real_path))
+            commit_hash = str(commits[0]) if len(commits) > 0 else None
             print(content["name"], commit_hash, content["verified"])
             if content["verified"] is None:
                 out.write(b"\xe2\x9d\x8c".decode("utf8"))
             elif content["verified"] == "skip":
                 out.write(b"\xf0\x9f\x93\x9d".decode("utf8"))
             elif (
+                commit_hash is None or
                 content["verified"] != commit_hash[:len(content["verified"])]
             ):
                 out.write(b"\xe2\x9a\xa0\xef\xb8\x8f".decode("utf8"))
