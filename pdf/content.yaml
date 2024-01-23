@@ -148,6 +148,24 @@
     - name: Stirling Number
       path: StirlingNumber.tex
       verified: skip
+    - name: Extended Euler
+      path: ExtendedEuler.tex
+      verified:
+    - name: Extended FloorSum
+      path: ExtendedFloorSum.tex
+      verified:
+    - name: Integer Division
+      path: IntegerDiv.cpp
+      verified:
+    - name: FloorSum
+      path: FloorSum.cpp
+      verified: 23ef28e
+    - name: ModMin
+      path: ModMin.cpp
+      verified:
+    - name: Floor Monoid Product
+      path: FloorMonoidProduct.cpp
+      verified: 7a28e3a
     - name: ax+by=gcd
       path: ExtendedGCD.cpp
       verified: 23ef28e
@@ -160,21 +178,6 @@
     - name: Quadratic Residue
       path: QuadraticResidue.cpp
       verified: b1b82a1
-    - name: Extended Euler
-      path: ExtendedEuler.tex
-      verified:
-    - name: Extended FloorSum
-      path: ExtendedFloorSum.tex
-      verified:
-    - name: Extended Euclidean
-      path: ExtendedEuclidean.cpp
-      verified:
-    - name: FloorSum
-      path: FloorSum.cpp
-      verified: 23ef28e
-    - name: ModMin
-      path: ModMin.cpp
-      verified:
     - name: FWT
       path: FWT.cpp
       verified: 1d47c5d
@@ -220,9 +223,6 @@
     - name: Adaptive Simpson
       path: AdaptiveSimpson.cpp
       verified: f4675eb
-    - name: Integer Division
-      path: Division.cpp
-      verified:
 
 - name: Geometry
   prefix: ../codes/Geometry/
