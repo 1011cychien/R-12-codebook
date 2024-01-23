@@ -13,6 +13,46 @@ Do we need this?
 ### Test Status
 No test.
 
+## Extended Euler
+### Description
+A formula.
+### Test Status
+No test.
+
+## Extended Floor Sum
+### Description
+A recursion formula.
+### Test Status
+No test.
+
+## Integer Division
+### Description
+C++ integer division to normal integer division.
+### Test Status
+Copied from 8BQube
+
+## Floor Sum
+### Description
+Calculate $\sum _ {i=0} ^ {n-1} \lfloor \frac{ai + b}{m} \rfloor$.
+### Test Status
+Passed [yosupo judge](https://judge.yosupo.jp/submission/165193) (negative coefficient not tested).
+
+## ModMin
+### Description
+Return the minimum $x \geq 0$ such that $l \leq ax \mod m \leq r$.
+### Test Status
+Tested on [SEERC'20 G](https://codeforces.com/gym/102411/submission/212888594)
+
+## Floor Monoid Product
+### Description
+萬能歐幾里得
+[ref1](https://www.cnblogs.com/apjifengc/p/17492207.html)
+[ref2](https://maspypy.github.io/library/mod/floor_monoid_product.hpp)
+### Test Status
+https://judge.yosupo.jp/submission/185615
+https://www.luogu.com.cn/record/144016921
+https://loj.ac/s/1986411
+
 ## ax + by = gcd
 ### Description
 exgcd algorithm.
@@ -37,38 +77,6 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165189)
 Square root under modulo prime.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/161095)
-
-## Extended Euler
-### Description
-A formula.
-### Test Status
-No test.
-
-## Extended Floor Sum
-### Description
-A recursion formula.
-### Test Status
-No test.
-
-## Extended Euclidean
-### Description
-萬歐
-### Test Status
-https://judge.yosupo.jp/submission/185615
-https://www.luogu.com.cn/record/144016921
-https://loj.ac/s/1986411
-
-## Floor Sum
-### Description
-Calculate $\sum _ {i=0} ^ {n-1} \lfloor \frac{ai + b}{m} \rfloor$.
-### Test Status
-Passed [yosupo judge](https://judge.yosupo.jp/submission/165193) (negative coefficient not tested).
-
-## ModMin
-### Description
-Return the minimum $x \geq 0$ such that $l \leq ax \mod m \leq r$.
-### Test Status
-Tested on [SEERC'20 G](https://codeforces.com/gym/102411/submission/212888594)
 
 ## FWT
 ### Description
