@@ -1,4 +1,4 @@
-int fdiv(int a, int b)
+lld fdiv(lld a, lld b)
 { return a / b - (a % b && (a < 0) ^ (b < 0)); }
-int cdiv(int a, int b)
+lld cdiv(lld a, lld b)
 { return a / b + (a % b && (a < 0) ^ (b > 0)); }
