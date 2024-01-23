@@ -54,7 +54,9 @@ No test.
 ### Description
 萬歐
 ### Test Status
-TODO need test
+https://judge.yosupo.jp/submission/185615
+https://www.luogu.com.cn/record/144016921
+https://loj.ac/s/1986411
 
 ## Floor Sum
 ### Description
