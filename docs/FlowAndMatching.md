@@ -69,14 +69,14 @@ Passed [CF 343E](https://codeforces.com/contest/343/submission/241516652).
 ### Description
 Successive Shortest Path Algorithm using SPFA (Bellman-Ford algorithm).
 ### Test Status
-Passed [LibreOJ 102](https://loj.ac/s/1911310).
+Passed [LibreOJ 102](https://loj.ac/s/1987934).
 Testdata in LOJ is not strong in general.
 
 ## Dijkstra Cost Flow
 ### Description
 Successive Shortest Path Algorithm using Dijkstra's algorithm.
 ### Test Status
-Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/44122501) and [LibreOJ 102](https://loj.ac/s/1911311)
+Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/49632535) and [LibreOJ 102](https://loj.ac/s/1987935)
 
 ## Minimum Cost Circulation
 ### Description

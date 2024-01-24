@@ -1,11 +1,7 @@
 template <typename F, typename C> class MCMF {
   static constexpr F INF_F = numeric_limits<F>::max();
   static constexpr C INF_C = numeric_limits<C>::max();
-  struct E {
-    int to, r; F f; C c;
-    E(int a, int b, F x, C y)
-      : to(a), r(b), f(x), c(y) {}
-  };
+  struct E { int to, r; F f; C c; };
   vector<vector<E>> g; vector<pair<int, int>> f;
   vector<F> up; vector<C> d, h;
   optional<pair<F, C>> step(int S, int T) {
@@ -23,7 +19,7 @@ template <typename F, typename C> class MCMF {
       }
     }
     if (d[T] == INF_C) return nullopt;
-    for (size_t i = 0; i < d.size(); ++i) h[i]+=d[i];
+    for (size_t i = 0; i < d.size(); ++i) h[i] += d[i];
     for (int i = T; i != S; i = f[i].first) {
       auto &eg = g[f[i].first][f[i].second];
       eg.f -= up[T]; g[eg.to][eg.r].f += up[T];
