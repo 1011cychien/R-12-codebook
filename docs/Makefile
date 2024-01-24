@@ -6,6 +6,7 @@ docs.pdf: *.md meta.yaml
 		Graph.md Math.md Geometry.md String.md Misc.md > docs.md
 	pandoc -f markdown-smart \
 		--toc \
+		--toc-depth=2 \
 		--pdf-engine=xelatex \
 		--metadata-file meta.yaml \
 		docs.md \
