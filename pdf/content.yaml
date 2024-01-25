@@ -177,7 +177,7 @@
       verified: 23ef28e
     - name: Quadratic Residue
       path: QuadraticResidue.cpp
-      verified: b1b82a1
+      verified: 721489798592861d
     - name: FWT
       path: FWT.cpp
       verified: 1d47c5d
@@ -216,7 +216,7 @@
       verified: 23ef28e
     - name: Simplex
       path: Simplex.cpp
-      verified: bc9eabf
+      verified: 95243e7
     - name: Simplex Construction
       path: SimplexConstruction.tex
       verified: 7534397a
