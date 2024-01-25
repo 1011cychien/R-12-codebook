@@ -210,16 +210,16 @@
       verified: bbbb590
     - name: Gauss Elimination
       path: GaussElimination.cpp
-      verified:
+      verified: 5f3d34b
     - name: Charateristic Polynomial
       path: CharPoly.cpp
       verified: 23ef28e
     - name: Simplex
       path: Simplex.cpp
-      verified:
+      verified: bc9eabf
     - name: Simplex Construction
       path: SimplexConstruction.tex
-      verified:
+      verified: 7534397a
     - name: Adaptive Simpson
       path: AdaptiveSimpson.cpp
       verified: f4675eb
