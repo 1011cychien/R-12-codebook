@@ -76,7 +76,7 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165189)
 ### Description
 Square root under modulo prime.
 ### Test Status
-Passed [yosupo judge](https://judge.yosupo.jp/submission/161095)
+Passed [yosupo judge](https://judge.yosupo.jp/submission/186095)
 
 ## FWT
 ### Description
@@ -166,17 +166,24 @@ BM algo.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/165366).
 
+## Gauss Elimination
+### Description
+Make RREF and solve system of linear equations.
+### Test status
+[library checker](https://judge.yosupo.jp/submission/186088).
+
 ## Charateristic Polynomial
 ### Description
 Calculate the charateristic polynomial of matrix in $O(N^3)$.
 ### Test Status
-Passed 2021 PTZ Korea and yosupo library checker.
+Passed 2021 PTZ Korea and [library checker](https://judge.yosupo.jp/submission/165703).
 
 ## Simplex / Simplex Construction
 ### Description
 Linear programming.
 ### Test Status
-TODO.
+Passed [Red and Black Tree](https://codeforces.com/contest/375/submission/243194774).
+[long double](https://codeforces.com/contest/375/submission/243194767) runs 3 times slower.
 
 ## Adaptive Simpson
 ### Description

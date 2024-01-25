@@ -63,4 +63,4 @@ VD solve(const VVD &a, const VD &b, const VD &c) {
   for (int i = 0; i < m; ++i)
     if (p[i] < n) x[p[i]] = d[i][n + 1];
   return x;
-}}
+}} // use double instead of long double if possible
