@@ -148,8 +148,8 @@
     - name: Stirling Number
       path: StirlingNumber.tex
       verified: skip
-    - name: Extended Euler
-      path: ExtendedEuler.tex
+    - name: Equations
+      path: Equations.tex
       verified:
     - name: Extended FloorSum
       path: ExtendedFloorSum.tex
