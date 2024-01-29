@@ -1,6 +1,6 @@
 using VI = vector<int>;
 using VVI = vector<VI>;
-pair<VI, VVI> gauss(VVI &A, VI &b) {
+pair<VI, VVI> gauss(VVI A, VI b) {
   const int N = (int)A.size(), M = (int)A[0].size();
   vector<int> depv, free(M, true); int rk = 0;
   for (int i = 0; i < M; ++i) {

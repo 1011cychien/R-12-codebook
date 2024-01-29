@@ -15,7 +15,7 @@ void Hessenberg(VVI &H, int N) {
     }
   }
 }
-VI CharacteristicPoly(VVI &A) {
+VI CharacteristicPoly(VVI A) {
   int N = (int)A.size(); Hessenberg(A, N);
   VVI P(N + 1, VI(N + 1)); P[0][0] = 1;
   for (int i = 1; i <= N; ++i) {
