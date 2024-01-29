@@ -223,6 +223,9 @@
     - name: Adaptive Simpson
       path: AdaptiveSimpson.cpp
       verified: f4675eb
+    - name: Golden Ratio Search
+      path: GoldenSearch.cpp
+      verified:
 
 - name: Geometry
   prefix: ../codes/Geometry/
