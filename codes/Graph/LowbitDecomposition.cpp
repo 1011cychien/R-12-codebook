@@ -28,12 +28,10 @@ class LBD {
     tr[u] = timer;
   }
 public:
-  LBD(int n) : timer(0), chains(0), G(n), tl(n), tr(n),
-        chain(n), head(n + 1, -1), dep(n), pa(n) {}
-  void add_edge(int u, int v) {
-    G[u].push_back(v); G[v].push_back(u);
-  }
-  void decompose() { predfs(0, 0); dfschain(0, 0); }
+  LBD(auto &&G_) : n((int)size(G_)),
+    timer(0), chains(0), G(G_), tl(n), tr(n),
+      chain(n), head(n + 1, -1), dep(n), pa(n)
+    { predfs(0, 0); dfschain(0, 0); }
   PII get_subtree(int u) { return {tl[u], tr[u]}; }
   vector<PII> get_path(int u, int v) {
     vector<PII> res;
@@ -48,4 +46,4 @@ public:
     res.emplace_back(tl[v], tl[u] + 1);
     return res;
   }
-};
+}; // 記得在資結上對點的修改要改成對其 dfs 序的修改
