@@ -150,7 +150,7 @@ Prime detect. Be careful about mpow and mmul.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/175688) in 1632ms ($10^5$ tests).
 w/ Montgomery Multiplication runs in
-[230ms](https://judge.yosupo.jp/submission/175693).
+[219ms](https://judge.yosupo.jp/submission/187075).
 
 ## Pollard Rho
 ### Description
@@ -158,7 +158,7 @@ Factorization. Be careful about mpow and mmul.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/175689) in 313ms ($100$ tests).
 w/ Montgomery Multiplication runs in
-[73ms](https://judge.yosupo.jp/submission/175695)
+[72ms](https://judge.yosupo.jp/submission/187074).
 
 ## Berlekamp Massey
 ### Description
