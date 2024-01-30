@@ -6,7 +6,8 @@
 Rolling-hash algorithm
 
 ## Test Status
-Used in contest. No test.
+Used in some contests.
+Passed [Z-algo](https://judge.yosupo.jp/submission/187168).
 
 
 ## Suffix Array
@@ -29,6 +30,11 @@ Don't know how to use.
 
 Copied from 8bq
 
+## KMP
+### Description
+Knuth-Morris-Pratt algo
+### Test Status
+https://tioj.ck.tp.edu.tw/submissions/368896
 
 ## Z value
 ### Description

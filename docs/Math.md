@@ -170,13 +170,13 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165366).
 ### Description
 Make RREF and solve system of linear equations.
 ### Test status
-[library checker](https://judge.yosupo.jp/submission/186088).
+[library checker](https://judge.yosupo.jp/submission/187171).
 
 ## Charateristic Polynomial
 ### Description
 Calculate the charateristic polynomial of matrix in $O(N^3)$.
 ### Test Status
-Passed 2021 PTZ Korea and [library checker](https://judge.yosupo.jp/submission/165703).
+Passed 2021 PTZ Korea and [library checker](https://judge.yosupo.jp/submission/187174).
 
 ## Simplex / Simplex Construction
 ### Description
