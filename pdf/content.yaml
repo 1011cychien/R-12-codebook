@@ -210,10 +210,10 @@
       verified: bbbb590
     - name: Gauss Elimination
       path: GaussElimination.cpp
-      verified: 5f3d34b
+      verified: d6a4ccd
     - name: Charateristic Polynomial
       path: CharPoly.cpp
-      verified: 23ef28e
+      verified: d6a4ccd
     - name: Simplex
       path: Simplex.cpp
       verified: 95243e7
