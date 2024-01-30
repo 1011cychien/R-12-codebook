@@ -2,20 +2,18 @@
 
 ## Common bounds
 ### Description
-Partition function, divisor function and catalan number.
+Partition function, divisor function, catalan number,
+bell number
 ### Test Status
 No test.
 
-## Stirling Number
+## Equations
 ### Description
-Stirling number formula.
-Do we need this?
-### Test Status
-No test.
-
-## Extended Euler
-### Description
-A formula.
+many equations.
+- Stirling Number
+- Derivatives
+- Extended Euler
+- Pentagonal number theorem
 ### Test Status
 No test.
 
@@ -191,3 +189,10 @@ Simpson integration method.
 Unknown time complexity.
 ### Test Status
 Passed [Two Cylinders](https://codeforces.com/problemsets/acmsguru/submission/99999/227216042)
+
+## Golden Ratio Search
+### Description
+Ternary search with less query number
+### Test Status
+TODO
+copied from kactl.
