@@ -1,7 +1,6 @@
-int round2k(size_t n) {
-  int sz = 1; while (sz < int(n)) sz *= 2; return sz; }
 VL convolution(const VI &a, const VI &b) {
-  const int sz = round2k(a.size() + b.size() - 1);
+  if (a.empty() || b.empty()) return {};
+  const int sz = bit_ceil(a.size() + b.size() - 1);
   // Should be able to handle N <= 10^5, C <= 10^4
   vector<P> v(sz);
   for (size_t i = 0; i < a.size(); ++i) v[i].RE(a[i]);
@@ -18,7 +17,8 @@ VL convolution(const VI &a, const VI &b) {
   return c;
 }
 VI convolution_mod(const VI &a, const VI &b) {
-  const int sz = round2k(a.size() + b.size() - 1);
+  if (a.empty() || b.empty()) return {};
+  const int sz = bit_ceil(a.size() + b.size() - 1);
   vector<P> fa(sz), fb(sz);
   for (size_t i = 0; i < a.size(); ++i)
     fa[i] = P(a[i] & ((1 << 15) - 1), a[i] >> 15);
