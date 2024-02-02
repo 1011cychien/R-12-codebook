@@ -290,7 +290,7 @@
       verified: bc70800
     - name: Polygon Union
       path: PolyUnion.cpp
-      verified:
+      verified: b78be44
     - name: 3D Point
       path: 3d/Basic.cpp
       verified: 10869cb
