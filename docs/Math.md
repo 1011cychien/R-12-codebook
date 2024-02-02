@@ -84,18 +84,21 @@ Passed yosupo judge, [XOR](https://judge.yosupo.jp/submission/183213) and [AND](
 
 ## Packed FFT
 ### Description
-Make FFT precision better.
+`convolution` uses less times of FFT.
+`convolution_mod` decompose numbers to high and low part, make FFT precision better.
 reference:
 - [淺談 FFT](https://www.luogu.com.cn/blog/105254/qian-tan-fft-zong-ft-dao-fft)
 - [題解 P4245](https://www.luogu.com.cn/blog/command-block/solution-p4245#)
 
 ### Test Status
-Passed [convolution mod](https://judge.yosupo.jp/submission/166003) with long double.
+Passed [convolution mod](https://judge.yosupo.jp/submission/187951) with long double.
 For $N = 524288$,
 - normal NTT (998244353): ~230ms
 - three-mod-NTT: ~430ms
 - `convolution_mod` ~1000ms with long double (AC), 400ms with double (WA)
 - `convolution`: ~800ms with long double (WA)
+
+The first function passed [Because, art](https://codeforces.com/gym/103640/submission/244575267).
 
 ## CRT for arbitrary mod
 ### Description
