@@ -30,7 +30,7 @@ template <int LG = 20> struct SparseTableSA : Suffix {
     const int lg = __lg(b - a);
     return min(mn[lg][a], mn[lg][b - (1 << lg)]);
   }
-  int get_range(int x, int len) {
+  int get_range(int x, int len) { // WIP
     int a = rev[x] + 1, b = rev[x] + 1;
     for (int l = LG - 1; l >= 0; l--) {
       const int s = 1 << l;
@@ -38,6 +38,5 @@ template <int LG = 20> struct SparseTableSA : Suffix {
       if (b - s >= 0 && mn[l][b - s] >= len) b -= s;
     }
     return {b - 1, a};
-
   }
 };

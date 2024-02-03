@@ -48,7 +48,7 @@ struct Suffix {
     vector<int> _s(n + 1); // _s[n] = 0;
     copy(all(s), begin(_s)); // s shouldn't contain 0
     sa = sais(_s); sa.erase(sa.begin());
-    for (int i = 0; i < n; i++) rev[sa[i]] = i;
+    for (int i = 0; i < n; ++i) rev[sa[i]] = i;
     for (int i = 0, h = 0; i < n; ++i) {
       if (!rev[i]) { h = 0; continue; }
       for (int j = sa[rev[i] - 1]; i + h < n && j + h < n
