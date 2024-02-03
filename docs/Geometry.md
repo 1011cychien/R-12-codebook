@@ -93,6 +93,12 @@ Testing PIH in $O(\log N)$.
 [Enclosure](https://codeforces.com/gym/101201/problem/E)
 Used in some contest.
 
+## Cyclic Ternary Search
+### Description
+Fine extreme point on cyclic good functions
+### Test Status
+See tangent of points to hull
+
 ## Tangent of Points To Hull
 ### Description
 Tangent of point to hull in $O(\log N)$.
@@ -101,6 +107,7 @@ Can be modified to find extreme point on hull.
 
 ### Test Status
 [Enclosure](https://codeforces.com/gym/101201/problem/E)
+https://codeforces.com/gym/101201/submission/244754160
 
 ## Circle Class & Intersection
 ### Description
