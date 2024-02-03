@@ -335,6 +335,9 @@
     - name: Suffix Array
       path: SAIS-C++20.cpp
       verified: be320a4
+    - name: Suffix Array Tools
+      path: SuffixArrayTools.cpp
+      verified:
     - name: Ex SAM
       path: exSAM.cpp
       verified:

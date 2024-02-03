@@ -2,7 +2,7 @@ auto sais(const auto &s) {
   const int n = (int)s.size(), z = ranges::max(s) + 1;
   vector<int> c(z); for (int x : s) ++c[x];
   partial_sum(all(c), begin(c));
-  vector<int> sa(n); auto I = ranges::iota_view(0, n);
+  vector<int> sa(n); auto I = views::iota(0, n);
   if (ranges::max(c) <= 1) {
     for (int i : I) sa[--c[s[i]]] = i;
     return sa;
@@ -10,9 +10,9 @@ auto sais(const auto &s) {
   vector<bool> t(n); t[n - 1] = true;
   for (int i = n - 2; i >= 0; --i)
     t[i] = (s[i]==s[i + 1] ? t[i + 1] : s[i]<s[i + 1]);
-  auto is_lms = ranges::views::filter([&t](int x) {
+  auto is_lms = views::filter([&t](int x) {
     return x && t[x] && !t[x - 1]; });
-  const auto induce = [&] {
+  auto induce = [&] {
     for (auto x = c; int y : sa)
       if (y--) if (!t[y]) sa[x[s[y] - 1]++] = y;
     for (auto x = c; int y : sa | views::reverse)
@@ -45,10 +45,10 @@ struct Suffix {
   int n; vector<int> sa, hi, rev;
   Suffix(const auto &s) : n(int(s.size())),
     hi(n), rev(n) {
-    vector<int> _s(n + 1); _s[n] = 0;
+    vector<int> _s(n + 1); // _s[n] = 0;
     copy(all(s), begin(_s)); // s shouldn't contain 0
     sa = sais(_s); sa.erase(sa.begin());
-    for (int i = 0; i < n; ++i) rev[sa[i]] = i;
+    for (int i = 0; i < n; i++) rev[sa[i]] = i;
     for (int i = 0, h = 0; i < n; ++i) {
       if (!rev[i]) { h = 0; continue; }
       for (int j = sa[rev[i] - 1]; i + h < n && j + h < n
