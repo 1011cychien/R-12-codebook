@@ -270,6 +270,9 @@
     - name: Point In Polygon (Fast)
       path: PointInPolyFast.cpp
       verified: 1abcdf6
+    - name: Cyclic Ternary Search
+      path: CyclicTS.cpp
+      verified:
     - name: Tangent of Points To Hull
       path: TangentPointToHull.cpp
       verified: fa8a9a7
