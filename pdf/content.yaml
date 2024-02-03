@@ -48,9 +48,12 @@
   prefix: ../codes/Graph/
   doc: Graph.md
   content:
-    - name: 2-SAT (SCC)
+    - name: SCC
+      path: SCC.cpp
+      verified:
+    - name: 2-SAT
       path: 2SAT.cpp
-      verified: 425370c
+      verified:
     - name: BCC
       path: BCC.cpp
       verified: d0dcb10
