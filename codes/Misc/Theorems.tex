@@ -94,6 +94,23 @@ For simple polygon, when points are all integer, we have $A=\text{\#\{lattice po
 %\subsubsection{Lucas's theorem}
 %$\binom{m}{n}\equiv\prod_{i=0}^k\binom{m_i}{n_i}\pmod p$, where $m=m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0$, and $n=n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0$.
 
+\subsubsection{Matroid}
+\begin{itemize}
+  \item
+    $B \subseteq A \land A \in \mathcal{I} \Rightarrow B \in \mathcal{I}$.
+  \item
+    If $A, B \in \mathcal{I}$ and $|A| > |B|$, then $\exists x \in A \setminus B, B \cup \{ x \} \in \mathcal{I}$.
+\end{itemize}
+\begin{tabular}{|l|l|}
+  Linear matroid & $A \in I$ iff linear indep. \\
+  Graphic matroid & $I =$ forests of undirected graph \\
+  Colorful matroid (EX) & Each color $c$ has an upper bound $R_c$. \\
+  Transversal matroid & $A \in I$ iff $\exists$ matching $M$ whose right part is $A$. \\
+  Bond matroid & $A \in I$ iff $G$ is connected after removing edges $A$. \\
+  Dual matroid & $A \in I^*$ iff there is a basis $\subseteq E \setminus A$ \\
+  Truncated matroid & $A \in I'$ iff $A \in I \land |A| \leq k$ \\
+\end{tabular}
+
 \subsubsection{Matroid Intersection}
 Given matroids \(M_1=(G,I_1),M_2=(G,I_2)\), find maximum \(S\in I_1\cap I_2\).
 For each iteration, build the directed graph and find a shortest path from \(s\) to \(t\).
