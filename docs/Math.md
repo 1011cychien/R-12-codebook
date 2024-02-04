@@ -191,7 +191,7 @@ Passed [Red and Black Tree](https://codeforces.com/contest/375/submission/243194
 Simpson integration method.
 Unknown time complexity.
 ### Test Status
-Passed [Two Cylinders](https://codeforces.com/problemsets/acmsguru/submission/99999/227216042)
+Passed [Two Cylinders](https://codeforces.com/problemsets/acmsguru/submission/99999/244862663).
 
 ## Golden Ratio Search
 ### Description
