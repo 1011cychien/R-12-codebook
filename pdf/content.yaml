@@ -261,16 +261,16 @@
     - name: Rotating Sweep Line
       path: RotatingSweepLine.cpp
       verified: 33b8a27
-    - name: Polygon Cut
-      path: PolyCut.cpp
+    - name: Hull Cut
+      path: HullCut.cpp
       verified:
-    - name: Point In Simple Polygon
-      path: PointInPoly.cpp
-      verified: 780c077
-    - name: Point In Hull (Fast)
+    - name: Point In Hull
       path: PointInHull.cpp
       verified: 780c077
-    - name: Point In Polygon (Fast)
+    - name: Point In Polygon
+      path: PointInPoly.cpp
+      verified: 780c077
+    - name: Batch Point In Polygon
       path: PointInPolyFast.cpp
       verified: 1abcdf6
     - name: Cyclic Ternary Search
