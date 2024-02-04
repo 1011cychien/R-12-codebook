@@ -63,6 +63,9 @@
     - name: Edge TCC
       path: ETCC.cpp
       verified: c9c0d6e
+    - name: Bipolar Orientation
+      path: BipolarOri.cpp
+      verified:
     - name: DMST
       path: FastDirectedMST.cpp
       verified: 9bca9d7
@@ -394,6 +397,9 @@
     - name: Min Plus Convolution
       path: MinPlusConv.cpp
       verified: 4d49c76
+    - name: SMAWK
+      path: SMAWK.cpp
+      verified:
     - name: De-Bruijn
       path: DeBruijn.cpp
       verified: 4afad87
