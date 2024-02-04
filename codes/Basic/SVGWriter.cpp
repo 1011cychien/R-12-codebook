@@ -1,4 +1,4 @@
-#ifdef CKISEKI
+#ifndef CKISEKI
 #define ostream stringstream
 #endif
 class SVG {
