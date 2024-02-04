@@ -31,6 +31,8 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [ ] Simplex (Performance, e.g. with custom type?)
 * [ ] treap
 * [ ] test performance of SAIS for big strings (or vectors).
+* [ ] suffix array lcp tools
+* vim `Hash` command broken when searching `Hash`.
 
 ### To add
 * [x] count 3 cycle / 4 cycle
@@ -40,6 +42,7 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [x] HLPP? $(N^2\sqrt{M})$ max-flow
 * [x] Make an usable Gaussian Elimination
 * [x] bounded flow?
+* [x] add definition of matroid
 * [ ] add simple polygon sweep line docs
 * 郵局設置問題無限大extreme (aliens trick + convex 1d 1d opt)
 * segment tree beats
@@ -50,8 +53,9 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * QR decomposition
 * [ ] highly composite number?
 * [ ] [more submodular minimization](https://noshi91.hatenablog.com/entry/2021/06/29/044225)
-* [ ] add definition of matroid
 * [ ] add (useful) kosaraju back
+https://codeforces.com/contest/521/submission/146192598
+* [ ] min 25 篩
 
 ### Flow series
 * [Network Simplex](https://gist.github.com/brunodccarvalho/fb9f2b47d7f8469d209506b336013473)/[Cost Scaling](https://ideone.com/q6PWgB)/[Capacity Scaling](https://ouuan.github.io/post/%E5%9F%BA%E4%BA%8E-capacity-scaling-%E7%9A%84%E5%BC%B1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E7%AE%97%E6%B3%95/)
