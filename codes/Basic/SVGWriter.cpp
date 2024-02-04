@@ -1,3 +1,6 @@
+#ifdef CKISEKI
+#define ostream stringstream
+#endif
 class SVG {
   void p(string_view s) { o << s; }
   void p(string_view s, auto v, auto... vs) {
@@ -12,7 +15,7 @@ public:
       "<style>*{stroke-width:0.5%;}</style>\n",
       x1, -y2, x2 - x1, y2 - y1); }
   ~SVG() { p("</svg>\n"); }
-  SVG &color(string nc) { return c = nc, *this; }
+  void color(string nc) { c = nc; }
   void line(auto x1, auto y1, auto x2, auto y2) {
     p("<line x1='$' y1='$' x2='$' y2='$' stroke='$'/>\n",
       x1, -y1, x2, -y2, c); }
