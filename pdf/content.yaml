@@ -40,7 +40,7 @@
     - name: Linear Basis
       path: LinearBasis.cpp
       verified:
-    - name: Binary Search On Segtree
+    - name: Segtree min_left
       path: BinarySearchOnSegtree.cpp
       verified: ad4edbd
 
@@ -75,10 +75,10 @@
     - name: Edge Coloring
       path: Misra.cpp
       verified: 6ae6737
-    - name: Centroid Decomposition
+    - name: Centroid Decomp.
       path: CenDec.cpp
       verified:
-    - name: Lowbit Decomposition
+    - name: Lowbit Decomp.
       path: LowbitDecomposition.cpp
       verified:
     - name: Virtual Tree
@@ -87,7 +87,7 @@
     - name: Tree Hashing
       path: TreeHash.cpp
       verified: 3d3870f
-    - name: Mo's Algorithm on Tree
+    - name: Mo's Algo on Tree
       path: MoTree.tex
       verified: skip
     - name: Count Cycles
@@ -99,7 +99,7 @@
     - name: MaximumClique
       path: MaxCliqueDyn.cpp
       verified: cb8ce66
-    - name: Minimum Mean Cycle
+    - name: Min Mean Cycle
       path: MinMeanCycle.cpp
       verified: bc70800
 
@@ -128,16 +128,16 @@
     - name: GomoryHu Tree
       path: GomoryHu.cpp
       verified: 9bca9d7
-    - name: Minimum Cost Max Flow
+    - name: MCMF
       path: CostFlow.cpp
       verified:
     - name: Dijkstra Cost Flow
       path: DijkstraCostFlow.cpp
       verified:
-    - name: Minimum Cost Circulation
+    - name: Min Cost Circulation
       path: MinCostCirculation.cpp
       verified:
-    - name: General Graph Matching
+    - name: General Matching
       path: GeneralMatching.cpp
       verified: b9722f5
     - name: Weighted Matching
@@ -214,7 +214,7 @@
     - name: Gauss Elimination
       path: GaussElimination.cpp
       verified: d6a4ccd
-    - name: Charateristic Polynomial
+    - name: CharPoly
       path: CharPoly.cpp
       verified: d6a4ccd
     - name: Simplex
@@ -252,7 +252,7 @@
     - name: Segment Intersection
       path: SegIsIntersect.cpp
       verified: 2f36a8b
-    - name: Half Plane Intersection
+    - name: Halfplane Intersection
       path: HalfPlaneIntersection.cpp
       verified: 984818755a1e
     - name: SegmentDist (Sausage)
@@ -270,7 +270,7 @@
     - name: Point In Polygon
       path: PointInPoly.cpp
       verified: 780c077
-    - name: Batch Point In Polygon
+    - name: Point In Polygon (Fast)
       path: PointInPolyFast.cpp
       verified: 1abcdf6
     - name: Cyclic Ternary Search
@@ -291,7 +291,7 @@
     - name: Poly-Circle Intersection
       path: Circle/InterWithPoly.cpp
       verified: 780c077
-    - name: Minimum Covering Circle
+    - name: Min Covering Circle
       path: Circle/MinCircleCover.cpp
       verified: 815eee2
     - name: Circle Union
