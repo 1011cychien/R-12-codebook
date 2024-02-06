@@ -95,3 +95,10 @@ Fast modulo operation of non-constexpr constant.
 Only able to handle odd modulo.
 ### Test Status
 Tested with MillerRabin and PollardRho.
+
+## Nim Product
+### Description
+Nim product
+ref: [ecnerwala](https://github.com/ecnerwala/cp-book/blob/master/src/nim_prod.hpp) and [correct.cpp](https://github.com/ecnerwala/cp-book/blob/master/src/nim_prod.hpp).
+### Test Status
+Passed [library checker](https://judge.yosupo.jp/submission/188957). Relatively slow.

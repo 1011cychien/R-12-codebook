@@ -426,4 +426,4 @@
       verified: 012165f
     - name: Nim Product
       path: NimProd.cpp
-      verified:
+      verified: 75b7ad7
