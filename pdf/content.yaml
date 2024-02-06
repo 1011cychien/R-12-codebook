@@ -424,3 +424,6 @@
     - name: Montgomery
       path: Montgomery.cpp
       verified: 012165f
+    - name: Nim Product
+      path: NimProd.cpp
+      verified:
