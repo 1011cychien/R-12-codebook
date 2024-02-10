@@ -1,6 +1,4 @@
-#ifndef CKISEKI
-#define ostream stringstream
-#endif
+#ifdef CKISEKI
 class SVG {
   void p(string_view s) { o << s; }
   void p(string_view s, auto v, auto... vs) {
@@ -25,4 +23,7 @@ public:
   void text(auto x, auto y, string s, int w = 12) {
     p("<text x='$' y='$' font-size='$px'>$</text>\n",
       x, -y, w, s); }
-};
+}; // write wrapper for complex if use complex
+#else
+class SVG { SVG(auto ...) {} }; // you know how to
+#endif
