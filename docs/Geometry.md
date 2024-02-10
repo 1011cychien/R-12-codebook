@@ -91,6 +91,7 @@ Used in some contest. TODO.
 Testing PIH in $O(\log N)$.
 ### Test Status
 [Enclosure](https://codeforces.com/gym/101201/problem/E)
+See tangent of points to hull
 Used in some contest.
 
 ## Cyclic Ternary Search
@@ -107,7 +108,7 @@ Can be modified to find extreme point on hull.
 
 ### Test Status
 [Enclosure](https://codeforces.com/gym/101201/problem/E)
-https://codeforces.com/gym/101201/submission/244754160
+https://codeforces.com/gym/101201/submission/245757109
 
 ## Circle Class & Intersection
 ### Description
