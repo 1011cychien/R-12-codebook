@@ -26,7 +26,7 @@ template <int LG = 20> struct SparseTableSA : Suffix {
   }
   int lcp(int a, int b) {
     if (a == b) return n - a;
-    a = rev[a]; b = rev[b];
+    a = rev[a] + 1, b = rev[b] + 1;
     if (a > b) swap(a, b);
     const int lg = __lg(b - a);
     return min(mn[lg][a], mn[lg][b - (1 << lg)]);
