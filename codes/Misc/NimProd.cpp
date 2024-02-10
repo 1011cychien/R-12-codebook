@@ -12,9 +12,9 @@ struct NimProd {
         prod[e][f][x][y] ^= bit_prod[e * 8 + i][f * 8 + j];
   }
   llu operator()(llu a, llu b) const {
-    llu res = 0;
+    llu r = 0;
     rep(e, 8) rep(f, 8)
-      res ^= prod[e][f][a >> (e * 8) & 255][b >> (f * 8) & 255];
-    return res;
+      r ^= prod[e][f][a >> (e*8) & 255][b >> (f*8) & 255];
+    return r;
   }
 };
