@@ -40,7 +40,7 @@
     - name: Linear Basis
       path: LinearBasis.cpp
       verified:
-    - name: Segtree min_left
+    - name: Binary Search on Segtree
       path: BinarySearchOnSegtree.cpp
       verified: ad4edbd
 
