@@ -19,9 +19,10 @@ struct OfflineGetRange : Suffix {
 template <int LG = 20> struct SparseTableSA : Suffix {
   array<vector<int>, LG> mn;
   SparseTableSA(const auto &s) : Suffix(s), mn{hi} {
-    for (int l = 0; l + 1 < LG; l++)
+    for (int l = 0; l + 1 < LG; l++) { mn[l + 1].resize(n);
       for (int i = 0, len = 1 << l; i + len < n; i++)
         mn[l + 1][i] = min(mn[l][i], mn[l][i + len]);
+    }
   }
   int lcp(int a, int b) {
     if (a == b) return n - a;
