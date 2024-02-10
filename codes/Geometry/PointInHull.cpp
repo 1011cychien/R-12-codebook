@@ -1,9 +1,8 @@
-bool check(P a, P b) {
-  return cross(a, b) == 0 && dot(a, b) <= 0;
-}
+bool isAnti(P a, P b) {
+  return cross(a, b) == 0 && dot(a, b) <= 0; }
 bool PIH(const vector<P> &h, P z, bool strict = true) {
   int n = (int)h.size(), a = 1, b = n - 1, r = !strict;
-  if (n < 3) return r && check(h[0] - z, h[n-1] - z);
+  if (n < 3) return r && isAnti(h[0] - z, h[n-1] - z);
   if (ori(h[0],h[a],h[b]) > 0) swap(a, b);
   if (ori(h[0],h[a],z) >= r || ori(h[0],h[b],z) <= -r)
     return false;
