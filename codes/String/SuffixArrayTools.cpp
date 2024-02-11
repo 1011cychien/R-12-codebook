@@ -3,7 +3,7 @@ struct OfflineGetRange : Suffix {
   OfflineGetRange(const auto &s)
     : Suffix(s), qs(n), qid(0) {}
   int offline_get_range(int x, int len) {
-    return qs[len].emplace_back(rev[x], qid), qid++;
+    return qs[len].eb(rev[x], qid), qid++;
   }
   vector<pair<int,int>> solve_get_range() {
     vector<pair<int,int>> ans(qid); Dsu dsu(n);
@@ -19,7 +19,7 @@ struct OfflineGetRange : Suffix {
 template <int LG = 20> struct SparseTableSA : Suffix {
   array<vector<int>, LG> mn;
   SparseTableSA(const auto &s) : Suffix(s), mn{hi} {
-    for (int l = 0; l + 1 < LG; l++) { mn[l + 1].resize(n);
+    for (int l = 0; l + 1 < LG; l++) { mn[l+1].resize(n);
       for (int i = 0, len = 1 << l; i + len < n; i++)
         mn[l + 1][i] = min(mn[l][i], mn[l][i + len]);
     }
@@ -31,11 +31,11 @@ template <int LG = 20> struct SparseTableSA : Suffix {
     const int lg = __lg(b - a);
     return min(mn[lg][a], mn[lg][b - (1 << lg)]);
   }
-  int get_range(int x, int len) { // WIP
+  pair<int,int> get_range(int x, int len) { // WIP
     int a = rev[x] + 1, b = rev[x] + 1;
     for (int l = LG - 1; l >= 0; l--) {
       const int s = 1 << l;
-      if (a + s < n && mn[l][a + s] >= len) a += s;
+      if (a + s <= n && mn[l][a] >= len) a += s;
       if (b - s >= 0 && mn[l][b - s] >= len) b -= s;
     }
     return {b - 1, a};
