@@ -213,13 +213,13 @@
       verified:
     - name: Montgomery
       path: Montgomery.cpp
-      verified: 012165f
+      verified: 6d91764
     - name: Berlekamp Massey
       path: Berlekamp-Massey.cpp
       verified: bbbb590
     - name: Gauss Elimination
       path: GaussElimination.cpp
-      verified: d6a4ccd
+      verified: 5a9abe0
     - name: CharPoly
       path: CharPoly.cpp
       verified: d6a4ccd
@@ -346,7 +346,7 @@
       verified: 5bc50bf
     - name: Suffix Array
       path: SAIS-C++20.cpp
-      verified: be320a4
+      verified: 893f777
     - name: Suffix Array Tools
       path: SuffixArrayTools.cpp
       verified:
@@ -426,4 +426,4 @@
       verified:
     - name: Nim Product
       path: NimProd.cpp
-      verified: 75b7ad7
+      verified: 57173fa

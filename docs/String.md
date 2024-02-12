@@ -15,7 +15,7 @@ Passed [Z-algo](https://judge.yosupo.jp/submission/187168).
 SA-IS algorithm.
 Complexity: $O(N + C)$
 ### Test Status
-Tested on [Suffix Array](https://judge.yosupo.jp/submission/183057) and [Number of Substrings](https://judge.yosupo.jp/submission/183056) and [Longest Common Substring](https://judge.yosupo.jp/submission/190266).
+Tested on [Suffix Array](https://judge.yosupo.jp/submission/190351) and [Number of Substrings](https://judge.yosupo.jp/submission/183056) and [Longest Common Substring](https://judge.yosupo.jp/submission/190266).
 
 ## Suffix Array Tools
 ### Description
