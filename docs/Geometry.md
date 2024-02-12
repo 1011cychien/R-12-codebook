@@ -51,7 +51,7 @@ To get the intersection point, check next part (HPI)
 ### Test Status
 Used in many contest. Passed AOJ CGL.
 
-## Half Plane Intersection
+## Halfplane Intersection
 ### Description
 Calculate the area of half-plane-intersection.
 The result lines will be in `q` (this is why we need the reference).
@@ -60,7 +60,7 @@ Result lines maybe wrong if the intersection area doesn't have positive area.
 Passed 2020 Nordic NCPC Big brother.
 Used in many contest.
 
-## SegmentDist
+## SegmentDist (Sausage)
 ### Description
 Distance from point to segment and segment to segment.
 Can be used in checking sausage intersection.
@@ -74,19 +74,13 @@ Support colinear cases.
 ### Test Status
 Passed [NAIPC 2016 G](https://codeforces.com/gym/101002/submission/228911692)
 
-## Polygon Cut
+## Hull Cut
 ### Description
-Cut simple polygon by a line.
+Cut convex polygon by a line.
 ### Test Status
 Copied from kactl. TODO.
 
-## Point in Simple Polygon
-### Description
-Testing PIP.
-### Test Status
-Used in some contest. TODO.
-
-## Point in Hull (Fast)
+## Point in Hull
 ### Description
 Testing PIH in $O(\log N)$.
 ### Test Status
@@ -94,13 +88,26 @@ Testing PIH in $O(\log N)$.
 See tangent of points to hull
 Used in some contest.
 
+## Point In Polygon
+### Description
+Testing PIP.
+### Test Status
+Used in some contest.
+Passed [CGL_3_C](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894196#1)
+
+## Point In Polygon (Fast)
+### Description
+Testing PIP offline and faster.
+### Test Status
+Passed [CGL_3_C](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894195#1)
+
 ## Cyclic Ternary Search
 ### Description
 Fine extreme point on cyclic good functions
 ### Test Status
 See tangent of points to hull
 
-## Tangent of Points To Hull
+## Tangent of Points to Hull
 ### Description
 Tangent of point to hull in $O(\log N)$.
 Requires the hull to be strictly convex.
@@ -115,24 +122,26 @@ https://codeforces.com/gym/101201/submission/245757109
 Definition of `Cir` and some intersection function.
 ### Test Status
 Passed AOJ CGL.
+[CGL_7_E](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894166#1)
 
 ## Circle Common Tangent
 ### Description
 Common tangent point of circle.
 ### Test Status
-Passed AOJ CGL and [CF 128E](https://codeforces.com/problemset/problem/128/E).
+Passed AOJ [CGL_7_F](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894179#1), [CGL_7_G](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894172#1).
+Passed [CF 128E](https://codeforces.com/contest/128/submission/246025990).
 
 ## Line-Circle Intersection
 ### Description
 The point of intersection of line and circle.
 ### Test Status
-TODO.
+Passed AOJ [CGL_7_D](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894183#1).
 
 ## Poly-Circle Intersection
 ### Description
 The intersection area of a circle and a simple polygon.
 ### Test Status
-Passed AOJ CGL_7_H.
+Passed AOJ [CGL_7_H](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894161#1).
 Copied from 8BQube and they say it passed HDU2892.
 
 ## Minimum Covering Circle
@@ -141,6 +150,8 @@ Get minimum covering circle in $O(N)$ expected time.
 Also gives the circumcenter formula.
 ### Test Status
 Passed TIOJ 1093, luogu P1742
+[TIOJ](https://tioj.ck.tp.edu.tw/submissions/370344)
+[luogu](https://www.luogu.com.cn/record/146760089)
 
 ## Circle Union
 ### Description
@@ -148,6 +159,8 @@ Calculate the area that covered by at least $k$ circle for each $k$.
 Time complexity $O(N^2\log N)$.
 ### Test Status
 Passed SPOJ.
+[CIRU](https://www.spoj.com/status/ns=32615293) (need 2d array instead of vector).
+[CIRUT](https://www.spoj.com/status/ns=32615293)
 
 ## Polygon Union
 ### Description

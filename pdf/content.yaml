@@ -231,7 +231,7 @@
       verified: 7534397a
     - name: Adaptive Simpson
       path: AdaptiveSimpson.cpp
-      verified: f4675eb
+      verified: c23f0fc
     - name: Golden Ratio Search
       path: GoldenSearch.cpp
       verified:
@@ -242,7 +242,7 @@
   content:
     - name: Basic Geometry
       path: Basic.cpp
-      verified: a0248e3
+      verified: 6f4ec94
     - name: 2D Convex Hull
       path: ConvexHull.cpp
       verified: fbc4a90
@@ -272,37 +272,37 @@
       verified:
     - name: Point In Hull
       path: PointInHull.cpp
-      verified: 780c077
+      verified: eec5c45
     - name: Point In Polygon
       path: PointInPoly.cpp
       verified: 780c077
     - name: Point In Polygon (Fast)
       path: PointInPolyFast.cpp
-      verified: 1abcdf6
+      verified: 98f0b46
     - name: Cyclic Ternary Search
       path: CyclicTS.cpp
-      verified:
-    - name: Tangent of Points To Hull
+      verified: 0de4fca
+    - name: Tangent of Points to Hull
       path: TangentPointToHull.cpp
-      verified: fa8a9a7
+      verified: 0de4fca
     - name: Circle Class & Intersection
       path: Circle/Basic.cpp
-      verified: c1ac19f
+      verified: a048f71
     - name: Circle Common Tangent
       path: Circle/TangentLineOfTwoCircles.cpp
-      verified: bc70800
+      verified: a048f71
     - name: Line-Circle Intersection
       path: Circle/InterWithLine.cpp
-      verified: 
+      verified: a048f71
     - name: Poly-Circle Intersection
       path: Circle/InterWithPoly.cpp
-      verified: 780c077
+      verified: a048f71
     - name: Min Covering Circle
       path: Circle/MinCircleCover.cpp
-      verified: 815eee2
+      verified: 6ae6737
     - name: Circle Union
       path: Circle/CircleUnion.cpp
-      verified: bc70800
+      verified: a048f71
     - name: Polygon Union
       path: PolyUnion.cpp
       verified: b78be44
