@@ -54,7 +54,7 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [ ] highly composite number?
 * [ ] [more submodular minimization](https://noshi91.hatenablog.com/entry/2021/06/29/044225)
 * [ ] add (useful) kosaraju back
-https://codeforces.com/contest/521/submission/146192598
+* [ ] [ear decomposition](https://codeforces.com/contest/521/submission/146192598)
 * [ ] min 25 篩
 
 ### Flow series
