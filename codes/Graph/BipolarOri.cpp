@@ -31,8 +31,7 @@ struct BipolarOrientation {
     vector<int> v;
     for (int x = S; x != -1; x = nxt[x]) v.push_back(x);
     return v;
-  }
+  } // S, T are unique source / unique sink
   void add_edge(int a, int b) {
     g[a].emplace_back(b); g[b].emplace_back(a); }
-};
-// codeforces.com/contest/1916/submission/244774734
+}; // 存在 ST 雙極定向 iff 連接 (S,T) 後整張圖點雙連通
