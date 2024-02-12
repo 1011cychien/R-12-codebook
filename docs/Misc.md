@@ -6,17 +6,17 @@ Theorems.
 ### Test Status
 No test.
 
-## Weight Matroid Intersection
-### Description
-Almost an implementation.
-### Test Status
-Copied from NaCl
-
 ## Stable Marriage
 ### Description
 Stable Marriage algo.
 ### Test Status
 No test needed.
+
+## Weight Matroid Intersection
+### Description
+Almost an implementation.
+### Test Status
+Copied from NaCl
 
 ## Bitset LCS
 ### Description
@@ -43,6 +43,19 @@ Passed [yosupo library checker](https://judge.yosupo.jp/submission/163705). Copi
 Maintain upper envelope of lines.
 ### Test Status
 Passed [yosupo library checker](https://judge.yosupo.jp/submission/163740).
+
+## Min Plus Convolution
+### Description
+Monotone minima method of min plus convolution.
+### Test Status
+Passed [library checker](https://judge.yosupo.jp/submission/190310).
+
+## SMAWK
+### Description
+SMAWK algo.
+ref: maspy and abc
+### Test Status
+Passed [min plus convolution](https://judge.yosupo.jp/submission/190304).
 
 ## De-Bruijn
 ### Description
@@ -82,15 +95,16 @@ over $p/q$ such that $0 \leq p, q \leq N$.
 ### Test Status
 TODO. Copied from NaCl.
 
-## Barret Reduction
+## Barrett Reduction
 ### Description
 Fast modulo operation of non-constexpr constant.
 Only able to handle int-size modulo.
 ### Test Status
 Copied from kactl. Guess it's ok to have no test.
 
-## Montgomery Multiplication
+## Montgomery
 ### Description
+Montgomery multiplication.
 Fast modulo operation of non-constexpr constant.
 Only able to handle odd modulo.
 ### Test Status

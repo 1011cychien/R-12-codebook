@@ -376,12 +376,12 @@
     - name: Theorems
       path: Theorems.tex
       verified: skip
-    - name: Weight Matroid Intersection
-      path: MatroidIntersection.cpp
-      verified:
     - name: Stable Marriage
       path: StableMarriage.tex
       verified: skip
+    - name: Weight Matroid Intersection
+      path: MatroidIntersection.cpp
+      verified:
     - name: Bitset LCS
       path: BitsetLCS.cpp
       verified: be320a4
@@ -399,7 +399,7 @@
       verified: 4d49c76
     - name: SMAWK
       path: SMAWK.cpp
-      verified:
+      verified: be19965
     - name: De-Bruijn
       path: DeBruijn.cpp
       verified: 4afad87
