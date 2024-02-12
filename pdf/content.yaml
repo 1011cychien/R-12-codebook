@@ -8,18 +8,18 @@
     - name: Debug Macro
       path: debug.cpp
       verified: 28869cf
-    - name: Increase Stack
-      path: IncStack.cpp
-      verified: skip
+    - name: SVG Writer
+      path: SVGWriter.cpp
+      verified: 6324b1f
     - name: Pragma Optimization
       path: Pragma.cpp
       verified: skip
     - name: IO Optimization
       path: IOOptimize.cpp
       verified: 15830f6
-    - name: SVG Writer
-      path: SVGWriter.cpp
-      verified: 6324b1f
+    - name: Increase Stack
+      path: IncStack.cpp
+      verified: skip
 
 - name: Data Structure
   prefix: ../codes/DataStructure/
@@ -208,6 +208,12 @@
     - name: Pollard Rho
       path: PollardRho.cpp
       verified: 537aeb6
+    - name: Barrett Reduction
+      path: Barrett.cpp
+      verified:
+    - name: Montgomery
+      path: Montgomery.cpp
+      verified: 012165f
     - name: Berlekamp Massey
       path: Berlekamp-Massey.cpp
       verified: bbbb590
@@ -418,12 +424,6 @@
     - name: Binary Search On Fraction
       path: BinarySearchOnFraction.cpp
       verified:
-    - name: Barrett Reduction
-      path: Barrett.cpp
-      verified:
-    - name: Montgomery
-      path: Montgomery.cpp
-      verified: 012165f
     - name: Nim Product
       path: NimProd.cpp
       verified: 75b7ad7
