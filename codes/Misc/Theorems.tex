@@ -141,6 +141,24 @@ Maximize $c^\intercal x$ s.t. $Ax = b$, $x \geq 0$ & Minimize $b^\intercal y$ s.
 \hline
 \end{tabular}
 
+\subsubsection{Dual of Min Cost b-Flow}
+
+\begin{itemize}
+  \item Capacity $c_{uv}$, Flow $f_{uv}$, Cost $w_{uv}$, Required Flow difference for vertex $b_u$.
+  \item If all $w_{uv}$ are integers, then optimal solution can happen when all $p_u$ are integers.
+\end{itemize}
+$$
+\begin{aligned}
+& \min\sum_{uv} w_{uv}f_{uv} 
+\text{ s.t. } -f_{uv} \geq -c_{uv}, \sum_{v} f_{vu} - \sum_{v} f_{uv} = -b_u
+\\
+\Leftrightarrow
+& \min\sum_{u} b_up_u + \sum_{uv}c_{uv}\max(0, p_v - p_u - w_{uv})
+\text{ s.t. } p_u \geq 0
+\end{aligned}
+$$
+
+
 \subsubsection{Minimax Theorem}
 Let $f : X \times Y \to \mathbb R$ be continuous where $X \subseteq \mathbb R ^ n, Y \subseteq \mathbb R ^ m$ are compact and convex.
 If $f(\cdot, y) : X \to \mathbb R$ is concave for fixed $y$, and
