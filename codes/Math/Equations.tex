@@ -31,12 +31,11 @@ $S_2(n, k)$ counts the number of ways to partition a set of $n$ elements into $k
 Integration by parts:
 \(\int_a^bf(x)g(x)dx = [F(x)g(x)]_a^b-\int_a^bF(x)g'(x)dx\)
 {
-  % \setlength{\tabcolsep}{1pt}
-  % \setlength{\columnsep}{0pt}
+  \setlength{\tabcolsep}{1pt}
+  \setlength{\columnsep}{0pt}
 
   \noindent
-  \(
-  \begin{aligned}
+  \begin{tabular}{|*{20}{>{$\displaystyle}c<{$}|}}
     \frac{d}{dx}\sin^{-1} x = \frac{1}{\sqrt{1-x^2}}
     &
     \frac{d}{dx}\cos^{-1} x = -\frac{1}{\sqrt{1-x^2}}
@@ -52,12 +51,12 @@ Integration by parts:
     \\
     \int e^{-x^2} = \frac{\sqrt \pi}{2} \text{erf}(x)
     &
-    \int xe^{ax}dx = \frac{e^{ax}}{a^2}(ax-1)
+    \int xe^{ax} dx = \frac{e^{ax}}{a^2}(ax-1)
     \\
-  \end{aligned}
-  \)
+  \end{tabular}
   
   \(
+    \displaystyle
     \int \sqrt{a^2 + x^2} = \frac{1}{2} \left(x\sqrt{a^2+x^2} + a^2 \operatorname{asinh}(x/a) \right)
   \)
 }
