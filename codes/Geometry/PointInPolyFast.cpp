@@ -1,14 +1,13 @@
+
 vector<int> PIPfast(vector<P> p, vector<P> q) {
   const int N = int(p.size()), Q = int(q.size());
-  vector<pair<P, int>> evt;
-  vector<Seg> edge;
+  vector<pair<P, int>> evt; vector<Seg> edge;
   for (int i = 0; i < N; i++) {
     int a = i, b = (i + 1) % N;
     P A = p[a], B = p[b];
     assert (A < B || B < A); // std::operator<
     if (B < A) swap(A, B);
-    evt.emplace_back(A, i);
-    evt.emplace_back(B, ~i);
+    evt.emplace_back(A, i); evt.emplace_back(B, ~i);
     edge.emplace_back(A, B);
   }
   for (int i = 0; i < Q; i++)
@@ -32,10 +31,9 @@ vector<int> PIPfast(vector<P> p, vector<P> q) {
     return s == -1;
   };
   namespace pbds = __gnu_pbds;
-  using Tree = pbds::tree<Seg, int, decltype(cmp),
-        pbds::rb_tree_tag,
-        pbds::tree_order_statistics_node_update>;
-  Tree st(cmp);
+  pbds::tree<Seg, int, decltype(cmp),
+    pbds::rb_tree_tag,
+    pbds::tree_order_statistics_node_update> st(cmp);
   auto answer = [&](P ep) {
     if (binary_search(all(vtx), ep))
       return 1; // on vertex
@@ -55,9 +53,8 @@ vector<int> PIPfast(vector<P> p, vector<P> q) {
       st.erase(edge[~i]);
     } else if (i < N) { // insert
       auto [it, succ] = st.insert({edge[i], i});
-      assert (succ);
-    } else
-      ans[i - N] = answer(ep);
+      assert(succ);
+    } else ans[i - N] = answer(ep);
   }
   return ans;
 } // test @ AOJ CGL_3_C
