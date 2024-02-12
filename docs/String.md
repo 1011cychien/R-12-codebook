@@ -1,11 +1,11 @@
 # Stringology
 
 ## Hash
-## Description
+### Description
 
 Rolling-hash algorithm
 
-## Test Status
+### Test Status
 Used in some contests.
 Passed [Z-algo](https://judge.yosupo.jp/submission/187168).
 

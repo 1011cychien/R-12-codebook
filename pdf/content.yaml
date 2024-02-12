@@ -93,10 +93,10 @@
     - name: Count Cycles
       path: CountCycles.cpp
       verified: 871cd2e
-    - name: MaximalClique
+    - name: Maximal Clique
       path: MaxClique.cpp
       verified: 3646d07
-    - name: MaximumClique
+    - name: Maximum Clique
       path: MaxCliqueDyn.cpp
       verified: cb8ce66
     - name: Min Mean Cycle

@@ -65,7 +65,7 @@ Fun Fact: Gomory-Hu Tree can be computed in almost linear time. (see [this](http
 ### Test Status
 Passed [CF 343E](https://codeforces.com/contest/343/submission/241516652).
 
-## Minimum Cost Max Flow
+## MCMF
 ### Description
 Successive Shortest Path Algorithm using SPFA (Bellman-Ford algorithm).
 ### Test Status
@@ -78,7 +78,7 @@ Successive Shortest Path Algorithm using Dijkstra's algorithm.
 ### Test Status
 Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/49632535) and [LibreOJ 102](https://loj.ac/s/1987935)
 
-## Minimum Cost Circulation
+## Min Cost Circulation
 ### Description
 Network simplex method. Exponential time complexity, but it runs not too slow in practice.
 ### Test Status
@@ -91,7 +91,7 @@ Tested on [UOJ #487](https://uoj.ac/submission/659272), [UOJ #680](https://uoj.a
 ### Test Status
 [min_cost_b_flow](https://judge.yosupo.jp/submission/183528)
 
-## General Graph Matching
+## General Matching
 ### Description
 Matching in $O(|V|^3)$.
 [ref-slide](https://jacky860226.github.io/general-graph-weighted-match-slides/#/22)

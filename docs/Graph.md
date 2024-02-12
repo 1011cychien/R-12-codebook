@@ -44,6 +44,12 @@ Edge triconnected component.
 ### Test Status
 Passed [yosupo library checker](https://judge.yosupo.jp/submission/161793).
 
+## Bipolar Orientation
+### Description
+Bipolar orientation algo
+### Test Status
+Passed [1916F](https://codeforces.com/contest/1916/submission/244774734).
+
 ## DMST
 ### Description
 Directed Minimum Spanning Tree in $O(E\log ^2 E)$.
@@ -67,14 +73,14 @@ Runs in $O(NM)$
 ### Test Status
 Passed [NCPC 2018 G](https://codeforces.com/gym/101933/submission/233996239).
 
-## Centroid Decomposition
+## Centroid Decomp.
 ### Description
 Mark a vertex or query the sum of distance from a vertex to
 all marked vertices.
 ### Test Status
 Need rewrite or smt.
 
-## Lowbit Decomposition
+## Lowbit Decomp.
 ### Description
 Some chain decomposition of tree.
 ### Test Status
@@ -95,7 +101,7 @@ Some PRNG random hash.
 ### Test Status
 Passed [UOJ 763](https://uoj.ac/submission/672367) and [library checker](https://judge.yosupo.jp/submission/182721).
 
-## Mo's Algorithm on Tree
+## Mo's Algo on Tree
 ### Description
 Pseudo code of mo's algo on tree.
 `push` means XOR the contribution.
@@ -108,7 +114,7 @@ Count 3-cycle and 4-cycle in $O(M\sqrt{M})$.
 ### Test Status
 Passed [CCPC Guangzhou](https://codeforces.com/gym/104053/problem/K).
 
-## MaximalClique
+## Maximal Clique
 ### Description
 Enumerate maximal clique.
 Time complexity $O(n3^{n/3})$ or $O(nC)$ where $C$
@@ -116,15 +122,16 @@ is the number of such cliques.
 ### Test Status
 Can run on $n=80$ on [TIOJ](https://tioj.ck.tp.edu.tw/submissions/357847).
 
-## Maximum Clique (Dyn)
+## Maximum Clique
 ### Description
+MaxCliqueDyn algo
 Get maximum clique with ?? time complexity.
 ### Test Status
 kactl says it can run on $n=155$.
 For $n=100$ on POJ, runs in 32ms.
 Passed [library checker](https://judge.yosupo.jp/submission/165918).
 
-## Minimum Mean Cycle
+## Min Mean Cycle
 ### Description
 $O(V(V+E))$ find min mean cycle.
 Too rare to use so needs shorten.

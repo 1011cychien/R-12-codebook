@@ -1,6 +1,6 @@
 # Math
 
-## Common bounds
+## Common Bounds
 ### Description
 Partition function, divisor function, catalan number,
 bell number
@@ -17,7 +17,7 @@ many equations.
 ### Test Status
 No test.
 
-## Extended Floor Sum
+## Extended FloorSum
 ### Description
 A recursion formula.
 ### Test Status
@@ -29,7 +29,7 @@ C++ integer division to normal integer division.
 ### Test Status
 Copied from 8BQube
 
-## Floor Sum
+## FloorSum
 ### Description
 Calculate $\sum _ {i=0} ^ {n-1} \lfloor \frac{ai + b}{m} \rfloor$.
 ### Test Status
@@ -51,7 +51,7 @@ https://judge.yosupo.jp/submission/185615
 https://www.luogu.com.cn/record/144016921
 https://loj.ac/s/1986411
 
-## ax + by = gcd
+## ax+by=gcd
 ### Description
 exgcd algorithm.
 ### Test Status
@@ -106,14 +106,14 @@ CRT for three-mod-NTT.
 ### Test Status
 Passed [yosupo judge](https://judge.yosupo.jp/submission/165178).
 
-## NTT
+## NTT / FFT
 ### Description
 NTT.
 Can be modified to FFT easily.
 ### Test Status
 Passed yosupo judge. See also "CRT for arbitrary mod".
 
-## FPS
+## Formal Power Series
 ### Description
 Common Formal Power Series operations.
 Exp and Pow are relatively slow at yosupo library checker.
@@ -173,18 +173,24 @@ Make RREF and solve system of linear equations.
 ### Test status
 [library checker](https://judge.yosupo.jp/submission/187171).
 
-## Charateristic Polynomial
+## CharPoly
 ### Description
 Calculate the charateristic polynomial of matrix in $O(N^3)$.
 ### Test Status
 Passed 2021 PTZ Korea and [library checker](https://judge.yosupo.jp/submission/187174).
 
-## Simplex / Simplex Construction
+## Simplex
 ### Description
 Linear programming.
 ### Test Status
 Passed [Red and Black Tree](https://codeforces.com/contest/375/submission/243194774).
 [long double](https://codeforces.com/contest/375/submission/243194767) runs 3 times slower.
+
+## Simplex Construction
+### Description
+Tips for simplex
+### Test Status
+See simplex.
 
 ## Adaptive Simpson
 ### Description
