@@ -211,6 +211,29 @@ li {
     out.write("</div></body></html>")
 
 
+def check_docs(sections, docs_dir):
+    for section in sections:
+        docs = section["doc"]
+
+        names_in_doc = []
+        with open(docs_dir + docs) as d:
+            for line in d.readlines():
+                line = line.strip()
+                if line.startswith('## '):
+                    names_in_doc.append(line[3:])
+
+        names_in_yaml = []
+        for content in section["content"]:
+            names_in_yaml.append(content["name"])
+
+        for name in names_in_yaml:
+            if name not in names_in_doc:
+                print(f'Section "{name}" is not documented.')
+        for name in names_in_doc:
+            if name not in names_in_yaml:
+                print(f'Docs "{name}" is not in content.')
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate Contents")
     parser.add_argument(
@@ -224,3 +247,5 @@ if __name__ == "__main__":
         gen_tex(sections_list, args.tex)
     if args.html:
         gen_html(sections_list, args.html)
+
+    check_docs(sections_list, '../docs/')
