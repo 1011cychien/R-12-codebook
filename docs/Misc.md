@@ -95,21 +95,6 @@ over $p/q$ such that $0 \leq p, q \leq N$.
 ### Test Status
 TODO. Copied from NaCl.
 
-## Barrett Reduction
-### Description
-Fast modulo operation of non-constexpr constant.
-Only able to handle int-size modulo.
-### Test Status
-Copied from kactl. Guess it's ok to have no test.
-
-## Montgomery
-### Description
-Montgomery multiplication.
-Fast modulo operation of non-constexpr constant.
-Only able to handle odd modulo.
-### Test Status
-Tested with MillerRabin and PollardRho.
-
 ## Nim Product
 ### Description
 Nim product
