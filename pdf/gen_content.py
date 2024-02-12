@@ -211,7 +211,7 @@ li {
     out.write("</div></body></html>")
 
 
-def check_docs(sections, docs_dir):
+def check_docs(sections: List[Dict[str, Any]], docs_dir: str):
     for section in sections:
         docs = section["doc"]
 

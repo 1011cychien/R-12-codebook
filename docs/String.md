@@ -12,14 +12,16 @@ Passed [Z-algo](https://judge.yosupo.jp/submission/187168).
 
 ## Suffix Array
 ### Description
-
 SA-IS algorithm.
 Complexity: $O(N + C)$
-
 ### Test Status
+Tested on [Suffix Array](https://judge.yosupo.jp/submission/183057) and [Number of Substrings](https://judge.yosupo.jp/submission/183056) and [Longest Common Substring](https://judge.yosupo.jp/submission/190266).
 
-Tested on [Suffix Array](https://judge.yosupo.jp/submission/183057) and [Number of Substrings](https://judge.yosupo.jp/submission/183056).
-
+## Suffix Array Tools
+### Description
+Some LCP array related operation.
+### Test Status
+TODO
 
 ## Ex SAM
 ### Description
@@ -81,6 +83,8 @@ Time complexity: $O(N \log N)$
 Every $[l, r]$ in $\text{rep}[i]$ satisfies that if $p \in [l, r]$ then $s[p,p+i) = s[p+i,p+2i)$.
 
 ### Test Status
+
+TODO: pass library checker?
 
 Passed [CF 104508J](https://codeforces.com/gym/104508/submission/228069417).
 This problem is prepared with this code, but some SA solutions also passes.

@@ -1,15 +1,26 @@
 # Graph
 
-## 2-SAT (SCC)
+## SCC
 ### Description
-Kosaraju and 2-SAT construction.
-Don't forget we can do bitset optimization.
+Tarjan algorithm.
+The constant is generally better than kosaraju.
 
-To use 2-SAT, $2i$ and $2i+1$ represents $x$ and $\neg x$.
-$x \lor x$ or $\neg x \lor \neg x$ is OK.
+TODO Kosaraju and bitset-optimized Kosaraju.
+
 ### Test Status
-Passed CSES Giant Pizza and [CF Radio Stations](https://codeforces.com/contest/1215/submission/219711833).
-Passed [2 SAT](https://judge.yosupo.jp/submission/188294) and [SCC](https://judge.yosupo.jp/submission/188293).
+Passed [SCC](https://judge.yosupo.jp/submission/188293).
+
+## 2-SAT
+### Description
+2-SAT construction.
+
+To use 2-SAT with $n$ variables, call constructor with $2n$.
+$2i$ and $2i+1$ represents $x$ and $\neg x$.
+$x \lor x$ or $\neg x \lor \neg x$ is OK.
+
+### Test Status
+Passed CSES Giant Pizza and [CF Radio Stations](https://codeforces.com/contest/1215/submission/245999562).
+Passed [2 SAT](https://judge.yosupo.jp/submission/188294).
 
 ## BCC
 ### Description

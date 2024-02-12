@@ -44,7 +44,7 @@ Given a set of integers:
 - kth problem [1st Hunger Games S](https://codeforces.com/group/qcIqFPYhVr/contest/203881/problem/S)
 - maybe need a combined problem?
 
-## Binary Search On Segtree
+## Binary Search on Segtree
 ### Description
 Binary search on ZKW segtree.
 `sz` should be power of $2$ (be careful of other parts!).
