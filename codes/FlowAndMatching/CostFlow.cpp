@@ -3,7 +3,7 @@ template <typename F, typename C> class MCMF {
   static constexpr C INF_C = numeric_limits<C>::max();
   struct E { int to, r; F f; C c; };
   vector<vector<E>> g; vector<pair<int, int>> f;
-  vector<bool> inq; vector<F> up; vector<C> d;
+  vector<int> inq; vector<F> up; vector<C> d;
   optional<pair<F, C>> step(int S, int T) {
     queue<int> q;
     for (q.push(S), d[S] = 0, up[S] = INF_F;
