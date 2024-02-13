@@ -278,7 +278,7 @@
       verified: 780c077
     - name: Point In Polygon (Fast)
       path: PointInPolyFast.cpp
-      verified: 98f0b46
+      verified: c37dada
     - name: Cyclic Ternary Search
       path: CyclicTS.cpp
       verified: 0de4fca
