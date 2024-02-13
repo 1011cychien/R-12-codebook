@@ -25,7 +25,7 @@ vector<int> PIPfast(vector<P> p, vector<P> q) {
   lld cur_x = 0;
   auto cmp = [&](const Seg &a, const Seg &b) -> bool {
     if (int s = sgn(eval(a, cur_x) - eval(b, cur_x)))
-      return s == -1;
+      return s == -1; // be careful: sgn<llf>, sgn<lld>
     int s = sgn(cross(b.dir, a.dir));
     if (cur_x != RE(a.st) && cur_x != RE(b.st)) s *= -1;
     return s == -1;
