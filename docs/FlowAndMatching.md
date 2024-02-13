@@ -29,6 +29,8 @@ See [this](https://codeforces.com/blog/entry/52714) and [this](https://codeforce
 $O(VE \log U)$ and $\Theta(acceptable)$ in practice.
 ### Test Status
 Passed [luogu P3376](https://www.luogu.com.cn/record/142472662).
+Passed [VN-SPOJ FFLOW](https://vn.spoj.com/files/src/32616710/).
+[Without scaling](https://vn.spoj.com/files/src/32616719/) won't pass.
 
 ## HLPP
 ### Description
@@ -41,6 +43,8 @@ Note: Lowest Label Push Relabel is $O(\sqrt{V}E)$ on bipartie matching graph.
 ### Test Status
 [LOJ 127](https://loj.ac/s/1978510) and [library checker bipartite matching](https://judge.yosupo.jp/submission/183404).
 Passed [Matching on Bipartite Graph](https://judge.yosupo.jp/submission/183348).
+
+Passed [VN-SPOJ FFLOW](https://vn.spoj.com/files/src/32616750/).
 
 ## Global Min-Cut
 ### Description
@@ -72,11 +76,15 @@ Successive Shortest Path Algorithm using SPFA (Bellman-Ford algorithm).
 Passed [LibreOJ 102](https://loj.ac/s/1987934).
 Testdata in LOJ is not strong in general.
 
+Passed [atcoder lib contest](https://atcoder.jp/contests/practice2/submissions/50243310).
+
 ## Dijkstra Cost Flow
 ### Description
 Successive Shortest Path Algorithm using Dijkstra's algorithm.
 ### Test Status
 Tested on [ARC122 F](https://atcoder.jp/contests/arc122/submissions/49632535) and [LibreOJ 102](https://loj.ac/s/1987935)
+
+Passed [atcoder lib contest](https://atcoder.jp/contests/practice2/submissions/50243410). (??)
 
 ## Min Cost Circulation
 ### Description
@@ -104,3 +112,4 @@ Weighted matching in $O(|V|^3)$.
 [ref-slide](https://jacky860226.github.io/general-graph-weighted-match-slides/#/22)
 ### Test Status
 Tested on [Library Checker](https://judge.yosupo.jp/submission/166076)
+Passed [UOJ #81](https://uoj.ac/submission/678333).

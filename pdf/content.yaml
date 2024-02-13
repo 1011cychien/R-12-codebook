@@ -130,13 +130,13 @@
       verified: 9bca9d7
     - name: MCMF
       path: CostFlow.cpp
-      verified:
+      verified: 0468678
     - name: Dijkstra Cost Flow
       path: DijkstraCostFlow.cpp
-      verified:
+      verified: 32b4e76
     - name: Min Cost Circulation
       path: MinCostCirculation.cpp
-      verified:
+      verified: f0dee32
     - name: General Matching
       path: GeneralMatching.cpp
       verified: b9722f5
