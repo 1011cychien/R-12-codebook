@@ -50,10 +50,10 @@
   content:
     - name: SCC
       path: SCC.cpp
-      verified:
+      verified: 4e30c3b
     - name: 2-SAT
       path: 2SAT.cpp
-      verified:
+      verified: e50acf1
     - name: BCC
       path: BCC.cpp
       verified: d0dcb10
@@ -65,7 +65,7 @@
       verified: c9c0d6e
     - name: Bipolar Orientation
       path: BipolarOri.cpp
-      verified:
+      verified: 63f2a28
     - name: DMST
       path: FastDirectedMST.cpp
       verified: 9bca9d7
