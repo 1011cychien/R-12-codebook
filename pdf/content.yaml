@@ -121,7 +121,7 @@
       verified: a37bcb9
     - name: HLPP
       path: hlpp.cpp
-      verified:
+      verified: a7b3f12
     - name: Global Min-Cut
       path: SW.cpp
       verified: 5b1b960
