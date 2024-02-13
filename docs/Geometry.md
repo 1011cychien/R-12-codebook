@@ -80,7 +80,7 @@ Cut convex polygon by a line.
 ### Test Status
 Copied from kactl. TODO.
 
-## Point in Hull
+## Point In Hull
 ### Description
 Testing PIH in $O(\log N)$.
 ### Test Status
@@ -144,7 +144,7 @@ The intersection area of a circle and a simple polygon.
 Passed AOJ [CGL_7_H](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=8894161#1).
 Copied from 8BQube and they say it passed HDU2892.
 
-## Minimum Covering Circle
+## Min Covering Circle
 ### Description
 Get minimum covering circle in $O(N)$ expected time.
 Also gives the circumcenter formula.
@@ -178,22 +178,21 @@ Basic 3d point.
 `rotate_around` is copied from NaCl.
 Others are tested by 3d hull.
 
-## 3D projection
-### Description
-Get the 2d coordinate of the projection
-of a point $p$ onto plane $q^Tx = 0$.
-### Test Status
-Passed [stars in a can](https://open.kattis.com/problems/starsinacan).
-
 ## 3D Convex Hull
 ### Description
 Return the face of 3d convex hull of $N$ points.
 There will be $O(N)$ faces and time complexity is $O(N^2)$.
 Be careful of degenerate cases.
-
 ### Test Status
 Passed SPOJ and [stars in a can](https://open.kattis.com/problems/starsinacan).
 Passed [HDU 3662](https://vjudge.net/solution/46392862). (need to combine coplanar triangles to one face).
+
+## 3D Projection
+### Description
+Get the 2d coordinate of the projection
+of a point $p$ onto plane $q^Tx = 0$.
+### Test Status
+Passed [stars in a can](https://open.kattis.com/problems/starsinacan).
 
 ## Delaunay
 ### Description
