@@ -86,7 +86,7 @@ Passed [TIOJ 1171](https://tioj.ck.tp.edu.tw/submissions/370410).
 ### Description
 Some chain decomposition of tree.
 ### Test Status
-TODO
+Passed [Vertex Add Path Sum](https://judge.yosupo.jp/submission/190942).
 
 ## Virtual Tree
 ### Description

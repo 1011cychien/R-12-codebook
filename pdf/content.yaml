@@ -80,7 +80,7 @@
       verified:
     - name: Lowbit Decomp.
       path: LowbitDecomposition.cpp
-      verified:
+      verified: f4d3104
     - name: Virtual Tree
       path: VirtualTree.cpp
       verified:
