@@ -346,7 +346,7 @@
       verified: 5bc50bf
     - name: Suffix Array
       path: SAIS-C++20.cpp
-      verified: 893f777
+      verified: d698304
     - name: Suffix Array Tools
       path: SuffixArrayTools.cpp
       verified:
