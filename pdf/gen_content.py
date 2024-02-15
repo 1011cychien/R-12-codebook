@@ -232,6 +232,9 @@ def check_docs(sections: List[Dict[str, Any]], docs_dir: str):
         for name in names_in_doc:
             if name not in names_in_yaml:
                 print(f'Docs "{name}" is not in content.')
+        import sys
+        import difflib
+        print('\n'.join(difflib.unified_diff(names_in_yaml, names_in_doc)))
 
 
 if __name__ == "__main__":
