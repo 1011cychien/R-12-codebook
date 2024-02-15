@@ -33,9 +33,28 @@ def escape_latex(raw_s: str) -> str:
     }
     return "".join(escape_list.get(char, char) for char in raw_s)
 
+def check_verify_status(repo: Any, prefix: str, content: Dict[str, Any], verbose: bool) -> str:
+    file_path = path.join(prefix, content["path"])
+    real_path = path.realpath(file_path)
+    commits = list(repo.iter_commits(max_count=1, paths=real_path))
+    commit_hash = str(commits[0]) if len(commits) > 0 else None
+    if verbose:
+        print(content["name"], commit_hash, content["verified"])
+    if content["verified"] is None:
+        return "none"
+    elif content["verified"] == "skip":
+        return "skip"
+    elif (
+        commit_hash is None or
+        content["verified"] != commit_hash[:len(content["verified"])]
+    ):
+        return "expired"
+    else:
+        return "verified"
 
 def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
     """generate content.tex"""
+    repo = Repo("..")
     for section in sections:
         title = escape_latex(section["name"])
         prefix = section["prefix"]
@@ -43,6 +62,10 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
         out.write("\\renewcommand\\Prefix{%s}\n" % prefix)
         for content in section["content"]:
             base, ext = path.splitext(content["path"])
+
+            verified = check_verify_status(repo, prefix, content, verbose=False)
+            verified_mark = "*" if verified == "none" or verified == "expired" else ""
+
             if ext == ".cpp":
                 preprocessed = subprocess.check_output(
                     [
@@ -59,7 +82,7 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
                     "\\IncludeCode[][%s]{%s}{%s}\n"
                     % (
                         " {\\small [%s]}" % cpp_hash,
-                        escape_latex(content["name"]),
+                        escape_latex(content["name"]) + verified_mark,
                         content["path"],
                     )
                 )
@@ -182,22 +205,19 @@ li {
         )
         for content in section["content"]:
             out.write("<li>")
+            verified = check_verify_status(repo, prefix, content, verbose=True)
+            match verified:
+                case "none":
+                    out.write(b"\xe2\x9d\x8c".decode("utf8"))
+                case "skip":
+                    out.write(b"\xf0\x9f\x93\x9d".decode("utf8"))
+                case "expired":
+                    out.write(b"\xe2\x9a\xa0\xef\xb8\x8f".decode("utf8"))
+                case "verified":
+                    out.write(b"\xe2\x9c\x85".decode("utf8"))
+
             file_path = path.join(prefix, content["path"])
             real_path = path.realpath(file_path)
-            commits = list(repo.iter_commits(max_count=1, paths=real_path))
-            commit_hash = str(commits[0]) if len(commits) > 0 else None
-            print(content["name"], commit_hash, content["verified"])
-            if content["verified"] is None:
-                out.write(b"\xe2\x9d\x8c".decode("utf8"))
-            elif content["verified"] == "skip":
-                out.write(b"\xf0\x9f\x93\x9d".decode("utf8"))
-            elif (
-                commit_hash is None or
-                content["verified"] != commit_hash[:len(content["verified"])]
-            ):
-                out.write(b"\xe2\x9a\xa0\xef\xb8\x8f".decode("utf8"))
-            else:
-                out.write(b"\xe2\x9c\x85".decode("utf8"))
             out.write(
                 " "
                 + "<a href='https://github.com/OmeletWithoutEgg"
