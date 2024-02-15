@@ -77,8 +77,10 @@ Passed [NCPC 2018 G](https://codeforces.com/gym/101933/submission/233996239).
 ### Description
 Mark a vertex or query the sum of distance from a vertex to
 all marked vertices.
+
+Need rewrite or smt?
 ### Test Status
-Need rewrite or smt.
+Passed [TIOJ 1171](https://tioj.ck.tp.edu.tw/submissions/370410).
 
 ## Lowbit Decomp.
 ### Description
@@ -100,6 +102,7 @@ Used in contest. TODO.
 Some PRNG random hash.
 ### Test Status
 Passed [UOJ 763](https://uoj.ac/submission/672367) and [library checker](https://judge.yosupo.jp/submission/182721).
+Passed [QOJ 499](https://qoj.ac/submission/327465).
 
 ## Mo's Algo on Tree
 ### Description

@@ -77,6 +77,7 @@ Passed [LibreOJ 102](https://loj.ac/s/1987934).
 Testdata in LOJ is not strong in general.
 
 Passed [atcoder lib contest](https://atcoder.jp/contests/practice2/submissions/50243310).
+[QOJ 602](https://qoj.ac/submission/327474) (random testcase).
 
 ## Dijkstra Cost Flow
 ### Description
@@ -92,12 +93,14 @@ Network simplex method. Exponential time complexity, but it runs not too slow in
 ### Test Status
 Tested on [UOJ #487](https://uoj.ac/submission/659272), [UOJ #680](https://uoj.ac/submission/659396), and [LibreOJ 102](https://loj.ac/s/1911317).
 [min_cost_b_flow](https://judge.yosupo.jp/submission/183609).
+[QOJ 602](https://qoj.ac/submission/327476) (random testcase).
 **Cannot** pass [QOJ 7185](https://qoj.ac/contest/1356/problem/7185)
 
 ## Capacity Scaling
 ### Description
 ### Test Status
 [min_cost_b_flow](https://judge.yosupo.jp/submission/183528)
+[QOJ 602](https://qoj.ac/submission/327487) (random testcase).
 
 ## General Matching
 ### Description

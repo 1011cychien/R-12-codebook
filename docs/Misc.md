@@ -75,18 +75,18 @@ N Queens Problem construction
 ### Test Status
 Not even used or tested.
 
-## Manhattan MST
-### Description
-Minimum Spanning Tree of manhattan distance.
-### Test Status
-Passed [yosupo library checker](https://judge.yosupo.jp/submission/69901).
-
 ## Tree Knapsack
 ### Description
 TODO
 don't know its usage
 ### Test Status
 Not even used or tested.
+
+## Manhattan MST
+### Description
+Minimum Spanning Tree of manhattan distance.
+### Test Status
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/69901).
 
 ## Binary Search On Fraction
 ### Description

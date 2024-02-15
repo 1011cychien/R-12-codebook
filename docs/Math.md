@@ -50,6 +50,7 @@ Tested on [SEERC'20 G](https://codeforces.com/gym/102411/submission/212888594)
 https://judge.yosupo.jp/submission/185615
 https://www.luogu.com.cn/record/144016921
 https://loj.ac/s/1986411
+https://qoj.ac/submission/327486
 
 ## ax+by=gcd
 ### Description

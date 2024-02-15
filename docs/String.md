@@ -17,6 +17,8 @@ Complexity: $O(N + C)$
 ### Test Status
 Tested on [Suffix Array](https://judge.yosupo.jp/submission/190351) and [Number of Substrings](https://judge.yosupo.jp/submission/183056) and [Longest Common Substring](https://judge.yosupo.jp/submission/190266).
 
+[QOJ 956](https://qoj.ac/submission/327466) with $N=1e6$ and $\Sigma$ is alphabet and number, 144ms.
+
 ## Suffix Array Tools
 ### Description
 Some LCP array related operation.
@@ -36,7 +38,8 @@ Copied from 8bq
 ### Description
 Knuth-Morris-Pratt algo
 ### Test Status
-https://tioj.ck.tp.edu.tw/submissions/368896
+[TIOJ 1306](https://tioj.ck.tp.edu.tw/submissions/368896)
+[QOJ 464](https://qoj.ac/submission/327469)
 
 ## Z value
 ### Description
