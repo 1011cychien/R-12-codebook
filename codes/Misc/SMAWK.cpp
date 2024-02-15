@@ -3,8 +3,8 @@
 // If M[1][0] == M[1][1], M[0][0] <= M[0][1]
 // M[i][ans_i] is the best value in the i-th row
 VI smawk(int N, int M, auto &&select) {
-  auto dc = [&](auto self, const VI &r, const VI &c) -> VI {
-    if (r.empty()) return {};
+  auto dc = [&](auto self, const VI &r, const VI &c) {
+    if (r.empty()) return VI{};
     const int n = (int)r.size(); VI ans(n), nr, nc;
     for (int i : c) {
       while (!nc.empty() && select(r[nc.size() - 1], nc.back(), i))

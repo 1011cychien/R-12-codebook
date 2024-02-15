@@ -6,4 +6,4 @@ auto CartesianTree(const auto &a) {
       tie(l, pa[l], p, pa[p]) = tuple(p, p, pa[p], i);
   }
   return pa.pop_back(), pa;
-}
+} // root is minimum

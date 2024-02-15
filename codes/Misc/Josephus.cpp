@@ -1,4 +1,4 @@
-lld f(lld n, lld m, lld k) { // n people kill m for each turn
+lld f(lld n, lld m, lld k) { // n 人每次隔 m-1 個殺
   lld s = (m - 1) % (n - k); // O(k)
   for (lld i = n - k + 1; i <= n; i++) s = (s + m) % i;
   return s;

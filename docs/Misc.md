@@ -55,7 +55,7 @@ Passed [library checker](https://judge.yosupo.jp/submission/190310).
 SMAWK algo.
 ref: maspy and abc
 ### Test Status
-Passed [min plus convolution](https://judge.yosupo.jp/submission/190304).
+Passed [min plus convolution](https://judge.yosupo.jp/submission/190983).
 
 ## De-Bruijn
 ### Description
