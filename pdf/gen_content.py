@@ -63,8 +63,8 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
         for content in section["content"]:
             base, ext = path.splitext(content["path"])
 
-            verified = check_verify_status(repo, prefix, content, verbose=False)
-            verified_mark = "*" if verified == "none" or verified == "expired" else ""
+            # verified = check_verify_status(repo, prefix, content, verbose=False)
+            # verified_mark = "*" if verified == "none" or verified == "expired" else ""
 
             if ext == ".cpp":
                 preprocessed = subprocess.check_output(
