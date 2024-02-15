@@ -18,11 +18,12 @@ Debug code for dumping information.
 ### Test Status
 No test needed.
 
-## Increase Stack
+## SVG Writer
 ### Description
-Increase the stack size
+A helper to generate SVG. Support Line, Circle, and Text.
+Should adjust sizes properly.
 ### Test Status
-Not even used
+No Test
 
 ## Pragma Optimization
 ### Description
@@ -39,9 +40,8 @@ I/O bounded program needs this sweet optimization.
 ### Test Status
 Rarely used, no test.
 
-## SVG Writer
+## Increase Stack
 ### Description
-A helper to generate SVG. Support Line, Circle, and Text.
-Should adjust sizes properly.
+Increase the stack size
 ### Test Status
-No Test
+Not even used
