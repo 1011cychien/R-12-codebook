@@ -25,16 +25,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Trust Directory
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
+          # https://github.com/actions/checkout/issues/760
       - name: Build codebook
         working-directory: pdf
         run: make clean && make codebook.pdf
       - name: Build docs
         working-directory: docs
         run: make clean && make docs.pdf
-      - name: Trust Directory
-        run: |
-          git config --global --add safe.directory $GITHUB_WORKSPACE
-          # https://github.com/actions/checkout/issues/760
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: auto build - ${{ github.sha }}
