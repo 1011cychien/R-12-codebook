@@ -80,7 +80,7 @@
       verified:
     - name: Lowbit Decomp.
       path: LowbitDecomposition.cpp
-      verified: f4d3104
+      verified: 376a69c
     - name: Virtual Tree
       path: VirtualTree.cpp
       verified:
@@ -426,7 +426,7 @@
       verified:
     - name: Cartesian Tree
       path: CartesianTree.cpp
-      verified:
+      verified: 8137f19
     - name: Nim Product
       path: NimProd.cpp
       verified: 57173fa
