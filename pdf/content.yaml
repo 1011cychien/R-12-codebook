@@ -424,6 +424,9 @@
     - name: Binary Search On Fraction
       path: BinarySearchOnFraction.cpp
       verified:
+    - name: Cartesian Tree
+      path: CartesianTree.cpp
+      verified:
     - name: Nim Product
       path: NimProd.cpp
       verified: 57173fa

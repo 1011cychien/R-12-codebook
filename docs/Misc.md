@@ -95,6 +95,12 @@ over $p/q$ such that $0 \leq p, q \leq N$.
 ### Test Status
 TODO. Copied from NaCl.
 
+## Cartesian Tree
+### Description
+ref: https://github.com/yosupo06/library-checker-problems/tree/master/graph/cartesian_tree
+### Test Status
+Passed [library checker](https://judge.yosupo.jp/submission/190941).
+
 ## Nim Product
 ### Description
 Nim product
