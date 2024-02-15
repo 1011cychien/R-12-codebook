@@ -1,12 +1,9 @@
 auto sais(const auto &s) {
   const int n = (int)s.size(), z = ranges::max(s) + 1;
+  if (n == 1) return vector{0};
   vector<int> c(z); for (int x : s) ++c[x];
   partial_sum(all(c), begin(c));
   vector<int> sa(n); auto I = views::iota(0, n);
-  if (ranges::max(c) <= 1) {
-    for (int i : I) sa[--c[s[i]]] = i;
-    return sa;
-  }
   vector<bool> t(n); t[n - 1] = true;
   for (int i = n - 2; i >= 0; --i)
     t[i] = (s[i]==s[i + 1] ? t[i + 1] : s[i]<s[i + 1]);
