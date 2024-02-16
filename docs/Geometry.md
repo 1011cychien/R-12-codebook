@@ -57,8 +57,10 @@ Calculate the area of half-plane-intersection.
 The result lines will be in `q` (this is why we need the reference).
 Result lines maybe wrong if the intersection area doesn't have positive area.
 ### Test Status
-Passed 2020 Nordic NCPC Big brother.
+Passed 2020 Nordic NCPC [Big brother](https://ncpc20.kattis.com/submissions/12966548).
 Used in many contest.
+
+Passed POJ 3384, 3525.
 
 ## SegmentDist (Sausage)
 ### Description

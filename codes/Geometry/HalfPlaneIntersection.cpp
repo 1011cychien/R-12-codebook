@@ -33,7 +33,7 @@ llf HPI(vector<Line> &q) {
   while (l < r && cov(q[l], q[r-1], q[r])) --r;
   while (l < r && cov(q[r], q[l], q[l+1])) ++l;
   n = r - l + 1; // q[l .. r] are the lines
-  if (n <= 1 || !argCmp(q[l].dir, q[r].dir)) return 0;
+  if (n <= 2 || !argCmp(q[l].dir, q[r].dir)) return 0;
   vector<PF> pt(n);
   for (int i = 0; i < n; i++)
     pt[i] = intersect(q[i+l], q[(i+1)%n+l]);
