@@ -65,7 +65,9 @@ Passed CSES, [regional prob](https://codeforces.com/gym/102001/problem/C) and lo
 
 ## Josephus Problem
 ### Description
-Josephus problem $O(N)$ and faster algo ($O(M\log N)$).
+Josephus problem $O(K)$ and faster algo ($O(M\log N)$).
+
+TODO: is `kth` $O(min(K, M\log N))$?
 ### Test Status
 Passed [2018 Asia Nanjing](https://codeforces.com/gym/101955/submission/235686980).
 

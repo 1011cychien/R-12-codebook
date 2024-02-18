@@ -39,6 +39,8 @@ Passed UVA 819
 Minkowski sum of two convex hulls.
 ### Test Status
 Used in some contest. TODO.
+Passed codeforces [87 E](https://codeforces.com/contest/87/submission/246943573).
+Passed [non-flying weather](https://acm.timus.ru/problem.aspx?space=1&num=1894).
 
 ## Segment Intersection
 ### Description

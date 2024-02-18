@@ -10,7 +10,7 @@
       verified: 28869cf
     - name: SVG Writer
       path: SVGWriter.cpp
-      verified: 6324b1f
+      verified: 7ecc624
     - name: Pragma Optimization
       path: Pragma.cpp
       verified: skip
@@ -254,13 +254,13 @@
       verified: 253adb0
     - name: Minkowski Sum
       path: MinkowskiSum.cpp
-      verified:
+      verified: ff157b8
     - name: Segment Intersection
       path: SegIsIntersect.cpp
       verified: 2f36a8b
     - name: Halfplane Intersection
       path: HalfPlaneIntersection.cpp
-      verified: 984818755a1e
+      verified: b6e1a20
     - name: SegmentDist (Sausage)
       path: SegSegDist.cpp
       verified: 15830f6
@@ -405,13 +405,13 @@
       verified: 4d49c76
     - name: SMAWK
       path: SMAWK.cpp
-      verified: be19965
+      verified: 8137f19
     - name: De-Bruijn
       path: DeBruijn.cpp
       verified: 4afad87
     - name: Josephus Problem
       path: Josephus.cpp
-      verified: cb6f28f
+      verified: 8137f19
     - name: N Queens Problem
       path: NQueens.cpp
       verified:
