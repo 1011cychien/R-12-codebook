@@ -22,6 +22,8 @@ No test needed.
 ### Description
 A helper to generate SVG. Support Line, Circle, and Text.
 Should adjust sizes properly.
+
+An [example](https://codeforces.com/contest/87/submission/246944647).
 ### Test Status
 No Test
 

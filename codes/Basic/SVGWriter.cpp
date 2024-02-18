@@ -25,5 +25,5 @@ public:
       x, -y, w, s); }
 }; // write wrapper for complex if use complex
 #else
-class SVG { SVG(auto ...) {} }; // you know how to
+struct SVG { SVG(auto ...) {} }; // you know how to
 #endif
