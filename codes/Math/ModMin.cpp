@@ -1,6 +1,6 @@
 // min{k | l <= ((ak) mod m) <= r}
 optional<llu> mod_min(u32 a, u32 m, u32 l, u32 r) {
-  if (a == 0) return l ? nullopt : 0;
+  if (a == 0) return l ? nullopt : optional{0};
   if (auto k = llu(l + a - 1) / a; k * a <= r)
     return k;
   auto b = m / a, c = m % a;
