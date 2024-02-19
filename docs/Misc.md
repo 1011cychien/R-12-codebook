@@ -94,8 +94,10 @@ Passed [yosupo library checker](https://judge.yosupo.jp/submission/69901).
 ### Description
 Binary search on stern-borcot tree, binary search
 over $p/q$ such that $0 \leq p, q \leq N$.
+
+Copied from NaCl.
 ### Test Status
-TODO. Copied from NaCl.
+Passed [Sugar water 2](https://atcoder.jp/contests/abc294/submissions/50444921).
 
 ## Cartesian Tree
 ### Description

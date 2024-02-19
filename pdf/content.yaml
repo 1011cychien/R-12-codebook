@@ -423,7 +423,7 @@
       verified: af6f1af
     - name: Binary Search On Fraction
       path: BinarySearchOnFraction.cpp
-      verified:
+      verified: 0a2d402
     - name: Cartesian Tree
       path: CartesianTree.cpp
       verified: 8137f19
