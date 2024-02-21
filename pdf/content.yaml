@@ -102,6 +102,9 @@
     - name: Min Mean Cycle
       path: MinMeanCycle.cpp
       verified: bc70800
+    - name: Eulerian Trail
+      path: EulerianTail.cpp
+      verified:
 
 - name: Flow & Matching
   prefix: ../codes/FlowAndMatching/
