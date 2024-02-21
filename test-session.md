@@ -24,6 +24,7 @@
 - Python
 - Language docs
 - Tools (sanitizers, gdb, valgrind, perf, bc, time)
+- ulimit
 
 ## Misc
 - Codebook material check
