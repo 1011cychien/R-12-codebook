@@ -20,4 +20,4 @@ vector<pair<int, int>> build(vector<int> vs, int r) {
   for (size_t i = 1; i < s.size(); ++i)
     res.emplace_back(s[i - 1], s[i]);
   return res; // (x, y): x->y
-}
+} // 記得建虛樹會多出 `vs` 以外的點
