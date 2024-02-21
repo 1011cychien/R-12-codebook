@@ -103,7 +103,7 @@
       path: MinMeanCycle.cpp
       verified: bc70800
     - name: Eulerian Trail
-      path: EulerianTail.cpp
+      path: EulerianTrail.cpp
       verified:
 
 - name: Flow & Matching
