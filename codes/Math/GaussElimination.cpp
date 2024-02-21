@@ -1,11 +1,11 @@
-using VI = vector<int>;
-using VVI = vector<VI>;
+using VI = vector<int>; // be careful if A.empty()
+using VVI = vector<VI>; // ensure that 0 <= x < mod
 pair<VI, VVI> gauss(VVI A, VI b) { // solve Ax=b
   const int N = (int)A.size(), M = (int)A[0].size();
   vector<int> depv, free(M, true); int rk = 0;
-  for (int i = 0; i < M; ++i) {
+  for (int i = 0; i < M; i++) {
     int p = -1;
-    for (int j = rk; j < N; ++j)
+    for (int j = rk; j < N; j++)
       if (p == -1 || abs(A[j][i]) > abs(A[p][i]))
         p = j;
     if (p == -1 || A[p][i] == 0) continue;
@@ -13,7 +13,7 @@ pair<VI, VVI> gauss(VVI A, VI b) { // solve Ax=b
     const int inv = modinv(A[rk][i]);
     for (int &x : A[rk]) x = mul(x, inv);
     b[rk] = mul(b[rk], inv);
-    for (int j = 0; j < N; ++j) if (j != rk) {
+    for (int j = 0; j < N; j++) if (j != rk) {
       int z = A[j][i];
       for (int k = 0; k < M; ++k)
         A[j][k] = sub(A[j][k], mul(z, A[rk][k]));
