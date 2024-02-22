@@ -168,7 +168,7 @@
       verified: 23ef28e
     - name: ModMin
       path: ModMin.cpp
-      verified:
+      verified: 6ccf051
     - name: Floor Monoid Product
       path: FloorMonoidProduct.cpp
       verified: 7a28e3a

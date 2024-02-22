@@ -39,7 +39,8 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165193) (negative coeff
 ### Description
 Return the minimum $x \geq 0$ such that $l \leq ax \mod m \leq r$.
 ### Test Status
-Tested on [SEERC'20 G](https://codeforces.com/gym/102411/submission/212888594)
+Tested on [SEERC'20 G](https://codeforces.com/gym/102411/submission/247712195)
+Passed [min_of_mod_of_linear](https://judge.yosupo.jp/submission/192699) with binary search.
 
 ## Floor Monoid Product
 ### Description
