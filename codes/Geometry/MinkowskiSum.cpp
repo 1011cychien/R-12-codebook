@@ -12,4 +12,4 @@ vector<P> Minkowski(vector<P> A, vector<P> B) {
   }
   partial_sum(all(C), C.begin()); C.pop_back();
   return convex_hull(C); // just to remove colinear
-}
+} // be careful if min(|A|,|B|)<=2
