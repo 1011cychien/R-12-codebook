@@ -15,7 +15,7 @@ pair<VI, VVI> gauss(VVI A, VI b) { // solve Ax=b
     b[rk] = mul(b[rk], inv);
     for (int j = 0; j < N; j++) if (j != rk) {
       int z = A[j][i];
-      for (int k = 0; k < M; ++k)
+      for (int k = 0; k < M; k++)
         A[j][k] = sub(A[j][k], mul(z, A[rk][k]));
       b[j] = sub(b[j], mul(z, b[rk]));
     }
