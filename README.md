@@ -9,9 +9,13 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [Latest document](https://github.com/OmeletWithoutEgg/ckiseki/raw/master/docs/docs.pdf)
 * [Test Status](https://omeletwithoutegg.github.io/ckiseki/)
 
+- 在 pdf 裡面標星號的代表 not verified
+- 在 .cpp 裡面放 `/* SPLIT_HASH_HERE */` 可以分段 hash
+
 ## TODO
 
 * Make all include cpps have corresponding docs.
+* Rewrite gen_content.py or refactor whole building mechanism @@
 
 ### To delete/fix/shorten
 * [x] binary search on segtree
