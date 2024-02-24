@@ -33,7 +33,7 @@ public:
   PII get_subtree(int u) { return {tl[u], tr[u]}; }
   vector<PII> get_path(int u, int v) {
     vector<PII> res;
-    while (chain[u] != chain[v]) {
+    while (top[u] != top[v]) {
       if (dep[top[u]] < dep[top[v]]) swap(u, v);
       int s = top[u];
       res.emplace_back(tl[s], tl[u] + 1);
