@@ -29,6 +29,7 @@ template <typename Val, typename SVal> class LCT {
     swap(lc, rc), swap(cur.prod, cur.rprod);
     cur.rev ^= 1;
   }
+  /* SPLIT_HASH_HERE */
   void rotate(int u) {
     int f = cur.pa, g = o[f].pa, l = is_rch(u);
     if (cur.ch[l ^ 1]) o[cur.ch[l ^ 1]].pa = f;
@@ -68,6 +69,7 @@ template <typename Val, typename SVal> class LCT {
   }
   void split(int x, int y) { chroot(x); access(y); }
   void chroot(int u) { access(u); set_rev(u); }
+  /* SPLIT_HASH_HERE */
 public:
   LCT(int n = 0) : o(n + 1) {}
   int add(const Val &v = {}) {

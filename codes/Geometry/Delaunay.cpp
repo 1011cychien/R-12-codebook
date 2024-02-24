@@ -36,6 +36,7 @@ struct Tri {
   bool check(int q) const {
     return in_cc({v[p[0]], v[p[1]], v[p[2]]}, v[q]); }
 } pool[maxn * 10], *it, *root;
+/* SPLIT_HASH_HERE */
 void link(const E &a, const E &b) {
   if (a.t) a.t->e[a.side] = b;
   if (b.t) b.t->e[b.side] = a;
