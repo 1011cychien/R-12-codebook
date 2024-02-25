@@ -1,11 +1,10 @@
 struct S { int i, l, r; };
 auto solve(int n, int k, auto &w) {
-  vector<int64_t> dp(n + 1);
+  vector<int64_t> dp(n + 1); dp[0] = 0;
   auto f = [&](int l, int r) -> int64_t {
     if (r - l > k) return -INF;
     return dp[l] + w(l + 1, r);
   };
-  dp[0] = 0;
   deque<S> dq; dq.emplace_back(0, 1, n);
   for (int i = 1; i <= n; ++i) {
     dp[i] = f(dq.front().i, i);
@@ -19,8 +18,7 @@ auto solve(int n, int k, auto &w) {
     if (!dq.empty()) {
       auto [j, l, r] = dq.back();
       for (int s = 1 << 20; s; s >>= 1)
-        if (l + s <= n && f(i, l + s) < f(j, l + s))
-          l += s;
+        if (l+s <= n && f(i, l+s) < f(j, l+s)) l += s;
       dq.back().r = l; p = l + 1;
     }
     if (p <= n) dq.emplace_back(i, p, n);

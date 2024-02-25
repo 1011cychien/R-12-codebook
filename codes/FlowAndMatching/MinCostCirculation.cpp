@@ -20,8 +20,7 @@ struct MinCostCirculation {
   int lca(int u, int v) {
     for (; u != -1 || v != -1; swap(u, v)) if (u != -1) {
       if (vis[u] == visc) return u;
-      vis[u] = visc;
-      u = fa[u];
+      vis[u] = visc; u = fa[u];
     }
     return -1;
   }

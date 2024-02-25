@@ -4,10 +4,8 @@ Cir getCircum(P a, P b, P c){ // P = complex<llf>
   P o = rot90(c2 * z1 - c1 * z2) / D;
   return { o, abs(o - a) };
 }
-Cir minCircleCover(vector<P> p) {
-  assert (!p.empty());
-  ranges::shuffle(p, mt19937(114514));
-  Cir c = { 0, 0 };
+Cir minCircleCover(vector<P> p) { // what if p.empty?
+  Cir c = { 0, 0 }; shuffle(all(p), mt19937(114514));
   for (size_t i = 0; i < p.size(); i++) {
     if (abs(p[i] - c.o) <= c.r) continue;
     c = { p[i], 0 };

@@ -48,7 +48,7 @@ Passed [yosupo library checker](https://judge.yosupo.jp/submission/161793).
 ### Description
 Bipolar orientation algo
 ### Test Status
-Passed [1916F](https://codeforces.com/contest/1916/submission/244774734).
+Passed [1916F](https://codeforces.com/contest/1916/submission/248286992).
 
 ## DMST
 ### Description

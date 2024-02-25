@@ -10,10 +10,8 @@ vector<pair<int, int>> build(vector<int> vs, int r) {
         res.emplace_back(s[s.size() - 2], s.back());
         s.pop_back();
       }
-      if (s.back() != o) {
-        res.emplace_back(o, s.back());
-        s.back() = o;
-      }
+      if (s.back() != o)
+        res.emplace_back(o, s.back()), s.back() = o;
     }
     s.push_back(v);
   }
