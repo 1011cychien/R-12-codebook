@@ -31,7 +31,7 @@
     - name: Link-Cut Tree
       path: LCT.cpp
       verified: 9d2fc74
-    - name: LiChao Segment Tree
+    - name: LiChao Segtree
       path: LiChao.cpp
       verified:
     - name: Treap
@@ -80,7 +80,7 @@
       verified:
     - name: Lowbit Decomp.
       path: LowbitDecomposition.cpp
-      verified: 9d2fc74
+      verified: 8a7e002
     - name: Virtual Tree
       path: VirtualTree.cpp
       verified:
@@ -186,7 +186,7 @@
       verified: 721489798592861d
     - name: FWT
       path: FWT.cpp
-      verified: 1d47c5d
+      verified: 9d2fc74
     - name: Packed FFT
       path: PackedFFT.cpp
       verified: 76e52a1
@@ -195,7 +195,7 @@
       verified: 56e6571
     - name: NTT / FFT
       path: NTT.cpp
-      verified: ffe75a5
+      verified: 9d2fc74
     - name: Formal Power Series
       path: FPS.cpp
       verified: be320a4
@@ -222,7 +222,7 @@
       verified: bbbb590
     - name: Gauss Elimination
       path: GaussElimination.cpp
-      verified: 5a9abe0
+      verified: 1408913
     - name: CharPoly
       path: CharPoly.cpp
       verified: d6a4ccd
@@ -349,7 +349,7 @@
       verified: 5bc50bf
     - name: Suffix Array
       path: SAIS-C++20.cpp
-      verified: 9d2fc74
+      verified: 6b8fedb
     - name: Suffix Array Tools
       path: SuffixArrayTools.cpp
       verified:
@@ -358,7 +358,7 @@
       verified:
     - name: KMP
       path: KMP.cpp
-      verified: 6ae6737
+      verified: 9d2fc74
     - name: Z value
       path: ZValue.cpp
       verified: af6f1af
