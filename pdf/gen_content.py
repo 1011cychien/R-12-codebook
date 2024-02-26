@@ -109,7 +109,7 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
 
                 hash_str = "{ \\small [%s]}" % whole_cpp_hash
                 if len(hashes) > 1:
-                    hash_str += "{\\small - %s}" % '/'.join(hashes)
+                    hash_str += "{\\small \,- %s}" % '/'.join(hashes)
 
                 out.write(
                     "\\IncludeCode[][%s]{%s}{%s}\n"
