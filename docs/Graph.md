@@ -86,7 +86,7 @@ Passed [TIOJ 1171](https://tioj.ck.tp.edu.tw/submissions/370410).
 ### Description
 Some chain decomposition of tree.
 ### Test Status
-Passed [Vertex Add Path Sum](https://judge.yosupo.jp/submission/190942).
+Passed [Vertex Add Path Sum](https://judge.yosupo.jp/submission/193555).
 
 ## Virtual Tree
 ### Description
@@ -124,6 +124,7 @@ Time complexity $O(n3^{n/3})$ or $O(nC)$ where $C$
 is the number of such cliques.
 ### Test Status
 Can run on $n=80$ on [TIOJ](https://tioj.ck.tp.edu.tw/submissions/357847).
+[library checker enumerate cliques](https://judge.yosupo.jp/submission/193392)
 
 ## Maximum Clique
 ### Description

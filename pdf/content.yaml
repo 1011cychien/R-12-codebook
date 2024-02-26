@@ -30,7 +30,7 @@
       verified: af6f1af
     - name: Link-Cut Tree
       path: LCT.cpp
-      verified: 7086d69
+      verified: 9d2fc74
     - name: LiChao Segment Tree
       path: LiChao.cpp
       verified:
@@ -65,7 +65,7 @@
       verified: c9c0d6e
     - name: Bipolar Orientation
       path: BipolarOri.cpp
-      verified: 63f2a28
+      verified: 9d2fc74
     - name: DMST
       path: FastDirectedMST.cpp
       verified: 9bca9d7
@@ -80,7 +80,7 @@
       verified:
     - name: Lowbit Decomp.
       path: LowbitDecomposition.cpp
-      verified: 376a69c
+      verified: 9d2fc74
     - name: Virtual Tree
       path: VirtualTree.cpp
       verified:
@@ -95,7 +95,7 @@
       verified: 871cd2e
     - name: Maximal Clique
       path: MaxClique.cpp
-      verified: 3646d07
+      verified: 9d2fc74
     - name: Maximum Clique
       path: MaxCliqueDyn.cpp
       verified: cb8ce66
@@ -130,7 +130,7 @@
       verified: 5b1b960
     - name: GomoryHu Tree
       path: GomoryHu.cpp
-      verified: 9bca9d7
+      verified: 9d2fc74
     - name: MCMF
       path: CostFlow.cpp
       verified: 0468678
@@ -145,7 +145,7 @@
       verified: b9722f5
     - name: Weighted Matching
       path: WeightedGeneralMatching.cpp
-      verified: 7c73a5f
+      verified: 9d2fc74
 
 - name: Math
   prefix: ../codes/Math/

@@ -67,7 +67,7 @@ Something I don't understand: In the Gomory-Hu tree, for any pair of vertices no
 
 Fun Fact: Gomory-Hu Tree can be computed in almost linear time. (see [this](https://arxiv.org/abs/2111.04958))
 ### Test Status
-Passed [CF 343E](https://codeforces.com/contest/343/submission/241516652).
+Passed [CF 343E](https://codeforces.com/contest/343/submission/248354506).
 
 ## MCMF
 ### Description
@@ -114,5 +114,5 @@ Tested on [Library Checker](https://judge.yosupo.jp/submission/182801).
 Weighted matching in $O(|V|^3)$.
 [ref-slide](https://jacky860226.github.io/general-graph-weighted-match-slides/#/22)
 ### Test Status
-Tested on [Library Checker](https://judge.yosupo.jp/submission/166076)
-Passed [UOJ #81](https://uoj.ac/submission/678333).
+Tested on [Library Checker](https://judge.yosupo.jp/submission/193560)
+Passed [UOJ #81](https://uoj.ac/submission/680055).
