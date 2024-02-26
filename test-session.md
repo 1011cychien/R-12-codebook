@@ -2,6 +2,7 @@
 
 ## CE
 - `__int128`, `__float128`
+    - `long double` 是幾個 byte
 - `pb_ds`, `rope`
 - `clock()`
 - C++ version
