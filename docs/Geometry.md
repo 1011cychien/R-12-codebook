@@ -17,9 +17,10 @@ TODO Center of polygon needs test.
 ### Description
 Returns strict convex hull of given points.
 The result is counter-clockwise and the first point is the lex-min point.
-Be carefule about edge case (0/1/2/3 points on CV)
+Be careful about edge case (0/1/2/3 points on CV)
 ### Test Status
 Used in some contest.
+Passed codeforces [87 E](https://codeforces.com/contest/87/submission/248359853).
 
 ## 2D Farthest Pair
 ### Description
@@ -39,8 +40,8 @@ Passed UVA 819
 Minkowski sum of two convex hulls.
 ### Test Status
 Used in some contest. TODO.
-Passed codeforces [87 E](https://codeforces.com/contest/87/submission/246943573).
-Passed [non-flying weather](https://acm.timus.ru/problem.aspx?space=1&num=1894).
+Passed codeforces [87 E](https://codeforces.com/contest/87/submission/248359853).
+~~Passed [non-flying weather](https://acm.timus.ru/problem.aspx?space=1&num=1894).~~
 
 ## Segment Intersection
 ### Description
@@ -88,7 +89,7 @@ Copied from kactl. TODO.
 ### Description
 Testing PIH in $O(\log N)$.
 ### Test Status
-[Enclosure](https://codeforces.com/gym/101201/problem/E)
+[Enclosure](https://codeforces.com/gym/101201/submission/248361130)
 See tangent of points to hull
 Used in some contest.
 
@@ -118,8 +119,7 @@ Requires the hull to be strictly convex.
 Can be modified to find extreme point on hull.
 
 ### Test Status
-[Enclosure](https://codeforces.com/gym/101201/problem/E)
-https://codeforces.com/gym/101201/submission/245757109
+[Enclosure](https://codeforces.com/gym/101201/submission/248361130)
 
 ## Circle Class & Intersection
 ### Description
@@ -154,8 +154,8 @@ Get minimum covering circle in $O(N)$ expected time.
 Also gives the circumcenter formula.
 ### Test Status
 Passed TIOJ 1093, luogu P1742
-[TIOJ](https://tioj.ck.tp.edu.tw/submissions/370344)
-[luogu](https://www.luogu.com.cn/record/146760089)
+~~[TIOJ](https://tioj.ck.tp.edu.tw/submissions/370344)~~
+[luogu](https://www.luogu.com.cn/record/148473379)
 
 ## Circle Union
 ### Description
@@ -205,7 +205,13 @@ Delaunay triangulation.
 Usage TODO.
 
 ### Test Status
-Passed [Brazil subregional](https://codeforces.com/gym/104555/submission/223452683).
+Passed [Brazil subregional](https://codeforces.com/gym/104555/submission/248361950).
+
+## Build Voronoi
+### Description
+Voronoi diagram building.
+### Test Status
+Passed [Brazil subregional](https://codeforces.com/gym/104555/submission/248361950).
 
 ## kd Tree (Nearest Point)
 ### Description

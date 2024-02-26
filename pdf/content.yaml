@@ -248,7 +248,7 @@
       verified: 6f4ec94
     - name: 2D Convex Hull
       path: ConvexHull.cpp
-      verified: fbc4a90
+      verified: cd6f443
     - name: 2D Farthest Pair
       path: FarthestPair.cpp
       verified: 780c077
@@ -257,7 +257,7 @@
       verified: 253adb0
     - name: Minkowski Sum
       path: MinkowskiSum.cpp
-      verified: ff157b8
+      verified: cd6f443
     - name: Segment Intersection
       path: SegIsIntersect.cpp
       verified: 2f36a8b
@@ -284,7 +284,7 @@
       verified: c37dada
     - name: Cyclic Ternary Search
       path: CyclicTS.cpp
-      verified: 0de4fca
+      verified: afd4dcf
     - name: Tangent of Points to Hull
       path: TangentPointToHull.cpp
       verified: 0de4fca
@@ -302,7 +302,7 @@
       verified: a048f71
     - name: Min Covering Circle
       path: Circle/MinCircleCover.cpp
-      verified: 6ae6737
+      verified: 9d2fc74
     - name: Circle Union
       path: Circle/CircleUnion.cpp
       verified: a048f71
@@ -323,7 +323,7 @@
       verified: skip
     - name: Delaunay
       path: Delaunay.cpp
-      verified: 5d49aa0
+      verified: 6b8fedb
     - name: Build Voronoi
       path: Voronoi.cpp
       verified: 5d49aa0
