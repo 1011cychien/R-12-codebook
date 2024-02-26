@@ -2,7 +2,8 @@ template <typename Val, typename SVal> class LCT {
   struct node {
     int pa, ch[2]; bool rev;
     Val v, prod, rprod; SVal sv, sub, vir;
-    node() : pa{0}, ch{0, 0}, rev{false}, v{}, prod{}, rprod{}, sv{}, sub{}, vir{} {};
+    node() : pa{0}, ch{0, 0}, rev{false}, v{},
+      prod{}, rprod{}, sv{}, sub{}, vir{} {}
   };
 #define cur o[u]
 #define lc cur.ch[0]
@@ -14,8 +15,7 @@ template <typename Val, typename SVal> class LCT {
     return o[cur.pa].ch[1] == u && !is_root(u); }
   void down(int u) {
     if (not cur.rev) return;
-    if (lc) set_rev(lc);
-    if (rc) set_rev(rc);
+    for (int c : {lc, rc}) if (c) set_rev(c);
     cur.rev = false;
   }
   void up(int u) {
@@ -31,9 +31,8 @@ template <typename Val, typename SVal> class LCT {
     int f = cur.pa, g = o[f].pa, l = is_rch(u);
     if (cur.ch[l ^ 1]) o[cur.ch[l ^ 1]].pa = f;
     if (not is_root(f)) o[g].ch[is_rch(f)] = u;
-    o[f].ch[l] = cur.ch[l ^ 1];
-    cur.ch[l ^ 1] = f; cur.pa = g, o[f].pa = u;
-    up(f);
+    o[f].ch[l] = cur.ch[l ^ 1], cur.ch[l ^ 1] = f;
+    cur.pa = g, o[f].pa = u; up(f);
   }
   void splay(int u) {
     vector<int> stk = {u};
@@ -65,8 +64,6 @@ template <typename Val, typename SVal> class LCT {
   void chroot(int u) { access(u); set_rev(u); }
 public:
   LCT(int n = 0) : o(n + 1) {}
-  int add(const Val &v = {}) {
-    return o.push_back(v), int(o.size()) - 2; }
   void set_val(int u, const Val &v) {
     splay(++u); cur.v = v; up(u); }
   void set_sval(int u, const SVal &v) {
@@ -79,8 +76,7 @@ public:
     return find_root(++u) == find_root(++v); }
   void link(int x, int y) {
     chroot(++x); access(++y);
-    o[y].vir = o[y].vir + o[x].sub;
-    up(o[x].pa = y);
+    o[y].vir = o[y].vir + o[x].sub; up(o[x].pa = y);
   }
   void cut(int x, int y) {
     split(++x, ++y); o[y].ch[0] = o[x].pa = 0; up(y); }
