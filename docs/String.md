@@ -38,8 +38,8 @@ Copied from 8bq
 ### Description
 Knuth-Morris-Pratt algo
 ### Test Status
-[TIOJ 1306](https://tioj.ck.tp.edu.tw/submissions/368896)
-[QOJ 464](https://qoj.ac/submission/327469)
+~~[TIOJ 1306](https://tioj.ck.tp.edu.tw/submissions/368896)~~
+[QOJ 464](https://qoj.ac/submission/339289)
 
 ## Z value
 ### Description

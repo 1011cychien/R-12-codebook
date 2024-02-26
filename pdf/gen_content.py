@@ -44,9 +44,11 @@ def check_verify_status(repo: Any, prefix: str, content: Dict[str, Any], verbose
         return "none"
     elif content["verified"] == "skip":
         return "skip"
-    elif (
+
+    verified = str(content["verified"])
+    if (
         commit_hash is None or
-        content["verified"] != commit_hash[:len(content["verified"])]
+        verified != commit_hash[:len(verified)]
     ):
         return "expired"
     else:
