@@ -15,9 +15,9 @@ Passed [Z-algo](https://judge.yosupo.jp/submission/187168).
 SA-IS algorithm.
 Complexity: $O(N + C)$
 ### Test Status
-Tested on [Suffix Array](https://judge.yosupo.jp/submission/190933) and [Number of Substrings](https://judge.yosupo.jp/submission/190935) and [Longest Common Substring](https://judge.yosupo.jp/submission/190936).
+Tested on [Suffix Array](https://judge.yosupo.jp/submission/193576) and [Number of Substrings](https://judge.yosupo.jp/submission/193577) and [Longest Common Substring](https://judge.yosupo.jp/submission/190936).
 
-[QOJ 956](https://qoj.ac/submission/328651) with $N=1e6$ and $\Sigma$ is alphabet and number, 144ms.
+[QOJ 956](https://qoj.ac/submission/339265) with $N=1e6$ and $\Sigma$ is alphabet and number, 144ms.
 
 ## Suffix Array Tools
 ### Description

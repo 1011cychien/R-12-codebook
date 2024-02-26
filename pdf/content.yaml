@@ -349,7 +349,7 @@
       verified: 5bc50bf
     - name: Suffix Array
       path: SAIS-C++20.cpp
-      verified: d698304
+      verified: 9d2fc74
     - name: Suffix Array Tools
       path: SuffixArrayTools.cpp
       verified:
@@ -408,7 +408,7 @@
       verified: 4d49c76
     - name: SMAWK
       path: SMAWK.cpp
-      verified: 8137f19
+      verified: 9d2fc74
     - name: De-Bruijn
       path: DeBruijn.cpp
       verified: 4afad87

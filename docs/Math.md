@@ -82,7 +82,7 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/186095)
 ### Description
 Bitwise XOR/AND/OR convolution.
 ### Test Status
-Passed yosupo judge, [XOR](https://judge.yosupo.jp/submission/183213) and [AND](https://judge.yosupo.jp/submission/183214) version.
+Passed yosupo judge, [XOR](https://judge.yosupo.jp/submission/193565) and [AND](https://judge.yosupo.jp/submission/193568) version.
 
 ## Packed FFT
 ### Description
@@ -106,14 +106,15 @@ The first function passed [Because, art](https://codeforces.com/gym/103640/submi
 ### Description
 CRT for three-mod-NTT.
 ### Test Status
-Passed [yosupo judge](https://judge.yosupo.jp/submission/165178).
+Passed [convolution mod 1e9+7](https://judge.yosupo.jp/submission/193569).
 
 ## NTT / FFT
 ### Description
 NTT.
 Can be modified to FFT easily.
 ### Test Status
-Passed yosupo judge. See also "CRT for arbitrary mod".
+Passed [convolution](https://judge.yosupo.jp/submission/193571).
+See also "CRT for arbitrary mod".
 
 ## Formal Power Series
 ### Description
@@ -188,7 +189,7 @@ Passed [yosupo judge](https://judge.yosupo.jp/submission/165366).
 ### Description
 Make RREF and solve system of linear equations.
 ### Test status
-[library checker](https://judge.yosupo.jp/submission/187171).
+[library checker](https://judge.yosupo.jp/submission/193572).
 
 ## CharPoly
 ### Description
