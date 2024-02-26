@@ -1,5 +1,5 @@
 #define pb emplace_back
-#define rep(i, l, r) for (int i=(l); i<=(r); ++i)
+#define REP(i, l, r) for (int i=(l); i<=(r); ++i)
 struct WeightGraph { // 1-based
   static const int inf = INT_MAX;
   struct edge { int u, v, w; }; int n, nx;
@@ -7,10 +7,10 @@ struct WeightGraph { // 1-based
   vector<int> slack, match, st, pa, S, vis;
   vector<vector<int>> flo, flo_from; queue<int> q;
   WeightGraph(int n_) : n(n_), nx(n * 2), lab(nx + 1),
-    g(nx + 1, vector<edge>(nx + 1)),slack(nx + 1),
+    g(nx + 1, vector<edge>(nx + 1)), slack(nx + 1),
     flo(nx + 1), flo_from(nx + 1, vector(n + 1, 0)) {
     match = st = pa = S = vis = slack;
-    rep(u, 1, n) rep(v, 1, n) g[u][v] = {u, v, 0};
+    REP(u, 1, n) REP(v, 1, n) g[u][v] = {u, v, 0};
   }
   int ED(edge e) {
     return lab[e.u] + lab[e.v] - g[e.u][e.v].w * 2; }
@@ -18,7 +18,7 @@ struct WeightGraph { // 1-based
     if (!s || ED(g[u][x]) < ED(g[s][x])) s = u; }
   void set_slack(int x) {
     slack[x] = 0;
-    for (int u = 1; u <= n; ++u)
+    REP(u, 1, n)
       if (g[u][x].w > 0 && st[u] != x && S[st[u]] == 0)
         update_slack(u, x, slack[x]);
   }
@@ -42,15 +42,14 @@ struct WeightGraph { // 1-based
     if (u <= n) return;
     int xr = flo_from[u][g[u][v].u];
     auto &f = flo[u], z = split_flo(f, xr);
-    rep(i, 0, int(z.size())-1) set_match(z[i], z[i ^ 1]);
+    REP(i, 0, int(z.size())-1) set_match(z[i], z[i ^ 1]);
     set_match(xr, v); f.insert(f.end(), all(z));
   }
   void augment(int u, int v) {
     for (;;) {
       int xnv = st[match[u]]; set_match(u, v);
       if (!xnv) return;
-      set_match(xnv, st[pa[xnv]]);
-      u = st[pa[xnv]], v = xnv;
+      set_match(v = xnv, u = st[pa[xnv]]);
     }
   }
   int lca(int u, int v) {
@@ -66,20 +65,19 @@ struct WeightGraph { // 1-based
     int b = int(find(n + 1 + all(st), 0) - begin(st));
     lab[b] = 0, S[b] = 0; match[b] = match[o];
     vector<int> f = {o};
-    for (int x = u, y; x != o; x = st[pa[y]])
-      f.pb(x), f.pb(y = st[match[x]]), q_push(y);
-    reverse(1 + all(f));
-    for (int x = v, y; x != o; x = st[pa[y]])
-      f.pb(x), f.pb(y = st[match[x]]), q_push(y);
+    for (int x : {u, v}) {
+      for (int y; x != o; x = st[pa[y]])
+        f.pb(x), f.pb(y = st[match[x]]), q_push(y);
+      reverse(1 + all(f));
+    }
     flo[b] = f; set_st(b, b);
-    for (int x = 1; x <= nx; ++x)
-      g[b][x].w = g[x][b].w = 0;
-    for (int x = 1; x <= n; ++x) flo_from[b][x] = 0;
+    REP(x, 1, nx) g[b][x].w = g[x][b].w = 0;
+    REP(x, 1, n) flo_from[b][x] = 0;
     for (int xs : flo[b]) {
-      for (int x = 1; x <= nx; ++x)
+      REP(x, 1, nx)
         if (g[b][x].w == 0 || ED(g[xs][x]) < ED(g[b][x]))
           g[b][x] = g[xs][x], g[x][b] = g[x][xs];
-      for (int x = 1; x <= n; ++x)
+      REP(x, 1, n)
         if (flo_from[xs][x]) flo_from[b][x] = xs;
     }
     set_slack(b);
@@ -110,15 +108,14 @@ struct WeightGraph { // 1-based
   bool matching() {
     ranges::fill(S, -1); ranges::fill(slack, 0);
     q = queue<int>();
-    for (int x = 1; x <= nx; ++x)
-      if (st[x] == x && !match[x])
-        pa[x] = 0, S[x] = 0, q_push(x);
+    REP(x, 1, nx) if (st[x] == x && !match[x])
+      pa[x] = 0, S[x] = 0, q_push(x);
     if (q.empty()) return false;
     for (;;) {
       while (q.size()) {
         int u = q.front(); q.pop();
         if (S[st[u]] == 1) continue;
-        for (int v = 1; v <= n; ++v)
+        REP(v, 1, n)
           if (g[u][v].w > 0 && st[u] != st[v]) {
             if (ED(g[u][v]) != 0)
               update_slack(u, st[v], slack[st[v]]);
@@ -126,25 +123,24 @@ struct WeightGraph { // 1-based
           }
       }
       int d = inf;
-      for (int b = n + 1; b <= nx; ++b)
-        if (st[b] == b && S[b] == 1)
-          d = min(d, lab[b] / 2);
-      for (int x = 1; x <= nx; ++x)
+      REP(b, n + 1, nx) if (st[b] == b && S[b] == 1)
+        d = min(d, lab[b] / 2);
+      REP(x, 1, nx)
         if (int s = slack[x]; st[x] == x && s && S[x] <= 0)
           d = min(d, ED(g[s][x]) / (S[x] + 2));
-      for (int u = 1; u <= n; ++u)
+      REP(u, 1, n)
         if (S[st[u]] == 1) lab[u] += d;
         else if (S[st[u]] == 0) {
           if (lab[u] <= d) return false;
           lab[u] -= d;
         }
-      rep(b, n + 1, nx) if (st[b] == b && S[b] >= 0)
+      REP(b, n + 1, nx) if (st[b] == b && S[b] >= 0)
         lab[b] += d * (2 - 4 * S[b]);
-      for (int x = 1; x <= nx; ++x)
+      REP(x, 1, nx)
         if (int s = slack[x]; st[x] == x &&
             s && st[s] != x && ED(g[s][x]) == 0)
           if (on_found_edge(g[s][x])) return true;
-      for (int b = n + 1; b <= nx; ++b)
+      REP(b, n + 1, nx)
         if (st[b] == b && S[b] == 1 && lab[b] == 0)
           expand_blossom(b);
     }
@@ -152,16 +148,16 @@ struct WeightGraph { // 1-based
   }
   pair<lld, int> solve() {
     ranges::fill(match, 0);
-    rep(u, 0, n) st[u] = u, flo[u].clear();
+    REP(u, 0, n) st[u] = u, flo[u].clear();
     int w_max = 0;
-    rep(u, 1, n) rep(v, 1, n) {
+    REP(u, 1, n) REP(v, 1, n) {
       flo_from[u][v] = (u == v ? u : 0);
       w_max = max(w_max, g[u][v].w);
     }
-    for (int u = 1; u <= n; ++u) lab[u] = w_max;
+    REP(u, 1, n) lab[u] = w_max;
     int n_matches = 0; lld tot_weight = 0;
     while (matching()) ++n_matches;
-    rep(u, 1, n) if (match[u] && match[u] < u)
+    REP(u, 1, n) if (match[u] && match[u] < u)
       tot_weight += g[u][match[u]].w;
     return make_pair(tot_weight, n_matches);
   }
