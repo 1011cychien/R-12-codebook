@@ -1,23 +1,21 @@
 template <typename Val, typename SVal> class LCT {
   struct node {
-    int pa, ch[2];
-    bool rev;
-    Val v, prod, rprod;
-    SVal sv, sub, vir;
-    node() : pa{0}, ch{0, 0}, rev{false}, v{}, prod{}, rprod{}, sv{}, sub{}, vir{} {};
+    int pa, ch[2]; bool rev;
+    Val v, prod, rprod; SVal sv, sub, vir;
+    node() : pa{0}, ch{0, 0}, rev{false}, v{},
+      prod{}, rprod{}, sv{}, sub{}, vir{} {}
   };
 #define cur o[u]
 #define lc cur.ch[0]
 #define rc cur.ch[1]
   vector<node> o;
   bool is_root(int u) const {
-    return o[cur.pa].ch[0] != u && o[cur.pa].ch[1] != u; }
+    return o[cur.pa].ch[0]!=u && o[cur.pa].ch[1]!=u; }
   bool is_rch(int u) const {
     return o[cur.pa].ch[1] == u && !is_root(u); }
   void down(int u) {
     if (not cur.rev) return;
-    if (lc) set_rev(lc);
-    if (rc) set_rev(rc);
+    for (int c : {lc, rc}) if (c) set_rev(c);
     cur.rev = false;
   }
   void up(int u) {
@@ -34,19 +32,15 @@ template <typename Val, typename SVal> class LCT {
     int f = cur.pa, g = o[f].pa, l = is_rch(u);
     if (cur.ch[l ^ 1]) o[cur.ch[l ^ 1]].pa = f;
     if (not is_root(f)) o[g].ch[is_rch(f)] = u;
-    o[f].ch[l] = cur.ch[l ^ 1];
-    cur.ch[l ^ 1] = f;
-    cur.pa = g, o[f].pa = u;
-    up(f);
+    o[f].ch[l] = cur.ch[l ^ 1], cur.ch[l ^ 1] = f;
+    cur.pa = g, o[f].pa = u; up(f);
   }
   void splay(int u) {
     vector<int> stk = {u};
     while (not is_root(stk.back()))
       stk.push_back(o[stk.back()].pa);
-    while (not stk.empty()) {
-      down(stk.back());
-      stk.pop_back();
-    }
+    while (not stk.empty())
+      down(stk.back()), stk.pop_back();
     for (int f = cur.pa; not is_root(u); f = cur.pa) {
       if (!is_root(f))
         rotate(is_rch(u) == is_rch(f) ? f : u);
@@ -72,34 +66,22 @@ template <typename Val, typename SVal> class LCT {
   /* SPLIT_HASH_HERE */
 public:
   LCT(int n = 0) : o(n + 1) {}
-  int add(const Val &v = {}) {
-    o.push_back(v);
-    return int(o.size()) - 2;
-  }
   void set_val(int u, const Val &v) {
-    splay(++u); cur.v = v; up(u);
-  }
+    splay(++u); cur.v = v; up(u); }
   void set_sval(int u, const SVal &v) {
-    access(++u); cur.sv = v; up(u);
-  }
+    access(++u); cur.sv = v; up(u); }
   Val query(int x, int y) {
-    split(++x, ++y); return o[y].prod;
-  }
+    split(++x, ++y); return o[y].prod; }
   SVal subtree(int p, int u) {
-    chroot(++p); access(++u);
-    return cur.vir + cur.sv;
-  }
+    chroot(++p); access(++u); return cur.vir + cur.sv; }
   bool connected(int u, int v) {
     return find_root(++u) == find_root(++v); }
   void link(int x, int y) {
     chroot(++x); access(++y);
-    o[y].vir = o[y].vir + o[x].sub;
-    up(o[x].pa = y);
+    o[y].vir = o[y].vir + o[x].sub; up(o[x].pa = y);
   }
   void cut(int x, int y) {
-    split(++x, ++y);
-    o[y].ch[0] = o[x].pa = 0; up(y);
-  }
+    split(++x, ++y); o[y].ch[0] = o[x].pa = 0; up(y); }
 #undef cur
 #undef lc
 #undef rc

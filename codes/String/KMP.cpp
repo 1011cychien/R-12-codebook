@@ -12,10 +12,8 @@ vector<int> search(const auto &s, const auto &t) {
   for (int i = 0, k = 0; i < (int)s.size(); ++i) {
     while (k > 0 && s[i] != t[k]) k = f[k - 1];
     k += (s[i] == t[k]);
-    if (k == (int)t.size()) {
-      r.push_back(i - t.size() + 1);
-      k = f[k - 1];
-    }
+    if (k == (int)t.size())
+      r.push_back(i - t.size() + 1), k = f[k - 1];
   }
   return r;
 }

@@ -7,7 +7,8 @@ VI smawk(int N, int M, auto &&select) {
     if (r.empty()) return VI{};
     const int n = (int)r.size(); VI ans(n), nr, nc;
     for (int i : c) {
-      while (!nc.empty() && select(r[nc.size() - 1], nc.back(), i))
+      while (!nc.empty() &&
+          select(r[nc.size() - 1], nc.back(), i))
         nc.pop_back();
       if (int(nc.size()) < n) nc.push_back(i);
     }
@@ -25,11 +26,10 @@ VI smawk(int N, int M, auto &&select) {
   VI R(N), C(M); iota(all(R), 0), iota(all(C), 0);
   return dc(dc, R, C);
 }
-// if f(r, v) is better than f(r, v), return true
 bool min_plus_conv_select(int r, int u, int v) {
   auto f = [](int i, int j) {
     if (0 <= i - j && i - j < n) return b[j] + a[i - j];
     return 2100000000 + (i - j);
   };
   return f(r, u) > f(r, v);
-}
+} // if f(r, v) is better than f(r, u), return true
