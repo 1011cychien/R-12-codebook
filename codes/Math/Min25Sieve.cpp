@@ -33,7 +33,7 @@ template <typename U, typename V> struct min25 {
       }
     return R(n);
   } // F_comp: \sum _ {2 <= i <= n} g(i)
-};
+}; // O(n^{3/4} / log n)
 /* U, V 都是環，記 h: U -> V 代表 U 轉型成 V 的函數。
 要求 h(x + y) = h(x) + h(y)；f: lld -> U 是完全積性；
 g 是積性函數且 h(f(p)) = g(p) 對於質數 p。

@@ -8,4 +8,4 @@ int cyclic_ternary_search(int N, auto &&lt_) {
     else l = m;
   }
   return (lt(l, r) ? r : l) % N;
-} // be careful if N == 0
+} // find maximum; be careful if N == 0

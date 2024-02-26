@@ -66,6 +66,34 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
             if ext == ".cpp":
                 verified = check_verify_status(repo, prefix, content, verbose=False)
                 verified_mark = "*" if verified == "none" or verified == "expired" else ""
+                file_path = path.join(prefix, content["path"])
+
+                parts = [['', 1, 0]]
+                with open(file_path, 'r') as file:
+                    lineNr = 0
+                    for line in file.readlines():
+                        lineNr += 1
+                        if "SPLIT_HASH_HERE" in line:
+                            parts.append(['', lineNr + 1, -1])
+                        else:
+                            parts[-1][0] += line
+                            parts[-1][2] = lineNr
+
+                hashes = []
+                for part, firstline, lastline in parts:
+                    preprocessed = subprocess.check_output(
+                        [
+                            "cpp",
+                            "-dD",
+                            "-P",
+                            "-fpreprocessed",
+                        ],
+                        input=part.encode()
+                    ).decode("utf8")
+
+                    stripped = strip_whitespaces(preprocessed)
+                    cpp_hash = md5hex(stripped)[:6]
+                    hashes.append(cpp_hash)
 
                 preprocessed = subprocess.check_output(
                     [
@@ -77,11 +105,16 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
                     ]
                 ).decode("utf8")
                 stripped = strip_whitespaces(preprocessed)
-                cpp_hash = md5hex(stripped)[:6]
+                whole_cpp_hash = md5hex(stripped)[:6]
+
+                hash_str = "{ \\small [%s]}" % whole_cpp_hash
+                if len(hashes) > 1:
+                    hash_str += "{\\small - %s}" % '/'.join(hashes)
+
                 out.write(
                     "\\IncludeCode[][%s]{%s}{%s}\n"
                     % (
-                        " {\\small [%s]}" % cpp_hash,
+                        hash_str,
                         escape_latex(content["name"]) + verified_mark,
                         content["path"],
                     )

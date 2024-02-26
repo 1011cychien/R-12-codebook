@@ -9,9 +9,13 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [Latest document](https://github.com/OmeletWithoutEgg/ckiseki/raw/master/docs/docs.pdf)
 * [Test Status](https://omeletwithoutegg.github.io/ckiseki/)
 
+- 在 pdf 裡面標星號的代表 not verified
+- 在 .cpp 裡面放 `/* SPLIT_HASH_HERE */` 可以分段 hash
+
 ## TODO
 
 * Make all include cpps have corresponding docs.
+* Rewrite gen_content.py or refactor whole building mechanism @@
 
 ### To delete/fix/shorten
 * [x] binary search on segtree
@@ -60,6 +64,7 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [ ] [匹配相關](https://maspypy.github.io/library/flow/rank_maximal_bipartite_matching.hpp)
 * [ ] sector union?
 * [ ] add more derivatives/integrals
+* interval container
 
 ### Flow series
 * [Network Simplex](https://gist.github.com/brunodccarvalho/fb9f2b47d7f8469d209506b336013473)/[Cost Scaling](https://ideone.com/q6PWgB)/[Capacity Scaling](https://ouuan.github.io/post/%E5%9F%BA%E4%BA%8E-capacity-scaling-%E7%9A%84%E5%BC%B1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E7%AE%97%E6%B3%95/)
