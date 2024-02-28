@@ -53,7 +53,7 @@ struct MinCostCirculation {
         fa[v] = u, fae[v] = i, dfs(v);
   }
   C simplex() {
-    fa.assign(g.size(), -1); fae.assign(e.size(), -1);
+    fa.assign(g.size(), -1); fae.assign(g.size(), -1);
     C cost = 0; ++visc; dfs(0);
     for (int fail = 0; fail < ssize(e); )
       for (int i = 0; i < ssize(e); i++)
