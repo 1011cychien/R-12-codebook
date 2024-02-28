@@ -139,7 +139,7 @@
       verified: 32b4e76
     - name: Min Cost Circulation
       path: MinCostCirculation.cpp
-      verified: f0dee32
+      verified: 2c3e048
     - name: General Matching
       path: GeneralMatching.cpp
       verified: b9722f5
