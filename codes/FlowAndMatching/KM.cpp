@@ -4,10 +4,10 @@ struct KM { // maximize, test @ UOJ 80
   void bfs(const auto &w, int s) {
     vector<int> vl(n), vr(n); vector<lld> slk(n, INF);
     l = r = 0; vr[q[r++] = s] = true;
-    const auto check = [&](int x) -> bool {
+    auto check = [&](int x) -> bool {
       if (vl[x] || slk[x] > 0) return true;
       vl[x] = true; slk[x] = INF;
-      if (fl[x] != -1) return vr[q[r++] = fl[x]] = true;
+      if (fl[x] != -1) return (vr[q[r++] = fl[x]] = true);
       while (x != -1) swap(x, fr[fl[x] = pre[x]]);
       return false;
     };
