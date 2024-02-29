@@ -17,7 +17,7 @@ Subtree queries are tricky.
 [CF 603E](https://codeforces.com/contest/603/submission/248352970).
 Passed [dynamic_tree_vertex_set_path_composite](https://judge.yosupo.jp/submission/193553) and [dynamic_tree_vertex_add_subtree_sum](https://judge.yosupo.jp/submission/193554).
 
-## LiChao Segment Tree
+## LiChao Segtree
 ### Description
 Maintain the upper envelope of lines.
 

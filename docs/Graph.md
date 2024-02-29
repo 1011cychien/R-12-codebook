@@ -141,3 +141,12 @@ $O(V(V+E))$ find min mean cycle.
 Too rare to use so needs shorten.
 ### Test Status
 Passed a UVa problem with $n=50$.
+
+## Eulerian Trail
+
+### Description
+Finding Eulerian trail.
+
+### Test Status
+[directed](https://judge.yosupo.jp/submission/192424)
+[undirected](https://judge.yosupo.jp/submission/192420)

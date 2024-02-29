@@ -104,7 +104,7 @@
       verified: bc70800
     - name: Eulerian Trail
       path: EulerianTrail.cpp
-      verified:
+      verified: 5647803
 
 - name: Flow & Matching
   prefix: ../codes/FlowAndMatching/
@@ -115,7 +115,7 @@
       verified: d6b18bf
     - name: Kuhn Munkres
       path: KM.cpp
-      verified: af6f1af
+      verified: 83b8d9d
     - name: Flow Models
       path: FlowModels.tex
       verified: skip
@@ -192,7 +192,7 @@
       verified: 76e52a1
     - name: CRT for arbitrary mod
       path: GarnerCRT.cpp
-      verified: 56e6571
+      verified: 72c5be6
     - name: NTT / FFT
       path: NTT.cpp
       verified: 9d2fc74

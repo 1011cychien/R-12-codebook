@@ -14,7 +14,7 @@ Tested on [Library Checker](https://judge.yosupo.jp/submission/175638)
 ### Description
 KM algo.
 ### Test Status
-Passed [UOJ 80](https://uoj.ac/submission/656805) and [Library Checker](https://judge.yosupo.jp/submission/166079).
+Passed [UOJ 80](https://uoj.ac/submission/680339) and [Library Checker](https://judge.yosupo.jp/submission/194237).
 
 ## Flow Models
 ### Description
@@ -92,8 +92,8 @@ Passed [atcoder lib contest](https://atcoder.jp/contests/practice2/submissions/5
 Network simplex method. Exponential time complexity, but it runs not too slow in practice.
 ### Test Status
 Tested on [UOJ #487](https://uoj.ac/submission/680279), [UOJ #680](https://uoj.ac/submission/680280), and [LibreOJ 102](https://loj.ac/s/2016600).
-[min_cost_b_flow](https://judge.yosupo.jp/submission/183609).
-[QOJ 602](https://qoj.ac/submission/327476) (random testcase).
+[min_cost_b_flow](https://judge.yosupo.jp/submission/194239).
+[QOJ 602](https://qoj.ac/submission/341123) (random testcase).
 **Cannot** pass [QOJ 7185](https://qoj.ac/contest/1356/problem/7185)
 
 ## Capacity Scaling
