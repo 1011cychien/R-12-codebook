@@ -17,9 +17,9 @@
     - name: IO Optimization
       path: IOOptimize.cpp
       verified: 15830f6
-    - name: Increase Stack
-      path: IncStack.cpp
-      verified: skip
+    # - name: Increase Stack
+    #   path: IncStack.cpp
+    #   verified: skip
 
 - name: Data Structure
   prefix: ../codes/DataStructure/
@@ -157,9 +157,9 @@
     - name: Equations
       path: Equations.tex
       verified: skip
-    - name: Extended FloorSum
-      path: ExtendedFloorSum.tex
-      verified:
+    # - name: Extended FloorSum
+    #   path: ExtendedFloorSum.tex
+    #   verified:
     - name: Integer Division
       path: IntegerDiv.cpp
       verified:
@@ -205,15 +205,18 @@
     - name: Pi Count
       path: PiCount.cpp
       verified: 20eebd1
+    - name: Min 25 Sieve
+      path: Min25Sieve.cpp
+      verified:
     - name: Miller Rabin
       path: MillerRabin.cpp
       verified: 537aeb6
     - name: Pollard Rho
       path: PollardRho.cpp
       verified: 537aeb6
-    - name: Barrett Reduction
-      path: Barrett.cpp
-      verified:
+    # - name: Barrett Reduction
+    #   path: Barrett.cpp
+    #   verified:
     - name: Montgomery
       path: Montgomery.cpp
       verified: 6d91764
@@ -235,6 +238,9 @@
     - name: Adaptive Simpson
       path: AdaptiveSimpson.cpp
       verified: c23f0fc
+    - name: Poly Roots
+      path: PolyRoots.cpp
+      verified:
     - name: Golden Ratio Search
       path: GoldenSearch.cpp
       verified:
@@ -418,9 +424,9 @@
     - name: N Queens Problem
       path: NQueens.cpp
       verified:
-    - name: Tree Knapsack
-      path: TreeKnapsack.cpp
-      verified:
+    # - name: Tree Knapsack
+    #   path: TreeKnapsack.cpp
+    #   verified:
     - name: Manhattan MST
       path: ManhattanMST.cpp
       verified: af6f1af
