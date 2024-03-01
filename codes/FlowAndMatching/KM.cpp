@@ -29,4 +29,7 @@ struct KM { // maximize, test @ UOJ 80
     for (int i = 0; i < n; ++i) bfs(w, i);
     for (int i = 0; i < n; ++i) ans += w[i][fl[i]];
   }
-};
+}; // find maximum perfect matching
+// To obtain the max match of exactly K edges for
+// K = 1 ... N, initialize hl[i] = INF and bfs from all
+// unmatched right part point (fr[i] == -1)
