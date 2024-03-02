@@ -33,7 +33,7 @@
       verified: 9d2fc74
     - name: LiChao Segtree
       path: LiChao.cpp
-      verified:
+      verified: 94454ed
     - name: Treap
       path: Treap.cpp
       verified:

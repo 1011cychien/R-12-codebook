@@ -24,6 +24,7 @@ Maintain the upper envelope of lines.
 TODO: is extended version needed?
 ### Test Status
 Used in some contest.
+Passed [Line Add Get Min](https://judge.yosupo.jp/submission/194542)
 
 ## Treap
 ### Description
