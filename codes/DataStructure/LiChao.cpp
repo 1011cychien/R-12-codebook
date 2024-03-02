@@ -1,34 +1,31 @@
-struct L {
-  int m, k, id;
-  L() : id(-1) {}
-  L(int a, int b, int c) : m(a), k(b), id(c) {}
-  int at(int x) { return m * x + k; }
-};
-class LiChao {
-private:
-  int n; vector<L> nodes;
-  static int lc(int x) { return 2 * x + 1; }
-  static int rc(int x) { return 2 * x + 2; }
-  void insert(int l, int r, int id, L ln) {
+// cmp(l, r, i) := is l better than r at i?
+template <typename L, typename Cmp> class LiChao {
+  int n; vector<L> T; Cmp cmp;
+  void insert(int l, int r, int o, L ln) {
+    // if (ln is empty line) return; // constant
     int m = (l + r) >> 1;
-    if (nodes[id].id == -1)
-      return nodes[id] = ln, void();
-    bool atLeft = nodes[id].at(l) < ln.at(l);
-    if (nodes[id].at(m) < ln.at(m))
-      atLeft ^= 1, swap(nodes[id], ln);
+    bool atL = cmp(ln, T[o], l);
+    if (cmp(ln, T[o], m)) atL ^= 1, swap(T[o], ln);
     if (r - l == 1) return;
-    if (atLeft) insert(l, m, lc(id), ln);
-    else insert(m, r, rc(id), ln);
+    if (atL) insert(l, m, o << 1, ln);
+    else insert(m, r, o << 1 | 1, ln);
   }
-  int query(int l, int r, int id, int x) {
-    int m = (l + r) >> 1, ret = 0;
-    if (nodes[id].id != -1) ret = nodes[id].at(x);
-    if (r - l == 1) return ret;
-    if (x < m) return max(ret, query(l, m, lc(id), x));
-    return max(ret, query(m, r, rc(id), x));
+  L query(int x, int l, int r, int o) {
+    if (r - l == 1) return T[o];
+    int m = (l + r) >> 1;
+    L s = (x < m ? query(x, l, m, o << 1)
+        : query(x, m, r, o << 1 | 1));
+    return cmp(s, T[o], x) ? s : T[o];
   }
 public:
-  LiChao(int n_) : n(n_), nodes(n * 4) {}
-  void insert(L ln) { insert(0, n, 0, ln); }
-  int query(int x) { return query(0, n, 0, x); }
+  LiChao(int n_, L init, Cmp &&c) : n(n_), T(n * 4, init), cmp(c) {}
+  void insert(L ln) { insert(0, n, 1, ln); }
+  L query(int x) { return query(x, 0, n, 1); }
 };
+// struct Line { lld a, b; };
+// LiChao lct(
+//   int(xs.size()), Line{0, INF},
+//   [&u](const Line &l, const Line &r, int i) {
+//     lld x = xs[i];
+//     return l.a * x + l.b < r.a * x + r.b;
+//   });
