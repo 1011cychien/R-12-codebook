@@ -148,6 +148,17 @@ The code is copied from 8BQube and simplified.
 <!-- Passed [yosupo judge](https://judge.yosupo.jp/submission/165124), but very slow. -->
 Passed [yosupo judge](https://judge.yosupo.jp/submission/182619)
 
+## Min 25 Sieve
+### Description
+Prefix sum of multiplicative function.
+Also calculates the prefix sum of "totally multiplicative functions at prime points".
+
+For each block of $n$ the prefix sum we have the answer.
+### Test status
+[LOJ 6053](https://loj.ac/s/2012924).
+Passed [Sum of Totient Function](https://judge.yosupo.jp/submission/192942).
+Passed [Counting Primes](https://judge.yosupo.jp/submission/194723). (slower than PiCount.cpp)
+
 ## Miller Rabin
 ### Description
 Prime detect. Be careful about mpow and mmul.

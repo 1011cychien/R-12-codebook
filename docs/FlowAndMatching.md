@@ -13,8 +13,11 @@ Tested on [Library Checker](https://judge.yosupo.jp/submission/175638)
 ## Kuhn Munkres
 ### Description
 KM algo.
+
+Check [2019 Shanghai M](https://ac.nowcoder.com/acm/contest/4370/M) for choose exactly K edge problem.
 ### Test Status
-Passed [UOJ 80](https://uoj.ac/submission/680339) and [Library Checker](https://judge.yosupo.jp/submission/194237).
+Passed [UOJ 80](https://uoj.ac/submission/680680) and [Library Checker](https://judge.yosupo.jp/submission/194719).
+Passed [2019 Shanghai M Blood Pressure Game](https://ac.nowcoder.com/acm/contest/view-submission?submissionId=67669080).
 
 ## Flow Models
 ### Description

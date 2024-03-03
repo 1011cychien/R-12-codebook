@@ -92,10 +92,11 @@ Passed [Vertex Add Path Sum](https://judge.yosupo.jp/submission/193555).
 ### Description
 Dependency: `lca`.
 Gives the critital nodes of given subset.
-Always include the original root.
+Always include the original root (`r`).
 The edges are given in rooted tree format.
+
 ### Test Status
-Used in contest. TODO.
+Passed [CF 1923E](https://codeforces.com/contest/1923/submission/249407725)
 
 ## Tree Hashing
 ### Description

@@ -83,7 +83,7 @@
       verified: 8a7e002
     - name: Virtual Tree
       path: VirtualTree.cpp
-      verified:
+      verified: 9d2fc74
     - name: Tree Hashing
       path: TreeHash.cpp
       verified: 3d3870f
@@ -115,7 +115,7 @@
       verified: d6b18bf
     - name: Kuhn Munkres
       path: KM.cpp
-      verified: 83b8d9d
+      verified: e9b18e7
     - name: Flow Models
       path: FlowModels.tex
       verified: skip
@@ -207,7 +207,7 @@
       verified: 20eebd1
     - name: Min 25 Sieve
       path: Min25Sieve.cpp
-      verified:
+      verified: afd4dcf
     - name: Miller Rabin
       path: MillerRabin.cpp
       verified: 537aeb6
