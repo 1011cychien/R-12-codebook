@@ -43,6 +43,9 @@
     - name: Binary Search on Segtree
       path: BinarySearchOnSegtree.cpp
       verified: ad4edbd
+    - name: Interval Container
+      path: IntervalContainer.cpp
+      verified:
 
 - name: Graph
   prefix: ../codes/Graph/
