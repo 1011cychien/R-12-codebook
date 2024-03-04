@@ -37,6 +37,8 @@ Passed [yosupo library checker](https://judge.yosupo.jp/submission/163705). Copi
 1D/1D optimization.
 ### Test Status
 [TIOJ 烏龜疊疊樂](https://tioj.ck.tp.edu.tw/submissions/364949)
+submission: https://tioj.ck.tp.edu.tw/submissions/371263
+Passed [Min Plus Convolution](https://judge.yosupo.jp/submission/195000). (Be careful that there is no $j=i$ considered)
 
 ## ConvexHull Optimization
 ### Description
