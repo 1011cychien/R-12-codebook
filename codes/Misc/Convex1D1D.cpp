@@ -1,10 +1,5 @@
 struct S { int i, l, r; };
-auto solve(int n, int k, auto &w) {
-  vector<int64_t> dp(n + 1); dp[0] = 0;
-  auto f = [&](int l, int r) -> int64_t {
-    if (r - l > k) return -INF;
-    return dp[l] + w(l + 1, r);
-  };
+void solve(int n, auto &dp, auto &f) {
   deque<S> dq; dq.emplace_back(0, 1, n);
   for (int i = 1; i <= n; ++i) {
     dp[i] = f(dq.front().i, i);
@@ -22,6 +17,10 @@ auto solve(int n, int k, auto &w) {
       dq.back().r = l; p = l + 1;
     }
     if (p <= n) dq.emplace_back(i, p, n);
-  }
-  return dp;
+  } // dp[i] = max(dp[j] + w(j + 1, i) | j < i)
 } // test @ tioj 烏龜疊疊樂
+// vector<int64_t> dp(n + 1); dp[0] = 0;
+// auto f = [&](int l, int r) -> int64_t {
+//   if (r - l > k) return -INF;
+//   return dp[l] + w(l + 1, r);
+// };
