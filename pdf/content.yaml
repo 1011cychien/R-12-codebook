@@ -270,6 +270,9 @@
     - name: Halfplane Intersection
       path: HalfPlaneIntersection.cpp
       verified: b6e1a20
+    - name: HPI alternative form
+      path: HPIGeneralLine.cpp
+      verified:
     - name: SegmentDist (Sausage)
       path: SegSegDist.cpp
       verified: 15830f6
