@@ -29,7 +29,7 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [x] network simplex
 * [x] 修萬能歐幾里得
 * [ ] fix SAM/PalTree
-* [ ] tree knapsack
+* [x] tree knapsack
 * [ ] min mean cycle
 * [ ] simulate annealing
 * [ ] Simplex (Performance, e.g. with custom type?)
@@ -60,13 +60,13 @@ ICPC codebook used by team ckiseki from National Taiwan University
 * [ ] [more submodular minimization](https://noshi91.hatenablog.com/entry/2021/06/29/044225)
 * [ ] add (useful) kosaraju back
 * [ ] [ear decomposition](https://codeforces.com/contest/521/submission/146192598)
-* [ ] min 25 篩
+* [x] min 25 篩
 * [ ] [匹配相關](https://maspypy.github.io/library/flow/rank_maximal_bipartite_matching.hpp)
 * [ ] sector union?
 * [ ] add more derivatives/integrals
-* interval container
+* [x] interval container
+* [x] KM, but with slope function (the best match of exactly C edges, C = $0..N$)
 * weighted bipartite matching in $O(N_L^{2}N_R)$
-* KM, but with slope function (the best match of exactly C edges, C = $0..N$)
 
 ### Flow series
 * [Network Simplex](https://gist.github.com/brunodccarvalho/fb9f2b47d7f8469d209506b336013473)/[Cost Scaling](https://ideone.com/q6PWgB)/[Capacity Scaling](https://ouuan.github.io/post/%E5%9F%BA%E4%BA%8E-capacity-scaling-%E7%9A%84%E5%BC%B1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E7%AE%97%E6%B3%95/)
