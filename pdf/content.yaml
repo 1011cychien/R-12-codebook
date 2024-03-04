@@ -243,7 +243,7 @@
       verified:
     - name: Golden Ratio Search
       path: GoldenSearch.cpp
-      verified:
+      verified: 72c5be6
 
 - name: Geometry
   prefix: ../codes/Geometry/

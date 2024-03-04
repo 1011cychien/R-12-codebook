@@ -234,3 +234,4 @@ Ternary search with less query number
 ### Test Status
 TODO
 copied from kactl.
+Passed [CF 578C](https://codeforces.com/contest/578/submission/249532846).
