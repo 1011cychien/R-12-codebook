@@ -61,9 +61,19 @@ The result lines will be in `q` (this is why we need the reference).
 Result lines maybe wrong if the intersection area doesn't have positive area.
 ### Test Status
 Passed 2020 Nordic NCPC [Big brother](https://ncpc20.kattis.com/submissions/12966548).
+Passed 2023 NTU preliminary [Area in Convex](https://codeforces.com/gym/104508/submission/249736618)
+
 Used in many contest.
 
 Passed POJ 3384, 3525.
+
+## HPI Alternative Form
+### Description
+$ax + by + c \le 0$ form HPI.
+
+### Tetst Status
+Passed 2020 Nordic NCPC [Big brother](https://ncpc20.kattis.com/submissions/13150789).
+Passed 2023 NTU preliminary [Area in Convex](https://codeforces.com/gym/104508/submission/249739247)
 
 ## SegmentDist (Sausage)
 ### Description
