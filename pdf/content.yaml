@@ -300,6 +300,9 @@
     - name: Tangent of Points to Hull
       path: TangentPointToHull.cpp
       verified: 0de4fca
+    - name: Direction In Poly
+      path: DirInPoly.cpp
+      verified:
     - name: Circle Class & Intersection
       path: Circle/Basic.cpp
       verified: a048f71
