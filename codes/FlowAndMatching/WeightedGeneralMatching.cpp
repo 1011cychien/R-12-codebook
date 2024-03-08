@@ -52,6 +52,7 @@ struct WeightGraph { // 1-based
       set_match(v = xnv, u = st[pa[xnv]]);
     }
   }
+/* SPLIT_HASH_HERE */
   int lca(int u, int v) {
     static int t = 0; ++t;
     for (++t; u || v; swap(u, v)) if (u) {
@@ -105,6 +106,7 @@ struct WeightGraph { // 1-based
     }
     return false;
   }
+/* SPLIT_HASH_HERE */
   bool matching() {
     ranges::fill(S, -1); ranges::fill(slack, 0);
     q = queue<int>();
