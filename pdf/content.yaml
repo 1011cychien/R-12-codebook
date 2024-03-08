@@ -148,7 +148,7 @@
       verified: b9722f5
     - name: Weighted Matching
       path: WeightedGeneralMatching.cpp
-      verified: 9d2fc74
+      verified: 1611edb
 
 - name: Math
   prefix: ../codes/Math/
@@ -345,9 +345,9 @@
     - name: kd Tree (Nearest Point)
       path: KDTree.cpp
       verified:
-    - name: kd Closest Pair (3D ver.)
-      path: 3d/ClosestPair.cpp
-      verified:
+    # - name: kd Closest Pair (3D ver.)
+    #   path: 3d/ClosestPair.cpp
+    #   verified:
     - name: Simulated Annealing
       path: SimulateAnnealing.cpp
       verified:
