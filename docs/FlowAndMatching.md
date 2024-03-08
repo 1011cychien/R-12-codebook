@@ -39,7 +39,7 @@ Passed [VN-SPOJ FFLOW](https://vn.spoj.com/files/src/32616710/).
 ### Description
 HLPP algo with gap heuristics.
 
-Theoritical complexity is $O(V^2\sqrt{E})$.
+Theoretical complexity is $O(V^2\sqrt{E})$.
 But heuristic is powerful!
 
 Note: Lowest Label Push Relabel is $O(\sqrt{V}E)$ on bipartie matching graph.

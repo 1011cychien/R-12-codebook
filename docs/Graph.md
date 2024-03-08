@@ -53,7 +53,7 @@ Passed [1916F](https://codeforces.com/contest/1916/submission/248286992).
 ## DMST
 ### Description
 Directed Minimum Spanning Tree in $O(E\log ^2 E)$.
-Use mergable heap instead of small-to-big for better complexity?
+Use mergeable heap instead of small-to-big for better complexity?
 ### Test Status
 Passed [yosupo library checker](https://judge.yosupo.jp/submission/182697)
 [CF 100307 D](https://codeforces.com/gym/100307/submission/241048738)

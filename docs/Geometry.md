@@ -8,6 +8,8 @@
 - `area` be careful of type.
 - `rot90` multiply by $i$ (or left turn 90 degree)
 - `project` projection onto a vector
+
+Be careful that PF can be implicitly cast to PT.
 ### Test Status
 No test. Used extensively in other template.
 TODO Center of polygon needs test.

@@ -3,7 +3,7 @@
 ## Dark Magic
 ### Description
 PBDS classes/functions.
-ordered set and mergable heap are the useful ones.
+ordered set and mergeable heap are the useful ones.
 ### Test Status
 No test.
 
