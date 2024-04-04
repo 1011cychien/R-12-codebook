@@ -177,10 +177,10 @@
       verified: 7a28e3a
     - name: ax+by=gcd
       path: ExtendedGCD.cpp
-      verified: 23ef28e
+      verified: ab87be6
     - name: Chinese Remainder
       path: ChineseRemainder.cpp
-      verified: fee608d
+      verified: ab87be6
     - name: DiscreteLog
       path: DiscreteLog.cpp
       verified: 23ef28e

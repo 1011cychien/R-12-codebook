@@ -64,7 +64,7 @@ See CRT section.
 Solves $x \equiv r_1 \pmod {m_1}$ and $x \equiv r_2 \pmod {m_2}$.
 If no solution, returns false
 ### Test Status
-Passed luogu P4777.
+Passed luogu [P4777](https://www.luogu.com.cn/record/154327622).
 
 ## DiscreteLog
 ### Description
