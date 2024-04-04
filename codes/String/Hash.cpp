@@ -1,5 +1,5 @@
 template <int P = 127, int Q = 1051762951>
-class Hash {
+class RangeHash {
   vector<int> h, p;
 public:
   Hash(const auto &s) : h(s.size()+1), p(s.size()+1) {
