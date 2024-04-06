@@ -431,7 +431,7 @@
       path: Josephus.cpp
       verified: 8137f19
     - name: N Queens Problem
-      path: NQueens.cpp
+      path: NQueens.rb
       verified:
     # - name: Tree Knapsack
     #   path: TreeKnapsack.cpp

@@ -126,6 +126,11 @@ def gen_tex(sections: List[Dict[str, Any]], out: IO) -> None:
                     "\\IncludeTex{%s}{%s}\n"
                     % (escape_latex(content["name"]), content["path"])
                 )
+            elif ext == ".rb":
+                out.write(
+                    "\\IncludeCode[language=ruby]{%s}{%s}\n"
+                    % (escape_latex(content["name"]), content["path"])
+                )
             elif base == "vimrc":
                 out.write(
                     "\\IncludeCode[language=vim]{%s}{%s}\n"
