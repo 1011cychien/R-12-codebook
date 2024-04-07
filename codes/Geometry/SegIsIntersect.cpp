@@ -4,18 +4,19 @@ struct Seg { // closed segment
   static bool valid(lld p, lld q) {
     // is there t s.t. 0 <= t <= 1 && qt == p ?
     if (q < 0) q = -q, p = -p;
-    return 0 <= p && p <= q;
+    return sgn(0 - p) <= 0 && sgn(p - q) <= 0;
   }
   vector<P> ends() const { return { st, st + dir }; }
 };
 template <typename T> bool isInter(T A, P p) {
-  if (A.dir == P(0)) return p == A.st; // BE CAREFUL
-  return cross(p - A.st, A.dir) == 0 &&
+  if (sgn(norm(A.dir)) == 0)
+    return sgn(norm(p - A.st)) == 0; // BE CAREFUL
+  return sgn(cross(p - A.st, A.dir)) == 0 &&
     T::valid(dot(p - A.st, A.dir), norm(A.dir));
 }
 template <typename U, typename V>
 bool isInter(U A, V B) {
-  if (cross(A.dir, B.dir) == 0) { // BE CAREFUL
+  if (sgn(cross(A.dir, B.dir)) == 0) { // BE CAREFUL
     bool res = false;
     for (P p: A.ends()) res |= isInter(B, p);
     for (P p: B.ends()) res |= isInter(A, p);
