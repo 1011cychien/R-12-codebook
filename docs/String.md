@@ -23,7 +23,7 @@ Tested on [Suffix Array](https://judge.yosupo.jp/submission/193576) and [Number 
 ### Description
 Some LCP array related operation.
 ### Test Status
-TODO
+[Ucup 2nd stage india Palworld](https://contest.ucup.ac/contest/1586/problem/8571)
 
 ## Ex SAM
 ### Description
