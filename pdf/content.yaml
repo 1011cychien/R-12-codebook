@@ -269,7 +269,7 @@
       verified: cd6f443
     - name: Segment Intersection
       path: SegIsIntersect.cpp
-      verified: 2f36a8b
+      verified: 7711f73
     - name: Halfplane Intersection
       path: HalfPlaneIntersection.cpp
       verified: b6e1a20

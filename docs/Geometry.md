@@ -54,7 +54,7 @@ Can be modified to `Ray` class or `Line` class.
 To get the intersection point, check next part (HPI)
 
 ### Test Status
-Used in many contest. Passed AOJ CGL.
+Used in many contest. Passed [AOJ CGL](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=9068290#1).
 
 ## Halfplane Intersection
 ### Description
