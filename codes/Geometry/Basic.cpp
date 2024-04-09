@@ -25,13 +25,13 @@ int argCmp(P a, P b) {
 }
 P rot90(P p) { return P{-IM(p), RE(p)}; }
 template <typename V> llf area(const V & pt) {
-  lld ret = 0;
+  lld ret = 0; // BE CAREFUL OF TYPE!
   for (int i = 1; i + 1 < (int)pt.size(); i++)
     ret += cross(pt[i] - pt[0], pt[i+1] - pt[0]);
   return ret / 2.0;
 }
 template <typename V> PF center(const V & pt) {
-  P ret = 0; lld A = 0;
+  P ret = 0; lld A = 0; // BE CAREFUL OF TYPE!
   for (int i = 1; i + 1 < (int)pt.size(); i++) {
     lld cur = cross(pt[i] - pt[0], pt[i+1] - pt[0]);
     ret += (pt[i] + pt[i + 1] + pt[0]) * cur; A += cur;
