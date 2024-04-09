@@ -1,8 +1,8 @@
 template <int P = 127, int Q = 1051762951>
-class RangeHash {
+class RH {
   vector<int> h, p;
 public:
-  Hash(const auto &s) : h(s.size()+1), p(s.size()+1) {
+  RH(const auto &s) : h(s.size()+1), p(s.size()+1) {
     for (size_t i = 0; i < s.size(); ++i)
       h[i + 1] = add(mul(h[i], P), s[i]);
     generate(all(p), [x = 1, y = 1, this]() mutable {
