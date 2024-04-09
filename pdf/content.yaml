@@ -254,7 +254,7 @@
   content:
     - name: Basic Geometry
       path: Basic.cpp
-      verified: 6f4ec94
+      verified: 8751c24
     - name: 2D Convex Hull
       path: ConvexHull.cpp
       verified: cd6f443
@@ -284,7 +284,7 @@
       verified: 33b8a27
     - name: Hull Cut
       path: HullCut.cpp
-      verified:
+      verified: c94ed8a
     - name: Point In Hull
       path: PointInHull.cpp
       verified: eec5c45

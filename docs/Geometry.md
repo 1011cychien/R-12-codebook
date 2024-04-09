@@ -12,7 +12,8 @@
 Be careful that PF can be implicitly cast to PT.
 ### Test Status
 No test. Used extensively in other template.
-TODO Center of polygon needs test.
+[argCmp](https://judge.yosupo.jp/submission/201631)
+[center of polygon](https://codeforces.com/gym/104945/submission/255847017)
 
 ## 2D Convex Hull
 
@@ -94,8 +95,10 @@ Passed [NAIPC 2016 G](https://codeforces.com/gym/101002/submission/228911692)
 ## Hull Cut
 ### Description
 Cut convex polygon by a line.
+Copied from kactl.
+
 ### Test Status
-Copied from kactl. TODO.
+[AOJ](https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=9075877#1).
 
 ## Point In Hull
 ### Description
