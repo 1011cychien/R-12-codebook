@@ -7,7 +7,7 @@ Rolling-hash algorithm
 
 ### Test Status
 Used in some contests.
-Passed [Z-algo](https://judge.yosupo.jp/submission/187168).
+Passed [Z-algo](https://judge.yosupo.jp/submission/201648).
 
 
 ## Suffix Array

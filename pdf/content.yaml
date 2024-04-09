@@ -361,7 +361,7 @@
   content:
     - name: Hash
       path: Hash.cpp
-      verified: 5bc50bf
+      verified: fe31c4a7
     - name: Suffix Array
       path: SAIS-C++20.cpp
       verified: 6b8fedb
