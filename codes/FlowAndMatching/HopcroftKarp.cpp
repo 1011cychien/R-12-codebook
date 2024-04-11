@@ -20,7 +20,7 @@ struct HK {
   bool dfs(const auto &g, int x) {
     for (int y : g[x]) if (r[y] == -1 ||
         (d[r[y]] == d[x] + 1 && dfs(g, r[y])))
-        return l[x] = y, r[y] = x, true;
+        return l[x] = y, r[y] = x, d[x] = -1, true;
     return d[x] = -1, false;
   }
 };
