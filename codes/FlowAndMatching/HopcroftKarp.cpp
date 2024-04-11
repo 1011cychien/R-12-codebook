@@ -1,25 +1,26 @@
 struct HK {
-  vector<int> l, r, a, p; int ans;
+  vector<int> l, r, d, p; int ans;
   HK(int n, int m, auto &g) : l(n,-1), r(m,-1), ans(0) {
-    for (bool match = true; match;) {
-      match = false; a.assign(n, -1); p.assign(n, -1);
-      queue<int> q;
+    while (true) {
+      queue<int> q; d.assign(n, -1);
       for (int i = 0; i < n; i++)
-        if (l[i] == -1) q.push(a[i] = p[i] = i);
-      // bitset<maxn> nvis, t; nvis.set();
+        if (l[i] == -1) q.push(i), d[i] = 0;
       while (!q.empty()) {
-        int z, x = q.front(); q.pop();
-        if (l[a[x]] != -1) continue;
-        for (int y : g[x]) { // or iterate t = g[x]&nvis
-          // nvis.reset(y);
-          if (r[y] == -1) {
-            for (z = y; z != -1; )
-              r[z] = x, swap(l[x], z), x = p[x];
-            match = true; ++ans; break;
-          } else if (p[r[y]] == -1)
-            q.push(z = r[y]), p[z] = x, a[z] = a[x];
-        }
+        int x = q.front(); q.pop();
+        for (int y : g[x])
+          if (r[y] != -1 && d[r[y]] == -1)
+            d[r[y]] = d[x] + 1, q.push(r[y]);
       }
+      bool match = false;
+      for (int i = 0; i < n; i++)
+        if (l[i] == -1 && dfs(g, i)) ++ans, match = true;
+      if (!match) break;
     }
+  }
+  bool dfs(const auto &g, int x) {
+    for (int y : g[x]) if (r[y] == -1 ||
+        (d[r[y]] == d[x] + 1 && dfs(g, r[y])))
+        return l[x] = y, r[y] = x, true;
+    return d[x] = -1, false;
   }
 };
